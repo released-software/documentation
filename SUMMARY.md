@@ -3,6 +3,7 @@
 ## Getting started
 
 * [Overview](README.md)
+* [Setup guide](getting-started/setup-guide.md)
 
 ## Product Tour
 
