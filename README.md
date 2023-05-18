@@ -8,6 +8,14 @@ coverY: 0
 
 # Welcome to Released
 
-Our mission is to **empower teams to deliver exceptional customer communication**. How we do that is simple, we drastically reduce the time it takes to organise, craft and deliver customer communication.&#x20;
+{% hint style="info" %}
+Released is available for Jira via the [Atlassian Marketplace](https://marketplace.atlassian.com).
+{% endhint %}
+
+Say goodbye to the tedious compilation of changes. Released automatically gathers issues related to a release, allowing you to simply drag and drop them into the editor for your announcement.&#x20;
+
+Let our AI copywriter handle the details while you focus on crafting captivating stories for your headline features.&#x20;
+
+No matter what you are building, we will make sure that your announcements always look great.
 
 ### Let's get you started!&#x20;
