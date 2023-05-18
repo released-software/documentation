@@ -5,7 +5,7 @@ description: Released is available for Jira Cloud via the Atlassian Marketplace.
 # Installation
 
 {% hint style="info" %}
-You must have **Administer Jira** Global permission to enable Released in your Jira site.
+You must have **Administer Jira** global permission to enable Released in your Jira site.
 
 Learn more about [managing global permissions](https://support.atlassian.com/jira-cloud-administration/docs/manage-global-permissions/).&#x20;
 {% endhint %}
