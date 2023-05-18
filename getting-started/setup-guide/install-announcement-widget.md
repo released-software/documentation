@@ -1,6 +1,10 @@
-# Install Announcement Widget
+---
+description: >-
+  The widget can be installed in just a few minutes with a few simple lines of
+  code.
+---
 
-The widget can be installed in just a few minutes with a few simple lines of code. &#x20;
+# Install Announcement Widget
 
 <figure><img src="../../.gitbook/assets/Widget Header.png" alt=""><figcaption><p>Announcement Widget</p></figcaption></figure>
 
@@ -25,9 +29,15 @@ The available configuration options are described in the following section.
 
 ## Configuration options
 
-The properties used to configure the widget options must be contained in a script tag with the `id` `released-widget-props`.&#x20;
+The properties to configure the widget options are expressed in JSON format and contained in a script tag with the `id="released-widget-props"`.&#x20;
+
+```
+<script type="application/json" id="released-widget-props">
+```
 
 ### **Widget Properties**&#x20;
+
+The following customisation options are available for the widget.&#x20;
 
 | Property      | Description                                                                                                                                                                                                                                                             |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
