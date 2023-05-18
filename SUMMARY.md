@@ -3,6 +3,7 @@
 ## Getting started
 
 * [Welcome to Released](README.md)
+* [Installation](getting-started/installation.md)
 * [Setup guide](getting-started/setup-guide/README.md)
   * [Add Public Description Field](getting-started/setup-guide/add-public-description-field.md)
   * [Install Announcement Widget](getting-started/setup-guide/install-announcement-widget.md)
