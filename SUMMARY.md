@@ -16,8 +16,6 @@
   * [Saving a Draft](product-tour/announcements/saving-a-draft.md)
   * [Publishing](product-tour/announcements/publishing.md)
   * [Categories](product-tour/announcements/categories.md)
-* [Theming](product-tour/theming.md)
-* [Widget](product-tour/widget.md)
 
 ## Use Cases
 
