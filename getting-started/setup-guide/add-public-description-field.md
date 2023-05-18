@@ -19,6 +19,8 @@ You must have the administrator role to configure issue types in team-managed pr
 
 Repeat these steps for each issue type in your project.&#x20;
 
+
+
 For more detail see: [Customize an issue's field in team-managed projects](https://support.atlassian.com/jira-software-cloud/docs/customize-an-issues-fields-in-team-managed-projects/).&#x20;
 {% endtab %}
 
@@ -36,6 +38,8 @@ You can control which screens a custom field will appear on when an issue is cre
 5. Click **Save**.
 
 To add more screens or remove screens, click the custom field's **Screens** link and then click **Add or remove associated screens**.
+
+For more details see: [Configure issue custom fields](https://support.atlassian.com/jira-cloud-administration/docs/configure-issue-custom-fields/).
 {% endtab %}
 {% endtabs %}
 
