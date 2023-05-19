@@ -20,7 +20,7 @@ To add the widget to your website or app, copy the following code snippet into t
     "subTitle": "New updates and improvements.",
   }
 </script>
-<script src="https://embed-staging.released.so/0/widget.js"></script>
+<script src="https://embed.released.so/1/widget.js"></script>
 ```
 
 The above code snippet contains two `script` tags. The first tag configures the widget, and the second tag loads the widget's code.&#x20;
