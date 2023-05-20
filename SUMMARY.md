@@ -10,13 +10,13 @@
 
 ## Product Tour
 
-* [Announcements](product-tour/announcements/README.md)
-  * [Creating Announcements](product-tour/announcements/creating-announcements.md)
-  * [Staging Area](product-tour/announcements/staging-area.md)
-  * [Editor](product-tour/announcements/editor.md)
-  * [Saving a Draft](product-tour/announcements/saving-a-draft.md)
-  * [Publishing](product-tour/announcements/publishing.md)
-  * [Categories](product-tour/announcements/categories.md)
+* [Posts](product-tour/posts/README.md)
+  * [Creating a Post](product-tour/posts/creating-a-post.md)
+  * [Staging Area](product-tour/posts/staging-area.md)
+  * [Editor](product-tour/posts/editor.md)
+  * [Saving a Draft](product-tour/posts/saving-a-draft.md)
+  * [Publishing](product-tour/posts/publishing.md)
+  * [Categories](product-tour/posts/categories.md)
 
 ## Use Cases
 

@@ -2,15 +2,13 @@
 description: Keep your users up-to-date
 ---
 
-# Announcements
+# Posts
 
-Announcements allow you to keep your users informed about new features, product updates, or any other important news. You can create an announcement for a single feature or topic, or use it to communicate a list of changes included in a new product release. The choice is yours – Announcements give you the flexibility to communicate with your customers in the way that works best for you.
-
-Announcements allow you to keep your users up-to-date with the latest changes and updates to your product. Whether you want to announce a new feature, highlight a product change, or simply make an announcement, Announcements make it easy to get the message out.
+Post allow you to keep your users up-to-date with the latest changes and updates to your product. Whether you want to announce a new feature, highlight a product change, or simply make an announcement, Announcements make it easy to get the message out.
 
 ### Reach your users where they are
 
-When it comes to publishing product updates and announcements, using multiple channels is key to keeping your users in the loop. By using an in-app widget, a release page, and emails, you can reach your users where they are and ensure they're always up-to-date with the latest changes.&#x20;
+When it comes to publishing a post, using multiple channels is key to keeping your users in the loop. By using an in-app widget, a release page or email notifications, you can reach your users where they are and ensure they're always up-to-date with the latest changes.&#x20;
 
 #### In-App Widget
 

@@ -4,7 +4,7 @@ description: Drafts are automatically saved, so you can always pick up where you
 
 # Saving a Draft
 
-<figure><img src="../../.gitbook/assets/pika-1680246063918-1x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/pika-1680246063918-1x.png" alt=""><figcaption><p>Draft Entry</p></figcaption></figure>
 
 When writing an announcement, a draft is automatically created for you. That way you can come back later and pick up where you left off.&#x20;
 

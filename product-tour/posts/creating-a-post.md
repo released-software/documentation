@@ -4,11 +4,11 @@ description: >-
   using various filter options.
 ---
 
-# Creating Announcements
+# Creating a Post
 
 <figure><img src="../../.gitbook/assets/Create Announcement.png" alt=""><figcaption></figcaption></figure>
 
-To create a new Announcement, click the <mark style="background-color:blue;">Create announcement</mark> button in the top right corner of the Release notes section in your Jira project.
+To create a new Announcement, click the <mark style="background-color:blue;">Create post</mark> button in the top right corner of the Release notes section in your Jira project.
 
 Release notes can include issues from one or multiple projects. If you want to add additional projects, click the **Add project** button.
 
