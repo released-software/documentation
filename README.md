@@ -2,8 +2,6 @@
 description: >-
   Keep your customers engaged and in the loop with fantastic looking release
   notes. Created straight from your Jira tickets.
-cover: .gitbook/assets/0dec5b63-c153-48f4-8e46-bb61dac06930.jpg
-coverY: 0
 ---
 
 # Welcome to Released
