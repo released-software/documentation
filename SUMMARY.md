@@ -5,8 +5,8 @@
 * [Welcome to Released](README.md)
 * [Installation](getting-started/installation.md)
 * [Setup guide](getting-started/setup-guide/README.md)
-  * [Add Public Description Field](getting-started/setup-guide/add-public-description-field.md)
-  * [Install Announcement Widget](getting-started/setup-guide/install-announcement-widget.md)
+  * [Adding the Public Description Field](getting-started/setup-guide/adding-the-public-description-field.md)
+  * [Installing the Announcement Widget](getting-started/setup-guide/installing-the-announcement-widget.md)
 
 ## Product Tour
 
