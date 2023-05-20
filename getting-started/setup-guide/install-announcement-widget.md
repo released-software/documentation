@@ -4,7 +4,7 @@ description: Install the widget in minutes with a few lines of code.
 
 # Installing the Announcement Widget
 
-<figure><img src="../../.gitbook/assets/widget.png" alt="" width="375"><figcaption><p>See a live demo of the widget on <a href="https://codepen.io/Jens-Schumacher/pen/WNaaMNx">Codepen</a>.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/widget.png" alt="" width="375"><figcaption><p>See a live demo of the widget on <a href="https://codepen.io/released/pen/WNaaMNx">Codepen</a>.</p></figcaption></figure>
 
 ## Installation
 
@@ -76,4 +76,4 @@ The following default values are applied in case a property is not explicitly de
 
 ## Demo
 
-Experience a demo of the widget on [CodePen](https://codepen.io/Jens-Schumacher/pen/WNaaMNx).
+Experience a demo of the widget on [CodePen](https://codepen.io/released/pen/WNaaMNx).
