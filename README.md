@@ -8,7 +8,7 @@ coverY: 0
 
 # Welcome to Released
 
-<figure><img src=".gitbook/assets/Documentation Hero.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Hero Screenshot.png" alt=""><figcaption><p>Released - Release Notes Powered by Jira</p></figcaption></figure>
 
 {% hint style="info" %}
 Released is available for Jira via the [Atlassian Marketplace](https://marketplace.atlassian.com).

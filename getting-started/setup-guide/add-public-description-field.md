@@ -1,4 +1,4 @@
-# Add Public Description Field
+# Adding the Public Description Field
 
 To enable AI-generated descriptions for your issues in Released, you must add the "Public Description" custom field to every issue type you want to include in your release notes.
 
