@@ -14,7 +14,7 @@
   * [Creating a Post](product-tour/posts/creating-a-post.md)
   * [Staging Area](product-tour/posts/staging-area.md)
   * [Editor](product-tour/posts/editor.md)
-  * [Saving a Draft](product-tour/posts/saving-a-draft.md)
+  * [Drafts](product-tour/posts/drafts.md)
   * [Publishing](product-tour/posts/publishing.md)
   * [Categories](product-tour/posts/categories.md)
 

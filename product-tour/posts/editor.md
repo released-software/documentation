@@ -1,14 +1,31 @@
 ---
 description: >-
-  Released announcements support rich text, various content blocks, and Markdown
-  shortcuts.
+  The Released editor supports rich text forma, diverse content blocks, and
+  convenient Markdown shortcuts.
 ---
 
 # Editor
 
-<figure><img src="../../.gitbook/assets/pika-1680154886500-1x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Editor.png" alt=""><figcaption></figcaption></figure>
 
-Text editor offers extensive support for Markdown elements. You can easily write or paste Markdown text, and our system will automatically convert it into rich text. Additionally, you can use the toolbar to apply styling to your text. Simply highlight the desired word or phrase, and the toolbar will pop up, giving you a range of formatting options.
+The text editor provides comprehensive support for Markdown elements, allowing you to write or paste Markdown text that will be automatically converted into rich text. Moreover, you can utilize the toolbar to easily apply styling to your text. Just highlight the desired word or phrase, and the toolbar will appear, offering a variety of formatting options.
+
+### Slash "/" Command
+
+Type `/` at the beginning of a line to open the Slash Command dialog. The dialog presents an ever-expanding list of content blocks for you to choose from. Narrow down the options by typing to filter the list, or select a specific item from the menu to insert the corresponding block into the editor.
+
+<figure><img src="../../.gitbook/assets/Slash Dialog.png" alt=""><figcaption></figcaption></figure>
+
+### Cover image
+
+Enhance your content with a captivating cover image:
+
+1. Click **Add cover image**.
+2. Choose an image from your filesystem.
+
+### Content images
+
+Enhance your posts by incorporating screenshots, infographics, charts, or diagrams. Add images through the Slash Command dialog or simply drag and drop them from your filesystem directly into the editor.
 
 ### Keyboard shortcuts
 
