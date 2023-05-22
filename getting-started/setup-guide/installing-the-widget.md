@@ -2,7 +2,7 @@
 description: Install the widget in minutes with a few lines of code.
 ---
 
-# Installing the Announcement Widget
+# Installing the Widget
 
 <figure><img src="../../.gitbook/assets/widget.png" alt="" width="375"><figcaption><p>See a live demo of the widget on <a href="https://codepen.io/released/pen/WNaaMNx">Codepen</a>.</p></figcaption></figure>
 
@@ -31,7 +31,9 @@ The available configuration options are described in the following section.
 
 ## Configuration options
 
-The properties to configure the widget options are expressed in JSON format and contained in a script tag with the `id="released-widget-props"`.&#x20;
+Customize your widget to match your brand and app design using the widget properties. Adjust the title, description, colors, positioning, and trigger settings according to your preferences.
+
+The properties are expressed in JSON format and contained in a script tag with the `id="released-widget-props"`.&#x20;
 
 ```
 <script type="application/json" id="released-widget-props">
