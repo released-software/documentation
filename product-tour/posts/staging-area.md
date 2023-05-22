@@ -6,7 +6,7 @@ description: >-
 
 # Staging Area
 
-<figure><img src="../../.gitbook/assets/pika-1680156505066-1x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Filter.png" alt=""><figcaption><p>Iss</p></figcaption></figure>
 
 The staging area makes it a breeze to review issues before they get added to the announcement. Issues are sorted by type, so you can easily spot new features, minor improvements, and bug fixes.
 
