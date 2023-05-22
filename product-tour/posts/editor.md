@@ -51,7 +51,6 @@ Most of the core extensions register their own keyboard shortcuts. Depending on 
 | Italicize     | `Control` `I`         | `Cmd` `I`         |
 | Underline     | `Control` `U`         | `Cmd` `U`         |
 | Strikethrough | `Control` `Shift` `X` | `Cmd` `Shift` `X` |
-| Highlight     | `Control` `Shift` `H` | `Cmd` `Shift` `H` |
 | Code          | `Control` `E`         | `Cmd` `E`         |
 
 #### Paragraph Formatting
@@ -67,15 +66,12 @@ Most of the core extensions register their own keyboard shortcuts. Depending on 
 | Apply heading style 6   | `Control` `Alt` `6`   | `Cmd` `Alt` `6`   |
 | Ordered list            | `Control` `Shift` `7` | `Cmd` `Shift` `7` |
 | Bullet list             | `Control` `Shift` `8` | `Cmd` `Shift` `8` |
-| Task list               | `Control` `Shift` `9` | `Cmd` `Shift` `9` |
 | Blockquote              | `Control` `Shift` `B` | `Cmd` `Shift` `B` |
 | Left align              | `Control` `Shift` `L` | `Cmd` `Shift` `L` |
 | Center align            | `Control` `Shift` `E` | `Cmd` `Shift` `E` |
 | Right align             | `Control` `Shift` `R` | `Cmd` `Shift` `R` |
 | Justify                 | `Control` `Shift` `J` | `Cmd` `Shift` `J` |
 | Code block              | `Control` `Alt` `C`   | `Cmd` `Alt` `C`   |
-| Subscript               | `Control` `,`         | `Cmd` `,`         |
-| Superscript             | `Control` `.`         | `Cmd` `.`         |
 
 
 
