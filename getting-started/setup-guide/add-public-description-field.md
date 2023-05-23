@@ -20,10 +20,8 @@ You must have the administrator role to configure issue types in team-managed pr
 Repeat these steps for each issue type in your project.&#x20;
 
 {% embed url="https://www.loom.com/share/5538b6e0cfc54f92bef8b19ff5d709da" %}
-
-
-
-
+Adding the public description field to an issue type in team-manaaged projects
+{% endembed %}
 
 For more detail see: [Customize an issue's field in team-managed projects](https://support.atlassian.com/jira-software-cloud/docs/customize-an-issues-fields-in-team-managed-projects/).&#x20;
 {% endtab %}
