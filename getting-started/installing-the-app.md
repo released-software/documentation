@@ -2,7 +2,7 @@
 description: Released is available for Jira Cloud via the Atlassian Marketplace.
 ---
 
-# Installation
+# Installing the App
 
 {% hint style="info" %}
 You must have **Administer Jira** global permission to enable Released in your Jira site.
@@ -12,7 +12,7 @@ Learn more about [managing global permissions](https://support.atlassian.com/jir
 
 ## Installation via the Marketplace&#x20;
 
-To install the **Released** via the Atlassian Marketplace, follow these steps:
+To install **Released** via the Atlassian Marketplace, follow these steps:
 
 1. Head over to the [Atlassian Marketplace](https://marketplace.atlassian.com/).
 2. Search for **Released** and click on the app item in the results list.
@@ -20,7 +20,7 @@ To install the **Released** via the Atlassian Marketplace, follow these steps:
 
 ## Installation from Jira Cloud
 
-To install the **Released** on your Jira Cloud site, follow these steps:
+To install **Released** on your Jira Cloud site, follow these steps:
 
 1. Sign in to your Jira Cloud site.
 2. Open the Apps menu located in the navigation header bar.
