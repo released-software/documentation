@@ -1,6 +1,12 @@
+---
+description: >-
+  Add a Public Description custom field to your issues to view and edit the
+  AI-generated descriptions right on your Jira ticket.
+---
+
 # Adding the Public Description Field
 
-To enable AI-generated descriptions for your issues in Released, you must add the "Public Description" custom field to every issue type you want to include in your release notes.
+Released AI-generates public descriptions for your Jira tickets based on their title and internal description. To be able to view and edit the generated description on the Jira issue itself, please add the "Public Description" custom field to every issue type you want to include in your release notes.
 
 ### Configuring the description field&#x20;
 
