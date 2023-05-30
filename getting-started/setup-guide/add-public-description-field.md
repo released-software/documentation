@@ -14,8 +14,9 @@ You must have the administrator role to configure issue types in team-managed pr
 
 1. In the project sidebar, click **Project settings** > **Issue types**.
 2. Select the issue type you want to edit.
-3. Drag from the toolbar to the list of fields. Jira will highlight the areas where you can drop the field. We recommend to place it into the **Description fields** section.
-4. Click **Save changes**.
+3. Search for the **Public Description** field in the Fields sidebar on the right.
+4. Drag the **Public Description** field into the **Description fields** section in the middle. Jira will highlight the dropzone with a blue border.&#x20;
+5. Click **Save changes**.
 
 Repeat these steps for each issue type in your project.&#x20;
 
