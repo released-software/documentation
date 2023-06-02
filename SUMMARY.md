@@ -13,6 +13,7 @@
 * [Posts](product-tour/posts/README.md)
   * [Creating a Post](product-tour/posts/creating-a-post.md)
   * [Staging Area](product-tour/posts/staging-area.md)
+  * [AI Generate Descriptions](product-tour/posts/ai-generate-descriptions.md)
   * [Editor](product-tour/posts/editor.md)
   * [Drafts](product-tour/posts/drafts.md)
   * [Publishing](product-tour/posts/publishing.md)

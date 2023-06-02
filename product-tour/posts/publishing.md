@@ -8,7 +8,7 @@ When it comes to publishing a post, using multiple channels is key to keeping yo
 
 ### Publishing a post
 
-To publish your post, simply hit the <mark style="background-color:blue;">Publish</mark> button located at the top right of the post editor.
+To publish your post, simply hit the **Publish** button located at the top right of the post editor.
 
 ### Channels&#x20;
 
