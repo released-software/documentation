@@ -18,6 +18,7 @@
   * [Drafts](product-tour/posts/drafts.md)
   * [Publishing](product-tour/posts/publishing.md)
   * [Categories](product-tour/posts/categories.md)
+* [Permissions](product-tour/permissions.md)
 
 ## Use Cases
 
