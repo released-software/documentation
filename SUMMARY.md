@@ -5,8 +5,8 @@
 * [Welcome to Released](README.md)
 * [Installing the App](getting-started/installing-the-app.md)
 * [Setup guide](getting-started/setup-guide/README.md)
-  * [Adding the Public Description Field](getting-started/setup-guide/add-public-description-field.md)
-  * [Installing the Widget](getting-started/setup-guide/installing-the-widget.md)
+  * [Released Description Field](getting-started/setup-guide/released-description-field.md)
+  * [Widget](getting-started/setup-guide/widget.md)
 
 ## Product Tour
 

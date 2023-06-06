@@ -1,8 +1,10 @@
 ---
-description: Install the widget in minutes with a few lines of code.
+description: Add a widget to your app or website to share updates with your customers.
 ---
 
-# Installing the Widget
+# Widget
+
+
 
 <figure><img src="../../.gitbook/assets/widget.png" alt="" width="375"><figcaption><p>See a live demo of the widget on <a href="https://codepen.io/released/pen/WNaaMNx">Codepen</a>.</p></figcaption></figure>
 
