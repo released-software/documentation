@@ -14,9 +14,8 @@ Learn more about [managing global permissions](https://support.atlassian.com/jir
 
 To install **Released** via the Atlassian Marketplace, follow these steps:
 
-1. Head over to the [Atlassian Marketplace](https://marketplace.atlassian.com/).
-2. Search for **Released** and click on the app item in the results list.
-3. Click **Try it free** to initiate the app installation process. Please note that Jira might take a moment to process this request.
+1. Head over to the [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1230872/released-ai-release-notes-and-changelogs-for-jira).
+2. Click **Try it free** to initiate the app installation process. Please note that Jira might take a moment to process this request.
 
 ## Installation from Jira Cloud
 
