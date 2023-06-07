@@ -55,7 +55,7 @@ The following customisation options are available for the widget.&#x20;
 
 The following default values are applied in case a property is not explicitly defined.&#x20;
 
-```
+```json
 {
   "id": "",
   "position": "bottom-right",
@@ -68,7 +68,7 @@ The following default values are applied in case a property is not explicitly de
     "colors": {
       "primary": "#7c3aed",
       "secondary": "#e879f9"
-    },
+    }
   },
   "zIndex": 10000
 }
