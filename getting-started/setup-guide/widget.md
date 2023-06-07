@@ -61,7 +61,7 @@ The following default values are applied in case a property is not explicitly de
   "position": "bottom-right",
   "title": "What's New",
   "subTitle": "The latest updates and improvements.",
-  "trigger": true,
+  "trigger": "#trigger",
   "badge": true,
   "colorScheme": "system",
   "theme": {
