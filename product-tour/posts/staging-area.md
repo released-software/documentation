@@ -32,7 +32,9 @@ Drag an issue onto a designated block, indicated by the caret, and the inserted 
 
 Inserting individual issues can be a tedious task, especially for large releases. Fortunately, you have the option to select and insert multiple issues simultaneously.
 
-{% embed url="https://www.loom.com/share/b4db0d049f4a44b98fd841d78b16bc19" %}
+{% embed url="https://www.loom.com/share/be820ba72195452193011a409ee5f46c" %}
+Bulk adding issues
+{% endembed %}
 
 To select multiple issues either:&#x20;
 
