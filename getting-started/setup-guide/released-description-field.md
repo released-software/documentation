@@ -1,14 +1,18 @@
 ---
 description: >-
-  Add a Public Description custom field to your issues to view and edit the
-  AI-generated descriptions right on your Jira ticket.
+  Learn how to configure Jira to view and edit the AI-generated descriptions
+  right on your Jira ticket.
 ---
 
-# Adding the Public Description Field
+# Released Description Field
 
-Released AI-generates public descriptions for your Jira tickets based on their title and internal description. To be able to view and edit the generated description on the Jira issue itself, please add the "Public Description" custom field to every issue type you want to include in your release notes.
+Released AI-generates descriptions for your Jira tickets based on their title and internal description. By default, the description is stored in issue properties.
+
+To be able to view and edit the generated description on the Jira issue itself, you have the option to store the description in a custom field. To do so, add the "Released Description" custom field to every issue type you want to include in your release notes.
 
 ### Configuring the description field&#x20;
+
+Select the type of project that contain the issues for your release notes and follow the instructions below to set up the custom field.&#x20;
 
 {% tabs %}
 {% tab title="Team-managed projects" %}
@@ -16,19 +20,15 @@ Released AI-generates public descriptions for your Jira tickets based on their t
 You must have the administrator role to configure issue types in team-managed projects. [Learn more about team-managed project roles](https://confluence.atlassian.com/jirasoftwarecloud/manage-how-people-access-your-next-gen-project-982321983.html).
 {% endhint %}
 
-**To add the Public Description field to your issue types:**
+To add the **Released Description** field to your issue types:
 
 1. In the project sidebar, click **Project settings** > **Issue types**.
 2. Select the issue type you want to edit.
-3. Search for the **Public Description** field in the Fields sidebar on the right.
-4. Drag the **Public Description** field into the **Description fields** section in the middle. Jira will highlight the dropzone with a blue border.&#x20;
+3. Search for the **Released Description** field in the Fields sidebar on the right.
+4. Drag the **Released Description** field into the **Description fields** section in the middle. Jira will highlight the dropzone with a blue border.&#x20;
 5. Click **Save changes**.
 
 Repeat these steps for each issue type in your project.&#x20;
-
-{% embed url="https://www.loom.com/share/5538b6e0cfc54f92bef8b19ff5d709da" %}
-Adding the public description field to an issue type in team-manaaged projects
-{% endembed %}
 
 For more detail see: [Customize an issue's field in team-managed projects](https://support.atlassian.com/jira-software-cloud/docs/customize-an-issues-fields-in-team-managed-projects/).&#x20;
 {% endtab %}
@@ -42,7 +42,7 @@ You can control which screens a custom field will appear on when an issue is cre
 
 1. Go to **Issues**.
 2. Under **Fields**, click **Custom fields**.
-3. Find the **Public Description** custom field and click **More** > **Associate to screens**.
+3. Find the **Released Description** custom field and click **More** > **Associate to screens**.
 4. Check the boxes next to the screens you want the custom field to appear on.
 5. Click **Save**.
 
