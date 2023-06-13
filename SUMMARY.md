@@ -26,3 +26,7 @@
 * [Release Notes](use-cases/release-notes.md)
 * [Internal Updates](use-cases/internal-updates.md)
 * [Announcements](use-cases/announcements.md)
+
+## Resources
+
+* [Roadmap](resources/roadmap.md)
