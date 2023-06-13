@@ -22,12 +22,6 @@ Improvements that are planned for the next few months, ordered by priority.
 * [ ] [Customise color scheme](#user-content-fn-5)[^5][\
   ](#user-content-fn-6)[^6]
 
-
-
-{% hint style="info" %}
-
-{% endhint %}
-
 [^1]: This feature allows for creating release notes that include features and improvements from multiple Jira projects. For example a product might be split into multiple projects for different platforms (mobile, desktop...)
 
 [^2]: Share your latest announcements on your website or in your documentation with a full sized release notes page.
