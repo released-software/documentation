@@ -18,6 +18,8 @@
   * [Drafts](product-tour/posts/drafts.md)
   * [Publishing](product-tour/posts/publishing.md)
   * [Categories](product-tour/posts/categories.md)
+* [Settings](product-tour/settings/README.md)
+  * [Widget Configuration](product-tour/settings/widget-configuration.md)
 * [Permissions](product-tour/permissions.md)
 
 ## Use Cases
