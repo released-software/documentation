@@ -41,15 +41,36 @@ The properties are expressed in JSON format and contained in a script tag with t
 <script type="application/json" id="released-widget-props">
 ```
 
-### **Widget Properties**&#x20;
+## **Widget Properties**&#x20;
 
 The following customisation options are available for the widget.&#x20;
 
-<table data-full-width="false"><thead><tr><th width="170">Property</th><th width="588">Description</th></tr></thead><tbody><tr><td><code>id</code></td><td>The ID of the release notes project.</td></tr><tr><td><code>position</code></td><td>The position of the widget. Can be <code>top-left</code>, <code>top-right</code>, <code>bottom-right</code>, or <code>bottom-left</code>.</td></tr><tr><td><code>title</code></td><td>The title of the widget.</td></tr><tr><td><code>subTitle</code></td><td>The subtitle of the widget.</td></tr><tr><td><code>trigger</code></td><td>A <code>string</code> specifying a <a href="https://www.w3schools.com/cssref/css_selectors.php">css selector</a> that determines which element on the page will open the dialog when clicked. For example <code>#changelog-button</code>. If not specified, a default trigger button will be rendered. </td></tr><tr><td><code>badge</code></td><td>Whether to display a badge with the unread count. Can be <code>true</code> or <code>false</code>.</td></tr><tr><td><code>colorScheme</code></td><td>The color scheme to use for the widget. Can be <code>system</code>, <code>dark</code>, or <code>light</code>.</td></tr><tr><td><code>zIndex</code></td><td>The z-index to use for the widget.</td></tr><tr><td><code>theme</code></td><td>A custom theme to use for the widget. See below for theme properties.</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="170">Property</th><th width="588">Description</th></tr></thead><tbody><tr><td><code>id</code></td><td>The ID of the release notes project.</td></tr><tr><td><code>position</code></td><td>The position of the widget. Can be <code>top-left</code>, <code>top-right</code>, <code>bottom-right</code>, or <code>bottom-left</code>.</td></tr><tr><td><code>title</code></td><td>The title of the widget.</td></tr><tr><td><code>subTitle</code></td><td>The subtitle of the widget.</td></tr><tr><td><code>trigger</code></td><td>A <code>string</code> specifying a <a href="https://www.w3schools.com/cssref/css_selectors.php">css selector</a> that determines which element on the page will open the dialog when clicked. For example <code>#changelog-button</code>. If not specified, a default trigger button will be rendered. </td></tr><tr><td><code>badge</code></td><td>Whether to display a badge with the unread count. Can be <code>true</code> or <code>false</code>.</td></tr><tr><td><code>colorScheme</code></td><td>The color scheme to use for the widget. Can be <code>system</code>, <code>dark</code>, or <code>light</code>.</td></tr><tr><td><code>zIndex</code></td><td>The z-index to use for the widget.</td></tr><tr><td><code>theme</code></td><td>A custom theme to use for the widget. See below for theme properties.</td></tr><tr><td>attributes</td><td>Allows for passing <code>data-*</code> attributes to the host container for the widget. For more details see the <a href="widget.md#attributes">Attributes section</a> below. </td></tr></tbody></table>
 
-**Theme**&#x20;
+### **Theme**&#x20;
 
 <table><thead><tr><th width="171">Property</th><th>Description</th></tr></thead><tbody><tr><td><code>colors</code></td><td>An object that defines the primary and secondary colors for the widget.</td></tr><tr><td>      <code>primary</code></td><td>The primary UI color. Can be hex, hsl, rgb, or css color name.</td></tr><tr><td>      <code>secondary</code></td><td>The secondary UI color. Can be hex, hsl, rgb, or css color name.</td></tr></tbody></table>
+
+### Attributes
+
+Setting data attributes can be helpful to prevent unwanted interactions with 3rd party libraries. For example, to prevent scrolling issues when the [Lenis](https://lenis.studiofreight.com/) library is used, you can add the `data-lenis-prevent` attribute to the host container.&#x20;
+
+**Example:**&#x20;
+
+```json
+{
+  "id": "",
+  "attributes": {
+    "data-lenis-prevent": "",
+  }
+}
+```
+
+**Results in:**
+
+```html
+<div id="__released-widget-host" data-lenis-prevent="" ...></div>
+```
 
 ### Default values
 
