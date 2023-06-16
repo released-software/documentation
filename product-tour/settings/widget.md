@@ -90,3 +90,7 @@ You can find a complete version of the snippet in the app, with all details pre-
 The above code snippet contains two `script` tags. The first tag contains the configuration properties for the widget, and the second tag loads the widget.&#x20;
 
 The available configuration options are described in the following section.
+
+## Demo
+
+Experience a demo of the widget on [CodePen](https://codepen.io/released/pen/WNaaMNx).
