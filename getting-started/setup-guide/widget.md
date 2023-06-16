@@ -41,8 +41,8 @@ The properties are expressed in JSON format and contained in a script tag with t
 <script type="application/json" id="released-widget-props">
 ```
 
-{% content-ref url="../../product-tour/settings/widget-configuration.md" %}
-[widget-configuration.md](../../product-tour/settings/widget-configuration.md)
+{% content-ref url="../../product-tour/settings/widget.md" %}
+[widget.md](../../product-tour/settings/widget.md)
 {% endcontent-ref %}
 
 ## Demo

@@ -19,7 +19,8 @@
   * [Publishing](product-tour/posts/publishing.md)
   * [Categories](product-tour/posts/categories.md)
 * [Settings](product-tour/settings/README.md)
-  * [Widget Configuration](product-tour/settings/widget-configuration.md)
+  * [General](product-tour/settings/general.md)
+  * [Widget](product-tour/settings/widget.md)
 * [Permissions](product-tour/permissions.md)
 
 ## Use Cases
