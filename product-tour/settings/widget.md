@@ -1,5 +1,5 @@
 ---
-description: Customise the widget to match your brand and style.
+description: Customise the widget to match your brand
 ---
 
 # Widget

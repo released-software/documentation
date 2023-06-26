@@ -20,6 +20,7 @@
   * [Categories](product-tour/posts/categories.md)
 * [Settings](product-tour/settings/README.md)
   * [General](product-tour/settings/general.md)
+  * [Announcement Page](product-tour/settings/announcement-page.md)
   * [Widget](product-tour/settings/widget.md)
 * [Permissions](product-tour/permissions.md)
 
