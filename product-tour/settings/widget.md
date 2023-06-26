@@ -76,7 +76,7 @@ To add the widget to your website or app, copy the following code snippet into t
 You can find a complete version of the snippet in the app, with all details pre-filled.
 {% endhint %}
 
-```
+```javascript
 <script type="application/json" id="released-widget-props">
   {
     "id": "[PROJECT_ID]",
