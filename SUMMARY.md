@@ -6,7 +6,8 @@
 * [Installing the App](getting-started/installing-the-app.md)
 * [Setup guide](getting-started/setup-guide/README.md)
   * [Released Description Field](getting-started/setup-guide/released-description-field.md)
-  * [Widget](getting-started/setup-guide/widget.md)
+  * [Widget](getting-started/setup-guide/widget/README.md)
+    * [Using Released with Framer](getting-started/setup-guide/widget/using-released-with-framer.md)
 
 ## Product Tour
 

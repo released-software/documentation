@@ -1,96 +1,72 @@
 ---
-description: Customise the widget to match your brand
+description: Embed announcements into your app or site
 ---
 
 # Widget
 
+The announcement widget offers a seamless way to integrate release notes into your application or website. With a simple click on a trigger in form of a link or button, users can access a dialog box displaying the most recent announcements. Additionally, the trigger conveniently displays a badge indicating the presence of new announcements.
+
+## Demo
+
+Experience a demo of the widget on [CodePen](https://codepen.io/released/pen/WNaaMNx).
+
+<figure><img src="../../.gitbook/assets/widget.png" alt="" width="375"><figcaption></figcaption></figure>
+
+## Installation
+
+To add the widget to your site or app, copy the following code snippet into the `<head>` element. This script needs to be present on every page where you might want to show the widget.&#x20;
+
+```html
+<script src="https://embed.released.so/1/embed.js"></script>
+```
+
+Next, add the `released-widget` custom element to the `<body>` of the page. The widget will not be rendered inline, so it does not matter where in the body you position the element. Ensure you replace "_CHANNEL\_ID_" with the id of your release channel.&#x20;
+
+```html
+<released-widget channel-id="CHANNEL_ID"></released-widget>
+```
+
+{% hint style="info" %}
+You can locate a version of the code snippet in the **Widget** section of the **Settings**, where the _CHANNEL\_ID_ field is already populated for your convenience.
+{% endhint %}
+
 ## Configuration options
 
-Customize your widget to match your brand and app design using the widget properties. Adjust the title, description, colors, positioning, and trigger settings according to your preferences.
+Customize your widget to align with your brand and application design by leveraging the `<released-widget>` properties. Tailor the title, description, colors, positioning, and trigger settings to suit your preferences and create a seamless integration with your app's visual identity.
 
-The properties are expressed in JSON format and contained in a script tag with the `id="released-widget-props"`.&#x20;
+The properties are specified as attributes within the `<released-widget>` custom HTML element.
 
-```
-<script type="application/json" id="released-widget-props">
-```
-
-## **Widget Properties**&#x20;
+### **Widget Properties**&#x20;
 
 The following customisation options are available for the widget.&#x20;
 
-<table data-full-width="false"><thead><tr><th width="170">Property</th><th width="588">Description</th></tr></thead><tbody><tr><td><code>id</code></td><td>The ID of the release notes project.</td></tr><tr><td><code>position</code></td><td>The position of the widget. Can be <code>top-left</code>, <code>top-right</code>, <code>bottom-right</code>, or <code>bottom-left</code>.</td></tr><tr><td><code>title</code></td><td>The title of the widget.</td></tr><tr><td><code>subTitle</code></td><td>The subtitle of the widget.</td></tr><tr><td><code>trigger</code></td><td>A <code>string</code> specifying a <a href="https://www.w3schools.com/cssref/css_selectors.php">css selector</a> that determines which element on the page will open the dialog when clicked. For example <code>#changelog-button</code>. If not specified, a default trigger button will be rendered. </td></tr><tr><td><code>badge</code></td><td>Whether to display a badge with the unread count. Can be <code>true</code> or <code>false</code>.</td></tr><tr><td><code>colorScheme</code></td><td>The color scheme to use for the widget. Can be <code>system</code>, <code>dark</code>, or <code>light</code>.</td></tr><tr><td><code>zIndex</code></td><td>The z-index to use for the widget.</td></tr><tr><td><code>theme</code></td><td>A custom theme to use for the widget. See below for theme properties.</td></tr><tr><td>attributes</td><td>Allows for passing <code>data-*</code> attributes to the host container for the widget. For more details see the <a href="widget.md#attributes">Attributes section</a> below. </td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="204">Property</th><th width="588">Description</th></tr></thead><tbody><tr><td><code>channel-id</code></td><td>The ID of the release notes channel.</td></tr><tr><td><code>position</code></td><td>The position of the widget. Can be <code>top-left</code>, <code>top-right</code>, <code>bottom-right</code>, or <code>bottom-left</code>.</td></tr><tr><td><code>trigger</code></td><td>A <code>string</code> specifying a <a href="https://www.w3schools.com/cssref/css_selectors.php">css selector</a> that determines which element on the page will open the dialog when clicked. For example <code>#changelog-button</code>. If not specified, a default trigger button will be rendered. </td></tr><tr><td><code>title</code></td><td>The title of the widget.</td></tr><tr><td><code>sub-title</code></td><td>The subtitle of the widget.</td></tr><tr><td><code>badge</code></td><td>Whether to display a badge with the unread count. Can be <code>true</code> or <code>false</code>.</td></tr><tr><td><code>color-scheme</code></td><td>The color scheme to use for the widget. Can be <code>system</code>, <code>dark</code>, or <code>light</code>.</td></tr><tr><td><code>color-primary</code></td><td>The primary UI color. Can be hex, hsl, rgb, or css color name.</td></tr><tr><td><code>color-secondary</code></td><td>The secondary UI color. Can be hex, hsl, rgb, or css color name.</td></tr><tr><td><code>attributes</code></td><td>Allows for passing <code>data-*</code> attributes to the host container for the widget. For more details see the <a href="widget.md#attributes">Attributes section</a> below. </td></tr><tr><td><code>z-index</code></td><td>The z-index to use for the widget.</td></tr></tbody></table>
 
-### **Theme**&#x20;
-
-<table><thead><tr><th width="171">Property</th><th>Description</th></tr></thead><tbody><tr><td><code>colors</code></td><td>An object that defines the primary and secondary colors for the widget.</td></tr><tr><td>      <code>primary</code></td><td>The primary UI color. Can be hex, hsl, rgb, or css color name.</td></tr><tr><td>      <code>secondary</code></td><td>The secondary UI color. Can be hex, hsl, rgb, or css color name.</td></tr></tbody></table>
-
-### Attributes
+### Data Attributes
 
 Setting data attributes can be helpful to prevent unwanted interactions with 3rd party libraries. For example, to prevent scrolling issues when the [Lenis](https://lenis.studiofreight.com/) library is used, you can add the `data-lenis-prevent` attribute to the host container.&#x20;
 
 **Example:**&#x20;
 
-```json
-{
-  "id": "",
-  "attributes": {
-    "data-lenis-prevent": "",
-  }
-}
-```
-
-**Results in:**
-
 ```html
-<div id="__released-widget-host" data-lenis-prevent="" ...></div>
+<released-widget channel-id="CHANNEL_ID" data-lenis-prevent=""></released-widget>
 ```
 
 ### Default values
 
 The following default values are applied in case a property is not explicitly defined.&#x20;
 
-```json
-{
-  "id": "",
-  "position": "bottom-right",
-  "title": "What's New",
-  "subTitle": "The latest updates and improvements.",
-  "trigger": "#trigger",
-  "badge": true,
-  "colorScheme": "system",
-  "theme": {
-    "colors": {
-      "primary": "#7c3aed",
-      "secondary": "#e879f9"
-    }
-  },
-  "zIndex": 10000
-}
+```html
+<released-widget channel-id="CHANNEL_ID" 
+  position="bottom-right"
+  title="What's New"
+  sub-title="The latest updates and improvements."
+  trigger="#trigger"
+  badge="true"
+  color-scheme="system"
+  color-primary="#7c3aed"
+  color-secondary="#e879f9"
+  z-index="10000"
+></released-widget>
 ```
 
-## Installation
-
-To add the widget to your website or app, copy the following code snippet into the `<head>` element. Replace the `[PROJECT_ID]` placeholder with the ID found in your widget configuration.&#x20;
-
-{% hint style="info" %}
-You can find a complete version of the snippet in the app, with all details pre-filled.
-{% endhint %}
-
-```javascript
-<script type="application/json" id="released-widget-props">
-  {
-    "id": "[PROJECT_ID]",
-    "title": "Changelog",
-    "subTitle": "New updates and improvements.",
-  }
-</script>
-<script src="https://embed.released.so/1/widget.js"></script>
-```
-
-The above code snippet contains two `script` tags. The first tag contains the configuration properties for the widget, and the second tag loads the widget.&#x20;
-
-The available configuration options are described in the following section.
-
-## Demo
-
-Experience a demo of the widget on [CodePen](https://codepen.io/released/pen/WNaaMNx).
