@@ -1,31 +1,4 @@
----
-description: >-
-  The Released editor supports rich text forma, diverse content blocks, and
-  convenient Markdown shortcuts.
----
-
-# Editor
-
-<figure><img src="../../.gitbook/assets/Editor.png" alt=""><figcaption></figcaption></figure>
-
-The text editor provides comprehensive support for Markdown elements, allowing you to write or paste Markdown text that will be automatically converted into rich text. Moreover, you can utilize the toolbar to easily apply styling to your text. Just highlight the desired word or phrase, and the toolbar will appear, offering a variety of formatting options.
-
-### Slash "/" Command
-
-Type `/` at the beginning of a line to open the Slash Command dialog. The dialog presents an ever-expanding list of content blocks for you to choose from. Narrow down the options by typing to filter the list, or select a specific item from the menu to insert the corresponding block into the editor.
-
-<figure><img src="../../.gitbook/assets/Slash Dialog.png" alt=""><figcaption></figcaption></figure>
-
-### Cover image
-
-Enhance your content with a captivating cover image:
-
-1. Click **Add cover image**.
-2. Choose an image from your filesystem.
-
-### Content images
-
-Enhance your posts by incorporating screenshots, infographics, charts, or diagrams. Add images through the Slash Command dialog or simply drag and drop them from your filesystem directly into the editor.
+# Keyboard Shortcuts
 
 ### Keyboard shortcuts
 
@@ -33,15 +6,7 @@ Most of the core extensions register their own keyboard shortcuts. Depending on 
 
 #### Essentials
 
-| Command                  | Windows/Linux         | macOS             |
-| ------------------------ | --------------------- | ----------------- |
-| Copy                     | `Control` `C`         | `Cmd` `C`         |
-| Cut                      | `Control` `X`         | `Cmd` `X`         |
-| Paste                    | `Control` `V`         | `Cmd` `V`         |
-| Paste without formatting | `Control` `Shift` `V` | `Cmd` `Shift` `V` |
-| Undo                     | `Control` `Z`         | `Cmd` `Z`         |
-| Redo                     | `Control` `Shift` `Z` | `Cmd` `Shift` `Z` |
-| Add a line break         | `Shift` `Enter`       | `Shift` `Enter`   |
+<table><thead><tr><th width="269.3333333333333">Command</th><th>Windows/Linux</th><th>macOS</th></tr></thead><tbody><tr><td>Copy</td><td><code>Control</code> <code>C</code></td><td><code>Cmd</code> <code>C</code></td></tr><tr><td>Cut</td><td><code>Control</code> <code>X</code></td><td><code>Cmd</code> <code>X</code></td></tr><tr><td>Paste</td><td><code>Control</code> <code>V</code></td><td><code>Cmd</code> <code>V</code></td></tr><tr><td>Paste without formatting</td><td><code>Control</code> <code>Shift</code> <code>V</code></td><td><code>Cmd</code> <code>Shift</code> <code>V</code></td></tr><tr><td>Undo</td><td><code>Control</code> <code>Z</code></td><td><code>Cmd</code> <code>Z</code></td></tr><tr><td>Redo</td><td><code>Control</code> <code>Shift</code> <code>Z</code></td><td><code>Cmd</code> <code>Shift</code> <code>Z</code></td></tr><tr><td>Add a line break</td><td><code>Shift</code> <code>Enter</code></td><td><code>Shift</code> <code>Enter</code></td></tr></tbody></table>
 
 #### Text Formatting
 
@@ -73,8 +38,6 @@ Most of the core extensions register their own keyboard shortcuts. Depending on 
 | Justify                 | `Control` `Shift` `J` | `Cmd` `Shift` `J` |
 | Code block              | `Control` `Alt` `C`   | `Cmd` `Alt` `C`   |
 
-
-
 #### Text Selection
 
 | Command                                           | Windows/Linux         | macOS             |
@@ -86,5 +49,3 @@ Most of the core extensions register their own keyboard shortcuts. Depending on 
 | Extend selection one line down                    | `Shift` `↓`           | `Shift` `↓`       |
 | Extend selection to the beginning of the document | `Control` `Shift` `↑` | `Cmd` `Shift` `↑` |
 | Extend selection to the end of the document       | `Control` `Shift` `↓` | `Cmd` `Shift` `↓` |
-
-####

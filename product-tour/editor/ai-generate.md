@@ -2,13 +2,13 @@
 description: Turn your Jira tickets into engaging descriptions of your improvements
 ---
 
-# AI Generate Descriptions
+# AI Generate
 
 Released takes the summary and description of your Jira issues and turns them into copy for your announcement.&#x20;
 
 ### Generating a description
 
-First, [create](creating-a-post.md) or edit a post.&#x20;
+First, [create](../posts/creating-a-post.md) or edit a post.&#x20;
 
 Then select one ore more issues in the [staging area](staging-area.md) of the post editing view. Once selected, an action toolbar will appear at the bottom-centre of the editor (see image below. Click the **Generate** button to generate the descriptions for the selected issues.&#x20;
 
