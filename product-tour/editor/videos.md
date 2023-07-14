@@ -7,7 +7,6 @@ description: Showcase your updates with videos
 By incorporating videos into your posts, you can enhance the user experience, provide visual demonstrations, and make your content more engaging. Released currently supports videos from:
 
 * YouTube
-* Vimeo
 * Loom
 
 ## Adding videos to your post
