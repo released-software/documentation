@@ -8,11 +8,12 @@ By incorporating videos into your posts, you can enhance the user experience, pr
 
 * YouTube
 * Loom
+* Any public `.mp4`, `.webm` or `.ogg` file URL
 
 ## Adding videos to your post
 
 1. Copy the Video URL
-   1. Go to the video platform where your video is hosted (YouTube, Vimeo, or Loom).
+   1. Go to the video platform where your video is hosted (e.g., YouTube).
    2. Locate the video you want to include in your post.
    3. Copy the URL of the video.
 2. Paste the Video URL
