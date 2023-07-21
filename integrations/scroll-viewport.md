@@ -37,11 +37,10 @@ Ensure you replace the **Page\_ID** and **CHANNEL\_ID** placeholders with the ID
 {% endhint %}
 
 ```javascript
-# if (vp.source.confluencePageId === "PAGE_ID") {
- vp.loadScript('https://embed.released.so/1/embed.js').then(() => {
-       document.getElementById("content").innerHTML = "";
-   document.getElementById("content").insertAdjacentHTML('beforeend', <released-page channel-id="CHANNEL_ID"></released-page>')
- });
+if (vp.source.confluencePageId === "PAGE_ID") {
+  vp.loadScript('https://embed.released.so/1/embed.js').then(() => {
+    document.getElementById("content").innerHTML = '<released-page channel-id="CHANNEL_ID"></released-page>'
+  });
 }
 ```
 
