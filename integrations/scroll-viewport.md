@@ -39,7 +39,7 @@ Ensure you replace the **Page\_ID** and **CHANNEL\_ID** placeholders with the ID
 ```javascript
 if (vp.source.confluencePageId === "PAGE_ID") {
   vp.loadScript('https://embed.released.so/1/embed.js').then(() => {
-    document.getElementById("content").innerHTML = '<released-page channel-id="CHANNEL_ID"></released-page>'
+    document.getElementById("content").innerHTML = '<released-page channel-id="CHANNEL_ID" color-scheme="light"></released-page>'
   });
 }
 ```
