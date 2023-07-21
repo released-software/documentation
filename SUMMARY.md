@@ -35,6 +35,10 @@
 * [Internal Updates](use-cases/internal-updates.md)
 * [Announcements](use-cases/announcements.md)
 
+## Integrations
+
+* [Scroll Viewport](integrations/scroll-viewport.md)
+
 ## Resources
 
 * [Roadmap](resources/roadmap.md)

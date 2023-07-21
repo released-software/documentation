@@ -27,8 +27,10 @@ Next, add the `released-page` custom element to the `<body>` of the page. Unlike
 Ensure you replace "CHANNEL\_ID" with the id of your release notes channel.&#x20;
 
 {% hint style="info" %}
-You can locate a version of the code snippet in the **Announcement page** section of the **Settings**, where the CHANNEL\_ID_\_ID_ field is already populated for your convenience.
+You can locate a version of the code snippet in the **Announcement page** section of the **Settings**, where the CHANNEL\_ID field is already populated for your convenience.
 {% endhint %}
+
+<figure><img src="../../.gitbook/assets/Page Channel ID.png" alt=""><figcaption><p>Embed code with pre-populated Channel ID</p></figcaption></figure>
 
 ## Configuration options
 
