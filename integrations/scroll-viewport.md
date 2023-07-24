@@ -49,6 +49,6 @@ To customize the look and feel of your release page, you can add additional para
 Lastly, save the changes to your theme. \
 
 
-### Congratulations, you're done 🎉
+**Congratulations, you're done 🎉**
 
 New posts published with Released will now automatically appear in your Viewport help centre.&#x20;
