@@ -28,13 +28,6 @@
   * [Widget](product-tour/settings/widget.md)
 * [Permissions](product-tour/permissions.md)
 
-## Use Cases
-
-* [Changelog](use-cases/changelog.md)
-* [Release Notes](use-cases/release-notes.md)
-* [Internal Updates](use-cases/internal-updates.md)
-* [Announcements](use-cases/announcements.md)
-
 ## Integrations
 
 * [Scroll Viewport](integrations/scroll-viewport.md)
