@@ -29,6 +29,10 @@ In your Webflow interface.&#x20;
 
 ## Adding the notification badge
 
+
+
+<figure><img src="../.gitbook/assets/Badge.png" alt="" width="375"><figcaption><p>Add a notification badge to a link or a button.</p></figcaption></figure>
+
 {% hint style="info" %}
 To add a notification badge, we recommend to add the `<script>` tag in the site's `<head>`tag  instead of in the **Embed** block to ensure it's available on every page. \
 \
@@ -36,4 +40,13 @@ To add a notification badge, we recommend to add the `<script>` tag in the site'
 {% endhint %}
 
 Similar to adding the announcement page, you can add the notification badge via the embed element.&#x20;
+
+* Click on the ﹢ icon in the top left or simply click `a` to open the **Add elements** panel.
+* Scroll to the **Advanced** section and click the **Embed** element.
+* Copy the code snippets from above into the dialog.&#x20;
+* Click **Save & Close**. The element has now been added.&#x20;
+* Move the element next to the link or button where you want to show the badge. Typically in the navigation.&#x20;
+* Use the **2D & 3D transforms** settings to adjust the position of the badge&#x20;
+
+<figure><img src="../.gitbook/assets/Transform Settings.png" alt="" width="375"><figcaption><p>Adjust the position of the badge with the element's transform settings.</p></figcaption></figure>
 
