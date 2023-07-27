@@ -30,7 +30,7 @@
 
 ## Integrations
 
-* [Framer](integrations/using-released-with-framer.md)
+* [Framer](integrations/framer.md)
 * [Scroll Viewport](integrations/scroll-viewport.md)
 
 ## Resources
