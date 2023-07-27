@@ -12,23 +12,12 @@ Experience a demo of the widget on [CodePen](https://codepen.io/released/pen/WNa
 
 ## Installation
 
-To add the announcement page to your website, copy the following code snippet into the `<head>` element. This script needs to be present on the page where you want to display the announcement page.&#x20;
+To add the announcement page to your website, simply follow the installation instructions in the app.&#x20;
 
-```html
-<script src="https://embed.released.so/1/embed.js"></script>
-```
-
-Next, add the `released-page` custom element to the `<body>` of the page. Unlike the widget, the announcement page content renders where you position the element.&#x20;
-
-```html
-<released-page channel-id="CHANNEL_ID"></released-page>
-```
-
-Ensure you replace "CHANNEL\_ID" with the channel-id of your announcement page. &#x20;
-
-{% hint style="info" %}
-You can locate a pre-populated version of the code snippet in the **Announcement page** section of the **Settings.** See the section below.
-{% endhint %}
+* Navigate to the Released **Settings** in your Jira project
+* Click the **Announcement Page** menu item.&#x20;
+* Click the **Installation instructions** at the top right above the preview.&#x20;
+* Follow the installation instruction in the slide out panel.&#x20;
 
 ## Configuration options
 
@@ -44,29 +33,41 @@ The properties are specified as attributes within the `<released-page>` custom H
 
 <figure><img src="../../.gitbook/assets/Page Channel ID.png" alt=""><figcaption><p>Embed code with pre-populated Channel ID</p></figcaption></figure>
 
-## Installing the notification badge
+## Notification badge
 
 To notify users about the availability of a new post, you can enhance the user experience by incorporating a notification badge on the link or button leading to the announcement page. This badge functions similarly to the notification badge found in the widget.
 
-Add the following code snippet to the `<body>` section of your site where you want the badges to render.
+<figure><img src="../../.gitbook/assets/Badge.png" alt="" width="375"><figcaption><p>The notification badge let's users know when a new update is available. </p></figcaption></figure>
 
-```html
-<released-badge channel-id="CHANNEL_ID"></released-badge>
-```
 
-### Example
 
-To add the badge to a link in your navigation, it's best to place the `<release-badge>` element inside the `<a>` tag.&#x20;
+### Installing the badge
+
+Follow the **Installation instructions** and copy the code for the badge.&#x20;
+
+It's best to place the `<release-badge>` element inside the `<a>` tag when adding the badge to a link.&#x20;
 
 ```html
 <a href="/changelog" class="nav-link">What's New? <released-badge channel-id="CHANNEL_ID"></released-badge></a>
 ```
 
-You can adjust the position of the badge by styling it with CSS.&#x20;
+### Adjusting the position of the badge
 
-```css
+You can adjust the position of the badge by styling it with CSS. We recommend two options:&#x20;
+
+* Use the margin property to adjust the position
+* Use the transform property to adjust the position&#x20;
+
+```html
+<style>
 released-badge {
-  margin-left: 4px;
+  margin-top: -8px;
+  margin-right: -8px; // example with margins
+  transform: translate(50%, -50%); // example of transform
 }
+</style>
 ```
 
+{% hint style="info" %}
+Experiment with badge positioning on [CodePen](https://codepen.io/released/pen/abQRYgG).
+{% endhint %}

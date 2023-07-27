@@ -31,6 +31,7 @@
 ## Integrations
 
 * [Framer](integrations/framer.md)
+* [Webflow](integrations/framer-1.md)
 * [Scroll Viewport](integrations/scroll-viewport.md)
 
 ## Resources

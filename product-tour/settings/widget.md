@@ -14,21 +14,12 @@ Experience a demo of the widget on [CodePen](https://codepen.io/released/pen/WNa
 
 ## Installation
 
-To add the widget to your site or app, copy the following code snippet into the `<head>` element. This script needs to be present on every page where you might want to show the widget.&#x20;
+To add the announcement page to your website, simply follow the installation instructions in the app.&#x20;
 
-```html
-<script src="https://embed.released.so/1/embed.js"></script>
-```
-
-Next, add the `released-widget` custom element to the `<body>` of the page. The widget will not be rendered inline, so it does not matter where in the body you position the element. Ensure you replace "_CHANNEL\_ID_" with the id of your release channel.&#x20;
-
-```html
-<released-widget channel-id="CHANNEL_ID"></released-widget>
-```
-
-{% hint style="info" %}
-You can locate a version of the code snippet in the **Widget** section of the **Settings**, where the _CHANNEL\_ID_ field is already populated for your convenience.
-{% endhint %}
+* Navigate to the Released **Settings** in your Jira project
+* Click the **Widget** menu item.
+* Click the **Installation instructions** at the top right above the preview.&#x20;
+* Follow the installation instruction in the slide out panel.&#x20;
 
 ## Configuration options
 

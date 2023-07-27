@@ -6,11 +6,9 @@ description: Add Release Notes to your Framer website in minutes.
 
 Framer let's you design websites on a freeform canvas. Add animations, interactions and a CMS.&#x20;
 
-With Released and Framer, you can seamlessly embed a widget or announcement page into your website. This allows you to display news on your main domain and retain the standard layout with your website's header and footer.&#x20;
+With **Released + Framer**, you can seamlessly embed a widget or announcement page into your website.&#x20;
 
-{% hint style="info" %}
 This section assumed you are familiar with Framer's code components. If you are new to code components, we recommend you read this page first: [https://www.framer.com/learn/code-components/](https://www.framer.com/learn/code-components/)
-{% endhint %}
 
 ## Prerequisite&#x20;
 
