@@ -51,6 +51,10 @@ To customize the look and feel of your release notes page, you can add additiona
 
 By default, Scroll Viewport adds a 10cm padding at the top of the page. To remove the padding on your release page, you can inject the following CSS in the theme settings:
 
+{% hint style="warning" %}
+The below code most be added into the **Custom CSS** section. **Not** in the Custom JavaScript section where we added the above code.&#x20;
+{% endhint %}
+
 ```css
 #article-content:has(> released-page)
 {
