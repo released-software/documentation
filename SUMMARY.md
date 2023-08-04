@@ -18,6 +18,7 @@
 * [Editor](product-tour/editor/README.md)
   * [Staging Area](product-tour/editor/staging-area.md)
   * [AI Generate](product-tour/editor/ai-generate.md)
+  * [Versions](product-tour/editor/versions.md)
   * [Categories](product-tour/editor/categories.md)
   * [Images](product-tour/editor/images.md)
   * [Videos](product-tour/editor/videos.md)
