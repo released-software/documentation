@@ -29,10 +29,27 @@ Copy the following code snippet into the `<head>` element of your page.&#x20;
 
 Alternatively, you have the option to include the code in the section of the specific page where you wish to display the announcement page. However, considering that you may want to incorporate a notification badge in other sections of the website as well, it is advisable to follow the instructions mentioned above and add it in the General section.
 
-## Creating the announcement page component
+## Adding the announcement page component
 
-1. To create a new code component go to **Assets → Code** and click the plus button.&#x20;
-2. Delete the Framer example code and copy and paste the following code into the editor:
+We have created a announcement page component that you can copy and paste into your Framer design view. Simply select the layer where you want to insert the announcement page and paste the URL below into the layer.&#x20;
+
+```url
+https://framer.com/m/Announcement-page-eOYM.js@bc0W7asRO2QObTu0uejA
+```
+
+The component supports a number of properties that can be configured via the UI to adjust the look and feel.&#x20;
+
+Make sure you enter the [Channel ID](../getting-started/setup-guide/finding-the-channel-id.md) for your announcement page. &#x20;
+
+<figure><img src="../.gitbook/assets/Framer Component UI.png" alt="" width="375"><figcaption><p>Properties of the ReleasedPage Webflow Compontent</p></figcaption></figure>
+
+<details>
+
+<summary>See the component code</summary>
+
+To create a new code component go to **Assets → Code** and click the plus button. Replace the **CHANNEL\_ID** placeholder with your announcement page **channel-id**.&#x20;
+
+Customize the properties of the `<released-page>`tag at the bottom with your preferred configuration. For further details on the available options, refer to the [announcement-page.md](../product-tour/settings/announcement-page.md "mention") documentation.&#x20;
 
 ```tsx
 // We need to define an interface for our release page custom html component.
@@ -66,10 +83,7 @@ export default function Released_page(props) {
 }
 ```
 
-3. Replace the **CHANNEL\_ID** placeholder with your announcement page **channel-id**.&#x20;
-4. Customize the properties of the `<released-page>`tag at the bottom with your preferred configuration. For further details on the available options, refer to the [announcement-page.md](../product-tour/settings/announcement-page.md "mention") documentation.&#x20;
-
-You can now use your component like other HTML components in Framer. Drag it onto the page where you want to display the announcements.&#x20;
+</details>
 
 ## Creating the badge component
 
