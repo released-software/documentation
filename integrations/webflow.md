@@ -50,3 +50,11 @@ Similar to adding the announcement page, you can add the notification badge via 
 
 <figure><img src="../.gitbook/assets/Transform Settings.png" alt="" width="375"><figcaption><p>Adjust the position of the badge with the element's transform settings.</p></figcaption></figure>
 
+
+
+## Video tutorial
+
+Watch a 90 seconds walk through on how to add your release notes to your Webflow site.&#x20;
+
+{% embed url="https://youtu.be/Ll1hArmqOAg" %}
+
