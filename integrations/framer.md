@@ -41,7 +41,7 @@ The component supports a number of properties that can be configured via the UI 
 
 Make sure you enter the [Channel ID](../getting-started/setup-guide/finding-the-channel-id.md) for your announcement page. &#x20;
 
-<figure><img src="../.gitbook/assets/Framer Component UI.png" alt="" width="375"><figcaption><p>Properties of the ReleasedPage Webflow Compontent</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Framer Component UI.png" alt="" width="375"><figcaption><p>Properties of the ReleasedPage Webflow Component</p></figcaption></figure>
 
 <details>
 
