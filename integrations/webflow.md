@@ -29,7 +29,7 @@ In your Webflow interface.&#x20;
 
 ## Adding the notification badge
 
-
+To notify users about the availability of a new post, you can enhance the user experience by incorporating a notification badge on the link or button leading to the announcement page.&#x20;
 
 <figure><img src="../.gitbook/assets/Badge.png" alt="" width="375"><figcaption><p>Add a notification badge to a link or a button.</p></figcaption></figure>
 
