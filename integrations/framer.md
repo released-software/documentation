@@ -41,6 +41,10 @@ The only mandatory field is the announcement page [Channel Id](../getting-starte
 
 <figure><img src="../.gitbook/assets/Framer Component UI.png" alt=""><figcaption><p>Properties of the ReleasedPage Webflow Component</p></figcaption></figure>
 
+{% hint style="info" %}
+Since the release notes are loaded dynamically, you will need to **publish** the site in order to preview the changes.&#x20;
+{% endhint %}
+
 ## Adding the badge component
 
 To notify users about the availability of a new post, you can enhance the user experience by incorporating a notification badge on the link or button leading to the announcement page.&#x20;
