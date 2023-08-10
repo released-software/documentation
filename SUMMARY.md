@@ -27,6 +27,7 @@
   * [General](product-tour/settings/general.md)
   * [Announcement Page](product-tour/settings/announcement-page.md)
   * [Widget](product-tour/settings/widget.md)
+  * [Artificial Intelligence](product-tour/settings/artificial-intelligence.md)
 * [Permissions](product-tour/permissions.md)
 
 ## Integrations
