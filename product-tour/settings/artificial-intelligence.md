@@ -30,4 +30,34 @@ Enhance your prompt by incorporating issue-specific instructions, customizing th
 
 Issue specific prompts provide you the flexibility to adopt a playful tone while crafting feature descriptions and maintain a professional tone when communicating security vulnerabilities.
 
+### Format
+
+The formatting option empowers you to tailor the length of the generated description. For instance, bug-fixes usually warrant succinct, one-sentence explanations, while major features can be elaborated upon with a couple of paragraphs.
+
+### Tone of voice
+
+The _Tone of Voice_ settings let you customize how Released writes. You can configure the tone of voice via the issue specific prompt settings. There, you'll see an option that looks something like this:
+
+
+
+{% hint style="info" %}
+Incorporating a tone of voice will guide Released towards a particular writing style, yet it doesn't ensure that all your content will strictly adhere to that tone. For instance, opting for the Humorous tone will infuse elements of humor into the article, but Released can not guarantee that the output will be a comedic masterpiece.
+{% endhint %}
+
+### Custom prompt
+
+With the custom prompt option, you can go beyond the pre-configured choices to personalize formatting and tone of voice according to your preferences. Additionally, feel free to include any extra instructions you'd like.
+
+#### Writing a good custom tone
+
+Express custom tones of voice as adjectives.
+
+* <mark style="background-color:green;">Good</mark>: motivational, philosophical, and cheeky.
+* <mark style="background-color:red;">Bad</mark>: injecting humor, projecting authority, and emulating Shakespearean style.
+
+Incorporating conjunctions (such as 'and') is acceptable, although brevity in your tone is preferable for optimal results.
+
+1. <mark style="background-color:green;">Good</mark>: lively and engaging.
+2. <mark style="background-color:red;">Bad</mark>: example is: lively, engaging, concise, inspirational, and authentically genuine.
+
 \
