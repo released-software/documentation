@@ -16,7 +16,7 @@
   * [Drafts](product-tour/posts/drafts.md)
   * [Publishing](product-tour/posts/publishing.md)
 * [Editor](product-tour/editor/README.md)
-  * [Staging Area](product-tour/editor/staging-area.md)
+  * [Filter And Staging Area](product-tour/editor/staging-area.md)
   * [AI Generate](product-tour/editor/ai-generate.md)
   * [Versions](product-tour/editor/versions.md)
   * [Categories](product-tour/editor/categories.md)

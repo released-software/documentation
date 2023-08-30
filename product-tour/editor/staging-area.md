@@ -4,7 +4,7 @@ description: >-
   incorporate them into your announcement in seconds.
 ---
 
-# Staging Area
+# Filter And Staging Area
 
 <figure><img src="../../.gitbook/assets/Filter.png" alt=""><figcaption><p>Issue filter in the staging area</p></figcaption></figure>
 
@@ -18,7 +18,7 @@ If you're unable to locate a particular feature that you were expecting to see i
 
 ### Available filters
 
-<table><thead><tr><th width="260.5">Filter</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>Resolved since</strong> </td><td>Include issues resolved since a specific date.</td><td></td></tr><tr><td><strong>With fix for version</strong> </td><td>Include issues with a specific fix for version. </td><td></td></tr><tr><td><strong>Label</strong></td><td>Include issues with a specific label.</td><td></td></tr><tr><td><strong>Issue type</strong></td><td>Include specific types of issues.</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="260.5">Filter</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>Resolved since</strong> </td><td>Include issues resolved since a specific date.</td><td></td></tr><tr><td><strong>With fix for version</strong> </td><td>Include issues with a specific fix for version. </td><td></td></tr><tr><td><strong>Label</strong></td><td>Include issues with a specific label.</td><td></td></tr><tr><td><strong>Issue type</strong></td><td>Include specific types of issues.</td><td></td></tr><tr><td><strong>Filter</strong></td><td>Include issues that match a given <a href="https://support.atlassian.com/jira-software-cloud/docs/save-your-search-as-a-filter/">Jira filter</a>.</td><td></td></tr></tbody></table>
 
 ## Adding issues to the announcement
 
