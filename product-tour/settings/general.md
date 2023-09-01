@@ -12,14 +12,6 @@ description: Customize your release notes project name, what projects to include
 
 Customize the name of your release notes page. Make sure the name is descriptive and clearly identifies what these notes are about. This name is only used internally and doesn't show on the widget or release notes page.&#x20;
 
-### Show powered by Released
-
-Toggle the **Powered by Released** logo mark at the bottom of the widget on or off.&#x20;
-
-{% hint style="info" %}
-This option is only available on paid plans.&#x20;
-{% endhint %}
-
 ## Projects
 
 With the **Projects** setting, you can easily consolidate issues from multiple Jira projects into a unified Release Notes page. This feature provides teams with the flexibility to organize their their work in a project structure that suits them best while effortlessly pulling everything together for a comprehensive release documentation.
