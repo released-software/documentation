@@ -28,6 +28,7 @@
   * [Artificial Intelligence](product-tour/settings/artificial-intelligence.md)
   * [Announcement Page](product-tour/settings/announcement-page.md)
   * [Widget](product-tour/settings/widget.md)
+  * [Confluence](product-tour/settings/confluence.md)
 * [Permissions](product-tour/permissions.md)
 
 ## Integrations

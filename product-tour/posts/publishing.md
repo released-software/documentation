@@ -14,7 +14,7 @@ To publish your post, simply hit the **Publish** button located at the top right
 
 If you have multiple channels set up, you have the choice to publish a post to all channels or to specific channels only.&#x20;
 
-<figure><img src="../../.gitbook/assets/Publish Screen.png" alt=""><figcaption><p>Choose where to publish the post</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Publish Dialog.png" alt=""><figcaption><p>Choose where to publish the post</p></figcaption></figure>
 
 ### In-App Widget
 
@@ -28,6 +28,12 @@ The release page provides a comprehensive overview of all the changes made in on
 **Scenario:** Announcing an upcoming conference. \
 The in-app widget is the perfect channel for these types of temporary announcements. You can choose to publish this announcement to the in-app widget only without it appearing on the public release notes page.&#x20;
 {% endhint %}
+
+### Confluence
+
+Whether you want to share your post for review, publish it to your knowledge base through a third party app like [Scroll Viewport](https://marketplace.atlassian.com/apps/1211636) or [Refined](https://marketplace.atlassian.com/apps/1221322/refined-for-confluence-cloud?hosting=cloud\&tab=overview), or give your go-to-market teams a heads up. Publishing to Confluence makes collaboration a breeze.&#x20;
+
+Specify to which space and page the posts will be published in the [Confluence channel settings](publishing.md#confluence).&#x20;
 
 ## Notifications
 
