@@ -30,12 +30,11 @@
   * [Widget](product-tour/settings/widget.md)
   * [Confluence](product-tour/settings/confluence.md)
 * [Permissions](product-tour/permissions.md)
-
-## Integrations
-
-* [Framer](integrations/framer.md)
-* [Webflow](integrations/webflow.md)
-* [Scroll Viewport](integrations/scroll-viewport.md)
+* [Integrations](product-tour/integrations/README.md)
+  * [Framer](product-tour/integrations/framer.md)
+  * [Webflow](product-tour/integrations/webflow.md)
+  * [Scroll Viewport for Confluence](product-tour/integrations/scroll-viewport-for-confluence.md)
+  * [Aura / Karma for Confluence](product-tour/integrations/aura-karma-for-confluence.md)
 
 ## Resources
 

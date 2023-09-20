@@ -14,7 +14,7 @@ If you aren't familiar with Webflow's custom code embed feature, we recommend yo
 
 ## Get the embed code from Released
 
-1. Follow the [installation instructions](../product-tour/settings/announcement-page.md#installation) to get the embed code within Released.
+1. Follow the [installation instructions](../settings/announcement-page.md#installation) to get the embed code within Released.
 2. Take note of the `<script>` and the `<released-page>` tags. You will require those snippets in the next step.&#x20;
 
 ## Adding the announcement page
@@ -31,7 +31,7 @@ In your Webflow interface.&#x20;
 
 To notify users about the availability of a new post, you can enhance the user experience by incorporating a notification badge on the link or button leading to the announcement page.&#x20;
 
-<figure><img src="../.gitbook/assets/Badge.png" alt="" width="375"><figcaption><p>Add a notification badge to a link or a button.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Badge.png" alt="" width="375"><figcaption><p>Add a notification badge to a link or a button.</p></figcaption></figure>
 
 {% hint style="info" %}
 To add a notification badge, we recommend to add the `<script>` tag in the site's `<head>`tag  instead of in the **Embed** block to ensure it's available on every page. \
@@ -48,7 +48,7 @@ Similar to adding the announcement page, you can add the notification badge via 
 * Move the element next to the link or button where you want to show the badge. Typically in the navigation.&#x20;
 * Use the **2D & 3D transforms** settings to adjust the position of the badge&#x20;
 
-<figure><img src="../.gitbook/assets/Transform Settings.png" alt="" width="375"><figcaption><p>Adjust the position of the badge with the element's transform settings.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Transform Settings.png" alt="" width="375"><figcaption><p>Adjust the position of the badge with the element's transform settings.</p></figcaption></figure>
 
 
 
