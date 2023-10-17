@@ -18,6 +18,10 @@ To enable sharing to Slack, you will need to install Released in your Slack acco
 
 <figure><img src="../../.gitbook/assets/Slack Auth.png" alt=""><figcaption><p>Slack permission dialog</p></figcaption></figure>
 
+{% hint style="info" %}
+If the workspace you wish to connect to is not displayed in the dialog, you have the option to switch your workspace using a dropdown located in the top-right corner of the screen.
+{% endhint %}
+
 ## Sharing a post to Slack
 
 Sharing a post to Slack will post the entire content, not just a link, to the selected Slack channels. Allowing users to read the update right within Slack.&#x20;
