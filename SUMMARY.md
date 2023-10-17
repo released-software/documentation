@@ -33,6 +33,7 @@
 * [Integrations](product-tour/integrations/README.md)
   * [Framer](product-tour/integrations/framer.md)
   * [Webflow](product-tour/integrations/webflow.md)
+  * [Slack](product-tour/integrations/slack.md)
   * [Scroll Viewport for Confluence](product-tour/integrations/scroll-viewport-for-confluence.md)
   * [Aura / Karma for Confluence](product-tour/integrations/aura-karma-for-confluence.md)
 
