@@ -33,7 +33,7 @@ The in-app widget is the perfect channel for these types of temporary announceme
 
 Whether you want to share your post for review, publish it to your knowledge base through a third party app like [Scroll Viewport](https://marketplace.atlassian.com/apps/1211636) or [Refined](https://marketplace.atlassian.com/apps/1221322/refined-for-confluence-cloud?hosting=cloud\&tab=overview), or give your go-to-market teams a heads up. Publishing to Confluence makes collaboration a breeze.&#x20;
 
-Specify to which space and page the posts will be published in the [Confluence channel settings](publishing.md#confluence).&#x20;
+Specify to which space and page the posts will be published in the [Confluence channel settings](../settings/confluence.md).&#x20;
 
 ## Notifications
 
