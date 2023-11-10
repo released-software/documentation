@@ -4,7 +4,30 @@ description: It just takes a couple of steps to get you up and running
 
 # Setup guide
 
+## ① Add release notes to your site or app
 
+Use the pop-up widget or announcement page to showcase your release notes on your website or in your application.&#x20;
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><h3>Install the in-app widget or announcement page</h3></td><td>Embed announcements in your app or site by installing the widget or announcement page code. </td><td></td><td><a href="../../.gitbook/assets/Widget Header 2.png">Widget Header 2.png</a></td><td><a href="embedding-updates-in-your-site-or-app.md">embedding-updates-in-your-site-or-app.md</a></td></tr><tr><td><h3>Add the Released Description Field (optional)</h3></td><td>To view and edit the AI generated descriptions, add the <strong>Released Description</strong> custom field to the issue view.</td><td></td><td><a href="../../.gitbook/assets/Custom Field Config.png">Custom Field Config.png</a></td><td><a href="released-description-field.md">released-description-field.md</a></td></tr></tbody></table>
+{% content-ref url="../../product-tour/settings/widget.md" %}
+[widget.md](../../product-tour/settings/widget.md)
+{% endcontent-ref %}
 
+{% content-ref url="../../product-tour/settings/announcement-page.md" %}
+[announcement-page.md](../../product-tour/settings/announcement-page.md)
+{% endcontent-ref %}
+
+Or leverage one of the many integration to add release notes to your website via Framer, Webflow, Scroll Viewport and more.&#x20;
+
+{% content-ref url="../../product-tour/integrations/" %}
+[integrations](../../product-tour/integrations/)
+{% endcontent-ref %}
+
+##
+
+## ② Add the custom description field (optional)
+
+To view and edit the AI generated descriptions on the Jira ticket, add the **Released Description** custom field to the issue view.
+
+{% content-ref url="released-description-field.md" %}
+[released-description-field.md](released-description-field.md)
+{% endcontent-ref %}

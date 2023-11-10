@@ -5,7 +5,6 @@
 * [Welcome to Released](README.md)
 * [Installing the App](getting-started/installing-the-app.md)
 * [Setup guide](getting-started/setup-guide/README.md)
-  * [Embedding updates in your site or app](getting-started/setup-guide/embedding-updates-in-your-site-or-app.md)
   * [Finding the Channel ID](getting-started/setup-guide/finding-the-channel-id.md)
   * [Released Description Field (optional)](getting-started/setup-guide/released-description-field.md)
 
