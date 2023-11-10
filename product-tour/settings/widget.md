@@ -18,12 +18,16 @@ To add the announcement page to your website, simply follow the installation ins
 
 * Navigate to the Released **Settings** in your Jira project
 * Click the **Widget** menu item.
-* Click the **Installation instructions** at the top right above the preview.&#x20;
+* Click the **Install** button at the bottom of the sidebar.&#x20;
 * Follow the installation instruction in the slide out panel.&#x20;
 
-## Configuration options
+## Overwriting the UI settings
 
-Customize your widget to align with your brand and application design by leveraging the `<released-widget>` properties. Tailor the title, description, colors, positioning, and trigger settings to suit your preferences and create a seamless integration with your app's visual identity.
+You can overwrite the configured styles and settings of the widget by adding custom properties to the embed code. This allows for customizing the styling when embedding the widget in different locations.&#x20;
+
+{% hint style="warning" %}
+When a setting is configured via the properties below, it can no longer be customized via the UI settings.&#x20;
+{% endhint %}
 
 The properties are specified as attributes within the `<released-widget>` custom HTML element.
 

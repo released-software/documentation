@@ -16,12 +16,16 @@ To add the announcement page to your website, simply follow the installation ins
 
 * Navigate to the Released **Settings** in your Jira project
 * Click the **Announcement Page** menu item.&#x20;
-* Click the **Installation instructions** at the top right above the preview.&#x20;
-* Follow the installation instruction in the slide out panel.&#x20;
+* Click the **Install** button at the bottom of the sidebar.&#x20;
+* Follow the installation instruction in the slide out panel.
 
-## Configuration options
+## Overwriting the UI settings
 
-Customize your announcement page to align with your brand design by leveraging the `<released-page>` properties. Tailor the header and color settings to match your website and create a seamless integration with your brands visual identity.
+You can overwrite the configured styles and settings of the page by adding custom properties to the embed code. This allows for customizing the styling when embedding the page in different locations.&#x20;
+
+{% hint style="warning" %}
+When a setting is configured via the properties below, it can no longer be customized via the UI settings.&#x20;
+{% endhint %}
 
 The properties are specified as attributes within the `<released-page>` custom HTML element.
 
