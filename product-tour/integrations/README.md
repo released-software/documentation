@@ -1,5 +1,9 @@
 # Integrations
 
+We have built integrations with some of the most popular tools to make embedding Released into your site even easier.&#x20;
+
+Missing an integration you would love to see? [Let us know about it!](https://released.so/support)&#x20;
+
 {% content-ref url="framer.md" %}
 [framer.md](framer.md)
 {% endcontent-ref %}
