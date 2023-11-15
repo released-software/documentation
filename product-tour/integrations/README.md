@@ -1,6 +1,10 @@
-# Integrations
+---
+description: >-
+  We have built integrations with some of the most popular tools to make
+  embedding Released into your site even easier.
+---
 
-We have built integrations with some of the most popular tools to make embedding Released into your site even easier.&#x20;
+# Integrations
 
 Missing an integration you would love to see? [Let us know about it!](https://released.so/support)&#x20;
 
