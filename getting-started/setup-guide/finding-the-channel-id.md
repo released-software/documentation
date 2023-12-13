@@ -11,7 +11,7 @@ The channel-id uniquely identifies an announcement channel. Since posts can be p
 ## Where can I find the channel ID?
 
 * Navigate to the Released **Settings** in your Jira project
-* Click the **Announcement Page** or **Widget** section (depending on which channel you want to integrate)
+* Select **Announcement Page** or **Widget** in the Channels section (depending on which channel you want to integrate)
 * Find the channel ID in the **Installation Instructions**
 
-<figure><img src="../../.gitbook/assets/Page Channel ID.png" alt=""><figcaption><p>Note down the channel ID highlighted in the embed code</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Channel ID.png" alt=""><figcaption><p>Note down the channel ID highlighted in the embed code</p></figcaption></figure>
