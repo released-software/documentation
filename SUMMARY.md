@@ -25,6 +25,7 @@
 * [Settings](product-tour/settings/README.md)
   * [General](product-tour/settings/general.md)
   * [Artificial Intelligence](product-tour/settings/artificial-intelligence.md)
+  * [Templates](product-tour/settings/templates.md)
   * [Announcement Page](product-tour/settings/announcement-page.md)
   * [Widget](product-tour/settings/widget.md)
   * [Confluence](product-tour/settings/confluence.md)
