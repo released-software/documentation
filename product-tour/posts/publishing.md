@@ -20,6 +20,8 @@ If you have multiple channels set up, you have the choice to publish a post to a
 
 An in-app widget is perfect for users who are actively using your product. Users can quickly and easily see any relevant news while they use your product, without being bombarded with notifications or emails.
 
+[Setting up the in-app widget](../settings/widget.md).
+
 ### Announcement page
 
 The release page provides a comprehensive overview of all the changes made in one place. Using a dedicated release page to showcase your latest product updates can help you build credibility and trust with your customers. By keeping a clear and organized history of your product releases, you show your users that you're constantly working to improve your product and that you take their feedback seriously.&#x20;
@@ -28,6 +30,8 @@ The release page provides a comprehensive overview of all the changes made in on
 **Scenario:** Announcing an upcoming conference. \
 The in-app widget is the perfect channel for these types of temporary announcements. You can choose to publish this announcement to the in-app widget only without it appearing on the public release notes page.&#x20;
 {% endhint %}
+
+[Setting up the announcement page](../settings/announcement-page.md)
 
 ### Confluence
 
