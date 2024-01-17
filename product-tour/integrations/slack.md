@@ -44,3 +44,13 @@ When publishing posts to the widget, page or Confluence, you can continue to edi
 \
 Sharing a post is a one time action. Content posted to Slack can not be unpublished or updated from within Released.&#x20;
 {% endhint %}
+
+## Troubleshooting
+
+### Couldn't share to Slack
+
+Sharing to Slack can happen for multiple reasons. The most common one is a lack of permission to post to the chosen channel.&#x20;
+
+Please check the channel permission and ensure that the Released App is allows to post to the channel. For more details, please refer to the Slack documentation on how to [manage channel posting permissions](https://slack.com/intl/en-gb/help/articles/360004635551-Manage-channel-posting-permissions-).
+
+###
