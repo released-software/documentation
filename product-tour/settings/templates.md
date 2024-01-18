@@ -8,8 +8,8 @@ description: Create consistent product updates in seconds with templates.
 
 Release notes are an essential tool for communicating product updates, bug fixes, and new features to users. To streamline the process of creating effective and consistent release notes, Released features a powerful templating feature. Templates simplify the creation of changelogs, release notes, and other announcements by providing a structured yet customizable framework.
 
-{% embed url="https://www.loom.com/share/224e1f1427d64cb1860af674e9d7f4c9?sid=dbcb5c8c-02c6-42f4-8406-d2b0eb267958" %}
-Release Notes Templates Demo
+{% embed url="https://www.loom.com/share/224e1f1427d64cb1860af674e9d7f4c9?sid=2290b85f-f69c-492e-93ba-61752f948b61" %}
+Release Notes Template Demo
 {% endembed %}
 
 ## Getting Started with Templates
