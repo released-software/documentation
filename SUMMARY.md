@@ -40,3 +40,5 @@
 ## Resources
 
 * [Roadmap](resources/roadmap.md)
+* [How to Guides](resources/how-to-guides/README.md)
+  * [Create output in other languages](resources/how-to-guides/create-output-in-other-languages.md)
