@@ -20,15 +20,15 @@ Please note that depending on the complexity of the prompt and the input, the qu
 
 ## Configuring another language
 
-1. **Access AI Settings**\
-   Navigate to the settings menu in your space
-2.  **Select Artificial Intelligence**
+1. **Access AI settings**\
+   Navigate to the **Settings** menu in your space
+2.  **Select artificial intelligence**
 
-    Within the settings, find the option for "Artificial Intelligence.
-3.  **Choose Custom Prompt**
+    Within the settings, find the option for **Artificial Intelligence**.
+3.  **Choose custom prompt**
 
-    Look for the prompt settings and choose between the base prompt (default) or a custom prompt.
-4.  **Modify Prompt for Japanese Output**\
+    Look for the **Base prompt** settings and choose **Custom**.
+4.  **Modify Prompt to output text in another language**\
     Add instructions to output text in another language (e.g. Japanese). You can adjust not only the language but also the style and other parameters.\
 
 
