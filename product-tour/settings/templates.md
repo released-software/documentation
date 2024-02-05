@@ -4,15 +4,15 @@ description: Create consistent product updates in seconds with templates.
 
 # Templates
 
-## Introduction
-
-Release notes are an essential tool for communicating product updates, bug fixes, and new features to users. To streamline the process of creating effective and consistent release notes, Released features a powerful templating feature. Templates simplify the creation of changelogs, release notes, and other announcements by providing a structured yet customizable framework.
-
 {% embed url="https://www.loom.com/share/224e1f1427d64cb1860af674e9d7f4c9?sid=2290b85f-f69c-492e-93ba-61752f948b61" %}
 Release Notes Template Demo
 {% endembed %}
 
-## Getting Started with Templates
+## Overview
+
+Templates simplify and accelerate the creation of changelogs, release notes, and other announcements, and ensure a consistent experience with every update.&#x20;
+
+## Basics
 
 ### Creating a New Template
 
@@ -29,6 +29,16 @@ Release Notes Template Demo
 3. Modify the template content and placeholders.
 4. Save your changes to update the template.
 
+### Basic Formatting Support
+
+Aside from the above AI blocks, you can use most of the regular blocks available in the standard editor for templates as well. For more details, see the [editor](../editor/ "mention") documentation.
+
+{% hint style="warning" %}
+#### Images
+
+We currently do not support adding images in templates. However, you can add images once the post was generated.&#x20;
+{% endhint %}
+
 <figure><img src="../../.gitbook/assets/Template.png" alt=""><figcaption><p>Template Example</p></figcaption></figure>
 
 ## AI Blocks
@@ -39,21 +49,15 @@ Our template feature includes dynamic placeholders that can be populated using A
 
 Generates a title based on the post content.&#x20;
 
-**Usage**: Type `/` while editing the title field and select **Title** in the AI blocks section.&#x20;
+<table data-header-hidden><thead><tr><th width="174"></th><th></th></tr></thead><tbody><tr><td><strong>Usage</strong></td><td>Type <code>/</code> while editing the title field and select <strong>Title</strong> in the AI blocks section. </td></tr><tr><td><strong>Settings</strong></td><td><ul><li><strong>Custom prompt:</strong> Personalize the title with a custom AI prompt. </li></ul></td></tr></tbody></table>
 
-**Settings:**
-
-* **Custom prompt:** Personalize the title with a custom AI prompt. &#x20;
+&#x20;
 
 ### Introduction
 
 Generates an introduction based on the post content.&#x20;
 
-**Usage**: Type `/` in the content editor and select **Introduction** in the AI blocks section.&#x20;
-
-**Settings:**
-
-* **Custom prompt:** Personalize the introduction with a custom AI prompt. &#x20;
+<table data-header-hidden><thead><tr><th width="174"></th><th></th></tr></thead><tbody><tr><td><strong>Usage</strong></td><td>Type <code>/</code> in the content editor and select <strong>Introduction</strong> in the AI blocks section. </td></tr><tr><td><strong>Settings</strong></td><td><ul><li><strong>Custom prompt:</strong> Personalize the introduction with a custom AI prompt.  </li></ul></td></tr></tbody></table>
 
 ### Issue sections
 
@@ -65,12 +69,7 @@ For example: If the selected issue type was "Story", and the filter for the rele
 We recommend to use this block style for major features and improvements.
 {% endhint %}
 
-**Usage**: Type `/` while editing the title field and select **Issue sections** in the AI blocks section.&#x20;
-
-**Settings:**
-
-* **Issue Types:** Select one or more issue types to include in this block. A description will be generated for every issue of this type that matches the filter criteria for a post.&#x20;
-* **Custom prompt:** Personalize the AI prompt used to generate the description.  &#x20;
+<table data-header-hidden><thead><tr><th width="174"></th><th></th></tr></thead><tbody><tr><td><strong>Usage</strong></td><td>Type <code>/</code> while editing the title field and select <strong>Issue sections</strong> in the AI blocks section. </td></tr><tr><td><strong>Settings</strong></td><td><ul><li><strong>Issue Types:</strong> Select one or more issue types to include in this block. A description will be generated for every issue of this type that matches the filter criteria for a post. </li><li><strong>Custom prompt:</strong> Personalize the AI prompt used to generate the description.   </li></ul></td></tr></tbody></table>
 
 ### Issue lists
 
@@ -82,38 +81,28 @@ For example: If the selection issue type was "Bug", and the filter for the relea
 We recommend to use this block style for bugfixes and small imrovements.&#x20;
 {% endhint %}
 
-**Usage**: Type `/` while editing the title field and select **Issue lists** in the AI blocks section.&#x20;
+<table data-header-hidden><thead><tr><th width="174"></th><th></th></tr></thead><tbody><tr><td><strong>Usage</strong></td><td>Type <code>/</code> while editing the title field and select <strong>Issue lists</strong> in the AI blocks section. </td></tr><tr><td><strong>Settings</strong></td><td><ul><li><strong>Conditional title and description:</strong> This block contains a text area allowing for adding a title and description. If no issues match this section, this text will not be shown. </li><li><strong>Issue Types:</strong> Select one or more issue types to include in this block. A description will be generated for every issue of this type that matches the filter criteria for a post. </li><li><strong>Custom prompt:</strong> Personalize the AI prompt used to generate the description.   </li></ul></td></tr></tbody></table>
 
-**Settings:**
+## Frequently Asked Questions
 
-* **Conditional title and description:** This block contains a text area allowing for adding a title and description. If no issues match this section, this text will not be shown.&#x20;
-* **Issue Types:** Select one or more issue types to include in this block. A description will be generated for every issue of this type that matches the filter criteria for a post.&#x20;
-* **Custom prompt:** Personalize the AI prompt used to generate the description.  &#x20;
+<details>
 
-## Basic Formatting Support
-
-Aside from the above AI blocks, you can use most of the regular blocks available in the standard editor for templates as well. For more details, see the [editor](../editor/ "mention") documentation.
-
-{% hint style="warning" %}
-#### Images
-
-We currently do not support adding images in templates. However, you can add images once the post was generated.&#x20;
-{% endhint %}
-
-## Tips for Effective Release Notes
+<summary>Do you have any tips on how to write effective product updates?</summary>
 
 * **Be Concise**: Use the AI Summary for a quick overview and detailed sections for in-depth information.
 * **Be Clear**: Utilize headings and lists to structure your content for better readability.
 * **Keep it Consistent**: Stick to your template for a uniform look across all release notes.
 
-By leveraging the templating feature, you can efficiently produce professional and comprehensive release notes that keep your users informed and engaged with every product update.
+</details>
 
-## Frequently Asked Questions
+<details>
 
-### What happens if an issue in the template already has a description?
+<summary>What happens if an issue in the template already has a description?</summary>
 
 That depends.
 
 **If the description is stored in a** [released-description-field.md](../../getting-started/setup-guide/released-description-field.md "mention"): Released will use that description in the template and not generate a new description.
 
 **If the description is stored in the issue properties (the default)**: Released will overwrite the description only if a **custom prompt** was used in the template. &#x20;
+
+</details>
