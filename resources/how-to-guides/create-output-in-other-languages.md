@@ -1,5 +1,7 @@
 # 🤖 Create output in other languages
 
+## Overview
+
 The AI models are optimized for use in English, but many of them are robust enough to generate good results for a variety of languages.\
 \
 We have seen good results in the following languages:&#x20;
@@ -18,7 +20,9 @@ We have seen good results in the following languages:&#x20;
 Please note that depending on the complexity of the prompt and the input, the quality of results may vary and it is possible that the language model falls back to English.&#x20;
 {% endhint %}
 
-## Configuring another language
+## Basics
+
+### Configuring another language
 
 1. **Access AI settings**\
    Navigate to the **Settings** menu in your space

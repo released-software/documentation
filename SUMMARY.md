@@ -41,5 +41,6 @@
 
 * [Roadmap](resources/roadmap.md)
 * [How to Guides](resources/how-to-guides/README.md)
+  * [🤖 Include a Documentation Link in the Output](resources/how-to-guides/include-a-documentation-link-in-the-output.md)
   * [🤖 Create output in other languages](resources/how-to-guides/create-output-in-other-languages.md)
   * [📑 How to Apply Atlassian Marketplace App Promo Codes for Cloud](resources/how-to-guides/how-to-apply-atlassian-marketplace-app-promo-codes-for-cloud.md)
