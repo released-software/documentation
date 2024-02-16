@@ -2,17 +2,17 @@
 description: Turn your Jira tickets into engaging descriptions of your improvements
 ---
 
-# AI Generate
+# AI Copywriter
 
 Released takes the summary and description of your Jira issues and turns them into copy for your announcement.&#x20;
 
 ### Generating a description
 
-First, [create](../posts/creating-a-post.md) or edit a post.&#x20;
+First, [create](broken-reference) or edit a post.&#x20;
 
 Then select one ore more issues in the [staging area](staging-area.md) of the post editing view. Once selected, an action toolbar will appear at the top of the sidebar. Click the **Generate** button to generate the descriptions for the selected issues.&#x20;
 
-<figure><img src="../../.gitbook/assets/Generate Toolbar.png" alt=""><figcaption><p>Generate a Released description</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Generate Toolbar.png" alt=""><figcaption><p>Generate a Released description</p></figcaption></figure>
 
 ### Editing the generated description
 

@@ -4,15 +4,34 @@ description: Embed announcements into your app or site
 
 # Widget
 
+<figure><img src="../../.gitbook/assets/Widget - Header.png" alt=""><figcaption><p>Embed Widget Settings</p></figcaption></figure>
+
+## Overview
+
 The announcement widget offers a seamless way to integrate release notes into your application or website. With a simple click on a trigger in form of a link or button, users can access a dialog box displaying the most recent announcements. Additionally, the trigger conveniently displays a badge indicating the presence of new announcements.
 
-## Demo
+## Basics
+
+### Demo
 
 Experience a demo of the widget on [CodePen](https://codepen.io/released/pen/WNaaMNx).
 
-<figure><img src="../../.gitbook/assets/widget.png" alt="" width="375"><figcaption></figcaption></figure>
+### Configuration
 
-## Installation
+The embed widget settings provide a number of options to customize the appearance of the widget.&#x20;
+
+Via the right-hand sidebar settings, you are able to change the title and subtitle, color scheme and locale of the widget.&#x20;
+
+#### Supported locales
+
+🇺🇸 American English \
+🇩🇪 German\
+🇫🇷 French \
+🇪🇸 Spanish\
+🇵🇹 Portuguese \
+🇳🇱 Dutch
+
+### Installation
 
 To add the announcement page to your website, simply follow the installation instructions in the app.&#x20;
 
@@ -21,7 +40,9 @@ To add the announcement page to your website, simply follow the installation ins
 * Click the **Install** button at the bottom of the sidebar.&#x20;
 * Follow the installation instruction in the slide out panel.&#x20;
 
-## Overwriting the UI settings
+## Advanced options
+
+### Overwriting the UI settings
 
 You can overwrite the configured styles and settings of the widget by adding custom properties to the embed code. This allows for customizing the styling when embedding the widget in different locations.&#x20;
 

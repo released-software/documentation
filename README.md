@@ -1,25 +1,13 @@
 ---
 description: >-
-  Keep your customers engaged and in the loop with fantastic looking release
-  notes. Created straight from your Jira tickets.
+  Get an overview of Released's features and integrations, and learn how to use
+  them.
 ---
 
-# Welcome to Released
+# Released Documentation
 
-Say goodbye to the tedious compilation of changes. Released automatically gathers issues related to a release, allowing you to simply drag and drop them into the editor for your announcement.&#x20;
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Installing Released</strong></td><td>Learn how to install and Configure Released.</td><td><a href=".gitbook/assets/Download Cover Image.png">Download Cover Image.png</a></td><td><a href="getting-started/installing-the-app.md">installing-the-app.md</a></td></tr><tr><td><strong>Changelog</strong></td><td>Learn how to write and publish product updates in minutes.</td><td><a href=".gitbook/assets/Changelog Cover Image.png">Changelog Cover Image.png</a></td><td><a href="product-tour/changelog/">changelog</a></td></tr><tr><td><strong>Templates</strong></td><td>Learn how to create a changelog template.</td><td><a href=".gitbook/assets/Template Cover Image.png">Template Cover Image.png</a></td><td><a href="getting-started/setup-guide/">setup-guide</a></td></tr><tr><td><strong>AI settings</strong></td><td>Tailor the updates to your content and style with custom prompts.</td><td><a href=".gitbook/assets/AI Cover Image.png">AI Cover Image.png</a></td><td><a href="product-tour/settings/artificial-intelligence.md">artificial-intelligence.md</a></td></tr><tr><td><strong>Confluence</strong> </td><td>Publish your updates to Confluence.</td><td><a href=".gitbook/assets/Confluence Cover Image.png">Confluence Cover Image.png</a></td><td><a href="product-tour/settings/confluence.md">confluence.md</a></td></tr><tr><td><strong>Setup guide</strong></td><td>Embed the Changelog in your website or app.</td><td><a href=".gitbook/assets/Embed Cover Image.png">Embed Cover Image.png</a></td><td><a href="product-tour/settings/announcement-page.md">announcement-page.md</a></td></tr></tbody></table>
 
-Let our AI copywriter handle the details while you focus on crafting captivating stories for your headline features.&#x20;
+## Released Basics
 
-No matter what you are building, we will make sure that your announcements always look great.
-
-## How Released works
-
-Watch the 90-second introduction video to learn how to compile, write and publish release notes in minutes.&#x20;
-
-{% embed url="https://www.youtube.com/watch?v=cECYo2OhgEU" %}
-Introduction to Released
-{% endembed %}
-
-### Let's get you started!&#x20;
-
-Follow the instructions to install and set up Released.&#x20;
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Creating a Post</strong></td><td>Create a post and select the issues you want to include.</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>AI-generate descriptions</strong></td><td>Turn your Jira description into a release note. </td><td></td><td><a href="product-tour/changelog/editor/ai-generate.md">ai-generate.md</a></td></tr><tr><td><strong>Integrations</strong></td><td>Integrate Released with Slack, Framer, Webflow and more. </td><td></td><td></td></tr></tbody></table>

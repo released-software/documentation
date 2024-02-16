@@ -4,9 +4,13 @@ description: Enable users to filter and subscribe to what they really care about
 
 # Categories
 
+<figure><img src="../../../.gitbook/assets/Category Selector.png" alt=""><figcaption><p>Category selector</p></figcaption></figure>
+
+## Overview
+
 Categories give users the power to filter content and subscribe to the topics that matter to them. By using categories, you can also automate the process of publishing announcements, making it even more effortless.
 
-<figure><img src="../../.gitbook/assets/Category Selector.png" alt=""><figcaption><p>Category selector</p></figcaption></figure>
+## Basics
 
 ### Adding categories
 

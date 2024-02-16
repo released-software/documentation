@@ -31,7 +31,7 @@ Templates simplify and accelerate the creation of changelogs, release notes, and
 
 ### Basic Formatting Support
 
-Aside from the above AI blocks, you can use most of the regular blocks available in the standard editor for templates as well. For more details, see the [editor](../editor/ "mention") documentation.
+Aside from the above AI blocks, you can use most of the regular blocks available in the standard editor for templates as well. For more details, see the [editor](../changelog/editor/ "mention") documentation.
 
 {% hint style="warning" %}
 #### Images
@@ -39,7 +39,7 @@ Aside from the above AI blocks, you can use most of the regular blocks available
 We currently do not support adding images in templates. However, you can add images once the post was generated.&#x20;
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/Template.png" alt=""><figcaption><p>Template Example</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Announcement Page - Header.png" alt=""><figcaption><p>Template Example</p></figcaption></figure>
 
 ## AI Blocks
 

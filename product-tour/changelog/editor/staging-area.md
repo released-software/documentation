@@ -1,26 +1,28 @@
 ---
-description: >-
-  Review features, improvements and bug fixes in the staging area and
-  incorporate them into your announcement in seconds.
+description: Use filters to curate the list of changes for your release
 ---
 
-# Filter And Staging Area
+# Filter and Staging Area
 
-<figure><img src="../../.gitbook/assets/Filter.png" alt=""><figcaption><p>Issue filter in the staging area</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Filter.png" alt=""><figcaption><p>Issue filter in the staging area</p></figcaption></figure>
+
+## Overview
 
 The panel on the right hand side of the post editing view is called the staging area.&#x20;
 
 The staging area makes it a breeze to review issues before they get added to the announcement. Issues are sorted by type, so you can easily spot new features, minor improvements, and bug fixes.
 
-## Filter
+## Basics
+
+### Filter
 
 If you're unable to locate a particular feature that you were expecting to see in the release, don't fret. The filter functionality enables you to customize the display of issues in the staging area.
 
-### Available filters
+#### Available filters
 
 <table><thead><tr><th width="260.5">Filter</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>Resolved since</strong> </td><td>Include issues resolved since a specific date.</td><td></td></tr><tr><td><strong>Version</strong></td><td>Include issues with a specific version. </td><td></td></tr><tr><td><strong>Label</strong></td><td>Include issues with a specific label.</td><td></td></tr><tr><td><strong>Issue type</strong></td><td>Include specific types of issues.</td><td></td></tr><tr><td><strong>Jira Filter</strong></td><td>Include issues that match a given <a href="https://support.atlassian.com/jira-software-cloud/docs/save-your-search-as-a-filter/">Jira filter</a>.</td><td></td></tr></tbody></table>
 
-## Adding issues to the announcement
+### Adding issues to a post
 
 To add an issue to the announcement, simply drag and drop the issue from the staging area into the editor. By default, the summary and the description of the issue will be added.&#x20;
 

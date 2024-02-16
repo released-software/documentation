@@ -6,9 +6,15 @@ description: >-
 
 # Confluence
 
+<figure><img src="../../.gitbook/assets/Confluence Setup.png" alt=""><figcaption><p>Create a Confluence page to publish your posts</p></figcaption></figure>
+
+## Overview
+
 Whether you want to share your post for review, publish it to your knowledge base through a third party app like [Scroll Viewport](https://marketplace.atlassian.com/apps/1211636) or [Refined](https://marketplace.atlassian.com/apps/1221322/refined-for-confluence-cloud?hosting=cloud\&tab=overview), or give your go-to-market teams a heads up. Publishing to Confluence makes collaboration a breeze.&#x20;
 
-## Authentication
+## Basics
+
+### Authentication
 
 Before you can publish content to Confluence, you will need to authenticate.&#x20;
 
@@ -16,10 +22,9 @@ Before you can publish content to Confluence, you will need to authenticate.&#x2
 
     Released will ask for permission to view and update content in Confluence on your behalf.&#x20;
 2. Select the Confluence site to which you want to publish in the **Authorize for site** dropdown.
-3. Click **Accept.**\
+3. Click **Accept.**
 
-
-## Create a Confluence page
+### Create a Confluence page
 
 Follow these steps to set up a Confluence page for publishing:
 
@@ -28,8 +33,6 @@ Follow these steps to set up a Confluence page for publishing:
 3. **Specify a Parent Page**: Choose a parent page under which your new page will be nested. If you skip this step, the page will default to the root of the selected space.
 4. Click **Create page**
 
-<figure><img src="../../.gitbook/assets/Confluence Setup.png" alt=""><figcaption><p>Create a Confluence page to publish your posts</p></figcaption></figure>
-
 Once your page is successfully created, your channel is now active. Moving forward, you have a couple of options:
 
 1. **Enable/Disable the channel**: If you prefer not to display this channel in the publish dialog, you can deactivate it.
@@ -37,7 +40,9 @@ Once your page is successfully created, your channel is now active. Moving forwa
 
 <figure><img src="../../.gitbook/assets/Confluence Channel Page.png" alt=""><figcaption><p>Confluence destination page.</p></figcaption></figure>
 
-## Use-cases
+***
+
+### Use-cases
 
 The use-cases for internal updates are endless, but here are a few to get you started.&#x20;
 

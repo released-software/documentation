@@ -22,7 +22,7 @@ Or leverage one of the many integration to add release notes to your website via
 [integrations](../../product-tour/integrations/)
 {% endcontent-ref %}
 
-##
+
 
 ## ② Add the custom description field (optional)
 

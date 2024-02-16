@@ -4,7 +4,15 @@ description: Customise Released's language model
 
 # Artificial Intelligence
 
-The advanced AI prompts of Released have undergone meticulous fine-tuning to produce release notes from an array of Jira issue descriptions. However, achieving a universally perfect prompt catered to every content type remains challenging.
+<figure><img src="../../.gitbook/assets/AI - Header.png" alt=""><figcaption></figcaption></figure>
+
+## Overview&#x20;
+
+The AI settings allow you to tailor the AI to your issue description and adjust the output to your brands tone of voice.&#x20;
+
+## Basics
+
+The advanced AI prompts of Released have undergone meticulous fine-tuning to produce release notes from an array of Jira issue descriptions. However, achieving a universally perfect prompt catered to every content type is challenging.
 
 To guarantee that the AI output meets your expectations, you have the option to personalize the prompt, molding it to suit your distinct content requirements.
 
@@ -12,8 +20,6 @@ To guarantee that the AI output meets your expectations, you have the option to 
 **Custom prompts are not a guarantee**\
 It's important to note that the resulting description might not strictly follow your input. Your personalized prompts serve as navigational tools for guiding Released's content creation in the desired direction, leading to reduced editing efforts. However, it's essential to understand that a custom prompt does not ensure an infallible or guaranteed result.
 {% endhint %}
-
-## AI settings
 
 To access the AI settings, click on **Settings > AI settings** in the sidebar navigation.&#x20;
 
@@ -29,7 +35,7 @@ By default, the issue summary (also known as title), and the description are use
 
 However, if your team uses the description field to capture technical details or just generally content that can not be used to generate a meaningful description, you have to option to select a different field as input.&#x20;
 
-<figure><img src="../../.gitbook/assets/AI input Field Setting.png" alt=""><figcaption><p>AI input field setting</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/AI - Input Field.png" alt=""><figcaption><p>AI input field setting</p></figcaption></figure>
 
 The AI input field dropdown contains all fields of type "Paragraph". Please make sure that the field is configured for all issue types you intend to include in your update.&#x20;
 
@@ -43,16 +49,20 @@ The base prompt is the initial instruction provided to the language model to gui
 \
 To incorporate broad instructions that apply to all types of issues, you can easily customize the base prompt according to your needs.
 
-#### What makes a good custom prompt?
+#### Tips for writing a good base prompt
 
-* **Instructive Language:** Utilize custom prompts as instructional tools, employing metaphors to elucidate intricate ideas. Rather than using requests like "<mark style="background-color:red;">please incorporate metaphors</mark>" or "<mark style="background-color:red;">this changelog needs metaphors</mark>," focus on guiding language like "<mark style="background-color:green;">utilize metaphors to clarify complex concepts.</mark>"
-* **Negation Avoidance:** Keep in mind that language models can struggle with negations. To enhance results, it's advisable to rephrase custom prompts. For instance, instead of "<mark style="background-color:red;">do not include details that aren't relevant</mark>," you're likely to achieve better outcomes with "<mark style="background-color:green;">avoid details that aren't relevant</mark>."
+| Tip                                                                                                                          | ✅ Good                                           | 🚫 Bad                                         |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ---------------------------------------------- |
+| Utilize custom prompts as instructional tools. Focus on guiding language.                                                    | Utilize metapphors to clarify complex concepts.  | Please incorporate metaphors.                  |
+| Keep in mind that language models can struggle with negations. To enhance results, it's advisable to rephrase custom prompts | Avoid details that aren't relevant.              | Do not include details that aren't' relevant.  |
 
 ### Issue specific prompts
 
 Enhance your prompt by incorporating issue-specific instructions, customizing the desired response length, adjusting the tone of voice, or requesting the AI to provide additional context as needed.
 
 Issue specific prompts provide you the flexibility to adopt a playful tone while crafting feature descriptions and maintain a professional tone when communicating security vulnerabilities.
+
+<figure><img src="../../.gitbook/assets/AI- Issue Prompt.png" alt=""><figcaption><p>AI Issue Specific Prompt</p></figcaption></figure>
 
 #### Format
 
@@ -70,16 +80,11 @@ Incorporating a tone of voice will guide Released towards a particular writing s
 
 With the custom prompt option, you can go beyond the pre-configured choices to personalize formatting and tone of voice according to your preferences. Additionally, feel free to include any extra instructions you'd like.
 
-#### Writing a good custom tone prompt
+#### Tips for writing a good custom tone prompt
 
-Express custom tones of voice as adjectives.
-
-* <mark style="background-color:green;">Good</mark>: motivational, philosophical, and cheeky.
-* <mark style="background-color:red;">Bad</mark>: injecting humor, projecting authority, and emulating Shakespearean style.
-
-Incorporating conjunctions (such as 'and') is acceptable, although brevity in your tone is preferable for optimal results.
-
-1. <mark style="background-color:green;">Good</mark>: lively and engaging.
-2. <mark style="background-color:red;">Bad</mark>: example is: lively, engaging, concise, inspirational, and authentically genuine.
+| Tip                                                                                                                        | ✅ Good                                   | 🚫 Bad                                                                           |
+| -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------- |
+| Express custom tones of voice as adjectives.                                                                               | Motivational, philosophical, and cheeky. | Injecting humor, projecting authority, and emulating Shakespearean style.        |
+| Incorporating conjunctions (such as 'and') is acceptable, although brevity in your tone is preferable for optimal results. | Lively and engaging.                     | Example is: lively, engaging, concise, inspirational, and authentically genuine. |
 
 \

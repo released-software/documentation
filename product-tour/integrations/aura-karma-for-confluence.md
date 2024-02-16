@@ -42,5 +42,5 @@ Released is supported natively through [Aura Embed](https://appanvil.atlassian.n
 \
 **Congratulations, you're done 🎉**
 
-New posts published to the [Announcement Page channel](../posts/publishing.md#announcement-page) in Released will now automatically appear in Confluence.&#x20;
+New posts published to the [Announcement Page channel](../changelog/publishing.md#announcement-page) in Released will now automatically appear in Confluence.&#x20;
 

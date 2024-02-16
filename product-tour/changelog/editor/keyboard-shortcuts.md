@@ -1,14 +1,32 @@
+---
+description: Edit faster with keyboard shortcuts
+---
+
 # Keyboard Shortcuts
 
-### Keyboard shortcuts
+## Overview
 
-Most of the core extensions register their own keyboard shortcuts. Depending on what set of extension you use, not all of the below listed keyboard shortcuts work for your editor.
+Keyboard shortcuts significantly enhance efficiency by providing quick and direct access to various functions and commands, saving time and reducing reliance on mouse navigation.
 
-#### Essentials
+## Basics
 
-<table><thead><tr><th width="269.3333333333333">Command</th><th>Windows/Linux</th><th>macOS</th></tr></thead><tbody><tr><td>Copy</td><td><code>Control</code> <code>C</code></td><td><code>Cmd</code> <code>C</code></td></tr><tr><td>Cut</td><td><code>Control</code> <code>X</code></td><td><code>Cmd</code> <code>X</code></td></tr><tr><td>Paste</td><td><code>Control</code> <code>V</code></td><td><code>Cmd</code> <code>V</code></td></tr><tr><td>Paste without formatting</td><td><code>Control</code> <code>Shift</code> <code>V</code></td><td><code>Cmd</code> <code>Shift</code> <code>V</code></td></tr><tr><td>Undo</td><td><code>Control</code> <code>Z</code></td><td><code>Cmd</code> <code>Z</code></td></tr><tr><td>Redo</td><td><code>Control</code> <code>Shift</code> <code>Z</code></td><td><code>Cmd</code> <code>Shift</code> <code>Z</code></td></tr><tr><td>Add a line break</td><td><code>Shift</code> <code>Enter</code></td><td><code>Shift</code> <code>Enter</code></td></tr></tbody></table>
+### Slash "/" Command
 
-#### Text Formatting
+Type `/` at the beginning of a line to open the Slash Command dialog. The dialog presents an ever-expanding list of content blocks for you to choose from. Narrow down the options by typing to filter the list, or select a specific item from the menu to insert the corresponding block into the editor.
+
+<figure><img src="../../../.gitbook/assets/Slash Dialog.png" alt=""><figcaption><p>Slash "/" Command</p></figcaption></figure>
+
+### Toolbar
+
+Moreover, you can utilize the toolbar to easily apply styling to your text. Just highlight the desired word or phrase, and the toolbar will appear, offering a variety of formatting options.
+
+<figure><img src="../../../.gitbook/assets/Toolbar.png" alt=""><figcaption><p>Toolbar</p></figcaption></figure>
+
+### Essentials
+
+<table><thead><tr><th width="269.3333333333333">Command</th><th>Windows/Linux</th><th>macOS</th></tr></thead><tbody><tr><td>Copy</td><td><code>Control</code> <code>C</code></td><td><code>Cmd</code> <code>C</code></td></tr><tr><td>Cut</td><td><code>Control</code> <code>X</code></td><td><code>Cmd</code> <code>X</code></td></tr><tr><td>Paste</td><td><code>Control</code> <code>V</code></td><td><code>Cmd</code> <code>V</code></td></tr><tr><td>Paste without formatting</td><td><code>Control</code> <code>Shift</code> <code>V</code></td><td><code>Cmd</code> <code>Shift</code> <code>V</code></td></tr><tr><td>Undo</td><td><code>Control</code> <code>Z</code></td><td><code>Cmd</code> <code>Z</code></td></tr><tr><td>Redo</td><td><code>Control</code> <code>Shift</code> <code>Z</code></td><td><code>Cmd</code> <code>Shift</code> <code>Z</code></td></tr><tr><td>Add a line break</td><td><code>Shift</code> <code>Enter</code></td><td><code>Shift</code> <code>Enter</code></td></tr><tr><td>Insert a link</td><td><code>Control</code> <code>K</code></td><td><code>Cmd</code> <code>K</code></td></tr></tbody></table>
+
+### Text Formatting
 
 | Command       | Windows/Linux         | macOS             |
 | ------------- | --------------------- | ----------------- |
@@ -18,7 +36,7 @@ Most of the core extensions register their own keyboard shortcuts. Depending on 
 | Strikethrough | `Control` `Shift` `X` | `Cmd` `Shift` `X` |
 | Code          | `Control` `E`         | `Cmd` `E`         |
 
-#### Paragraph Formatting
+### Paragraph Formatting
 
 | Command                 | Windows/Linux         | macOS             |
 | ----------------------- | --------------------- | ----------------- |
@@ -38,7 +56,7 @@ Most of the core extensions register their own keyboard shortcuts. Depending on 
 | Justify                 | `Control` `Shift` `J` | `Cmd` `Shift` `J` |
 | Code block              | `Control` `Alt` `C`   | `Cmd` `Alt` `C`   |
 
-#### Text Selection
+### Text Selection
 
 | Command                                           | Windows/Linux         | macOS             |
 | ------------------------------------------------- | --------------------- | ----------------- |

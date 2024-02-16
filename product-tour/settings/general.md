@@ -1,18 +1,20 @@
 ---
-description: Customize your release notes project name, what projects to include and more
+description: Manage your release notes settings
 ---
 
 # General
 
-<figure><img src="../../.gitbook/assets/General Settings.png" alt=""><figcaption><p>General Settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Settings General - Header.png" alt=""><figcaption><p>General Settings</p></figcaption></figure>
 
-## Release notes page
+## Basics
 
-### Name
+### Changelog page
 
-Customize the name of your release notes page. Make sure the name is descriptive and clearly identifies what these notes are about. This name is only used internally and doesn't show on the widget or release notes page.&#x20;
+#### Name
 
-## Projects
+Customize the name of your changelog page. Make sure the name is descriptive and clearly identifies what these posts are about. This name is only used internally and doesn't show on the embedded widget or page.&#x20;
+
+### Projects
 
 With the **Projects** setting, you can easily consolidate issues from multiple Jira projects into a unified Release Notes page. This feature provides teams with the flexibility to organize their their work in a project structure that suits them best while effortlessly pulling everything together for a comprehensive release documentation.
 
