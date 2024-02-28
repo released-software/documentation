@@ -40,7 +40,7 @@
   * [Slack](product-tour/integrations/slack.md)
   * [Scroll Viewport for Confluence](product-tour/integrations/scroll-viewport-for-confluence.md)
   * [Aura / Karma for Confluence](product-tour/integrations/aura-karma-for-confluence.md)
-* [Permissions](product-tour/permissions.md)
+* [Permissions](product-tour/settings/permissions.md)
 
 ## Resources
 

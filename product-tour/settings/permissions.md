@@ -1,6 +1,6 @@
 # Permissions
 
-<figure><img src="../.gitbook/assets/Permissions - Header.png" alt=""><figcaption><p>Limit access to your Space</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Permissions - Header.png" alt=""><figcaption><p>Limit access to your Space</p></figcaption></figure>
 
 ## Overview
 

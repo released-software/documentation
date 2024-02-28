@@ -35,4 +35,4 @@ A Space can be either:
 * **Open**, everyone with access to the Jira site can view and edit content in the Space.&#x20;
 * **Restricted**, only users with access to the linked Jira project(s) can view and edit content in this space, depending on their level of access in the Jira project(s).&#x20;
 
-For more details on access and the required Jira permissions. See the [Permissions](../permissions.md) guide.
+For more details on access and the required Jira permissions. See the [Permissions](permissions.md) guide.
