@@ -1,6 +1,6 @@
 # Permissions
 
-<figure><img src="../../.gitbook/assets/Permissions - Header.png" alt=""><figcaption><p>Limit access to your Space</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Permissions - Header.png" alt=""><figcaption><p>Limit access to your Space</p></figcaption></figure>
 
 ## Overview
 
@@ -13,7 +13,7 @@ Released integrates tightly with your project permission in Jira, removing the b
 A Space can be either:
 
 * **Open**, everyone with access to the Jira site can view and edit content in the Space.&#x20;
-* **Restricted by project**, only users with access to the linked Jira project can view and edit content in this space, depending on their level of access in the Jira project.&#x20;
+* **Restricted**, only users with access to the linked Jira project(s) can view and edit content in this space, depending on their level of access in the Jira project(s).&#x20;
 
 ### Required Jira project permissions
 

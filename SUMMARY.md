@@ -27,18 +27,20 @@
 * [Portal (coming soon)](product-tour/portal.md)
 * [Settings](product-tour/settings/README.md)
   * [General](product-tour/settings/general.md)
+  * [Changelog filter](product-tour/settings/changelog-filter.md)
   * [Artificial Intelligence](product-tour/settings/artificial-intelligence.md)
   * [Templates](product-tour/settings/templates.md)
-  * [Announcement Page](product-tour/settings/announcement-page.md)
   * [Widget](product-tour/settings/widget.md)
+  * [Announcement Page](product-tour/settings/announcement-page.md)
   * [Confluence](product-tour/settings/confluence.md)
-  * [Permissions](product-tour/settings/permissions.md)
+  * [Jira issue links](product-tour/settings/jira-issue-links.md)
 * [Integrations](product-tour/integrations/README.md)
   * [Framer](product-tour/integrations/framer.md)
   * [Webflow](product-tour/integrations/webflow.md)
   * [Slack](product-tour/integrations/slack.md)
   * [Scroll Viewport for Confluence](product-tour/integrations/scroll-viewport-for-confluence.md)
   * [Aura / Karma for Confluence](product-tour/integrations/aura-karma-for-confluence.md)
+* [Permissions](product-tour/permissions.md)
 
 ## Resources
 
