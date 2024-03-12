@@ -36,3 +36,17 @@ A Space can be either:
 * **Restricted**, only users with access to the linked Jira project(s) can view and edit content in this space, depending on their level of access in the Jira project(s).&#x20;
 
 For more details on access and the required Jira permissions. See the [Permissions](permissions.md) guide.
+
+### Delete Space
+
+Deleting this Space will move it to the trash. It will be permanently removed after 30 days.&#x20;
+
+<figure><img src="../../.gitbook/assets/Trash - Header.png" alt=""><figcaption></figcaption></figure>
+
+Jira admins can restore or permanently delete a Space from the trash via the App settings:&#x20;
+
+* Click on the global settings (⚙ in the Jira navigation bar) a click on **Apps**.
+* In the left navigation, find the Released section and click on **Trash**.
+* To restore a space, click the **Restore** icon.
+
+\
