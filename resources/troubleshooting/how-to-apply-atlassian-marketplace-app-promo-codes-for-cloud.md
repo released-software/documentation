@@ -4,7 +4,7 @@ description: >-
   tricky. Here is a step-by-step guide to help you get that discount.
 ---
 
-# 📑 How to Apply Atlassian Marketplace App Promo Codes for Cloud
+# How to Apply Atlassian Marketplace App Promo Codes for Cloud
 
 ### 1. Access app settings
 

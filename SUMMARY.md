@@ -44,8 +44,9 @@
 
 ## Resources
 
+* [AI Tips](resources/ai-tips/README.md)
+  * [Create output in other languages](resources/ai-tips/create-output-in-other-languages.md)
+  * [Include a Documentation Link in the Output](resources/ai-tips/include-a-documentation-link-in-the-output.md)
 * [Roadmap](resources/roadmap.md)
-* [How to Guides](resources/how-to-guides/README.md)
-  * [🤖 Include a Documentation Link in the Output](resources/how-to-guides/include-a-documentation-link-in-the-output.md)
-  * [🤖 Create output in other languages](resources/how-to-guides/create-output-in-other-languages.md)
-  * [📑 How to Apply Atlassian Marketplace App Promo Codes for Cloud](resources/how-to-guides/how-to-apply-atlassian-marketplace-app-promo-codes-for-cloud.md)
+* [Troubleshooting](resources/troubleshooting/README.md)
+  * [How to Apply Atlassian Marketplace App Promo Codes for Cloud](resources/troubleshooting/how-to-apply-atlassian-marketplace-app-promo-codes-for-cloud.md)

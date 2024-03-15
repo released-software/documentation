@@ -1,4 +1,4 @@
-# 🤖 Include a Documentation Link in the Output
+# Include a Documentation Link in the Output
 
 ## Overview
 

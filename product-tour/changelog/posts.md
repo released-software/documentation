@@ -13,14 +13,14 @@ To create a new Post, click the **Create post** button in the top right corner o
 Next, select what issues you want to include in your post.&#x20;
 
 {% hint style="info" %}
-A post can include issues from one or multiple projects. If you want to add additional projects, you can configure them in the [#projects](../settings/general.md#projects "mention") settings.
+A post can include issues from one or multiple projects. If you want to add additional projects, you can configure them in the [Changelog filter](../settings/changelog-filter.md) settings.
 {% endhint %}
 
 #### Available filters
 
 Select which issues you want to include in the post.&#x20;
 
-<table><thead><tr><th width="260.5">Filter</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>Resolved since</strong> </td><td>Include issues resolved since a specific date.</td><td></td></tr><tr><td><strong>Version</strong></td><td>Include issues with a specific version. </td><td></td></tr><tr><td><strong>Label</strong></td><td>Include issues with a specific label.</td><td></td></tr><tr><td><strong>Issue type</strong></td><td>Include specific types of issues.</td><td></td></tr><tr><td><strong>Jira Filter</strong></td><td>Include issues that match a given <a href="https://support.atlassian.com/jira-software-cloud/docs/save-your-search-as-a-filter/">Jira filter</a>.</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="260.5">Filter</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>Resolved since</strong> </td><td>Include issues resolved since a specific date.</td><td></td></tr><tr><td><strong>Version</strong></td><td>Include issues with a specific version. </td><td></td></tr><tr><td><strong>Label</strong></td><td>Include issues with a specific label.</td><td></td></tr><tr><td><strong>Issue type</strong></td><td>Include specific types of issues.</td><td></td></tr><tr><td><strong>Jira Filter</strong></td><td>Include issues that match a given <a href="https://support.atlassian.com/jira-software-cloud/docs/save-your-search-as-a-filter/">Jira filter</a>.  </td><td></td></tr></tbody></table>
 
 Click the **Get started** button to create a draft. &#x20;
 

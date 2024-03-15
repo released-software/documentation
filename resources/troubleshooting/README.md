@@ -1,9 +1,9 @@
-# How to Guides
+# Troubleshooting
 
 ## AI & prompt guides
 
-{% content-ref url="create-output-in-other-languages.md" %}
-[create-output-in-other-languages.md](create-output-in-other-languages.md)
+{% content-ref url="../ai-tips/create-output-in-other-languages.md" %}
+[create-output-in-other-languages.md](../ai-tips/create-output-in-other-languages.md)
 {% endcontent-ref %}
 
 ## Atlassian guides

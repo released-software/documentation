@@ -1,4 +1,4 @@
-# 🤖 Create output in other languages
+# Create output in other languages
 
 ## Overview
 
