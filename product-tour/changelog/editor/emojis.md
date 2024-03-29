@@ -2,7 +2,7 @@
 description: Add some fun to your posts with emojis
 ---
 
-# Emojies
+# Emojis
 
 ## Overview
 
