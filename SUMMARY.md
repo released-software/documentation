@@ -22,6 +22,7 @@
     * [Categories](product-tour/changelog/editor/categories.md)
     * [Images](product-tour/changelog/editor/images.md)
     * [Videos](product-tour/changelog/editor/videos.md)
+    * [Emojies](product-tour/changelog/editor/emojies.md)
     * [Keyboard Shortcuts](product-tour/changelog/editor/keyboard-shortcuts.md)
 * [Roadmap (coming soon)](product-tour/roadmap.md)
 * [Portal (coming soon)](product-tour/portal.md)
