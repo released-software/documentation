@@ -18,7 +18,7 @@ While in private beta, Roadmaps are being rolled out progressively to customers 
 
 Once your spot becomes available, an email containing a link to activate roadmaps for your instance will be sent to you. Simply switch on the feature, and it will become available across all your spaces.
 
-<figure><img src="../.gitbook/assets/Roadmaps labs.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Roadmaps labs.png" alt=""><figcaption><p>Enabling the Roadmaps beta</p></figcaption></figure>
 
 ### Creating a roadmap view
 
