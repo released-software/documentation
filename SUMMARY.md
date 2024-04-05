@@ -24,7 +24,7 @@
     * [Videos](product-tour/changelog/editor/videos.md)
     * [Emojis](product-tour/changelog/editor/emojis.md)
     * [Keyboard Shortcuts](product-tour/changelog/editor/keyboard-shortcuts.md)
-* [Roadmap (coming soon)](product-tour/roadmap.md)
+* [Roadmaps (beta)](product-tour/roadmap.md)
 * [Portal (coming soon)](product-tour/portal.md)
 * [Settings](product-tour/settings/README.md)
   * [General](product-tour/settings/general.md)
