@@ -2,13 +2,17 @@
 description: Communicate high level plans with your stakeholders and customers.
 ---
 
-# Roadmaps (beta)
+# Roadmaps (private beta)
 
-<figure><img src="../.gitbook/assets/Roadmap - Header.png" alt=""><figcaption><p>Organise and share your plans with Roadmaps</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Roadmap - Header.png" alt=""><figcaption><p>Organize and share your plans with Roadmaps</p></figcaption></figure>
 
 ## Overview
 
 Create internal or customer facing roadmaps, straight from your Jira issues. Expose as many or as few fields, and create a custom description that best describes your plans. Since all the data is stored on the issue, your roadmap will always be up to date.
+
+## Pre-requisite
+
+To use the roadmaps feature in your Jira instance, please [install the Released app](../getting-started/installing-the-app.md).
 
 ## Basics
 
@@ -30,7 +34,7 @@ Creating a roadmap view only takes a couple of minutes.&#x20;
 4. Click **Create.**
 
 {% hint style="warning" %}
-**Current limitations in the beta**
+**Beta limitation**&#x20;
 
 * Only **Jira Product Discovery** projects are supported right now.
 * You must have a custom status called **"Roadmap"** of type **Select field**. This status is automatically created when you create a project with the "Product discovery" template, but will not exist in a "Blank project". &#x20;
@@ -40,6 +44,12 @@ Please see the Jira Product Discovery documentation on how to [create a custom f
 
 ### Publishing
 
+{% hint style="warning" %}
+**Beta limitation**
+
+The roadmap can only be published to the [page embed](settings/announcement-page.md) view at this stage.&#x20;
+{% endhint %}
+
 To publish your roadmap, click the **Publish** button located in the top right corner. This action will publish the roadmap in its current state.
 
 Currently, the following fields are displayed:
@@ -48,13 +58,9 @@ Currently, the following fields are displayed:
 * **Public description** - an internal field that can be edited inline on the roadmap
 * **Status** - the column status
 
-We are planning to add support for more fields throughout the beta.&#x20;
+Support for more fields will be added throughout the beta period.&#x20;
 
-{% hint style="info" %}
-The roadmap can currently only be published to the [page embed](settings/announcement-page.md) view.&#x20;
-{% endhint %}
-
-Once published you can preview the roadmap in the [page embed](settings/announcement-page.md) settings or wherever you have embedded the changelog. Once a roadmap has been published, a switch will appear on the page embed. Allowing you to navigate between the Changelog and the Roadmap.&#x20;
+Once a roadmap has been published, a switch will appear on the page embed. Allowing you to navigate between the Changelog and the Roadmap.&#x20;
 
 <div data-full-width="false">
 
