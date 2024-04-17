@@ -11,7 +11,7 @@ description: >-
 * Click on the **App** menu item in the top toolbar.&#x20;
 * select **Manage your apps** in the menu dropdown
 
-<figure><img src="../../.gitbook/assets/App menu.png" alt=""><figcaption><p>Manage your apps in JIra</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/App menu.png" alt=""><figcaption><p>Manage your apps in Jira</p></figcaption></figure>
 
 ### 2. Access promotion settings
 
