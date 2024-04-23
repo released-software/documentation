@@ -4,7 +4,7 @@ description: Easily and efficiently share updates with stakeholders and customer
 
 # Changelog
 
-<figure><img src="../../.gitbook/assets/Changelog - Header.png" alt=""><figcaption><p>Use the Changelog to share product updates with stakeholders and customers</p></figcaption></figure>
+{% @arcade/embed flowId="B6LBx5LKwnzZSXLSUAlS" url="https://app.arcade.software/share/B6LBx5LKwnzZSXLSUAlS" %}
 
 ## Overview
 
