@@ -4,9 +4,7 @@ description: Communicate high level plans with your stakeholders and customers.
 
 # Roadmaps (private beta)
 
-{% embed url="https://app.arcade.software/share/VYxBoLsWUIhHkOn97jDM" %}
-Interactive Demo
-{% endembed %}
+{% @arcade/embed flowId="VYxBoLsWUIhHkOn97jDM" url="https://app.arcade.software/share/VYxBoLsWUIhHkOn97jDM" fullWidth="false" %}
 
 ## Overview
 
