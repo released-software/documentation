@@ -4,7 +4,9 @@ description: Communicate high level plans with your stakeholders and customers.
 
 # Roadmaps (private beta)
 
-<figure><img src="../.gitbook/assets/Roadmap - Header.png" alt=""><figcaption><p>Organize and share your plans with Roadmaps</p></figcaption></figure>
+{% embed url="https://app.arcade.software/share/VYxBoLsWUIhHkOn97jDM" %}
+Interactive Demo
+{% endembed %}
 
 ## Overview
 
