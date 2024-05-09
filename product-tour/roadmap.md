@@ -12,7 +12,7 @@ Create internal or customer facing roadmaps, straight from your Jira issues. Exp
 
 ## Pre-requisite
 
-To use the roadmaps feature in your Jira instance, please [install the Released app](../getting-started/installing-the-app.md).
+To use the roadmaps feature in your Jira instance, please [install the Released app](../getting-started/installing-the-app.md) and [create a space](spaces.md) to get started.&#x20;
 
 ## Basics
 
