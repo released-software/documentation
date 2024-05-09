@@ -29,25 +29,28 @@ Once your spot becomes available, an email containing a link to activate roadmap
 Creating a roadmap view only takes a couple of minutes.&#x20;
 
 1. Select **Roadmap** in the sidebar navigation and click on the "Create roadmap" button.&#x20;
-2. Select the projects you want to source issues from.&#x20;
-3. Create your preferred column layout and map the roadmap states to the columns.
+2. Select a field to create your board columns.&#x20;
+3. Create your preferred column layout and map the field options to the columns.
 4. Click **Create.**
+
+### Filters
+
+Use filters to narrow down the issues to show on the roadmap. Use basic filters like _issue type_ or _labels_ or use JQL for more advanced filtering&#x20;
 
 {% hint style="warning" %}
 **Beta limitation**&#x20;
 
-* Only **Jira Product Discovery** projects are supported right now.
-* You must have a custom status called **"Roadmap"** of type **Select field**. This status is automatically created when you create a project with the "Product discovery" template, but will not exist in a "Blank project". &#x20;
-
-Please see the Jira Product Discovery documentation on how to [create a custom field](https://support.atlassian.com/jira-product-discovery/docs/create-and-manage-custom-fields/).
+The board is limited to 100 cards during the early beta. We will increase that limit in the coming weeks. &#x20;
 {% endhint %}
+
+<figure><img src="../.gitbook/assets/Roadmaps - Filter.png" alt=""><figcaption><p>Use JQL to create an advanced filter.</p></figcaption></figure>
 
 ### Publishing
 
 {% hint style="warning" %}
 **Beta limitation**
 
-The roadmap can only be published to the [page embed](settings/announcement-page.md) view at this stage.&#x20;
+The roadmap can only be published to the [page embed](settings/announcement-page.md) view at this stage. See the [installation instruction](settings/announcement-page.md#installation) on how to embed the roadmap in your website or app.
 {% endhint %}
 
 To publish your roadmap, click the **Publish** button located in the top right corner. This action will publish the roadmap in its current state.
