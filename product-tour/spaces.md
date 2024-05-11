@@ -1,7 +1,7 @@
 ---
 description: >-
-  A central place for managing internal and external product communication
-  efficiently.
+  A central place for managing internal and external product communication for
+  your product, project or team.
 ---
 
 # Spaces
