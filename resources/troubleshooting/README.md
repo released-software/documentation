@@ -1,9 +1,7 @@
 # Troubleshooting
 
-## AI & prompt guides
-
-{% content-ref url="../ai-tips/create-output-in-other-languages.md" %}
-[create-output-in-other-languages.md](../ai-tips/create-output-in-other-languages.md)
+{% content-ref url="ensuring-jira-permissions.md" %}
+[ensuring-jira-permissions.md](ensuring-jira-permissions.md)
 {% endcontent-ref %}
 
 ## Atlassian guides
