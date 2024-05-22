@@ -1,7 +1,5 @@
 ---
-description: >-
-  Permission errors be caused by a number of reasons. This page will help you
-  troubleshoots permission issues.
+description: This page will help you troubleshoots errors caused by permission issues.
 ---
 
 # Jira Permissions
