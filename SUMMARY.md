@@ -50,5 +50,5 @@
   * [Include a Documentation Link in the Output](resources/ai-tips/include-a-documentation-link-in-the-output.md)
 * [Roadmap](resources/roadmap.md)
 * [Troubleshooting](resources/troubleshooting/README.md)
-  * [Jira Permissions](resources/troubleshooting/ensuring-jira-permissions.md)
+  * [Permissions Issues](resources/troubleshooting/ensuring-jira-permissions.md)
   * [How to Apply Atlassian Marketplace App Promo Codes for Cloud](resources/troubleshooting/how-to-apply-atlassian-marketplace-app-promo-codes-for-cloud.md)
