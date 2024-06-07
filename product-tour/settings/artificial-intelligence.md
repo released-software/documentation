@@ -8,7 +8,7 @@ description: Customise Released's language model
 
 ## Overview&#x20;
 
-The AI settings allow you to tailor the AI to your issue description and adjust the output to your brands tone of voice.&#x20;
+Use the AI settings to fine-tune the AI-generated descriptions by providing examples that match your brand's unique tone and style. This way, you’ll keep every post consistent and on-brand.
 
 ## Basics
 
