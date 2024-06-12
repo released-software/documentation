@@ -53,3 +53,4 @@
   * [Permissions Issues](resources/troubleshooting/ensuring-jira-permissions.md)
   * [How to Apply Atlassian Marketplace App Promo Codes for Cloud](resources/troubleshooting/how-to-apply-atlassian-marketplace-app-promo-codes-for-cloud.md)
   * [How to Open the developer console to check for errors](resources/troubleshooting/how-to-open-the-developer-console-to-check-for-errors.md)
+  * [Ensuring JavaScript Resource Stability for PCI Compliance](resources/troubleshooting/ensuring-javascript-resource-stability-for-pci-compliance.md)
