@@ -1,12 +1,14 @@
 # Table of contents
 
+## Introduction
+
+* [Overview](README.md)
+* [Concepts](introduction/concepts.md)
+
 ## Getting started
 
-* [Released Documentation](README.md)
 * [Installing Released](getting-started/installing-the-app.md)
-* [Concepts](getting-started/concepts.md)
 * [Setup guide](getting-started/setup-guide/README.md)
-  * [Finding the Channel ID](getting-started/setup-guide/finding-the-channel-id.md)
   * [Released Description Field (optional)](getting-started/setup-guide/released-description-field.md)
 
 ## Product Tour
@@ -48,9 +50,13 @@
 * [AI Tips](resources/ai-tips/README.md)
   * [Create output in other languages](resources/ai-tips/create-output-in-other-languages.md)
   * [Include a Documentation Link in the Output](resources/ai-tips/include-a-documentation-link-in-the-output.md)
-* [Roadmap](resources/roadmap.md)
 * [Troubleshooting](resources/troubleshooting/README.md)
   * [Permissions Issues](resources/troubleshooting/ensuring-jira-permissions.md)
-  * [How to Apply Atlassian Marketplace App Promo Codes for Cloud](resources/troubleshooting/how-to-apply-atlassian-marketplace-app-promo-codes-for-cloud.md)
-  * [How to Open the developer console to check for errors](resources/troubleshooting/how-to-open-the-developer-console-to-check-for-errors.md)
-  * [Ensuring JavaScript Resource Stability for PCI Compliance](resources/troubleshooting/ensuring-javascript-resource-stability-for-pci-compliance.md)
+
+***
+
+* [How-Tos](how-tos/README.md)
+  * [Finding the Channel ID](how-tos/finding-the-channel-id.md)
+  * [Ensuring JavaScript Resource Stability for PCI Compliance](how-tos/ensuring-javascript-resource-stability-for-pci-compliance.md)
+  * [How to Open the developer console to check for errors](how-tos/how-to-open-the-developer-console-to-check-for-errors.md)
+  * [How to Apply Atlassian Marketplace App Promo Codes for Cloud](how-tos/how-to-apply-atlassian-marketplace-app-promo-codes-for-cloud.md)

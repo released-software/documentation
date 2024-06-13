@@ -15,7 +15,7 @@ Released is supported natively through [Aura Embed](https://appanvil.atlassian.n
 ### Prerequisite&#x20;
 
 * [ ] You must have Aura installed in your Confluence instance.&#x20;
-* [ ] [Find the channel ID](../../getting-started/setup-guide/finding-the-channel-id.md) for the announcement page and note it down.&#x20;
+* [ ] [Find the channel ID](../../how-tos/finding-the-channel-id.md) for the announcement page and note it down.&#x20;
 
 ### 1. Create page with Aura macro
 
@@ -32,7 +32,7 @@ Released is supported natively through [Aura Embed](https://appanvil.atlassian.n
 
 ### 3. Enter the Channel ID
 
-* Enter the [Channel ID](../../getting-started/setup-guide/finding-the-channel-id.md) into the "Released URL" field - your release notes should render in the preview on the right once entered.&#x20;
+* Enter the [Channel ID](../../how-tos/finding-the-channel-id.md) into the "Released URL" field - your release notes should render in the preview on the right once entered.&#x20;
 * Press "Save"
 
 ### 4. Publish the page

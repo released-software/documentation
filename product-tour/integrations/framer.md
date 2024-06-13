@@ -12,7 +12,7 @@ This section assumed you are familiar with Framer's code components. If you are 
 
 ## Prerequisite&#x20;
 
-* [ ] [Find the channel ID](../../getting-started/setup-guide/finding-the-channel-id.md) for the announcement page and note it down.&#x20;
+* [ ] [Find the channel ID](../../how-tos/finding-the-channel-id.md) for the announcement page and note it down.&#x20;
 
 ## Adding the embed code
 
@@ -37,7 +37,7 @@ https://framer.com/m/Announcement-page-eOYM.js@Z0mbpA8Z50VzS62QH9dz
 
 The component supports a number of properties that can be configured via the UI to adjust the look and feel.&#x20;
 
-The only mandatory field is the announcement page [Channel Id](../../getting-started/setup-guide/finding-the-channel-id.md).&#x20;
+The only mandatory field is the announcement page [Channel Id](../../how-tos/finding-the-channel-id.md).&#x20;
 
 <figure><img src="../../.gitbook/assets/Framer Component UI.png" alt=""><figcaption><p>Properties of the ReleasedPage Webflow Component</p></figcaption></figure>
 
@@ -57,7 +57,7 @@ Similar to the Page component, Released provides a Badge component that you can 
 https://framer.com/m/Released-badge-UvAC.js@DtpmL9J2ZjCuvy77OuXw
 ```
 
-After adding the component next to your navigation link or button, you will have to enter the [Channel Id](../../getting-started/setup-guide/finding-the-channel-id.md) for the badge in the properties panel.&#x20;
+After adding the component next to your navigation link or button, you will have to enter the [Channel Id](../../how-tos/finding-the-channel-id.md) for the badge in the properties panel.&#x20;
 
 {% hint style="info" %}
 The Channel ID for the Badge and the Page are identical.&#x20;

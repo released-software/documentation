@@ -12,7 +12,7 @@ Released now integrates with Scroll Viewport through their [custom JavaScript in
 
 ### Prerequisite&#x20;
 
-* [ ] [Find the channel ID](../../getting-started/setup-guide/finding-the-channel-id.md) for the announcement page and note it down.&#x20;
+* [ ] [Find the channel ID](../../how-tos/finding-the-channel-id.md) for the announcement page and note it down.&#x20;
 
 ### 1. Create a placeholder page in Confluence&#x20;
 
