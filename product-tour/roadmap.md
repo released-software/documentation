@@ -55,7 +55,7 @@ To add a field to the view, click the `+` icon next to the field names in the **
 
 #### **Title**
 
-The issue Summary field will be used as the default title. The title field is always displayed on both the board and the detailed view and cannot be unchecked. To change the title field, click the “T” icon next to any compatible text field.
+The issue Summary field will be used as the default title. The title field is always displayed on both the board and the detailed view and cannot be unchecked. To change the title field, click the `T` icon next to any compatible text field.
 
 #### **Public description**
 
