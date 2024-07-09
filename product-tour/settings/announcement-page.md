@@ -2,7 +2,7 @@
 description: Embed announcements into your website or documentation
 ---
 
-# Announcement Page
+# Embed Page
 
 <figure><img src="../../.gitbook/assets/Announcement Page - Header.png" alt=""><figcaption><p>Embed Page Settings</p></figcaption></figure>
 
@@ -54,7 +54,7 @@ The properties are specified as attributes within the `<released-page>` custom H
 
 ### Page properties
 
-<table data-full-width="false"><thead><tr><th width="204">Property</th><th width="588">Description</th></tr></thead><tbody><tr><td><code>channel-id</code></td><td>The ID of the release notes channel.</td></tr><tr><td><code>header</code></td><td>Can be "true" or "false". If false, the header with the title and description is hidden. This options allows you use an existing header or create a completely custom header. </td></tr><tr><td><code>cover-images</code></td><td>Can be "true" or "false". Default is "true" and the cover image will be shown. </td></tr><tr><td><code>title</code></td><td>The title of the widget.</td></tr><tr><td><code>sub-title</code></td><td>The subtitle of the widget.</td></tr><tr><td><code>color-scheme</code></td><td>The color scheme to use for the widget. Can be <code>system</code>, <code>dark</code>, or <code>light</code>.</td></tr><tr><td><code>color-primary</code></td><td>The primary UI color. Can be hex, hsl, rgb, or css color name.</td></tr><tr><td><code>top-offset</code></td><td>Expects a number (eg. <code>100</code>) or <code>false</code> as values. <br>A value of <code>100</code> will create an offset of 100 pixels from the top for sticky titles. A value of <code>false</code> will disable sticky titles.</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="204">Property</th><th width="588">Description</th><th data-hidden></th></tr></thead><tbody><tr><td><code>channel-id</code></td><td>The ID of the release notes channel.</td><td></td></tr><tr><td><code>header</code></td><td>Can be <code>true</code> or <code>false</code>. If false, the header with the title and description is hidden. This options allows you use an existing header or create a completely custom header. </td><td></td></tr><tr><td><code>cover-images</code></td><td>Determines whether the cover image will be shown. Can be <code>true</code> or <code>false</code>.  </td><td></td></tr><tr><td><code>title</code></td><td>The title of the widget.</td><td></td></tr><tr><td><code>sub-title</code></td><td>The subtitle of the widget.</td><td></td></tr><tr><td><code>color-scheme</code></td><td>The color scheme to use for the widget. Can be <code>system</code>, <code>dark</code>, or <code>light</code>.</td><td></td></tr><tr><td><code>color-primary</code></td><td>The primary UI color. Can be hex, hsl, rgb, or css color name.</td><td></td></tr><tr><td><code>top-offset</code></td><td>Expects a number (eg. <code>100</code>) or <code>false</code> as values. <br>A value of <code>100</code> will create an offset of 100 pixels from the top for sticky titles. A value of <code>false</code> will disable sticky titles.</td><td></td></tr><tr><td><code>module</code></td><td>Determines with modules to show on the page. Can be <code>changelog</code> , <code>roadmap</code> or <code>all</code>. Defaults to <code>all</code>. </td><td></td></tr></tbody></table>
 
 ### Notification badge
 

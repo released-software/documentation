@@ -33,7 +33,7 @@
   * [Changelog filter](product-tour/settings/changelog-filter.md)
   * [Artificial Intelligence](product-tour/settings/artificial-intelligence.md)
   * [Templates](product-tour/settings/templates.md)
-  * [Embed Widgets](product-tour/settings/widget.md)
+  * [Embed Widget](product-tour/settings/widget.md)
   * [Embed Page](product-tour/settings/announcement-page.md)
   * [Confluence](product-tour/settings/confluence.md)
   * [Jira issue links](product-tour/settings/jira-issue-links.md)
