@@ -1,8 +1,8 @@
 ---
-description: Communicate high level plans with your stakeholders and customers.
+description: Communicate your plans with stakeholders and customers.
 ---
 
-# Roadmaps (beta)
+# Roadmaps
 
 {% @arcade/embed flowId="VYxBoLsWUIhHkOn97jDM" url="https://app.arcade.software/share/VYxBoLsWUIhHkOn97jDM" fullWidth="false" %}
 

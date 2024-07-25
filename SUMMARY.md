@@ -17,7 +17,7 @@
 * [Changelog](product-tour/changelog/README.md)
   * [Creating and Managing Posts](product-tour/changelog/posts.md)
   * [Publishing Updates](product-tour/changelog/publishing.md)
-* [Roadmaps (beta)](product-tour/roadmap.md)
+* [Roadmaps](product-tour/roadmap.md)
 * [Portal (coming soon)](product-tour/portal.md)
 * [Editor](product-tour/editor/README.md)
   * [Filter and Staging Area](product-tour/editor/staging-area.md)
