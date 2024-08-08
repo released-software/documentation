@@ -1,14 +1,12 @@
 ---
-description: Add Release Notes to Confluence with Aura and Karma
+description: Add Released to your Confluence pages with Aura content formatting macros.
 ---
 
-# Aura / Karma for Confluence
+# Aura
 
 [Aura ](https://marketplace.atlassian.com/apps/1221974/aura-content-formatting-macros-tabs-miro-figma-google-html?hosting=cloud\&tab=overview)is the top rated formatting app that allows users to create visually appealing and engaging content in Confluence with a suite of intuitive macros, highlighting important content, providing intuitive navigation, and enhancing readability.
 
-Additionally, Aura offers a free expansion called [Karma](https://marketplace.atlassian.com/apps/1228839/karma-confluence-page-builder-content-formatting-free?hosting=cloud\&tab=overview), which is a simple WYSIWYG page builder that enables users to create engaging Confluence pages quickly using various templates.
-
-## Integrating Released with Aura / Karma
+## Integrating Released with Aura
 
 Released is supported natively through [Aura Embed](https://appanvil.atlassian.net/wiki/spaces/AC/pages/2763784238/Aura+Embed+Cloud), making it a breeze to display your announcement page in Confluence. Set-up takes less than 60 seconds.
 
@@ -17,7 +15,7 @@ Released is supported natively through [Aura Embed](https://appanvil.atlassian.n
 * [ ] You must have Aura installed in your Confluence instance.&#x20;
 * [ ] [Find the channel ID](../../how-tos/finding-the-channel-id.md) for the announcement page and note it down.&#x20;
 
-### 1. Create page with Aura macro
+### 1. Create a page with the Aura macro
 
 * Create a Confluence page where you want your release notes to show up.&#x20;
 * Add the "Aura - Embed" macro to the page.&#x20;

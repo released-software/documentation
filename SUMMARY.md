@@ -42,7 +42,8 @@
   * [Webflow](product-tour/integrations/webflow.md)
   * [Slack](product-tour/integrations/slack.md)
   * [Scroll Viewport for Confluence](product-tour/integrations/scroll-viewport-for-confluence.md)
-  * [Aura / Karma for Confluence](product-tour/integrations/aura-karma-for-confluence.md)
+  * [Aura](product-tour/integrations/aura-karma-for-confluence.md)
+  * [Karma](product-tour/integrations/karma.md)
 * [Permissions Managment](product-tour/settings/permissions.md)
 
 ## Resources
