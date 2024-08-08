@@ -6,10 +6,6 @@ description: Add Released to your Confluence pages with Aura content formatting 
 
 [Aura ](https://marketplace.atlassian.com/apps/1221974/aura-content-formatting-macros-tabs-miro-figma-google-html?hosting=cloud\&tab=overview)is the top rated formatting app that allows users to create visually appealing and engaging content in Confluence with a suite of intuitive macros, highlighting important content, providing intuitive navigation, and enhancing readability.
 
-## Integrating Released with Aura
-
-Released is supported natively through [Aura Embed](https://appanvil.atlassian.net/wiki/spaces/AC/pages/2763784238/Aura+Embed+Cloud), making it a breeze to display your announcement page in Confluence. Set-up takes less than 60 seconds.
-
 ### Prerequisite&#x20;
 
 * [ ] You must have Aura installed in your Confluence instance.&#x20;

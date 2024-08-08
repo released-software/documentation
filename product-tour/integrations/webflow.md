@@ -8,16 +8,16 @@ Webflow lets you create professional, custom websites in a completely visual can
 
 With **Released + Webflow**, you can seamlessly embed a widget or announcement page into your website.&#x20;
 
-## Prerequisite&#x20;
+### Prerequisite&#x20;
 
 If you aren't familiar with Webflow's custom code embed feature, we recommend you watch this their tutorial first: [https://university.webflow.com/lesson/custom-code-embed](https://university.webflow.com/lesson/custom-code-embed)
 
-## Get the embed code from Released
+### 1. Get the embed code from Released
 
 1. Follow the [installation instructions](../settings/announcement-page.md#installation) to get the embed code within Released.
 2. Take note of the `<script>` and the `<released-page>` tags. You will require those snippets in the next step.&#x20;
 
-## Adding the announcement page
+### 2. Adding the announcement page
 
 In your Webflow interface.&#x20;
 
@@ -27,7 +27,7 @@ In your Webflow interface.&#x20;
 4. Click **Save & Close**. The element has now been added.&#x20;
 5. Move it to the section of the page where you want to display the announcement page.&#x20;
 
-## Adding the notification badge
+### 3. Adding the notification badge
 
 To notify users about the availability of a new post, you can enhance the user experience by incorporating a notification badge on the link or button leading to the announcement page.&#x20;
 
@@ -52,7 +52,7 @@ Similar to adding the announcement page, you can add the notification badge via 
 
 
 
-## Video tutorial
+### Video tutorial
 
 Watch a 90 seconds walk through on how to add your release notes to your Webflow site.&#x20;
 

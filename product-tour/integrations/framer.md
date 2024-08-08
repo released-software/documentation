@@ -10,11 +10,11 @@ With **Released + Framer**, you can seamlessly embed a widget or announcement pa
 
 This section assumed you are familiar with Framer's code components. If you are new to code components, we recommend you read this page first: [https://www.framer.com/learn/code-components/](https://www.framer.com/learn/code-components/)
 
-## Prerequisite&#x20;
+### Prerequisite&#x20;
 
 * [ ] [Find the channel ID](../../how-tos/finding-the-channel-id.md) for the announcement page and note it down.&#x20;
 
-## Adding the embed code
+### 1. Adding the embed code
 
 Copy the following code snippet into the `<head>` element of your page.&#x20;
 
@@ -27,7 +27,7 @@ Copy the following code snippet into the `<head>` element of your page.&#x20;
 <script src="https://embed-staging.released.so/1/embed.js"></script>
 ```
 
-## Adding the announcement page component
+### 2. Adding the announcement page component
 
 We have created a announcement page component that you can copy and paste into your Framer design view. Simply select the layer where you want to insert the announcement page and paste the URL below into the layer.&#x20;
 
@@ -45,7 +45,7 @@ The only mandatory field is the announcement page [Channel Id](../../how-tos/fin
 Since the release notes are loaded dynamically, you will need to **publish** the site in order to preview the changes.&#x20;
 {% endhint %}
 
-## Adding the badge component
+### 3. Adding the badge component
 
 To notify users about the availability of a new post, you can enhance the user experience by incorporating a notification badge on the link or button leading to the announcement page.&#x20;
 

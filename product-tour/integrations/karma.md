@@ -6,10 +6,6 @@ description: Integrate Released with the Confluence page builder Karma.
 
 [Karma](https://marketplace.atlassian.com/apps/1228839/karma-confluence-page-builder-content-formatting-free?hosting=cloud\&tab=overview) is an easy to use WYSIWYG page builder that enables users to quickly create engaging Confluence pages.&#x20;
 
-## Integrating Released with Karma
-
-Released is supported natively in Karma, making it a breeze to display your announcement page or roadmaps in Confluence. Set-up takes less than 60 seconds.
-
 ### Prerequisite&#x20;
 
 * [ ] You must have Karma installed in your Confluence instance.&#x20;
