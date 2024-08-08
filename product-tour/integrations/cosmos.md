@@ -6,8 +6,6 @@ description: Integrate Released with Cosmos.
 
 [Cosmos](https://marketplace.atlassian.com/apps/1230540/cosmos-intranet-for-confluence-free?tab=overview\&hosting=cloud) is a centralized, easy-to-search intranet platform for Confluence.
 
-## Integrating Released with Cosmos
-
 ### Prerequisite&#x20;
 
 * [ ] You must have [Cosmos](https://marketplace.atlassian.com/apps/1230540/cosmos-intranet-for-confluence-free?tab=overview\&hosting=cloud) installed in your Confluence instance.&#x20;
