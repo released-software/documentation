@@ -59,7 +59,7 @@ The issue Summary field will be used as the default title. The title field is al
 
 #### **Public description**
 
-The public description  is a special system field that can only be edited within a Released board. It leverages the same rich-text editor as the changelog, allowing you to easily embed images and videos (like Youtube and Loom). \
+The public description is a special <mark style="background-color:yellow;">system field</mark> that can only be edited within a Released board. It leverages the same rich-text editor as the changelog, allowing you to easily embed images and videos (like Youtube and Loom). \
 \
 In the board view, the public description is automatically truncated. To display an alternative description, you can hide the public description field and show a short text field instead.
 
