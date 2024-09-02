@@ -38,7 +38,7 @@
   * [Embed Page](product-tour/settings/announcement-page.md)
   * [Confluence](product-tour/settings/confluence.md)
   * [Jira issue links](product-tour/settings/jira-issue-links.md)
-* [Permissions Managment](product-tour/settings/permissions.md)
+* [Permissions](product-tour/settings/permissions.md)
 * [Integrations](product-tour/integrations/README.md)
   * [Framer](product-tour/integrations/framer.md)
   * [Webflow](product-tour/integrations/webflow.md)
