@@ -27,6 +27,6 @@ If multiple projects are linked to a Space and the user only has access to one o
 
 ### Required Jira admin permissions
 
-To install Released and setup the Released Description custom field, certain administrator permissions are required.&#x20;
+To install Released and setup the Changelog description custom field, certain administrator permissions are required.&#x20;
 
-<table><thead><tr><th width="219">Permission</th><th>Required for</th></tr></thead><tbody><tr><td><strong>Administer projects</strong></td><td>Setting up the <strong>Released Description</strong> custom field.</td></tr><tr><td><strong>Jira administrators</strong></td><td>Installing the Released App.</td></tr></tbody></table>
+<table><thead><tr><th width="219">Permission</th><th>Required for</th></tr></thead><tbody><tr><td><strong>Administer projects</strong></td><td>Setting up the <strong>Changelog description</strong> custom field.</td></tr><tr><td><strong>Jira administrators</strong></td><td>Installing the Released App.</td></tr></tbody></table>

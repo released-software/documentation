@@ -25,7 +25,7 @@ To select multiple issues either:&#x20;
 * Click to select the first issue. Then press `Shift` and click the last issue. This will select the first issue, the last issue, and all issues in between.&#x20;
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/Changelog - Generate button.png" alt="" width="375"><figcaption><p>Generate a Released description</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Changelog - Generate button.png" alt="" width="375"><figcaption><p>Generate a Changelog description</p></figcaption></figure>
 
 <details>
 

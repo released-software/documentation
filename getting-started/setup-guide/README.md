@@ -26,7 +26,7 @@ Or leverage one of the many integration to add release notes to your website via
 
 ## ② Add the custom description field (optional)
 
-To view and edit the AI generated descriptions on the Jira ticket, add the **Released Description** custom field to the issue view.
+To view and edit the AI generated descriptions on the Jira ticket, add the **Changelog description** custom field to the issue view.
 
 {% content-ref url="released-description-field.md" %}
 [released-description-field.md](released-description-field.md)

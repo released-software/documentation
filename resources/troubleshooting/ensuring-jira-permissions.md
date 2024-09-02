@@ -20,7 +20,7 @@ If a project is hidden from Released using App Access rules, you won't be able t
 
 When Released generates a description for you, that description is saved in one of two places:
 
-1. In the [Released description field](../../getting-started/setup-guide/released-description-field.md), if the field is available on the issue type.&#x20;
+1. In the [Changelog description field](../../getting-started/setup-guide/released-description-field.md), if the field is available on the issue type.&#x20;
 2. In the [Issue Entity Property](https://developer.atlassian.com/cloud/jira/platform/jira-entity-properties/), if the description custom field is not available.&#x20;
 
 Since both locations require edit permissions, you will see the message "Not permitted to save some generated descriptions" if you lack permission to edit the issue.
