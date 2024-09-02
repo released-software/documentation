@@ -8,26 +8,27 @@
 ## Getting started
 
 * [Installing Released](getting-started/installing-the-app.md)
-* [Setup guide](getting-started/setup-guide/README.md)
-  * [Released Description Field (optional)](getting-started/setup-guide/released-description-field.md)
+* [Setup Guide](getting-started/setup-guide/README.md)
+  * [Changelog Description Field (optional)](getting-started/setup-guide/released-description-field.md)
 
 ## Product Tour
 
+* [General](product-tour/general/README.md)
+  * [Editor](product-tour/general/editor/README.md)
+    * [Images](product-tour/general/editor/images.md)
+    * [Videos](product-tour/general/editor/videos.md)
+    * [Emojis](product-tour/general/editor/emojis.md)
+    * [Keyboard Shortcuts](product-tour/general/editor/keyboard-shortcuts.md)
+  * [Filter](product-tour/general/staging-area.md)
 * [Spaces](product-tour/spaces.md)
 * [Changelog](product-tour/changelog/README.md)
   * [Creating and Managing Posts](product-tour/changelog/posts.md)
+  * [Writing a Post](product-tour/changelog/writing-a-post.md)
   * [Publishing Updates](product-tour/changelog/publishing.md)
+  * [Categories](product-tour/changelog/categories.md)
+  * [Versions](product-tour/changelog/versions.md)
 * [Roadmaps](product-tour/roadmap.md)
 * [Portal (coming soon)](product-tour/portal.md)
-* [Editor](product-tour/editor/README.md)
-  * [Filter and Staging Area](product-tour/editor/staging-area.md)
-  * [AI Copywriter](product-tour/editor/ai-generate.md)
-  * [Versions](product-tour/editor/versions.md)
-  * [Categories](product-tour/editor/categories.md)
-  * [Images](product-tour/editor/images.md)
-  * [Videos](product-tour/editor/videos.md)
-  * [Emojis](product-tour/editor/emojis.md)
-  * [Keyboard Shortcuts](product-tour/editor/keyboard-shortcuts.md)
 * [Settings](product-tour/settings/README.md)
   * [General](product-tour/settings/general.md)
   * [Changelog filter](product-tour/settings/changelog-filter.md)
@@ -37,6 +38,7 @@
   * [Embed Page](product-tour/settings/announcement-page.md)
   * [Confluence](product-tour/settings/confluence.md)
   * [Jira issue links](product-tour/settings/jira-issue-links.md)
+* [Permissions Managment](product-tour/settings/permissions.md)
 * [Integrations](product-tour/integrations/README.md)
   * [Framer](product-tour/integrations/framer.md)
   * [Webflow](product-tour/integrations/webflow.md)
@@ -45,7 +47,6 @@
   * [Cosmos](product-tour/integrations/cosmos.md)
   * [Karma](product-tour/integrations/karma.md)
   * [Scroll Viewport for Confluence](product-tour/integrations/scroll-viewport-for-confluence.md)
-* [Permissions Managment](product-tour/settings/permissions.md)
 
 ## Resources
 
