@@ -1,4 +1,4 @@
-# Posts
+# Creating and Managing Posts
 
 ## Overview
 
@@ -46,7 +46,7 @@ When you create a new post or make edits to an existing one, a draft is automati
 
 #### Editing a draft
 
-To edit a previously created draft, navigate to the **Changelog** section in your [Space](../spaces.md). All current drafts can be found at the top of the overview page.&#x20;
+To edit a previously created draft, navigate to the **Changelog** section in your [Space](../portals.md). All current drafts can be found at the top of the overview page.&#x20;
 
 Click on a draft to start editing.&#x20;
 

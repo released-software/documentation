@@ -8,7 +8,7 @@ description: Embed announcements into your website or documentation
 
 ## Overview
 
-The announcement page enables you to integrate release notes seamlessly into your website or documentation. You can maintain your existing website header and footer, ensuring a consistent user experience across your site.&#x20;
+The embed page enables you to integrate release notes seamlessly into your website or documentation. You can maintain your existing website header and footer, ensuring a consistent user experience across your site.&#x20;
 
 ## Basics
 

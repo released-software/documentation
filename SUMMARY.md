@@ -9,6 +9,8 @@
 
 * [Installing Released](getting-started/installing-the-app.md)
 * [Setup Guide](getting-started/setup-guide/README.md)
+  * [Embedding the Widget](getting-started/setup-guide/embedding-the-widget.md)
+  * [Embedding the Page](getting-started/setup-guide/embedding-the-page.md)
   * [Changelog Description Field (optional)](getting-started/setup-guide/released-description-field.md)
 
 ## Product Tour
@@ -20,7 +22,7 @@
     * [Emojis](product-tour/general/editor/emojis.md)
     * [Keyboard Shortcuts](product-tour/general/editor/keyboard-shortcuts.md)
   * [Filter](product-tour/general/staging-area.md)
-* [Spaces](product-tour/spaces.md)
+* [Portals](product-tour/portals.md)
 * [Changelog](product-tour/changelog/README.md)
   * [Creating and Managing Posts](product-tour/changelog/posts.md)
   * [Writing a Post](product-tour/changelog/writing-a-post.md)
@@ -37,6 +39,7 @@
   * [Embed Widget](product-tour/settings/widget.md)
   * [Embed Page](product-tour/settings/announcement-page.md)
   * [Confluence](product-tour/settings/confluence.md)
+  * [Email](product-tour/settings/email.md)
   * [Jira issue links](product-tour/settings/jira-issue-links.md)
 * [Permissions](product-tour/settings/permissions.md)
 * [Integrations](product-tour/integrations/README.md)

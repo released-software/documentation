@@ -15,23 +15,22 @@ layout:
 
 # Concepts
 
-<figure><img src="../.gitbook/assets/Space Illustration.png" alt=""><figcaption><p>Roadmaps and Changelogs are organized in Spaces</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Space Illustration.png" alt=""><figcaption><p>Roadmaps and Changelogs are organized in portals</p></figcaption></figure>
 
 ## Basic concepts
 
-### Product Hub
+### ProductHub
 
-The Product Hub is a central location listing all Spaces in your organization. The Product Hub can be accessed via the **Apps** menu item in Jira's top navigation bar. &#x20;
+The ProductHub is a central location listing all portals in your organization. The ProductHub can be accessed via the **Apps** menu item in Jira's top navigation bar.
 
-### Spaces
+### Portals
 
-The Product Hub contains of one or many Spaces. Spaces typically represent products, teams, projects or even a group of customers. Think of a space as your dedicated area to curate and tailor your messaging for a particular audience.
+The ProductHub can contain one or many portals. Portals represent a communication channel for a product, team or for specific customers. Think of a portal as your dedicated space to curate and tailor your product communication to a particular audience.
 
-Each space is equipped with the following features:&#x20;
+Each portal is comes with a number of modules (features):&#x20;
 
 * A Roadmap to effectively communicate your plans
 * A Changelog to share updates
-* A Portal to seamlessly disseminate these plans and updates to internal stakeholders or external customers.
 
 ### Changelog
 

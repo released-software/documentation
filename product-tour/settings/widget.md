@@ -2,13 +2,13 @@
 description: Embed announcements into your app or site
 ---
 
-# Widget
+# Embed Widget
 
 <figure><img src="../../.gitbook/assets/Widget - Header.png" alt=""><figcaption><p>Embed Widget Settings</p></figcaption></figure>
 
 ## Overview
 
-The announcement widget offers a seamless way to integrate release notes into your application or website. With a simple click on a trigger in form of a link or button, users can access a dialog box displaying the most recent announcements. Additionally, the trigger conveniently displays a badge indicating the presence of new announcements.
+The embed widget offers a seamless way to integrate release notes into your application or website. With a simple click on a trigger in form of a link or button, users can access a dialog box displaying the most recent announcements. Additionally, the trigger conveniently displays a badge indicating the presence of new announcements.
 
 ## Basics
 
