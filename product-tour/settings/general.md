@@ -21,8 +21,8 @@ Portals are tightly interwoven with Projects. For that reason, each portals must
 But linked projects provide more than a simple link to projects. They determine:&#x20;
 
 * Access rights to the portals, if restricted (see below)
-* Default projects used for filters&#x20;
-* Which projects the portal's changelog will be displayed in
+* The projects used for filters&#x20;
+* Which projects the portal will be displayed in
 
 {% hint style="info" %}
 If a project administrator does not have view permission for a previously added project, the project name will be obfuscated.
