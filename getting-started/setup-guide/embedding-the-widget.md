@@ -16,7 +16,7 @@ The embed widget offers a seamless way to integrate release notes into your appl
 
 ### **1. Select which modules to include**
 
-Choose whether to embed the Changelog, the Roadmap, or both by selecting which module types to include in the embed.&#x20;
+Choose whether to embed the Changelog, the Roadmap, or both by selecting which modules to include in the embed.&#x20;
 
 <figure><img src="../../.gitbook/assets/Settings - Install instructions.png" alt=""><figcaption><p>Select which modules to include</p></figcaption></figure>
 

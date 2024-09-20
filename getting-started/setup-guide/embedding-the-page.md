@@ -16,7 +16,7 @@ The announcement page enables you to integrate release notes seamlessly into you
 
 ### **1. Select which modules to include**
 
-Choose whether to embed the Changelog, the Roadmap, or both by selecting which module types to include in the embed.&#x20;
+Choose whether to embed the Changelog, the Roadmap, or both by selecting which modules to include in the embed.&#x20;
 
 <figure><img src="../../.gitbook/assets/Settings - Install instructions.png" alt=""><figcaption><p>Select which modules to embed. </p></figcaption></figure>
 
