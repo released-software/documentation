@@ -14,7 +14,13 @@ The embed widget offers a seamless way to integrate release notes into your appl
 
 * [ ] [Copy the channel ID](../../how-tos/finding-the-channel-id.md) for the embed widget.
 
-### **1. Load the widget script**
+### **1. Select which modules to include**
+
+Choose whether to embed the Changelog, the Roadmap, or both by selecting which module types to include in the embed.&#x20;
+
+<figure><img src="../../.gitbook/assets/Settings - Install instructions.png" alt=""><figcaption><p>Select which modules to include</p></figcaption></figure>
+
+### **2. Load the widget script**
 
 Add the following code snippet to the `<head>` section of your site.
 
@@ -22,7 +28,7 @@ Add the following code snippet to the `<head>` section of your site.
 <script src="https://embed-staging.released.so/1/embed.js" defer></script>
 ```
 
-### **2. Place the embed code in your page**
+### **3. Place the embed code in your page**
 
 Add the following code snippet to the `<body>` section of your site. The widget will not be rendered inline, so it does not matter where in the body you position the element.&#x20;
 
@@ -34,7 +40,7 @@ Ensure you replace the `CHANNEL_ID` attribute.
 <released-widget channel-id="CHANNEL_ID"></released-widget>
 ```
 
-### **3. Customize the widget (optional)**
+### **4. Customize the widget (optional)**
 
 Customize the widget to match your brand and app design using the widget properties. Adjust the title and description, or change the colors according to your preferences.
 

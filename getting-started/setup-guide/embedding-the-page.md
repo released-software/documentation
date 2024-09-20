@@ -14,7 +14,13 @@ The announcement page enables you to integrate release notes seamlessly into you
 
 * [ ] [Copy the channel ID](../../how-tos/finding-the-channel-id.md) for the embed widget.
 
-### **1. Load the widget script**
+### **1. Select which modules to include**
+
+Choose whether to embed the Changelog, the Roadmap, or both by selecting which module types to include in the embed.&#x20;
+
+<figure><img src="../../.gitbook/assets/Settings - Install instructions.png" alt=""><figcaption><p>Select which modules to embed. </p></figcaption></figure>
+
+### **2. Load the widget script**
 
 Add the following code snippet to the `<head>` section of your site.
 
@@ -22,7 +28,7 @@ Add the following code snippet to the `<head>` section of your site.
 <script src="https://embed-staging.released.so/1/embed.js" defer></script>
 ```
 
-### **2. Place the embed code in your page**
+### **3. Place the embed code in your page**
 
 Add the following code snippet to the `<body>` section of your site. Unlike the widget, the page content renders where you position the element.
 
@@ -34,7 +40,7 @@ Ensure you replace the `CHANNEL_ID` attribute.
 <released-page channel-id="CHANNEL_ID"></released-page>
 ```
 
-### **3. Add a notification badge (optional)**
+### **4. Add a notification badge (optional)**
 
 To notify users about the availability of a new post, you can enhance the user experience by incorporating a notification badge on the link or button leading to the embedded page. This badge functions similarly to the notification badge found in the widget.
 
@@ -44,7 +50,7 @@ Add the following code snippet to the `<body>` section of your site where you wa
 <released-badge channel-id="CHANNEL_ID"></released-badge>
 ```
 
-### **4. Customize the page (optional)**
+### **5. Customize the page (optional)**
 
 Customize the page to match your brand and app design using the page properties. Adjust the title and description, or change the colors according to your preferences.
 
