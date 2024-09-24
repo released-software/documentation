@@ -25,7 +25,7 @@ Choose whether to embed the Changelog, the Roadmap, or both by selecting which m
 Add the following code snippet to the `<head>` section of your site.
 
 ```markup
-<script src="https://embed-staging.released.so/1/embed.js" defer></script>
+<script src="https://embed.released.so/1/embed.js" defer></script>
 ```
 
 ### **3. Place the embed code in your page**

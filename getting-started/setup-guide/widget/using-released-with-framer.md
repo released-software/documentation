@@ -20,7 +20,7 @@ Copy the following code snippet into the `<head>` element of your page.&#x20;
 4. Insert the following code in the **End of \<head> tag** panel.&#x20;
 
 ```html
-<script src="https://embed-staging.released.so/1/embed.js"></script>
+<script src="https://embed.released.so/1/embed.js"></script>
 ```
 
 Alternatively, you have the option to include the code in the section of the specific page where you wish to display the announcement page. However, considering that you may want to incorporate a notification badge in other sections of the website as well, it is advisable to follow the instructions mentioned above and add it in the General section
