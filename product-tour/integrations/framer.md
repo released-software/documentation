@@ -24,7 +24,7 @@ Copy the following code snippet into the `<head>` element of your page.&#x20;
 4. Insert the following code in the **End of \<head> tag** panel.&#x20;
 
 ```html
-<script src="https://embed-staging.released.so/1/embed.js"></script>
+<script src="https://embed.released.so/1/embed.js"></script>
 ```
 
 ### 2. Adding the announcement page component
