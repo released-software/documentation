@@ -14,7 +14,7 @@ The embed page enables you to integrate release notes seamlessly into your websi
 
 ### Demo
 
-Experience a demo of the widget on [CodePen](https://codepen.io/released/pen/WNaaMNx).
+Experience a demo of the page embed on [CodePen](https://codepen.io/released/pen/WNaaMNx).
 
 ### Configuration
 
