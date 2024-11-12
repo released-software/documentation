@@ -31,7 +31,7 @@ Templates simplify and accelerate the creation of changelogs, release notes, and
 
 ### Basic Formatting Support
 
-Aside from the above AI blocks, you can use most of the regular blocks available in the standard editor for templates as well. For more details, see the [editor](../general/editor/ "mention") documentation.
+Aside from the above AI blocks, you can use most of the regular blocks available in the standard editor for templates as well. For more details, see the [editor](../changelog/editor/ "mention") documentation.
 
 {% hint style="warning" %}
 #### Images

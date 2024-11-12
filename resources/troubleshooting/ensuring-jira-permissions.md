@@ -2,7 +2,7 @@
 description: This page will help you troubleshoots errors caused by permission issues.
 ---
 
-# Jira Permissions
+# Permissions Issues
 
 ## Overview
 
@@ -11,17 +11,29 @@ Released adheres to Jira permissions for viewing and editing issues. Therefore, 
 {% hint style="warning" %}
 **App Access Rules**
 
-Atlassian has introduced [App Access rules](https://support.atlassian.com/security-and-access-policies/docs/block-app-access/) to manage app access to your organization’s data. \
+Atlassian has introduced [App Access rules](https://support.atlassian.com/security-and-access-policies/docs/block-app-access/) to manage app access to your organization’s data.\
 \
 If a project is hidden from Released using App Access rules, you won't be able to interact with it in Released. Add Released to your allowlist or remove it from your blocklist to use Released with your protected Jira projects.
 {% endhint %}
+
+### Required Jira project permissions
+
+To access a portal, users will require **Edit issue** permission in one of the linked projects.
+
+<table><thead><tr><th width="219">Permission</th><th>Required for</th></tr></thead><tbody><tr><td><strong>Edit issues</strong></td><td>Accessing and creating content in a portal.</td></tr></tbody></table>
+
+### Required Jira admin permissions
+
+To install Released and setup the Changelog description custom field, certain administrator permissions are required.
+
+<table><thead><tr><th width="219">Permission</th><th>Required for</th></tr></thead><tbody><tr><td><strong>Administer projects</strong></td><td>Setting up the <strong>Changelog description</strong> custom field.</td></tr><tr><td><strong>Jira administrators</strong></td><td>Installing the Released App.</td></tr></tbody></table>
 
 ### Problem generating descriptions
 
 When Released generates a description for you, that description is saved in one of two places:
 
-1. In the [Changelog description field](../../getting-started/setup-guide/released-description-field.md), if the field is available on the issue type.&#x20;
-2. In the [Issue Entity Property](https://developer.atlassian.com/cloud/jira/platform/jira-entity-properties/), if the description custom field is not available.&#x20;
+1. In the [Changelog description field](../../getting-started/setup-guide/released-description-field.md), if the field is available on the issue type.
+2. In the [Issue Entity Property](https://developer.atlassian.com/cloud/jira/platform/jira-entity-properties/), if the description custom field is not available.
 
 Since both locations require edit permissions, you will see the message "Not permitted to save some generated descriptions" if you lack permission to edit the issue.
 

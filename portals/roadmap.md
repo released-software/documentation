@@ -82,7 +82,7 @@ You can adjust the order in which fields are displayed on the card and in the de
 
 The public description is a Released system field that can not be changed.&#x20;
 
-Click on a card within a Released roadmap view to edit the public description inline. Add text, images or videos to the description. See the [editor](general/editor/ "mention") documentation for details.&#x20;
+Click on a card within a Released roadmap view to edit the public description inline. Add text, images or videos to the description. See the [editor](changelog/editor/ "mention") documentation for details.&#x20;
 
 ### Editing issue details
 

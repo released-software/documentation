@@ -27,5 +27,5 @@ The Changelog is often used for:&#x20;
 * Announcements
 * And many more...
 
-You can use [filters](../general/staging-area.md) to only includes issues that are relevant and customize the [AI settings](../settings/artificial-intelligence.md) to tailor the prompt to your use-case.&#x20;
+You can use [filters](staging-area.md) to only includes issues that are relevant and customize the [AI settings](../settings/artificial-intelligence.md) to tailor the prompt to your use-case.&#x20;
 

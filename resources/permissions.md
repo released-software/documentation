@@ -1,6 +1,10 @@
+---
+hidden: true
+---
+
 # Permissions
 
-<figure><img src="../../.gitbook/assets/Permissions - Header.png" alt=""><figcaption><p>Limit access to your portal</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Permissions - Header.png" alt=""><figcaption><p>Limit access to your portal</p></figcaption></figure>
 
 ## Overview
 
@@ -23,7 +27,7 @@ To access a portal, users will require **Edit issue** permission in one of the l
 If multiple projects are linked to a portal and the user only has access to one of them, they will only be able to view issues from projects they have access within the portal.
 {% endhint %}
 
-<table><thead><tr><th width="219">Permission</th><th>Required for</th></tr></thead><tbody><tr><td><strong>Edit issues</strong></td><td>Editing and publishing a post.</td></tr></tbody></table>
+<table><thead><tr><th width="219">Permission</th><th>Required for</th></tr></thead><tbody><tr><td><strong>Edit issues</strong></td><td>Accessing and creating content in a portal.</td></tr></tbody></table>
 
 ### Required Jira admin permissions
 

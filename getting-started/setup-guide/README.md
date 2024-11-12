@@ -2,27 +2,25 @@
 description: It just takes a couple of steps to get you up and running
 ---
 
-# Setup guide
+# Setup Guide
 
 ## ① Add release notes to your site or app
 
-Use the pop-up widget or announcement page to showcase your release notes on your website or in your application.&#x20;
+Use the pop-up widget or announcement page to showcase your release notes on your website or in your application.
 
-{% content-ref url="../../product-tour/settings/widget.md" %}
-[widget.md](../../product-tour/settings/widget.md)
+{% content-ref url="../../portals/settings/widget.md" %}
+[widget.md](../../portals/settings/widget.md)
 {% endcontent-ref %}
 
-{% content-ref url="../../product-tour/settings/announcement-page.md" %}
-[announcement-page.md](../../product-tour/settings/announcement-page.md)
+{% content-ref url="../../portals/settings/announcement-page.md" %}
+[announcement-page.md](../../portals/settings/announcement-page.md)
 {% endcontent-ref %}
 
-Or leverage one of the many integration to add release notes to your website via Framer, Webflow, Scroll Viewport and more.&#x20;
+Or leverage one of the many integration to add release notes to your website via Framer, Webflow, Scroll Viewport and more.
 
-{% content-ref url="../../product-tour/integrations/" %}
-[integrations](../../product-tour/integrations/)
+{% content-ref url="../../portals/integrations/" %}
+[integrations](../../portals/integrations/)
 {% endcontent-ref %}
-
-
 
 ## ② Add the custom description field (optional)
 

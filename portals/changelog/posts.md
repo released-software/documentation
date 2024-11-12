@@ -51,7 +51,7 @@ To edit a previously created draft, navigate to the **Changelog** section in you
 Click on a draft to start editing.&#x20;
 
 {% hint style="info" %}
-Drafts are only shown to users with edit permission in the linked project if access to the space is restricted. See [permissions ](../settings/permissions.md)for details.
+Drafts are only shown to users with edit permission in the linked project if access to the space is restricted. See [permissions ](../../resources/permissions.md)for details.
 {% endhint %}
 
 #### Saving a draft
