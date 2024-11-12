@@ -36,7 +36,7 @@ Via the right-hand sidebar settings, you are able to change the title and subtit
 To add the announcement page to your website, simply follow the installation instructions in the app.&#x20;
 
 * Navigate to the Released **Settings** in your Jira project
-* Click the **Announcement Page** menu item.&#x20;
+* Click the **Page** menu item in the Design section.&#x20;
 * Click the **Install** button at the bottom of the sidebar.&#x20;
 * Follow the installation instruction in the slide out panel.
 
