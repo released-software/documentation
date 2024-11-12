@@ -1,12 +1,9 @@
 # Table of contents
 
-## Introduction
+## Getting started
 
 * [Overview](README.md)
 * [Concepts](getting-started/concepts.md)
-
-## Getting started
-
 * [Installing Released](getting-started/installing-the-app.md)
 * [Setup Guide](getting-started/setup-guide/README.md)
   * [Embedding the Widget](getting-started/setup-guide/embedding-the-widget.md)
@@ -33,6 +30,7 @@
 * [Portal (coming soon)](product-tour/portal.md)
 * [Settings](product-tour/settings/README.md)
   * [General](product-tour/settings/general.md)
+  * [Access](product-tour/settings/access.md)
   * [Changelog filter](product-tour/settings/changelog-filter.md)
   * [Artificial Intelligence](product-tour/settings/artificial-intelligence.md)
   * [Templates](product-tour/settings/templates.md)

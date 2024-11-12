@@ -28,15 +28,6 @@ But linked projects provide more than a simple link to projects. They determine:
 If a project administrator does not have view permission for a previously added project, the project name will be obfuscated.
 {% endhint %}
 
-### Access&#x20;
-
-A portal can be either:
-
-* **Open**, everyone with access to the Jira site can view and edit content in the portal.&#x20;
-* **Restricted**, only users with access to the linked Jira project(s) can view and edit content in this portal, depending on their level of access in the Jira project(s).&#x20;
-
-For more details on access and the required Jira permissions. See the [Permissions](permissions.md) guide.
-
 ### Delete portal
 
 Deleting this portal will move it to the trash. It will be permanently removed after 30 days.&#x20;
