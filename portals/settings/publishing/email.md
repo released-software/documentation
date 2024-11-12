@@ -4,7 +4,7 @@ description: Deliver new updates as beautifully crafted emails to your customers
 
 # Email
 
-<figure><img src="../../.gitbook/assets/Settings - Email subscribe.png" alt=""><figcaption><p>Users can subscribe to emails on your changelog</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Settings - Email subscribe.png" alt=""><figcaption><p>Users can subscribe to emails on your changelog</p></figcaption></figure>
 
 ## Overview
 

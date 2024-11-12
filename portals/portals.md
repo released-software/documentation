@@ -12,7 +12,7 @@ A portal is made up of two modules:
 
 The changelog and roadmap help teams communicate updates as well as future plans.
 
-Communication happens through the [Product Hub](../getting-started/concepts.md#product-hub), embedded widgets, or additional communication channels such as [Confluence](settings/confluence.md), or [Slack](integrations/slack.md).
+Communication happens through the [Product Hub](../getting-started/concepts.md#product-hub), embedded widgets, or additional communication channels such as [Confluence](settings/publishing/confluence.md), or [Slack](integrations/slack.md).
 
 ## How do portals relate to Jira projects?
 

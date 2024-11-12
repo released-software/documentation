@@ -2,9 +2,9 @@
 description: Embed announcements into your app or site
 ---
 
-# Embed Widget
+# Widget
 
-<figure><img src="../../.gitbook/assets/Widget - Header.png" alt=""><figcaption><p>Embed Widget Settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Widget - Header.png" alt=""><figcaption><p>Embed Widget Settings</p></figcaption></figure>
 
 ## Overview
 

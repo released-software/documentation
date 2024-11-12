@@ -41,7 +41,7 @@ if (vp.source.confluencePageId === "PAGE_ID") {
 Ensure you replace the **Page\_ID** and **CHANNEL\_ID** placeholders with the IDs noted in the previous steps.&#x20;
 {% endhint %}
 
-To customize the look and feel of your release notes page, you can add additional parameters to the `<release-page>` tag in the above snippet. For all available settings, see the [announcement-page.md](../settings/announcement-page.md "mention") documentation.&#x20;
+To customize the look and feel of your release notes page, you can add additional parameters to the `<release-page>` tag in the above snippet. For all available settings, see the [announcement-page.md](../settings/design/announcement-page.md "mention") documentation.&#x20;
 
 3. Lastly, save the changes to your theme.&#x20;
 

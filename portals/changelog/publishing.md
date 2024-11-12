@@ -2,7 +2,7 @@
 description: Publish your Changelog to one ore multiple channels
 ---
 
-# Publishing
+# Publishing Updates
 
 ## Overview
 
@@ -24,7 +24,7 @@ If you have multiple channels set up, you have the choice to publish a post to a
 
 An in-app widget is perfect for users who are actively using your product. Users can quickly and easily see any relevant news while they use your product, without being bombarded with notifications or emails.
 
-[Setting up the in-app widget](../settings/widget.md).
+[Setting up the in-app widget](../settings/design/widget.md).
 
 #### Announcement page
 
@@ -35,17 +35,17 @@ The release page provides a comprehensive overview of all the changes made in on
 The in-app widget is the perfect channel for these types of temporary announcements. You can choose to publish this announcement to the in-app widget only without it appearing on the public release notes page.&#x20;
 {% endhint %}
 
-[Setting up the announcement page](../settings/announcement-page.md)
+[Setting up the announcement page](../settings/design/announcement-page.md)
 
 #### Confluence
 
 {% hint style="warning" %}
-The Confluence channel is only available once the [Confluence integration](../settings/confluence.md) has been configured.&#x20;
+The Confluence channel is only available once the [Confluence integration](../settings/publishing/confluence.md) has been configured.&#x20;
 {% endhint %}
 
 The Confluence channel allows you to publish your post straight to Confluence. Like with other channels, you can update the post in Released and the page in Confluence will automatically be updated once it's published again.&#x20;
 
-You can specify to which space and page the posts will be published in the [Confluence channel settings](../settings/confluence.md).&#x20;
+You can specify to which space and page the posts will be published in the [Confluence channel settings](../settings/publishing/confluence.md).&#x20;
 
 ### Notifications
 

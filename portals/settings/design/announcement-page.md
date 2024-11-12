@@ -2,9 +2,9 @@
 description: Embed announcements into your website or documentation
 ---
 
-# Embed Page
+# Page
 
-<figure><img src="../../.gitbook/assets/Announcement Page - Header.png" alt=""><figcaption><p>Embed Page Settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Announcement Page - Header.png" alt=""><figcaption><p>Embed Page Settings</p></figcaption></figure>
 
 ## Overview
 
@@ -60,7 +60,7 @@ The properties are specified as attributes within the `<released-page>` custom H
 
 To notify users about the availability of a new post, you can enhance the user experience by incorporating a notification badge on the link or button leading to the announcement page. This badge functions similarly to the notification badge found in the widget.
 
-<figure><img src="../../.gitbook/assets/Badge.png" alt="" width="375"><figcaption><p>The notification badge let's users know when a new update is available. </p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Badge.png" alt="" width="375"><figcaption><p>The notification badge let's users know when a new update is available. </p></figcaption></figure>
 
 
 

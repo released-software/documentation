@@ -6,7 +6,7 @@ description: >-
 
 # Confluence
 
-<figure><img src="../../.gitbook/assets/Confluence Setup.png" alt=""><figcaption><p>Create a Confluence page to publish your posts</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Confluence Setup.png" alt=""><figcaption><p>Create a Confluence page to publish your posts</p></figcaption></figure>
 
 ## Overview
 
@@ -38,7 +38,7 @@ Once your page is successfully created, your channel is now active. Moving forwa
 1. **Enable/Disable the channel**: If you prefer not to display this channel in the publish dialog, you can deactivate it.
 2. **Modify destination page**: You can easily alter the destination page where your posts are directed for publishing.
 
-<figure><img src="../../.gitbook/assets/Confluence Channel Page.png" alt=""><figcaption><p>Confluence destination page.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Confluence Channel Page.png" alt=""><figcaption><p>Confluence destination page.</p></figcaption></figure>
 
 ***
 
