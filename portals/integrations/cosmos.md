@@ -24,7 +24,7 @@ description: Integrate Released with Cosmos.
 * Click on "Add Channel ID" in the newly added section on the dashboard.
 * Enter the [Channel ID](../../how-tos/finding-the-channel-id.md) into the "Channel ID" field in the section configuration.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. Save the dashboard configuration
 

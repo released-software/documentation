@@ -61,6 +61,7 @@
 ***
 
 * [How-Tos](how-tos/README.md)
+  * [Product Hub Beta](how-tos/product-hub-beta.md)
   * [Finding the Channel ID](how-tos/finding-the-channel-id.md)
   * [Ensuring JavaScript Resource Stability for PCI Compliance](how-tos/ensuring-javascript-resource-stability-for-pci-compliance.md)
   * [How to Open the developer console to check for errors](how-tos/how-to-open-the-developer-console-to-check-for-errors.md)
