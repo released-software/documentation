@@ -48,4 +48,4 @@ Ensure you replace the `CHANNEL_ID` attribute.
 
 Customize the widget to match your brand and app design using the widget properties. Adjust the title and description, or change the colors according to your preferences.
 
-Please see the documentation for a full list of [configuration options](../../portals/settings/design/widget.md).
+Please see the documentation for a full list of [configuration options](../../workspace/settings/design/widget.md).

@@ -8,18 +8,18 @@ description: It just takes a couple of steps to get you up and running
 
 Use the pop-up widget or announcement page to showcase your release notes on your website or in your application.
 
-{% content-ref url="../../portals/settings/design/widget.md" %}
-[widget.md](../../portals/settings/design/widget.md)
+{% content-ref url="../../workspace/settings/design/widget.md" %}
+[widget.md](../../workspace/settings/design/widget.md)
 {% endcontent-ref %}
 
-{% content-ref url="../../portals/settings/design/announcement-page.md" %}
-[announcement-page.md](../../portals/settings/design/announcement-page.md)
+{% content-ref url="../../workspace/settings/design/announcement-page.md" %}
+[announcement-page.md](../../workspace/settings/design/announcement-page.md)
 {% endcontent-ref %}
 
 Or leverage one of the many integration to add release notes to your website via Framer, Webflow, Scroll Viewport and more.
 
-{% content-ref url="../../portals/integrations/" %}
-[integrations](../../portals/integrations/)
+{% content-ref url="../../workspace/integrations/" %}
+[integrations](../../workspace/integrations/)
 {% endcontent-ref %}
 
 ## ② Add the custom description field (optional)

@@ -17,9 +17,13 @@ layout:
 
 <figure><img src="../.gitbook/assets/Space Illustration.png" alt=""><figcaption><p>Roadmaps and Changelogs are organized in portals</p></figcaption></figure>
 
+### Workspace
+
+Workspaces are where you write release notes and create roadmap views to share with your stakeholders or customers. They act as a control center, letting you decide exactly what gets shared and with whom.
+
 ### Product Hub
 
-The Product Hub is a central location listing your portals. The Product Hub is accessible via _your\_subdomain_.releasedhub.com or via a customer domain if configured.&#x20;
+The Product Hub serves as a central hub for accessing your portals. It can be reached at `your_subdomain.releasedhub.com` or through a custom domain if configured.
 
 ### Portals
 

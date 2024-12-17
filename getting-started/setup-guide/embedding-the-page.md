@@ -58,4 +58,4 @@ Add the following code snippet to the `<body>` section of your site where you wa
 
 Customize the page to match your brand and app design using the page properties. Adjust the title and description, or change the colors according to your preferences.
 
-Please see the documentation for a full list of [configuration options](../../portals/settings/design/announcement-page.md).
+Please see the documentation for a full list of [configuration options](../../workspace/settings/design/announcement-page.md).
