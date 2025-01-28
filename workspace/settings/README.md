@@ -6,7 +6,7 @@ description: Configure Released to work the way you do
 
 Settings allow you to customize which projects to include your release notes, set up your release page and customize your portal.&#x20;
 
-Access the portal settings via the more **Settings** link in the left-hand navigation. &#x20;
+Access the portal settings via the **Settings** link in the left-hand navigation. &#x20;
 
 {% content-ref url="general.md" %}
 [general.md](general.md)
