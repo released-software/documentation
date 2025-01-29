@@ -10,7 +10,30 @@ User verification allows you to securely identify users who access your Released
 
 User verification is a great way to control access while providing a seamless experience for your team and customers.
 
+#### Authentication flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant App Server
+    participant Released API
+    participant Released Portal
+    User->>App Server: Accesses the Released portal
+    App Server->>Released API: Requests auth token (ACCOUNT_ID, USER_EMAIL)
+    Released API-->>App Server: Returns AUTH_TOKEN
+    App Server-->>User: Embeds portal with AUTH_TOKEN
+    User->>Released Portal: Accesses portal with AUTH_TOKEN
+    Released Portal->>Released API: Verifies AUTH_TOKEN
+    Released API-->>Released Portal: Authentication success/failure
+    Released Portal-->>User: Grants or denies access
+
+```
+
+
+
 ## Setting up user verification
+
+
 
 ### 1. Get your shared secret
 
