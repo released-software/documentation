@@ -72,3 +72,7 @@ If you need to rotate your shared secret:
 1. Generate a new secret from the **Verified User Setup** section.
 2. Update your server to use the new secret when generating tokens.
 3. Ensure all requests are updated with new tokens.
+
+### Need Help? <a href="#need-help" id="need-help"></a>
+
+If you run into issues, [contact us](https://released.so/support) and we’ll help you get started.
