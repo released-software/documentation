@@ -76,7 +76,7 @@ console.log(json);
 
 You can find the `SHARED_SECRET` and `ACCOUNT_ID` values in the **User verification** settings in Released. The `CURRENT_USER_EMAIL` value should be filled in dynamically with the details of the authenticated user in your app or site.&#x20;
 
-### 3. Pass the authentication token to released
+### 3. Pass the authentication token with the embed tag
 
 Once you’ve generated the token, include it when embedding your portal:
 
