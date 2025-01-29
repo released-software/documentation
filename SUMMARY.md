@@ -8,6 +8,7 @@
   * [Installing Released](getting-started/setup-guide/installing-the-app.md)
   * [Embedding the Widget](getting-started/setup-guide/embedding-the-widget.md)
   * [Embedding the Page](getting-started/setup-guide/embedding-the-page.md)
+  * [Implementing User Verification](getting-started/setup-guide/implementing-user-verification.md)
   * [Changelog Description Field (optional)](getting-started/setup-guide/released-description-field.md)
 
 ## Global Settings
