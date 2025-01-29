@@ -17,7 +17,7 @@ User verification is a great way to control access while providing a seamless ex
 Firstly, get your shared secret to securely encrypt the user data in the payload.
 
 1. Access the global settings via the **Settings** button in the top right of the Released overview page.&#x20;
-2. Go to the **Verified User Setup** section.&#x20;
+2. Go to the **User verification** section.&#x20;
 3. Copy your **Shared Secret** – this will be used to generate authentication tokens.
 
 {% hint style="warning" %}
@@ -51,7 +51,7 @@ const json = await response.json();
 console.log(json);
 ```
 
-You can find the `SHARED_SECRET` and `ACCOUNT_ID` values in the **Verified User Setup** settings in Released. The `CURRENT_USER_EMAIL` value should be filled in dynamically with the details of the authenticated user in your app or site.&#x20;
+You can find the `SHARED_SECRET` and `ACCOUNT_ID` values in the **User verification** settings in Released. The `CURRENT_USER_EMAIL` value should be filled in dynamically with the details of the authenticated user in your app or site.&#x20;
 
 ### 3. Pass the authentication token to released
 
@@ -69,7 +69,7 @@ When a portal has restricted access, the `AUTH_TOKEN` must be included in the em
 
 If you need to rotate your shared secret:
 
-1. Generate a new secret from the **Verified User Setup** section.
+1. Generate a new secret from the **User verification** section.
 2. Update your server to use the new secret when generating tokens.
 3. Ensure all requests are updated with new tokens.
 
