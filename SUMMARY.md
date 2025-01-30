@@ -59,8 +59,9 @@
 
 * [Permissions](resources/permissions.md)
 * [AI Tips](resources/ai-tips/README.md)
-  * [Create output in other languages](resources/ai-tips/create-output-in-other-languages.md)
+  * [Create Output in Other Languages](resources/ai-tips/create-output-in-other-languages.md)
   * [Include a Documentation Link in the Output](resources/ai-tips/include-a-documentation-link-in-the-output.md)
+  * [Creating Structured Output](resources/ai-tips/creating-structured-output.md)
 * [Troubleshooting](resources/troubleshooting/README.md)
   * [Permissions Issues](resources/troubleshooting/ensuring-jira-permissions.md)
 

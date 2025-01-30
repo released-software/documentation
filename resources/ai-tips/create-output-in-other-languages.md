@@ -1,4 +1,4 @@
-# Create output in other languages
+# Create Output in Other Languages
 
 ## Overview
 
@@ -20,7 +20,7 @@ We have seen good results in the following languages:&#x20;
 Please note that depending on the complexity of the prompt and the input, the quality of results may vary and it is possible that the language model falls back to English.&#x20;
 {% endhint %}
 
-## Basics
+## How to
 
 ### Configuring another language
 

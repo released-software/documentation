@@ -6,7 +6,7 @@ Adding links to in depth articles or documentation is a great way to keep the pr
 
 Using a custom prompts, you can easily incorporate links to other resources and create a consistent structure for your output.&#x20;
 
-## Basics
+## How to
 
 ### Issue description
 
