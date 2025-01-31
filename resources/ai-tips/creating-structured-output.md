@@ -4,6 +4,8 @@
 
 Creating structured output with AI can significantly enhance the consistency and clarity of your results. While AI can sometimes produce unpredictable responses, a well-crafted prompt can help ensure that you receive structured and reliable output every time.
 
+{% embed url="https://www.loom.com/share/187553e06a4a4c42851973370df94fa6?sid=af6aa5ff-0259-4d0d-a8d0-a6a2a15ff24c" %}
+
 ## How to
 
 ### Jira issue description
@@ -44,8 +46,8 @@ Then, it lays out a straightforward structure: you’ll have a title and a parag
 
 &#x3C;p>[Description]&#x3C;/p> 
 &#x3C;!-- Write a single paragraph that: -->
-&#x3C;!-- - Describes what was improved, added, or fixed (&#x3C;Improvement/Change Summary>). -->
-&#x3C;!-- - Explains the impact or benefits for the end-user (&#x3C;End-user Benefits>). -->
+&#x3C;!-- - Describes what was improved, added, or fixed -->
+&#x3C;!-- - Explains the impact or benefits for the end-user -->
 
 &#x3C;h4>Other information&#x3C;/h4> &#x3C;!-- Only show this section if there is other information available. -->
 &#x3C;ul>
