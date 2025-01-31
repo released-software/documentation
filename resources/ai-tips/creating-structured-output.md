@@ -67,6 +67,5 @@ Here are some additional tips to help ensure that AI outputs structured format r
 5. **Test and Iterate**: Don’t hesitate to test different prompts and refine them based on the AI’s responses. Iteration can help you find the most effective way to communicate your needs.
 6. **Encourage Clarity**: Remind the AI to prioritize clarity and conciseness in its responses. Phrases like "keep it simple" or "make it easy to understand" can reinforce this.
 7. **Limit Jargon**: Specify that the AI should minimize technical jargon unless necessary. This helps ensure the output is accessible to a broader audience.
-8. **Feedback Loop**: If possible, provide feedback on the AI’s output. This can help improve future responses by guiding the AI on what worked well and what didn’t.
 
 By incorporating these tips into your prompting strategy, you can enhance the likelihood of receiving structured and reliable output from the AI.
