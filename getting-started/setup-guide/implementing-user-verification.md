@@ -87,6 +87,7 @@ Once you’ve generated the token, include it when embedding your portal:
 
 {% hint style="warning" %}
 When a portal has restricted access, the `AUTH_TOKEN` must be included in the embed code for content to appear.&#x20;
+Only use the embed code with authentication tokens in pages that are not publicly accessible.
 {% endhint %}
 
 ## Rotating your shared secret
