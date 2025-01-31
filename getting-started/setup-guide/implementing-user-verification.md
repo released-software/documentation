@@ -54,7 +54,7 @@ Now you can generate an encrypted `AUTH_TOKEN` to securely identify the user.
 
 Send a **POST** request to the Released token API with your `ACCOUNT_ID` and the `CURRENT_USER_EMAIL`. The API will respond with the `AUTH_TOKEN` for that user.
 
-Include this token in every request to authenticate users accessing your Released portal.
+Include this token in every request to authenticate users accessing your Released portal. The token is valid for seven days. After that, you must generate a new token.
 
 **Example Request (Node.js)**
 
