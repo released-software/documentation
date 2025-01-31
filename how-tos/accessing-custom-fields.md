@@ -18,6 +18,8 @@ Here’s how it works:
 1. **Copy field values** into the description field using automation.
 2. **Adjust your AI prompt** to reference those fields.
 
+{% embed url="https://www.loom.com/share/9b5399472c50409d9ba4edadeb3ed6aa?sid=90e8286b-d0d0-4538-923c-c0ca28b257d5" %}
+
 ## How to
 
 With Jira Automation, you can easily copy values from other fields into the description field used for generating release notes.
