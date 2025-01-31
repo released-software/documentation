@@ -6,7 +6,8 @@ hidden: true
 
 ## Overview
 
-User verification allows you to securely identify users who access your Released portal, widgets, or private pages. By generating an encrypted authentication token on your server, you can ensure that only authorized users gain access.
+User verification allows you to securely identify users who access your private widgets or pages.
+By generating a signed authentication token on your server, you can ensure that only authorized users gain access.
 
 User verification is a great way to control access while providing a seamless experience for your team and customers.
 
