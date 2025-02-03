@@ -6,7 +6,7 @@ description: Customise Released's language model
 
 <figure><img src="../../.gitbook/assets/AI-Header.png" alt=""><figcaption></figcaption></figure>
 
-## Overview&#x20;
+## Overview
 
 Use the AI settings to fine-tune the AI-generated descriptions by providing examples that match your brand's unique tone and style. This way, you’ll keep every post consistent and on-brand.
 
@@ -21,34 +21,34 @@ To guarantee that the AI output meets your expectations, you have the option to 
 It's important to note that the resulting description might not strictly follow your input. Your personalized prompts serve as navigational tools for guiding Released's content creation in the desired direction, leading to reduced editing efforts. However, it's essential to understand that a custom prompt does not ensure an infallible or guaranteed result.
 {% endhint %}
 
-To access the AI settings, click on **Settings > AI settings** in the sidebar navigation.&#x20;
-
-To create the perfect output, Released offers a number of settings to customize the prompt as well as the input source for the AI description.&#x20;
-
-* [AI input field](artificial-intelligence.md#ai-input-field) – customize which field is used as the source for the AI description.
-* [Prompt ](artificial-intelligence.md#prompt-optimization)[optimization](artificial-intelligence.md#prompt-optimization) – provide examples or create a custom prompt which us used across all issue types.&#x20;
-* [Issue specific prompt](artificial-intelligence.md#issue-specific-prompts) – customize the output length or provide an issue type specific prompt .
+To access the AI settings, click on **Settings > Artificial intelligence** in the sidebar navigation.
 
 ### AI input field
 
-By default, the issue summary (also known as title), and the description are used as input for the AI. That's the content it uses to create the public description.&#x20;
+By default, the issue **summary** (also known as title), and the **description** are used as input for the AI. That's the content it uses to create the public description.
 
-However, if your team uses the description field to capture technical details or just generally content that can not be used to generate a meaningful description, you have to option to select a different field as input.&#x20;
+However, if your team uses the **description** field to capture technical details or just generally content that can not be used to generate a meaningful description, you have the option to select a different field as input.
 
 <figure><img src="../../.gitbook/assets/AI Input Field.png" alt=""><figcaption><p>AI input field setting</p></figcaption></figure>
 
-The AI input field dropdown contains all fields of type "Paragraph". Please make sure that the field is configured for all issue types you intend to include in your update.&#x20;
+The AI input field dropdown contains all fields of type "Paragraph". Please make sure that the field is configured for all issue types you intend to include in your update.
 
-{% hint style="warning" %}
-If the field selected for the **AI input field** is not configured for a given issue, the AI will fallback to the standard description field as input. &#x20;
+If the field selected for the **AI input field** is _not available_ on a given issue, the AI will fallback to the standard description field as input.
+
+{% hint style="info" %}
+**Using multiple fields**
+
+Released lets you select a single AI input field, but you can include additional issue fields by copying them into that field using Jira automation. Read the [accessing-custom-fields.md](../../how-tos/accessing-custom-fields.md "mention") guide for more detail.&#x20;
 {% endhint %}
+
+###
 
 ### Prompt optimization
 
-Optimize the AI prompt using one of two modes:&#x20;
+Optimize the AI prompt using one of two modes:
 
-1. **Simple** - The simplest way to optimize your prompt. Provide two description examples that showcase the tone, style, and format for your release notes. The examples should describe one feature. Refer to the defaults as a guide.&#x20;
-2. **Advanced** - For people experiences with prompt engineering. Gives you more control over the prompt that is used to generate the AI description.&#x20;
+1. **Simple** - The simplest way to optimize your prompt. Provide two description examples that showcase the tone, style, and format for your release notes. The examples should describe one feature. Refer to the defaults as a guide.
+2. **Advanced** - For people experiences with prompt engineering. Gives you more control over the prompt that is used to generate the AI description.
 
 ### Issue specific prompts
 
@@ -66,14 +66,12 @@ The formatting option empowers you to tailor the length of the generated descrip
 
 With the custom prompt option, you can go beyond the pre-configured choices to personalize formatting and tone of voice according to your preferences. Additionally, feel free to include any extra instructions you'd like.
 
+## Tips for writing a good base prompt
 
-
-### Tips for writing a good base prompt
-
-| Tip                                                                                                                          | ✅ Good                                                                                                                                            | 🚫 Bad                                                                           |
-| ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| Utilize custom prompts as instructional tools. Focus on guiding language.                                                    | Utilize metaphors to clarify complex concepts.                                                                                                   | Please incorporate metaphors.                                                    |
-| Keep in mind that language models can struggle with negations. To enhance results, it's advisable to rephrase custom prompts | Avoid details that aren't relevant.                                                                                                               | Do not include details that aren't relevant.                                    |
-| Use examples                                                                                                                 | <p>Use the following examples as a guide for writing style and tone of voice: <br><br>Example 1: [Example here]<br>Example 2: [Example here] </p> | No example provides                                                              |
-| Express custom tones of voice as adjectives.                                                                                 | Motivational, philosophical, and cheeky.                                                                                                          | Injecting humor, projecting authority, and emulating Shakespearean style.        |
-| Incorporating conjunctions (such as 'and') is acceptable, although brevity in your tone is preferable for optimal results.   | Lively and engaging.                                                                                                                              | Example is: lively, engaging, concise, inspirational, and authentically genuine. |
+| Tip                                                                                                                          | ✅ Good                                                                                                                                          | 🚫 Bad                                                                           |
+| ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Utilize custom prompts as instructional tools. Focus on guiding language.                                                    | Utilize metaphors to clarify complex concepts.                                                                                                  | Please incorporate metaphors.                                                    |
+| Keep in mind that language models can struggle with negations. To enhance results, it's advisable to rephrase custom prompts | Avoid details that aren't relevant.                                                                                                             | Do not include details that aren't relevant.                                     |
+| Use examples                                                                                                                 | <p>Use the following examples as a guide for writing style and tone of voice:<br><br>Example 1: [Example here]<br>Example 2: [Example here]</p> | No example provides                                                              |
+| Express custom tones of voice as adjectives.                                                                                 | Motivational, philosophical, and cheeky.                                                                                                        | Injecting humor, projecting authority, and emulating Shakespearean style.        |
+| Incorporating conjunctions (such as 'and') is acceptable, although brevity in your tone is preferable for optimal results.   | Lively and engaging.                                                                                                                            | Example is: lively, engaging, concise, inspirational, and authentically genuine. |
