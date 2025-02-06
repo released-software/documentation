@@ -34,15 +34,15 @@ Add the following code snippet to the `<head>` section of your site.
 
 ### **3. Place the embed code in your page**
 
-Add the following code snippet to the `<body>` section of your site. The widget will not be rendered inline, so it does not matter where in the body you position the element.
-
-{% hint style="warning" %}
-Ensure you replace the `CHANNEL_ID` attribute.
-{% endhint %}
+Add the following code snippet to the `<body>` section of your site. The widget will not be rendered inline, so it does not matter where in the body you position the element. Ensure you replace the `CHANNEL_ID` attribute.
 
 ```markup
 <released-widget channel-id="CHANNEL_ID"></released-widget>
 ```
+
+{% hint style="warning" %}
+If your portal has restricted access, you’ll need to [implement user verification](implementing-user-verification.md) and pass the `auth-token="AUTH_TOKEN"` attribute to display content in your embed.
+{% endhint %}
 
 ### **4. Customize the widget (optional)**
 
