@@ -39,7 +39,7 @@ To grant access,  select one of the three available access levels.
 
 <figure><img src="../../.gitbook/assets/Portals - Access level.png" alt="" width="375"><figcaption><p>Portal access levels</p></figcaption></figure>
 
-#### Private&#x20;
+#### Private <mark style="color:orange;">(Coming soon)</mark>
 
 Access to the portal is limited to users within your organization.&#x20;
 
