@@ -20,7 +20,7 @@ Please note that the Product Hub is still in beta. Found bugs or have suggestion
 2. Enter the **Konami code** shown below.&#x20;
 
 {% hint style="info" %}
-When it works correctly, you will see the buttons appear on the screen as shown in the video below (you may have to click anywhere in the page if it doesn't register your keystrokes).&#x20;
+When it works correctly, you will see the buttons appear on the screen as shown in the video below (you may have click anywhere in the page if it doesn't register your keystrokes).&#x20;
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/Konami Code.jpeg" alt=""><figcaption><p>Konami Code</p></figcaption></figure>
