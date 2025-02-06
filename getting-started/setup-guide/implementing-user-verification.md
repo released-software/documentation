@@ -6,7 +6,8 @@ hidden: true
 
 ## Overview
 
-User verification allows you to securely identify users who access your Released portal, widgets, or private pages. By generating an encrypted authentication token on your server, you can ensure that only authorized users gain access.
+User verification allows you to securely identify users who access your private widgets or pages.
+By generating a signed authentication token on your server, you can ensure that only authorized users gain access.
 
 User verification is a great way to control access while providing a seamless experience for your team and customers.
 
@@ -53,7 +54,7 @@ Now you can generate an encrypted `AUTH_TOKEN` to securely identify the user.
 
 Send a **POST** request to the Released token API with your `ACCOUNT_ID` and the `CURRENT_USER_EMAIL`. The API will respond with the `AUTH_TOKEN` for that user.
 
-Include this token in every request to authenticate users accessing your Released portal.
+Include this token in every request to authenticate users accessing your Released portal. The token is valid for seven days. After that, you must generate a new token.
 
 **Example Request (Node.js)**
 
@@ -86,6 +87,7 @@ Once you’ve generated the token, include it when embedding your portal:
 
 {% hint style="warning" %}
 When a portal has restricted access, the `AUTH_TOKEN` must be included in the embed code for content to appear.&#x20;
+Only use the embed code with authentication tokens in pages that are not publicly accessible.
 {% endhint %}
 
 ## Rotating your shared secret
