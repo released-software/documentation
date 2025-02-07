@@ -69,10 +69,10 @@
 
 * [How-Tos](how-tos/README.md)
   * [Product Hub Beta](how-tos/product-hub-beta.md)
+  * [Accessing Custom Fields](how-tos/accessing-custom-fields.md)
   * [Configuring Dark Mode](how-tos/configuring-dark-mode.md)
   * [Finding the Channel ID](how-tos/finding-the-channel-id.md)
   * [Ensuring JavaScript Resource Stability for PCI Compliance](how-tos/ensuring-javascript-resource-stability-for-pci-compliance.md)
   * [How to Open the developer console to check for errors](how-tos/how-to-open-the-developer-console-to-check-for-errors.md)
   * [How to Apply Atlassian Marketplace App Promo Codes for Cloud](how-tos/how-to-apply-atlassian-marketplace-app-promo-codes-for-cloud.md)
   * [Configuring Content Security Policies (CSP) for Released Embeds](how-tos/configuring-content-security-policies-csp-for-released-embeds.md)
-  * [Accessing Custom Fields](how-tos/accessing-custom-fields.md)
