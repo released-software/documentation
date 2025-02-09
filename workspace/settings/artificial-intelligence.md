@@ -16,7 +16,7 @@ The advanced AI prompts of Released have undergone meticulous fine-tuning to pro
 
 To guarantee that the AI output meets your expectations, you have the option to personalize the prompt, molding it to suit your distinct content requirements.
 
-{% hint style="info" %}
+{% hint style="warning" %}
 **Custom prompts are not a guarantee**\
 It's important to note that the resulting description might not strictly follow your input. Your personalized prompts serve as navigational tools for guiding Released's content creation in the desired direction, leading to reduced editing efforts. However, it's essential to understand that a custom prompt does not ensure an infallible or guaranteed result.
 {% endhint %}
@@ -40,8 +40,6 @@ If the field selected for the **AI input field** is _not available_ on a given i
 
 Released lets you select a single AI input field, but you can include additional issue fields by copying them into that field using Jira automation. Read the [accessing-custom-fields.md](../../how-tos/accessing-custom-fields.md "mention") guide for more detail.&#x20;
 {% endhint %}
-
-###
 
 ### Prompt optimization
 
