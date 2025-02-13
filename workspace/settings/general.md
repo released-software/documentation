@@ -8,6 +8,10 @@ description: Manage your workspace settings
 
 ## Basics
 
+### Logo
+
+Uploading a logo helps personalize your workspace and create a consistent brand identity. Your logo will appear in your internal workspace as well as on your portal.
+
 ### Workspace name
 
 Customize the name of your workspace. Make sure the name is descriptive and clearly identifies what updates you are aiming to communicate. Choose a name for your workspace that is descriptive and clearly reflects the updates you intend to communicate. Common examples include product names or team names. A well-chosen name helps team members quickly identify the workspace’s purpose and focus. names are product or team names.&#x20;
