@@ -45,6 +45,18 @@ To customize the column mapping:&#x20;
 
 <figure><img src="../.gitbook/assets/ColumnMapping.gif" alt="" width="563"><figcaption><p>Column mapping</p></figcaption></figure>
 
+#### Supported field types
+
+The following field types are currently supported for column mapping.
+
+• Status
+
+• Select (Single-select only, Multi-select is not supported)
+
+• Version
+
+Support for additional field types, including date-based columns, is planned for future updates. Please [let us know](https://released.so/support) if you would like us to support a specific field type.&#x20;
+
 ### Field configuration
 
 Released roadmaps support a variety of custom field types that can be displayed on the card or in the detail view.&#x20;
