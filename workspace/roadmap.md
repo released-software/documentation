@@ -51,7 +51,7 @@ The following field types are currently supported for column mapping.
 
 • Status
 
-• Select (Single-select only, Multi-select is not supported)
+• Select (Multi-select is not yet supported)
 
 • Version
 
