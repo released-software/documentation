@@ -1,9 +1,5 @@
 # Design
 
-{% hint style="warning" %}
-Available in private beta.
-{% endhint %}
-
 <figure><img src="../.gitbook/assets/Released Settings - Design.png" alt=""><figcaption><p>Product Hub Design Settings</p></figcaption></figure>
 
 ## Overview <a href="#overview" id="overview"></a>
