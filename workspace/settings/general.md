@@ -44,10 +44,10 @@ Deleting a workspace moves it to the trash, where it will be permanently removed
 
 <figure><img src="../../.gitbook/assets/Trash - Header.png" alt=""><figcaption></figcaption></figure>
 
-Jira admins can restore or permanently delete a workspace from the trash via the App settings:&#x20;
+Released admins can restore or permanently delete a workspace from the trash via the global settings in Released:&#x20;
 
-* Click on the global settings (⚙ in the Jira navigation bar) a click on **Apps**.
-* In the left navigation, find the Released section and click on **Trash**.
-* To restore a portal, click the **Restore** icon.
+* Click on the global **⚙ Settings**  in the top right of the workspaces overview page.
+* In the left navigation, find the Admin section and click on **Trash**.
+* To restore a workspace, click the **Restore** icon.
 
 \
