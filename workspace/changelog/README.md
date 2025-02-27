@@ -4,7 +4,9 @@ description: Easily and efficiently share updates with stakeholders and customer
 
 # Changelog
 
-{% @arcade/embed flowId="B6LBx5LKwnzZSXLSUAlS" url="https://app.arcade.software/share/B6LBx5LKwnzZSXLSUAlS" %}
+{% embed url="https://www.loom.com/share/1a3929d7e6c743ce9eb75bddfa0fa8bd?sid=1b8bc86d-a71b-43d8-93e2-db233c2d6773" %}
+Changelog Demo
+{% endembed %}
 
 ## Overview
 
