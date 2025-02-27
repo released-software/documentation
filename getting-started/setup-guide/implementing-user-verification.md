@@ -1,13 +1,8 @@
----
-hidden: true
----
-
 # Implementing User Verification
 
 ## Overview
 
-User verification allows you to securely identify users who access your private widgets or pages.
-By generating a signed authentication token on your server, you can ensure that only authorized users gain access.
+User verification allows you to securely identify users who access your private widgets or pages. By generating a signed authentication token on your server, you can ensure that only authorized users gain access.
 
 User verification is a great way to control access while providing a seamless experience for your team and customers.
 
@@ -30,18 +25,14 @@ sequenceDiagram
 
 ```
 
-
-
 ## Setting up user verification
-
-
 
 ### 1. Get your shared secret
 
 Firstly, get your shared secret to securely encrypt the user data in the payload.
 
-1. Access the global settings via the **Settings** button in the top right of the Released overview page.&#x20;
-2. Go to the **User verification** section.&#x20;
+1. Access the global settings via the **Settings** button in the top right of the Released overview page.
+2. Go to the **User verification** section.
 3. Copy your **Shared Secret** – this will be used to generate authentication tokens.
 
 {% hint style="warning" %}
@@ -75,7 +66,7 @@ const json = await response.json();
 console.log(json);
 ```
 
-You can find the `SHARED_SECRET` and `ACCOUNT_ID` values in the **User verification** settings in Released. The `CURRENT_USER_EMAIL` value should be filled in dynamically with the details of the authenticated user in your app or site.&#x20;
+You can find the `SHARED_SECRET` and `ACCOUNT_ID` values in the **User verification** settings in Released. The `CURRENT_USER_EMAIL` value should be filled in dynamically with the details of the authenticated user in your app or site.
 
 ### 3. Pass the authentication token with the embed tag
 
@@ -86,8 +77,7 @@ Once you’ve generated the token, include it when embedding your portal:
 ```
 
 {% hint style="warning" %}
-When a portal has restricted access, the `AUTH_TOKEN` must be included in the embed code for content to appear.&#x20;
-Only use the embed code with authentication tokens in pages that are not publicly accessible.
+When a portal has restricted access, the `AUTH_TOKEN` must be included in the embed code for content to appear. Only use the embed code with authentication tokens in pages that are not publicly accessible.
 {% endhint %}
 
 ## Rotating your shared secret
