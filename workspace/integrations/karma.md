@@ -9,7 +9,7 @@ description: Integrate Released with the Confluence page builder Karma.
 ### Prerequisite&#x20;
 
 * [ ] You must have Karma installed in your Confluence instance.&#x20;
-* [ ] [Find the channel ID](../../how-tos/finding-the-channel-id.md) for the announcement page and note it down.&#x20;
+* [ ] [Find the channel ID](../../resources/how-tos/finding-the-channel-id.md) for the announcement page and note it down.&#x20;
 
 ### 1. Add the Karma macro to a Confluence Page
 
@@ -22,7 +22,7 @@ description: Integrate Released with the Confluence page builder Karma.
 
 ### 3. Add the channel ID in the embed settings
 
-* Enter the [Channel ID](../../how-tos/finding-the-channel-id.md) into the "Embed" text field of the embed settings - your release notes should render in the background if done correctly.&#x20;
+* Enter the [Channel ID](../../resources/how-tos/finding-the-channel-id.md) into the "Embed" text field of the embed settings - your release notes should render in the background if done correctly.&#x20;
 
 <figure><img src="../../.gitbook/assets/Integrations - Karma Embed Settings.png" alt="" width="375"><figcaption><p>Karma embed settings</p></figcaption></figure>
 

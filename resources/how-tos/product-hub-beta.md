@@ -4,7 +4,7 @@ hidden: true
 
 # Product Hub Beta
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 **Welcome to the Product Hub beta!** \
@@ -23,9 +23,9 @@ Please note that the Product Hub is still in beta. Found bugs or have suggestion
 When it works correctly, you will see the buttons appear on the screen as shown in the video below (you may have click anywhere in the page if it doesn't register your keystrokes).&#x20;
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/Konami Code.jpeg" alt=""><figcaption><p>Konami Code</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Konami Code.jpeg" alt=""><figcaption><p>Konami Code</p></figcaption></figure>
 
-{% file src="../.gitbook/assets/Konami Code (1).mp4" %}
+{% file src="../../.gitbook/assets/Konami Code (1).mp4" %}
 
 ### Setting up your Product Hub
 

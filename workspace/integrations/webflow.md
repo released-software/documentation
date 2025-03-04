@@ -14,7 +14,7 @@ If you aren't familiar with Webflow's custom code embed feature, we recommend yo
 
 ### 1. Get the embed code from Released
 
-1. Follow the [installation instructions](../settings/design/announcement-page.md#installation) to get the embed code within Released.
+1. Follow the [installation instructions](../portal/announcement-page.md#installation) to get the embed code within Released.
 2. Take note of the `<script>` and the `<released-page>` tags. You will require those snippets in the next step.&#x20;
 
 ### 2. Adding the announcement page

@@ -15,4 +15,4 @@ The channel-id uniquely identifies an announcement channel. Since posts can be p
 * Click on the **Install** button at the bottom right.&#x20;
 * You will find the **Channel ID** near the top of the instructions.&#x20;
 
-<figure><img src="../.gitbook/assets/Channel ID.png" alt=""><figcaption><p>Note down the channel ID highlighted in the embed code</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Channel ID.png" alt=""><figcaption><p>Note down the channel ID highlighted in the embed code</p></figcaption></figure>

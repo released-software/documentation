@@ -13,7 +13,7 @@ To create a new Post, click the **Create post** button in the top right corner o
 Next, select what issues you want to include in your post.&#x20;
 
 {% hint style="info" %}
-A post can include issues from one or multiple projects. If you want to add additional projects, you can configure them in the [Changelog filter](../settings/changelog-filter.md) settings.
+A post can include issues from one or multiple projects. If you want to add additional projects, you can configure them in the [Changelog filter](changelog-filter.md) settings.
 {% endhint %}
 
 #### Available filters

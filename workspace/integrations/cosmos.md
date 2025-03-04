@@ -9,7 +9,7 @@ description: Integrate Released with Cosmos.
 ### Prerequisite&#x20;
 
 * [ ] You must have [Cosmos](https://marketplace.atlassian.com/apps/1230540/cosmos-intranet-for-confluence-free?tab=overview\&hosting=cloud) installed in your Confluence instance.&#x20;
-* [ ] [Find the channel ID](../../how-tos/finding-the-channel-id.md) for the announcement page and note it down.&#x20;
+* [ ] [Find the channel ID](../../resources/how-tos/finding-the-channel-id.md) for the announcement page and note it down.&#x20;
 
 ### 1. Edit the Cosmos dashboard
 
@@ -22,7 +22,7 @@ description: Integrate Released with Cosmos.
 ### 2. Add the Channel ID
 
 * Click on "Add Channel ID" in the newly added section on the dashboard.
-* Enter the [Channel ID](../../how-tos/finding-the-channel-id.md) into the "Channel ID" field in the section configuration.&#x20;
+* Enter the [Channel ID](../../resources/how-tos/finding-the-channel-id.md) into the "Channel ID" field in the section configuration.&#x20;
 
 <figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 

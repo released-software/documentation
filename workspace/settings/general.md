@@ -4,7 +4,7 @@ description: Manage your workspace settings
 
 # General
 
-<figure><img src="../../.gitbook/assets/Released Settings - General.png" alt=""><figcaption><p>General Settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Workspace - General Settings.png" alt=""><figcaption></figcaption></figure>
 
 ## Basics
 

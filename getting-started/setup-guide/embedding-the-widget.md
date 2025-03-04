@@ -16,7 +16,7 @@ Experience a demo of the widget on [CodePen](https://codepen.io/released/pen/WNa
 
 ### Prerequisite
 
-* [ ] [Copy the channel ID](../../how-tos/finding-the-channel-id.md) for the embed widget.
+* [ ] [Copy the channel ID](../../resources/how-tos/finding-the-channel-id.md) for the embed widget.
 
 ### **1. Select which modules to include**
 
@@ -48,4 +48,4 @@ If your portal has restricted access, you’ll need to [implement user verificat
 
 Customize the widget to match your brand and app design using the widget properties. Adjust the title and description, or change the colors according to your preferences.
 
-Please see the documentation for a full list of [configuration options](../../workspace/settings/design/widget.md).
+Please see the documentation for a full list of [configuration options](../../workspace/portal/widget.md).

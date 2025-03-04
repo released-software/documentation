@@ -6,6 +6,8 @@ The access settings allow you to control who can create and publish content in t
 
 ## Workspace&#x20;
 
+Manage who can access and create content in your workspace.&#x20;
+
 ### Access
 
 Content creation and publishing are restricted to users who have access to the linked Jira projects.
@@ -23,6 +25,8 @@ Users will only be able to see issues and fields for which they have the necessa
 
 ## Portal&#x20;
 
+Manage who can access and view the portal.&#x20;
+
 ### Portal URL
 
 Displays the URL through which the portal is accessible. Support for changing the portal URL will be available in a future release.
@@ -39,7 +43,7 @@ To grant access,  select one of the three available access levels.
 
 <figure><img src="../../.gitbook/assets/Portals - Access level.png" alt="" width="375"><figcaption><p>Portal access levels</p></figcaption></figure>
 
-#### Private <mark style="color:orange;">(coming soon)</mark>
+#### Internal <mark style="color:orange;">(coming soon)</mark>
 
 Access to the portal is limited to users within your organization.&#x20;
 

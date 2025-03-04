@@ -2,15 +2,13 @@
 description: Customise Released's language model
 ---
 
-# Artificial Intelligence
+# AI Settings
 
 <figure><img src="../../.gitbook/assets/AI-Header.png" alt=""><figcaption></figcaption></figure>
 
 ## Overview
 
 Use the AI settings to fine-tune the AI-generated descriptions by providing examples that match your brand's unique tone and style. This way, you’ll keep every post consistent and on-brand.
-
-## Basics
 
 The advanced AI prompts of Released have undergone meticulous fine-tuning to produce release notes from an array of Jira issue descriptions. However, achieving a universally perfect prompt catered to every content type is challenging.
 
@@ -21,7 +19,9 @@ To guarantee that the AI output meets your expectations, you have the option to 
 It's important to note that the resulting description might not strictly follow your input. Your personalized prompts serve as navigational tools for guiding Released's content creation in the desired direction, leading to reduced editing efforts. However, it's essential to understand that a custom prompt does not ensure an infallible or guaranteed result.
 {% endhint %}
 
-To access the AI settings, click on **Settings > Artificial intelligence** in the sidebar navigation.
+## Basics
+
+You can access the AI settings in your worksplace via ⚙ **Settings > Artificial intelligence** in the sidebar navigation.
 
 ### AI input field
 
@@ -38,7 +38,7 @@ If the field selected for the **AI input field** is _not available_ on a given i
 {% hint style="info" %}
 **Using multiple fields**
 
-Released lets you select a single AI input field, but you can include additional issue fields by copying them into that field using Jira automation. Read the [accessing-custom-fields.md](../../how-tos/accessing-custom-fields.md "mention") guide for more detail.&#x20;
+Released lets you select a single AI input field, but you can include additional issue fields by copying them into that field using Jira automation. Read the [accessing-custom-fields.md](../../resources/how-tos/accessing-custom-fields.md "mention") guide for more detail.&#x20;
 {% endhint %}
 
 ### Prompt optimization

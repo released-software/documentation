@@ -32,7 +32,7 @@ All posts are published to the [portal](publishing.md#portal), which serves as t
 
 An in-app widget is perfect for users who are actively using your product. Users can quickly and easily see any relevant news while they use your product, without being bombarded with notifications or emails.
 
-[Setting up the in-app widget](../settings/design/widget.md).
+[Setting up the in-app widget](../portal/widget.md).
 
 #### Announcement page
 
@@ -43,7 +43,7 @@ The release page provides a comprehensive overview of all the changes made in on
 The in-app widget is the perfect channel for these types of temporary announcements. You can choose to publish this announcement to the in-app widget only without it appearing on the public release notes page.&#x20;
 {% endhint %}
 
-[Setting up the announcement page](../settings/design/announcement-page.md)
+[Setting up the announcement page](../portal/announcement-page.md)
 
 #### Confluence
 

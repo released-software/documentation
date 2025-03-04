@@ -18,30 +18,30 @@ Access the portal settings via the **Settings** link in the left-hand navigation
 
 ### Changelog
 
-{% content-ref url="artificial-intelligence.md" %}
-[artificial-intelligence.md](artificial-intelligence.md)
+{% content-ref url="../changelog/artificial-intelligence.md" %}
+[artificial-intelligence.md](../changelog/artificial-intelligence.md)
 {% endcontent-ref %}
 
-{% content-ref url="changelog-filter.md" %}
-[changelog-filter.md](changelog-filter.md)
+{% content-ref url="../changelog/changelog-filter.md" %}
+[changelog-filter.md](../changelog/changelog-filter.md)
 {% endcontent-ref %}
 
-{% content-ref url="templates.md" %}
-[templates.md](templates.md)
+{% content-ref url="../changelog/templates.md" %}
+[templates.md](../changelog/templates.md)
 {% endcontent-ref %}
 
 ### Design
 
-{% content-ref url="design/portal.md" %}
-[portal.md](design/portal.md)
+{% content-ref url="../portal/" %}
+[portal](../portal/)
 {% endcontent-ref %}
 
-{% content-ref url="design/announcement-page.md" %}
-[announcement-page.md](design/announcement-page.md)
+{% content-ref url="../portal/announcement-page.md" %}
+[announcement-page.md](../portal/announcement-page.md)
 {% endcontent-ref %}
 
-{% content-ref url="design/widget.md" %}
-[widget.md](design/widget.md)
+{% content-ref url="../portal/widget.md" %}
+[widget.md](../portal/widget.md)
 {% endcontent-ref %}
 
 ### Publishing

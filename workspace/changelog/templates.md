@@ -16,7 +16,7 @@ Templates simplify and accelerate the creation of changelogs, release notes, and
 
 ### Creating a New Template
 
-1. Navigate to the **Templates** section of your **Settings**.
+1. Navigate to the **Templates** section of your workspace **⚙ Settings**.
 2. Click on **Create** to create a new template.
 3. Choose an existing template to start with or start from scratch.
 4. Customize the template with placeholders and formatting options as needed.
@@ -31,7 +31,7 @@ Templates simplify and accelerate the creation of changelogs, release notes, and
 
 ### Basic Formatting Support
 
-Aside from the above AI blocks, you can use most of the regular blocks available in the standard editor for templates as well. For more details, see the [editor](../changelog/editor/ "mention") documentation.
+Aside from the above AI blocks, you can use most of the regular blocks available in the standard editor for templates as well. For more details, see the [editor](editor/ "mention") documentation.
 
 {% hint style="warning" %}
 #### Images

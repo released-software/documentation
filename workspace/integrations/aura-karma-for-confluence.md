@@ -9,7 +9,7 @@ description: Add Released to your Confluence pages with Aura content formatting 
 ### Prerequisite&#x20;
 
 * [ ] You must have Aura installed in your Confluence instance.&#x20;
-* [ ] [Find the channel ID](../../how-tos/finding-the-channel-id.md) for the announcement page and note it down.&#x20;
+* [ ] [Find the channel ID](../../resources/how-tos/finding-the-channel-id.md) for the announcement page and note it down.&#x20;
 
 ### 1. Create a page with the Aura macro
 
@@ -26,7 +26,7 @@ description: Add Released to your Confluence pages with Aura content formatting 
 
 ### 3. Enter the Channel ID
 
-* Enter the [Channel ID](../../how-tos/finding-the-channel-id.md) into the "Released URL" field - your release notes should render in the preview on the right once entered.&#x20;
+* Enter the [Channel ID](../../resources/how-tos/finding-the-channel-id.md) into the "Released URL" field - your release notes should render in the preview on the right once entered.&#x20;
 * Press "Save"
 
 ### 4. Publish the page

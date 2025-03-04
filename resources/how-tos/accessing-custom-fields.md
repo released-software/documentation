@@ -36,7 +36,7 @@ If you are not familar with Jira automations, we recommend that you read the [Ge
 
 #### Adding a trigger
 
-<figure><img src="../.gitbook/assets/Jira Automation - Trigger.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Jira Automation - Trigger.png" alt=""><figcaption></figcaption></figure>
 
 First, decide how you want to trigger the automation. The most common options are:
 
@@ -53,7 +53,7 @@ In the below example, we’re updating the description field by:
 2. Adding a section labeled “Other Information” below, where we include values from various issue fields.
 3. Structuring the field data as key value pairs. This will allow for referencing the fields in the AI prompt.&#x20;
 
-<figure><img src="../.gitbook/assets/Jira Automation - Edit Action.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Jira Automation - Edit Action.png" alt="" width="375"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Click on the curly brackets in the bottom right of the text editor to easily access the available fields for the issues.&#x20;
@@ -76,6 +76,6 @@ Documentation: {{issue.customfield_10414}} // the custom field ID will differ.
 Once the data is available in the description field, you can reference it directly in the AI prompt. Simply use the field name as specified in the structured format above to ensure consistent output.
 
 {% hint style="info" %}
-For more detail on how to write an AI prompt using custom fields read [creating-structured-output.md](../resources/ai-tips/creating-structured-output.md "mention")
+For more detail on how to write an AI prompt using custom fields read [creating-structured-output.md](../ai-tips/creating-structured-output.md "mention")
 {% endhint %}
 

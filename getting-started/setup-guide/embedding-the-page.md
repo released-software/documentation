@@ -16,7 +16,7 @@ Experience a demo of the page embed on [CodePen](https://codepen.io/released/pen
 
 ### Prerequisite
 
-* [ ] [Copy the channel ID](../../how-tos/finding-the-channel-id.md) for the embed widget.
+* [ ] [Copy the channel ID](../../resources/how-tos/finding-the-channel-id.md) for the embed widget.
 
 ### **1. Select which modules to include**
 
@@ -58,4 +58,4 @@ Add the following code snippet to the `<body>` section of your site where you wa
 
 Customize the page to match your brand and app design using the page properties. Adjust the title and description, or change the colors according to your preferences.
 
-Please see the documentation for a full list of [configuration options](../../workspace/settings/design/announcement-page.md).
+Please see the documentation for a full list of [configuration options](../../workspace/portal/announcement-page.md).
