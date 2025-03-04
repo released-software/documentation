@@ -16,6 +16,8 @@
 * [Overview](product-hub/overview.md)
 * [General Settings](product-hub/general.md)
 * [Design](product-hub/design.md)
+* [Internal Domains](product-hub/internal-domains.md)
+* [User Verification](product-hub/user-verification.md)
 
 ## Workspace
 

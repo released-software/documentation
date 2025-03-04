@@ -43,17 +43,17 @@ To grant access,  select one of the three available access levels.
 
 <figure><img src="../../.gitbook/assets/Portals - Access level.png" alt="" width="375"><figcaption><p>Portal access levels</p></figcaption></figure>
 
-#### Internal <mark style="color:orange;">(coming soon)</mark>
+#### :unlock: Internal
 
-Access to the portal is limited to users within your organization.&#x20;
+The internal access setting has been designed to make it easy to grant access to users within your organization.&#x20;
 
 {% hint style="info" %}
 Best for stakeholder / internal communication.
 {% endhint %}
 
-<table data-header-hidden><thead><tr><th width="245"></th><th></th></tr></thead><tbody><tr><td><strong>Member access</strong></td><td>Anyone with access to the workspace will always have access to the portal.  </td></tr><tr><td><strong>Company domain</strong></td><td>Anyone with a company email address can access the portal. The company email domain is configured in the global settings.</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="245"></th><th></th></tr></thead><tbody><tr><td><strong>Member access</strong></td><td>Anyone with access to the workspace will be able to access the portal from internal links. </td></tr><tr><td><strong>Internal domains</strong></td><td>Anyone with an email address that matches one of the configured "internal domains" will be able to access the portal. Internal domains can be configured by Released administrators in the <a href="../../product-hub/internal-domains.md">global settings</a>. </td></tr></tbody></table>
 
-#### Restricted
+#### :closed\_lock\_with\_key: Restricted
 
 Access to the portal is available to authorized users outside your organization.
 
@@ -63,7 +63,7 @@ Best for restricted communication with a small number of select customers.&#x20;
 
 <table data-header-hidden><thead><tr><th width="244"></th><th></th></tr></thead><tbody><tr><td><strong>Customers</strong></td><td>Anyone who has been identified via SSO or the client side SDK can access the portal.</td></tr><tr><td><strong>Email domains</strong></td><td>Anyone with an email address at these domains can access the portal.</td></tr><tr><td><strong>Individuals</strong></td><td>The portal is accessible to individuals with the following email addresses.</td></tr></tbody></table>
 
-#### Public
+#### :globe\_with\_meridians: Public
 
 Access to the portal is open to the public. Everyone with a direct link to the portal will be able to access it, even if the portal is [not listed ](access.md#visibility)on the Product Hub.&#x20;
 
