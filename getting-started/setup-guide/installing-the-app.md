@@ -27,11 +27,15 @@ To install **Released** on your Jira Cloud site, follow these steps:
 4. Search for **Released** and click on the app item in the results list.
 5. Click **Try it free** to initiate the app installation process. Please note that Jira might take a moment to process this request.
 
+{% hint style="warning" %}
+The global **Administer Jira** permission is required to install Released. See the [Jira documentation](https://support.atlassian.com/jira-cloud-administration/docs/manage-global-permissions/) for details on how to setup the Administer Jira permission.
+{% endhint %}
+
 ## Accessing Released
 
 Once installed, Released can be accessed via the global **Apps** menu in the Jira navigation.&#x20;
 
-<figure><img src="../../.gitbook/assets/Setup - Apps Menu.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Apps Dropdown.png" alt=""><figcaption><p>Access Released via the Apps menu</p></figcaption></figure>
 
 ## Troubleshooting
 

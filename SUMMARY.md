@@ -11,6 +11,10 @@
   * [Implementing User Verification](getting-started/setup-guide/implementing-user-verification.md)
   * [Changelog Description Field (optional)](getting-started/setup-guide/released-description-field.md)
 
+***
+
+* [Permissions](permissions.md)
+
 ## Product Hub
 
 * [Overview](product-hub/overview.md)
@@ -59,7 +63,6 @@
 
 ## Resources
 
-* [Permissions](resources/permissions.md)
 * [AI Tips](resources/ai-tips/README.md)
   * [Create Output in Other Languages](resources/ai-tips/create-output-in-other-languages.md)
   * [Include a Documentation Link in the Output](resources/ai-tips/include-a-documentation-link-in-the-output.md)
