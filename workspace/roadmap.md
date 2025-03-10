@@ -24,6 +24,30 @@ Released roadmaps are perfect for:
 
 ## Basics
 
+### Creating a roadmap
+
+Aside from the initial creation via the empty state, there are 3 ways to create additional roadmaps in a workspace.&#x20;
+
+#### Roadmap selector
+
+You can create a new roadmap using the **roadmap selector** found in the breadcrumbs navigation.
+
+<figure><img src="../.gitbook/assets/Roadmaps - Create 2.png" alt="" width="375"><figcaption><p>Roadmap selector</p></figcaption></figure>
+
+#### More (⋯) menu
+
+The more (**⋯**) menu offers a range of options for managing the current roadmap and also provides the ability to create a new roadmap.
+
+<figure><img src="../.gitbook/assets/Roadmaps - Create 1.png" alt="" width="375"><figcaption></figcaption></figure>
+
+#### Save as new
+
+When adjusting the filter or display options of a roadmap, you can either save the current roadmap or use the dropdown arrow to **Save as new** and create a separate version.
+
+<figure><img src="../.gitbook/assets/Roadmaps - Create 3.png" alt="" width="375"><figcaption></figcaption></figure>
+
+
+
 ### Linked projects&#x20;
 
 Roadmap views can display issues from multiple Jira projects. To include issues from a specific project on your roadmap, simply add that project to the [linked projects](settings/general.md#linked-projects) within the space.
@@ -118,3 +142,9 @@ Once a roadmap has been published, a switch will appear on the page embed. Allow
 ### Unpublishing&#x20;
 
 To unpublish the roadmap view, simply press the unpublish icon right next to the publish button. Your roadmap will be immediately unavailable on the page embed.&#x20;
+
+### Delete
+
+You can delete a roadmap through the More (⋯) menu in the top-right corner. Deleting a roadmap also unpublishes it, immediately removing it from the portal view.
+
+<figure><img src="../.gitbook/assets/Roadmaps - Create 1.png" alt="" width="375"><figcaption></figcaption></figure>
