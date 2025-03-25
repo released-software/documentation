@@ -14,4 +14,5 @@ To add an internal domain:&#x20;
 
 1. Navigate to the global **Settings > Internal domains** via the overview page or the workspace dropdown within a workspace.&#x20;
 2. Click the **Add domain** button
-3. Add your internal domains. These are the domains that will get access to a portal when the internal domains option is enabled within the [portal access settings](../workspace/settings/access.md#internal).
+3. Add your internal domains. For example: **example.com**\
+   These are the domains that will get access to a portal when the internal domains option is enabled within the [portal access settings](../workspace/settings/access.md#internal).&#x20;
