@@ -26,6 +26,7 @@
 ## Workspace
 
 * [Overview](workspace/portals.md)
+* [Dashboard](workspace/dashboard.md)
 * [Changelog](workspace/changelog/README.md)
   * [AI Settings](workspace/changelog/artificial-intelligence.md)
   * [Changelog filter](workspace/changelog/changelog-filter.md)

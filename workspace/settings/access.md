@@ -12,10 +12,11 @@ Manage who can access and create content in your workspace.&#x20;
 
 Content creation and publishing are restricted to users who have access to the linked Jira projects.
 
+<figure><img src="../../.gitbook/assets/Access-access.png" alt="Portal visbility" width="188"><figcaption><p>Workspace access</p></figcaption></figure>
+
 Available access levels are:
 
-* **Open**, everyone with access to the Jira site can view and edit content in the workspace.&#x20;
-* **Restricted**, only users with access to the linked Jira project(s) can view and edit content in this workspace, depending on their level of access in the Jira project(s).&#x20;
+<table data-header-hidden><thead><tr><th width="139.00390625"></th><th></th></tr></thead><tbody><tr><td><strong>Open</strong></td><td>Everyone with access to the Jira site can view and edit content in the workspace. </td></tr><tr><td><strong>Restricted</strong></td><td>Only users with access to the linked Jira project(s) can view and edit content in this workspace, depending on their level of access in the Jira project(s). </td></tr></tbody></table>
 
 If a workspace is linked to multiple Jira projects, users must have access to at least one of those projects to access the workspace.
 
@@ -35,13 +36,17 @@ Displays the URL through which the portal is accessible. Support for changing th
 
 Control whether the portal will be listed on the Product Hub or whether it's only reachable directly via the portal URL.&#x20;
 
+<figure><img src="../../.gitbook/assets/Access-visibility.png" alt="" width="188"><figcaption><p>Portal visibility</p></figcaption></figure>
+
+<table data-header-hidden><thead><tr><th width="139.00390625"></th><th></th></tr></thead><tbody><tr><td><strong>Listed</strong></td><td>Portals are visible on the Product Hub overview page.</td></tr><tr><td><strong>Unlisted</strong></td><td>Portals are not visible on the Product Hub overview page, but can still be accessed via a direct link to the portal .</td></tr></tbody></table>
+
 ### Access
 
 The access setting controls who can view the portal on Product Hub or when embedded in a website or app.
 
 To grant access,  select one of the three available access levels.
 
-<figure><img src="../../.gitbook/assets/Portals - Access level.png" alt="" width="375"><figcaption><p>Portal access levels</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Access-portal.png" alt="" width="375"><figcaption><p>Portal access levels</p></figcaption></figure>
 
 #### :unlock: Internal
 
