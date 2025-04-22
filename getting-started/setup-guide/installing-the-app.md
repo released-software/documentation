@@ -57,7 +57,7 @@ If you find yourself stuck in this situation, please don't hesitate to [contact 
 
 When loading the app takes a long time and finally results in the above error, a couple of reasons could be the culprit.&#x20;
 
-1. You access token as expired – In that case simply reloading the page should fix the error.&#x20;
+1. Your access token as expired – In that case simply reloading the page should fix the error.&#x20;
 2. Your firewall might block our domain "released.so" – Although .so is a quite popular top level domain for startups, we've had a couple of customers who had to allow the domain.&#x20;
 
 If none of the above works for you, please don't hesitate to [contact us](https://released.so/support) for assistance.
