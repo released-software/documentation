@@ -107,7 +107,9 @@ You can adjust the order in which fields are displayed on the card and in the de
 
 #### Available field types
 
+* Short text
 * Status
+* Flagged
 * Labels&#x20;
 * Date / Time-date
 * Select
