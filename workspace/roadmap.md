@@ -117,6 +117,7 @@ You can adjust the order in which fields are displayed on the card and in the de
 * Issue type
 * Checkboxes
 * Radio Buttons
+* Rating (Jira Product Discovery)
 
 ### Editing the public description
 
