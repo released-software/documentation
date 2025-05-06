@@ -22,13 +22,11 @@ Released roadmaps are perfect for:
 * High touch customer communication &#x20;
 * Stakeholder updates
 
-## Basics
-
-### Creating a roadmap
+## Creating a roadmap
 
 Aside from the initial creation via the empty state, there are 3 ways to create additional roadmaps in a workspace.&#x20;
 
-#### Roadmap selector
+#### Roadmap dropdown
 
 You can create a new roadmap using the **roadmap selector** found in the breadcrumbs navigation.
 
@@ -48,6 +46,8 @@ When adjusting the filter or display options of a roadmap, you can either save t
 
 
 
+## Content configuration
+
 ### Linked projects&#x20;
 
 Roadmap views can display issues from multiple Jira projects. To include issues from a specific project on your roadmap, simply add that project to the [linked projects](settings/general.md#linked-projects) within the space.
@@ -58,7 +58,23 @@ Use filters to refine the issues displayed on the roadmap. You can apply basic f
 
 <figure><img src="../.gitbook/assets/Roadmaps - Filter.png" alt="" width="563"><figcaption><p>Use JQL to create an advanced filter.</p></figcaption></figure>
 
-### Column mapping
+## Display option
+
+### Views conflguration
+
+Choose between Board and Timeline views based on your needs.
+
+For most roadmap communication, the Board view is ideal — it shifts the focus from specific dates to broader goals, priorities, or any structure you define.
+
+When you need to align on delivery dates, switch to the Timeline view to support that conversation.
+
+<figure><img src="../.gitbook/assets/Type-Board.png" alt="" width="563"><figcaption></figcaption></figure>
+
+Because Roadmaps in Released are highly flexible — allowing you to include work items from multiple projects — each view type requires a bit of setup. You’ll find setup instructions for each view below.
+
+#### Column mapping (Board)
+
+<figure><img src="../.gitbook/assets/Column Mapping Roadmaps.gif" alt="" width="563"><figcaption><p>Column mapping</p></figcaption></figure>
 
 Map issues to columns on the roadmap based on their status or field options. This can include criteria such as teams, quarters, priority, and more.
 
@@ -68,8 +84,6 @@ To customize the column mapping:&#x20;
 2. Click **Edit columns.**
 3. Select the field you want to map for each project.
 4. Map your field options by dragging them to the corresponding column.&#x20;
-
-<figure><img src="../.gitbook/assets/ColumnMapping.gif" alt="" width="563"><figcaption><p>Column mapping</p></figcaption></figure>
 
 #### Supported field types
 
@@ -82,6 +96,14 @@ The following field types are currently supported for column mapping.
 • Version
 
 Support for additional field types, including date-based columns, is planned for future updates. Please [let us know](https://released.so/support) if you would like us to support a specific field type.&#x20;
+
+#### Date field configuration (Timeline)
+
+<figure><img src="../.gitbook/assets/Roadmap-Date Configuration.png" alt="" width="563"><figcaption><p>Date field configuration for the timeline view</p></figcaption></figure>
+
+For each project, you can define which start and end date fields should be used to position items on the timeline. Released will make an initial best guess based on your project data, but you can update these fields at any time.
+
+This gives you the flexibility to use different date fields across different projects — ideal if teams track timelines in different ways.
 
 ### Field configuration
 
