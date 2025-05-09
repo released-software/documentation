@@ -63,4 +63,4 @@ After adding the component next to your navigation link or button, you will have
 The Channel ID for the Badge and the Page are identical.
 {% endhint %}
 
-Lastly, you may have to [adjust the positioning of the badge](../portal/announcement-page.md#adjusting-the-position-of-the-badge) using CSS added to the [Custom Code](framer.md#adding-the-embed-code) section.
+Lastly, you may have to [adjust the positioning of the badge](../settings/portal/announcement-page.md#adjusting-the-position-of-the-badge) using CSS added to the [Custom Code](framer.md#adding-the-embed-code) section.

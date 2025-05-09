@@ -4,35 +4,37 @@ description: Embed the widget in your website or app with a few lines of code.
 
 # Embedding the Widget
 
-## Overview
-
 The embed widget offers a seamless way to integrate release notes into your application or website. With a simple click on a trigger in form of a link or button, users can access a dialog box displaying the most recent announcements. Additionally, the trigger conveniently displays a badge indicating the presence of new announcements.
-
-### Demo
-
-Experience a demo of the widget on [CodePen](https://codepen.io/released/pen/WNaaMNx).
 
 ## Installation instructions
 
-### Prerequisite
+{% stepper %}
+{% step %}
+### Copy the channel ID
 
-* [ ] [Copy the channel ID](../../resources/how-tos/finding-the-channel-id.md) for the embed widget.
+[Copy the channel ID](../../resources/how-tos/finding-the-channel-id.md) for the embed widget.
+{% endstep %}
 
-### **1. Select which modules to include**
+{% step %}
+### **Select which modules to include**
 
 Choose whether to embed the Changelog, the Roadmap, or both by selecting which modules to include in the embed.
 
 <figure><img src="../../.gitbook/assets/Settings - Install instructions.png" alt=""><figcaption><p>Select which modules to include</p></figcaption></figure>
+{% endstep %}
 
-### **2. Load the widget script**
+{% step %}
+### **Add the embed script**
 
 Add the following code snippet to the `<head>` section of your site.
 
 ```markup
 <script src="https://embed.released.so/1/embed.js" defer></script>
 ```
+{% endstep %}
 
-### **3. Place the embed code in your page**
+{% step %}
+### **Add the released-widget element to your page**
 
 Add the following code snippet to the `<body>` section of your site. The widget will not be rendered inline, so it does not matter where in the body you position the element. Ensure you replace the `CHANNEL_ID` attribute.
 
@@ -43,9 +45,21 @@ Add the following code snippet to the `<body>` section of your site. The widget 
 {% hint style="warning" %}
 If your portal has restricted access, you’ll need to [implement user verification](implementing-user-verification.md) and pass the `auth-token="AUTH_TOKEN"` attribute to display content in your embed.
 {% endhint %}
+{% endstep %}
+{% endstepper %}
 
-### **4. Customize the widget (optional)**
+## Optional step
+
+{% stepper %}
+{% step %}
+### **Customize the widget (optional)**
 
 Customize the widget to match your brand and app design using the widget properties. Adjust the title and description, or change the colors according to your preferences.
 
-Please see the documentation for a full list of [configuration options](../../workspace/portal/widget.md).
+Please see the documentation for a full list of [configuration options](../../workspace/settings/portal/widget.md).
+{% endstep %}
+{% endstepper %}
+
+## Example
+
+View an example of how to embed the widget on [CodePen](https://codepen.io/released/pen/WNaaMNx).

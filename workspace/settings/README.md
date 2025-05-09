@@ -32,16 +32,16 @@ Access the portal settings via the **Settings** link in the left-hand navigation
 
 ### Design
 
-{% content-ref url="../portal/" %}
-[portal](../portal/)
+{% content-ref url="portal/" %}
+[portal](portal/)
 {% endcontent-ref %}
 
-{% content-ref url="../portal/announcement-page.md" %}
-[announcement-page.md](../portal/announcement-page.md)
+{% content-ref url="portal/announcement-page.md" %}
+[announcement-page.md](portal/announcement-page.md)
 {% endcontent-ref %}
 
-{% content-ref url="../portal/widget.md" %}
-[widget.md](../portal/widget.md)
+{% content-ref url="portal/widget.md" %}
+[widget.md](portal/widget.md)
 {% endcontent-ref %}
 
 ### Publishing

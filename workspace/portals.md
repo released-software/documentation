@@ -12,7 +12,7 @@ Workspaces feature multiple modules that can be used to communicate your plans a
 
 The changelog and roadmap help teams communicate updates as well as future plans.
 
-Communication happens through the [Product Hub](../getting-started/concepts.md#product-hub), embedded [widgets](portal/widget.md) or [pages](portal/announcement-page.md), or third party communication channels such as [Confluence](settings/publishing/confluence.md), or [Slack](integrations/slack.md).
+Communication happens through the [Product Hub](../getting-started/concepts.md#product-hub), embedded [widgets](settings/portal/widget.md) or [pages](settings/portal/announcement-page.md), or third party communication channels such as [Confluence](settings/publishing/confluence.md), or [Slack](integrations/slack.md).
 
 ## How do workspaces relate to Jira projects?
 

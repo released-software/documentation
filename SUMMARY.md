@@ -15,13 +15,13 @@
 
 * [Permissions](permissions.md)
 
-## Product Hub
+## Global Settings
 
-* [Overview](product-hub/overview.md)
-* [General Settings](product-hub/general.md)
-* [Design](product-hub/design.md)
-* [Internal Domains](product-hub/internal-domains.md)
-* [User Verification](product-hub/user-verification.md)
+* [General](global-settings/general.md)
+* [Custom domain](global-settings/custom-domain.md)
+* [Design](global-settings/design.md)
+* [Internal Domains](global-settings/internal-domains.md)
+* [User Verification](global-settings/user-verification.md)
 
 ## Workspace
 
@@ -43,12 +43,12 @@
     * [Versions](workspace/changelog/editor/versions.md)
   * [Filter](workspace/changelog/staging-area.md)
 * [Roadmaps](workspace/roadmap.md)
-* [Portal](workspace/portal/README.md)
-  * [Page Embed](workspace/portal/announcement-page.md)
-  * [Widget Embed](workspace/portal/widget.md)
 * [Settings](workspace/settings/README.md)
   * [General](workspace/settings/general.md)
   * [Access](workspace/settings/access.md)
+  * [Portal](workspace/settings/portal/README.md)
+    * [Page Embed](workspace/settings/portal/announcement-page.md)
+    * [Widget Embed](workspace/settings/portal/widget.md)
   * [Publishing](workspace/settings/publishing/README.md)
     * [Confluence](workspace/settings/publishing/confluence.md)
     * [Email](workspace/settings/publishing/email.md)
