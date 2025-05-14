@@ -6,7 +6,7 @@ description: Add Release Notes to your Scroll Viewport help centre.
 
 [Scroll Viewport](https://marketplace.atlassian.com/apps/1211636/scroll-viewport-for-confluence?tab=overview\&hosting=cloud) is an Atlassian marketplace app by K15t that allows you to transform your documentation in Confluence into a public or restricted online help center for your users.&#x20;
 
-Released now integrates with Scroll Viewport through their [custom JavaScript inject](https://help.k15t.com/scroll-viewport/inject-custom-javascript) feature. Setting up this integration is a breeze and requires just a few simple steps, taking less than 5 minutes to complete.
+Released now integrates with Scroll Viewport through their [custom JavaScript inject ](https://help.k15t.com/scroll-viewport/inject-custom-javascript)feature. Setting up this integration is a breeze and requires just a few simple steps, taking less than 5 minutes to complete.
 
 ## Installation&#x20;
 
