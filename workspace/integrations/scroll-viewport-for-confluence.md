@@ -6,19 +6,19 @@ description: Add Release Notes to your Scroll Viewport help centre.
 
 [Scroll Viewport](https://marketplace.atlassian.com/apps/1211636/scroll-viewport-for-confluence?tab=overview\&hosting=cloud) is an Atlassian marketplace app by K15t that allows you to transform your documentation in Confluence into a public or restricted online help center for your users.&#x20;
 
-Released now integrates with Scroll Viewport through their [custom JavaScript inject ](https://help.k15t.com/scroll-viewport/inject-custom-javascript)feature. Setting up this integration is a breeze and requires just a few simple steps, taking less than 5 minutes to complete.
+Released now integrates with Scroll Viewport through their [custom JavaScript inject](https://help.k15t.com/scroll-viewport/inject-custom-javascript) feature. Setting up this integration is a breeze and requires just a few simple steps, taking less than 5 minutes to complete.
 
 ## Installation&#x20;
 
 {% stepper %}
 {% step %}
-### Get the Released Channel ID
+#### Get the Released Channel ID
 
 [Find the channel ID](../../resources/how-tos/finding-the-channel-id.md) for the announcement page and note it down.&#x20;
 {% endstep %}
 
 {% step %}
-### Create a placeholder page in Confluence&#x20;
+#### Create a placeholder page in Confluence&#x20;
 
 * Create a page where you want the release notes to appear in your Viewport documentation.&#x20;
 * Give the page your preferred name, e.g. "Release Notes".&#x20;
@@ -26,7 +26,7 @@ Released now integrates with Scroll Viewport through their [custom JavaScript in
 {% endstep %}
 
 {% step %}
-### Get the Confluence Page ID
+#### Get the Confluence Page ID
 
 Note down the Confluence **Page ID** from the URL (see screenshot below).
 
@@ -34,7 +34,7 @@ Note down the Confluence **Page ID** from the URL (see screenshot below).
 {% endstep %}
 
 {% step %}
-### Add the custom JavaScript snippet to your Viewport theme
+#### Add the custom JavaScript snippet to your Viewport theme
 
 1. Navigate to your Viewport theme settings.
 2. [Inject the following JavaScript](https://help.k15t.com/scroll-viewport/inject-custom-javascript).&#x20;
@@ -53,7 +53,7 @@ Ensure you replace the **Page\_ID** and **CHANNEL\_ID** placeholders with the ID
 {% endstep %}
 
 {% step %}
-### Save changes
+#### Save changes
 
 Click save, and you're done! :tada:
 {% endstep %}
