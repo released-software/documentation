@@ -32,7 +32,7 @@ From here, you'll see a section called su where you can enter the custom domain 
 
 At this stage, you'll see a window with three fields: **Type, Name, Target.**
 
-Those are the details you'll use to set your custom domain in your DNS provider. This is done _outside_ GitBook, in the provider you are using for your domain.
+Those are the details you'll use to set your custom domain in your DNS provider. This is done _outside_ Released, in the provider you are using for your domain.
 
 Copy the contents of the **Name** and **Target** fields to use in your DNS provider. Each provider is different, so when in doubt, check directly with them how to add this record. You should be able to pick the **Type** of record from a list in your provider.
 
@@ -42,7 +42,7 @@ After adding the record, it might take some time for the changes to propagate. W
 {% step %}
 #### Finalize your setup <a href="#finalize-your-setup" id="finalize-your-setup"></a>
 
-After adding the record and it being propagated, it's time to go live! GitBook will verify the domain, the record you added and will automatically configure the SSL certificate for your domain.
+After adding the record and it being propagated, it's time to go live! Released will verify the domain, the record you added and will automatically configure the SSL certificate for your domain.
 
 Once done, you'll receive a notification and can click **Finish**. You can also close the window if you need, and we'll send you a notification once the process is done on our side.
 {% endstep %}
