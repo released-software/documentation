@@ -15,7 +15,7 @@ description: Integrate Released with Cosmos.
 
 {% stepper %}
 {% step %}
-### Edit the Cosmos dashboard
+**Edit the Cosmos dashboard**
 
 * In Confluence, click on Apps > Cosmos in the top navigation.&#x20;
 * Click on the edit ✐ button in the bottom right of the dashboard.&#x20;
@@ -25,7 +25,7 @@ description: Integrate Released with Cosmos.
 {% endstep %}
 
 {% step %}
-### Add the Channel ID
+**Add the Channel ID**
 
 * Click on "Add Channel ID" in the newly added section on the dashboard.
 * Enter the [Channel ID](../../resources/how-tos/finding-the-channel-id.md) into the "Channel ID" field in the section configuration.&#x20;
@@ -34,7 +34,7 @@ description: Integrate Released with Cosmos.
 {% endstep %}
 
 {% step %}
-### Save the dashboard configuration
+**Save the dashboard configuration**
 
 Click Save 💾 icon in the top-right to save the configuration
 {% endstep %}
