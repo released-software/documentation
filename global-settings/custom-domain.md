@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # Custom domain
 
 By default, your Product Hub is accessible on a `[subdomain].releasedhub.com` domain.

@@ -2,7 +2,7 @@
 description: Manage your Product Hub settings.
 ---
 
-# General Settings
+# General
 
 <figure><img src="../.gitbook/assets/Released Settings - General.png" alt=""><figcaption><p>General settings for the Product Hub</p></figcaption></figure>
 
@@ -20,7 +20,9 @@ Customize the name of your Product Hub—it’s typically the name of your compa
 
 Specify the website the Product Hub logo should link to, typically your company’s or product’s website.
 
-### Subdomain _<mark style="color:orange;">(coming soon)</mark>_
+### Custom domain
 
 Add a custom subdomain to host your Product Hub on your own domain, giving users a branded and seamless way to access and interact with your portals under an easily recognizable web address.
+
+Read the [custom-domain.md](custom-domain.md "mention") documentation for detailed instructions on how to set it up.&#x20;
 
