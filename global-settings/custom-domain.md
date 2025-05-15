@@ -6,9 +6,19 @@ hidden: true
 
 By default, your Product Hub is accessible on a `[subdomain].releasedhub.com` domain.
 
-You can customize this by setting a custom domain, meaning your audience can access your Hub on a chosen domain.
+You can customize this by setting a custom domain, meaning your audience can access your hub on a domain of your choice.
+
+## Setting up the custom domain
+
+Find the **Custom domain** section in the global settings.&#x20;
 
 {% stepper %}
+{% step %}
+#### Initiate the custom domain setup <a href="#initiate-the-custom-domain-setup" id="initiate-the-custom-domain-setup"></a>
+
+Click the **Set a custom domain** link to get started.&#x20;
+{% endstep %}
+
 {% step %}
 #### Choose a subdomain <a href="#choose-a-subdomain" id="choose-a-subdomain"></a>
 
@@ -17,34 +27,32 @@ When choosing a subdomain, you can either use `www` or a custom one. Some common
 * `hub.example.com`
 * `updates.example.com`
 * `roadmaps.example.com`
-{% endstep %}
 
-{% step %}
-#### Initiate the custom domain setup <a href="#initiate-the-custom-domain-setup" id="initiate-the-custom-domain-setup"></a>
-
-Navigate to the **Global Settings,** then choose **General Settings.**
-
-From here, you'll see a section called su where you can enter the custom domain you chose in the first step. Type it out and click **Next.**
+Apex domains, for example `example.com` without the subdomain, are currently not supported.
 {% endstep %}
 
 {% step %}
 #### Configure the DNS <a href="#configure-the-dns" id="configure-the-dns"></a>
 
-At this stage, you'll see a window with three fields: **Type, Name, Target.**
+At this stage, you'll see a dialog with three fields: **Type, Name, Target.**
 
 Those are the details you'll use to set your custom domain in your DNS provider. This is done _outside_ Released, in the provider you are using for your domain.
 
 Copy the contents of the **Name** and **Target** fields to use in your DNS provider. Each provider is different, so when in doubt, check directly with them how to add this record. You should be able to pick the **Type** of record from a list in your provider.
 
-After adding the record, it might take some time for the changes to propagate. We recommend **waiting at least 1 hour** before moving to the next step. Click **Next** when you are ready
+After adding the record, it might take some time for the changes to propagate. In some cases, it might take up to **1 hour** before your CNAME records has been verified.&#x20;
+
+Once verified, click **Go live**.&#x20;
 {% endstep %}
 
 {% step %}
-#### Finalize your setup <a href="#finalize-your-setup" id="finalize-your-setup"></a>
+#### Finalizing your setup <a href="#finalize-your-setup" id="finalize-your-setup"></a>
 
-After adding the record and it being propagated, it's time to go live! Released will verify the domain, the record you added and will automatically configure the SSL certificate for your domain.
+Released will automatically configure the SSL certificate for your domain.
 
-Once done, you'll receive a notification and can click **Finish**. You can also close the window if you need, and we'll send you a notification once the process is done on our side.
+Once done, the globe icon next to the domain name will turn green. Your domain is now ready to go.
+
+<img src="../.gitbook/assets/Settings-Custom Domain.png" alt="" data-size="original">
 {% endstep %}
 {% endstepper %}
 
