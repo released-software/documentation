@@ -129,6 +129,7 @@ You can adjust the order in which fields are displayed on the card and in the de
 
 #### Available field types
 
+* Text field (multi-line)
 * Short text
 * Status
 * Flagged
@@ -140,6 +141,24 @@ You can adjust the order in which fields are displayed on the card and in the de
 * Checkboxes
 * Radio Buttons
 * Rating (Jira Product Discovery)
+
+#### Known field limitations
+
+<details>
+
+<summary>Text field (multi-line)</summary>
+
+The fast majority of formatting options are supported. However, the following are currently not supported
+
+* **Images** – images can not be rendered on the public roadmap.
+* **Action items** – render as a bullet item.&#x20;
+* **Status lozenge** –  renders as `[ STATUS ]` .
+* **Tables –** do not support all table features such as background colors.
+* **Smart links** – render as regular links.
+* **Expand panel** - always renders the title and content.
+* **Panels (info, warning...)**  – render the content only, without the pabel styling.&#x20;
+
+</details>
 
 ### Editing the public description
 
