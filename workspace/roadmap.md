@@ -148,7 +148,7 @@ You can adjust the order in which fields are displayed on the card and in the de
 
 <summary>Text field (multi-line)</summary>
 
-The fast majority of formatting options are supported. However, the following are currently not supported
+The following formatting options are not supported or have limited support.&#x20;
 
 * **Images** – images can not be rendered on the public roadmap.
 * **Action items** – render as a bullet item.&#x20;
