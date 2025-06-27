@@ -45,6 +45,7 @@
 * [Roadmaps](workspace/roadmap.md)
 * [Settings](workspace/settings/README.md)
   * [General](workspace/settings/general.md)
+  * [Feedback](workspace/settings/feedback.md)
   * [Access](workspace/settings/access.md)
   * [Portal](workspace/settings/portal/README.md)
     * [Page Embed](workspace/settings/portal/announcement-page.md)
