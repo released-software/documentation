@@ -2,12 +2,12 @@
 hidden: true
 ---
 
-# Feedback beta
+# Feedback Beta
 
 {% hint style="info" %}
-**Welcome to the Product Hub beta!** \
+**Welcome to the Feedback beta!** \
 \
-Please note that the Product Hub is still in beta. Found bugs or have suggestions? Please let us know: [https://released.so/support](https://released.so/support)
+Please note that the Feedback feature is still in beta. Found bugs or have suggestions? Please let us know: [https://released.so/support](https://released.so/support)
 {% endhint %}
 
 ## Getting started
@@ -50,6 +50,6 @@ You can access incoming feedback from the Global Inbox. Click on Overview and yo
 
 ## Questions & Feedback
 
-If you have any questions or feedback, please get in touch via jens@released.so or leave us feedack in the Portal: [https://hub.released.so/beta/roadmap](https://hub.released.so/beta/roadmap/59452a14)
+If you have any questions or feedback, please get in touch via [https://released.so/support](https://released.so/support) or leave feedback in the Portal: [https://hub.released.so/beta/roadmap](https://hub.released.so/beta/roadmap/59452a14)
 
 We are looking forward to hear what you think!&#x20;
