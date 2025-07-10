@@ -73,7 +73,7 @@
 * [Troubleshooting](resources/troubleshooting/README.md)
   * [Permissions Issues](resources/troubleshooting/ensuring-jira-permissions.md)
 * [How-Tos](resources/how-tos/README.md)
-  * [Product Hub Beta](resources/how-tos/product-hub-beta.md)
+  * [Feedback beta](resources/how-tos/beta.md)
   * [Accessing Custom Fields](resources/how-tos/accessing-custom-fields.md)
   * [Configuring Dark Mode](resources/how-tos/configuring-dark-mode.md)
   * [Finding the Channel ID](resources/how-tos/finding-the-channel-id.md)

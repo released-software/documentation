@@ -1,16 +1,5 @@
 ---
 description: Gain a basic understanding of Released and the basic concepts.
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Concepts
