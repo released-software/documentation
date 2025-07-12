@@ -12,6 +12,12 @@ Please note that the Feedback feature is still in beta. Found bugs or have sugge
 
 ## Getting started
 
+{% hint style="warning" %}
+**Feedback is currently only supported in the Sydney theme.**&#x20;
+
+Support for the San Francisco theme and embeds will be added in the coming weeks.
+{% endhint %}
+
 {% stepper %}
 {% step %}
 ### Open feedback settings
