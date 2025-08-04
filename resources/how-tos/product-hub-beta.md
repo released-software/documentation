@@ -12,12 +12,6 @@ Please note that the Feedback feature is still in beta. Found bugs or have sugge
 
 ## Getting started
 
-{% hint style="warning" %}
-**Feedback is currently only supported in the Sydney theme.**&#x20;
-
-Support for the San Francisco theme and embeds will be added in the coming weeks.
-{% endhint %}
-
 {% stepper %}
 {% step %}
 ### Open feedback settings
@@ -51,6 +45,12 @@ Click the switch to enable feedback.&#x20;
 {% endstepper %}
 
 Once you enabled Feedback in the workspace, you will see a feedback button appear on the portal and logged in users will be able to comment on roadmap items.&#x20;
+
+{% hint style="info" %}
+**Feedback is currently only supported in the Sydney theme.**&#x20;
+
+Support for the San Francisco theme and embeds will be added in the coming weeks.
+{% endhint %}
 
 {% hint style="warning" %}
 **Not seeing the feedback button?**
