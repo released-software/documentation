@@ -50,6 +50,14 @@ Click the switch to enable feedback.&#x20;
 {% endstep %}
 {% endstepper %}
 
+Once you enabled Feedback in the workspace, you will see a feedback button appear on the portal and logged in users will be able to comment on roadmap items.&#x20;
+
+{% hint style="warning" %}
+**Not seeing the feedback button?**
+
+If feedback is enabled, and you are still not seeing it in the portal, try[ changing the access](../../workspace/settings/access.md) of the portal to restricted and back to public.&#x20;
+{% endhint %}
+
 ## Inbox
 
 You can access incoming feedback from the Global Inbox. Click on Overview and you’ll find the inbox at the top of the page. From there, you can filter feedback by status and portal to focus on what matters most.
