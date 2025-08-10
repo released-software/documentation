@@ -1,5 +1,6 @@
 ---
 description: Embed the widget in your website or app with a few lines of code.
+icon: square-code
 ---
 
 # Embedding the Widget
@@ -56,7 +57,7 @@ If your portal has restricted access, you’ll need to [implement user verificat
 
 Customize the widget to match your brand and app design using the widget properties. Adjust the title and description, or change the colors according to your preferences.
 
-Please see the documentation for a full list of [configuration options](../../workspace/settings/portal/widget.md).
+Please see the documentation for a full list of [configuration options](../../product/portals/portal/widget.md).
 {% endstep %}
 {% endstepper %}
 

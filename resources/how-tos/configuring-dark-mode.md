@@ -12,7 +12,7 @@ Released embeds offer three color schemes: `"light"`, `"dark"`, and `"system"` (
 
 ## How to update the Released Color Scheme setting
 
-You can update the color scheme setting in the Released app in the [Page](../../workspace/settings/portal/announcement-page.md), [Widget](../../workspace/settings/portal/widget.md), or [Portal](../../workspace/settings/portal/) design settings for your Workspace. This will update the value for all embedded `<released-page>` or `<released-widget>` elements respectively for that Workspace, or for that Workspace's Portal in the Product Hub.
+You can update the color scheme setting in the Released app in the [Page](../../product/portals/portal/announcement-page.md), [Widget](../../product/portals/portal/widget.md), or [Portal](../../product/portals/portal/) design settings for your Workspace. This will update the value for all embedded `<released-page>` or `<released-widget>` elements respectively for that Workspace, or for that Workspace's Portal in the Product Hub.
 
 If you have a specific widget or page that is embedded into a different context, you can add the `color-scheme="{light|dark|system}"` attribute to that element to override the value you've set in the Workspace settings. For example, to st a single Announcement Page to use the Light color scheme:
 

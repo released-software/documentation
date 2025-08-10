@@ -1,5 +1,6 @@
 ---
 description: Embed the page in your website or documentation with a few lines of code.
+icon: square-code
 ---
 
 # Embedding the Page
@@ -68,7 +69,7 @@ Add the following code snippet to the `<body>` section of your site where you wa
 
 Customize the page to match your brand and app design using the page properties. Adjust the title and description, or change the colors according to your preferences.
 
-Please see the documentation for a full list of [configuration options](../../workspace/settings/portal/announcement-page.md).
+Please see the documentation for a full list of [configuration options](../../product/portals/portal/announcement-page.md).
 {% endstep %}
 {% endstepper %}
 

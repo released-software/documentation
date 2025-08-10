@@ -1,5 +1,6 @@
 ---
 description: Released is available for Jira Cloud via the Atlassian Marketplace.
+icon: circle-down
 ---
 
 # Installing Released

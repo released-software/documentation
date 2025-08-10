@@ -55,7 +55,7 @@ Support for the San Francisco theme and embeds will be added in the coming weeks
 {% hint style="warning" %}
 **Not seeing the feedback button?**
 
-If feedback is enabled, and you are still not seeing it in the portal, try[ changing the access](../../workspace/settings/access.md) of the portal to restricted and back to public.&#x20;
+If feedback is enabled, and you are still not seeing it in the portal, try[ changing the access](../../product/portals/access.md) of the portal to restricted and back to public.&#x20;
 {% endhint %}
 
 ## Inbox

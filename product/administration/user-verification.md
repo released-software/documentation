@@ -2,13 +2,13 @@
 icon: lock
 ---
 
-# Implementing User Verification
+# User Verification
 
 User verification allows you to securely identify users who access your private widgets or pages. By generating a signed authentication token on your server, you can ensure that only authorized users gain access.
 
 User verification is a great way to control access while providing a seamless experience for your team and customers.
 
-## Authentication flow
+#### Authentication flow
 
 ```mermaid
 sequenceDiagram
@@ -29,9 +29,7 @@ sequenceDiagram
 
 ## Setting up user verification
 
-{% stepper %}
-{% step %}
-### &#x20;Get your shared secret
+### 1. Get your shared secret
 
 Firstly, get your shared secret to securely encrypt the user data in the payload.
 
@@ -43,11 +41,7 @@ Firstly, get your shared secret to securely encrypt the user data in the payload
 **Keep your secret safe!** Never expose it in client-side code or public repositories.
 {% endhint %}
 
-
-{% endstep %}
-
-{% step %}
-### Generate an authentication token on your server
+### 2. Generate an authentication token on your server
 
 Now you can generate an encrypted `AUTH_TOKEN` to securely identify the user.
 
@@ -75,10 +69,8 @@ console.log(json);
 ```
 
 You can find the `SHARED_SECRET` and `ACCOUNT_ID` values in the **User verification** settings in Released. The `CURRENT_USER_EMAIL` value should be filled in dynamically with the details of the authenticated user in your app or site.
-{% endstep %}
 
-{% step %}
-### &#x20;Pass the authentication token with the embed tag
+### 3. Pass the authentication token with the embed tag
 
 Once you’ve generated the token, include it when embedding your portal:
 
@@ -89,8 +81,6 @@ Once you’ve generated the token, include it when embedding your portal:
 {% hint style="warning" %}
 When a portal has restricted access, the `AUTH_TOKEN` must be included in the embed code for content to appear. Only use the embed code with authentication tokens in pages that are not publicly accessible.
 {% endhint %}
-{% endstep %}
-{% endstepper %}
 
 ## Rotating your shared secret
 
@@ -100,6 +90,6 @@ If you need to rotate your shared secret:
 2. Update your server to use the new secret when generating tokens.
 3. Ensure all requests are updated with new tokens.
 
-## Need Help?
+### Need Help? <a href="#need-help" id="need-help"></a>
 
 If you run into issues, [contact us](https://released.so/support) and we’ll help you get started.
