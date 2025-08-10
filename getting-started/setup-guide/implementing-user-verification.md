@@ -31,7 +31,7 @@ sequenceDiagram
 
 {% stepper %}
 {% step %}
-### &#x20;Get your shared secret
+#### &#x20;Get your shared secret
 
 Firstly, get your shared secret to securely encrypt the user data in the payload.
 
@@ -47,7 +47,7 @@ Firstly, get your shared secret to securely encrypt the user data in the payload
 {% endstep %}
 
 {% step %}
-### Generate an authentication token on your server
+#### Generate an authentication token on your server
 
 Now you can generate an encrypted `AUTH_TOKEN` to securely identify the user.
 
@@ -78,7 +78,7 @@ You can find the `SHARED_SECRET` and `ACCOUNT_ID` values in the **User verificat
 {% endstep %}
 
 {% step %}
-### &#x20;Pass the authentication token with the embed tag
+#### &#x20;Pass the authentication token with the embed tag
 
 Once you’ve generated the token, include it when embedding your portal:
 
