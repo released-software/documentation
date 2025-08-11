@@ -4,21 +4,89 @@ icon: gear
 
 # Settings
 
-### Feedback Settings
+## Enabling feedback
 
-#### Feedback Visibility
+Feedback can be toggled on or off by workspace. Once enabled, users with portal access can submit feedback through the feedback form or comment directly on roadmap items.
 
-* **Author**: Only the author and workspace members can view the feedback.
-* **Everyone**: Everyone can see the feedback.
+Feedback is accessible in the [Inbox](inbox.md) and linked to its corresponding work item.&#x20;
 
-#### Feedback Sync
+After activation, the following feedback-related settings become available.
 
-* Configure how feedback is linked to work items.
+## Privacy
 
-#### Customer Count Field
+Manage permissions to control access and visibility of comments and feedback submitted through the portal. The privacy settings are useful for preventing customers from viewing each other's comments.
 
-* Add this global field to your project to filter and sort by the number of customers who gave feedback related to a work item.
+### Feedback visibility
 
-#### Jira Product Discovery
+<table data-header-hidden><thead><tr><th width="192.984375"></th><th></th></tr></thead><tbody><tr><td><strong>Author</strong></td><td>Only the author and workspace members can view feedback.</td></tr><tr><td><strong>Everyone</strong></td><td>Everyone with access to the portal will be able to view feedback.</td></tr></tbody></table>
 
-* To store feedback as insights in Jira Product Discovery, authorize Released to create and update content in your projects.
+## Showing feedback on Jira work items
+
+Feedback can be shown on related Jira items. How it's being displayed differes between Jira and JIra Product Discovery.&#x20;
+
+### Software projects
+
+Feedback is displayed in a “Customers” panel, where individual feedback items can be reviewed. Additionally, a global “Customer count” field tracks how many customers gave feedback.&#x20;
+
+#### Configuring the customer count field&#x20;
+
+Add the customer count field to your projects to filter and sort work items by customer count.
+
+{% tabs %}
+{% tab title="Team-managed projects" %}
+{% hint style="warning" %}
+You must have the administrator role to configure issue types in team-managed projects. [Learn more about team-managed project roles](https://confluence.atlassian.com/jirasoftwarecloud/manage-how-people-access-your-next-gen-project-982321983.html).
+{% endhint %}
+
+To add the field to your issue types:
+
+1. In the project sidebar, click **Project settings** > **Fields**.
+2. Search for **Customer count**.&#x20;
+   1. If the field is not available, click the **Add field** button.
+   2. Select the **Customer count** field from the list.
+   3. Click the **Add 1 field** button.
+3. Use the **Work types** dropdown to select the work types where you want to add the field.
+4. Search for the **Customer count** field in the Fields sidebar on the right.
+5. Drag the **Customer count** field into the context fields section.&#x20;
+6. Click **Save changes**.
+
+Repeat these steps for each work item type in your project.&#x20;
+
+For more detail see: [Customize an issue's field in team-managed projects](https://support.atlassian.com/jira-software-cloud/docs/customize-an-issues-fields-in-team-managed-projects/).&#x20;
+{% endtab %}
+
+{% tab title="Company-managed projects" %}
+{% hint style="warning" %}
+You must have the Jira administrator [global permission](https://confluence.atlassian.com/adminjiracloud/managing-global-permissions-776636359.html) to configure issue screens in company-managed projects.
+{% endhint %}
+
+You can control which screens a custom field will appear on when an issue is created, edited, or transitioned through workflow.&#x20;
+
+To change which screens a custom field is associated with, refer to the Jira [configure work items documentation](https://support.atlassian.com/jira-cloud-administration/docs/configure-issues-to-track-individual-pieces-of-work/).&#x20;
+{% endtab %}
+{% endtabs %}
+
+### Discovery projects
+
+Feedback is stored as insights in discovery projects. Once connected, incoming feedback will be added using the connected account below.
+
+Before you can create insights in Jira Product Discovery, you will need to authenticate.&#x20;
+
+{% stepper %}
+{% step %}
+#### Click the **Authenticate** button
+
+Released will ask for permission to view and update content in Jira Product Discovery on your behalf.&#x20;
+{% endstep %}
+
+{% step %}
+#### Select a site (optional)
+
+If you have multiple sites, select the site you want to connect to.&#x20;
+{% endstep %}
+
+{% step %}
+#### Click **Accept**
+{% endstep %}
+{% endstepper %}
+

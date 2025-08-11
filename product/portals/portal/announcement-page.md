@@ -25,13 +25,13 @@ To embed the portal in your website:
 
 {% stepper %}
 {% step %}
-### Click the install button
+#### Click the install button
 
 Click the Install button at the bottom of the configuration sidebar.&#x20;
 {% endstep %}
 
 {% step %}
-### Copy the install code
+#### Copy the install code
 
 Follow the instructions in the install panel. Copy the relevant code snippets and paste them into your website or app.&#x20;
 {% endstep %}
