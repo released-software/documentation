@@ -54,14 +54,7 @@ Use internal notes to collaborate with your team without notifying the customer.
 * Notes are only visible to your team.
 * Useful for adding context, tagging teammates, or linking to related work.
 
-## Keyboar shortcuts
+## Keyboard shortcuts
 
-| Next feedback     |  j                            |
-| ----------------- | ----------------------------- |
-| Previous feedback | k                             |
-| Reply             | r (or `enter`)                |
-| Add internal note | n                             |
-| Edit status       | d                             |
-| Delete feedback   | ⌫ or Backspace (with confirm) |
+<table><thead><tr><th width="269.3333333333333">Command</th><th>Windows/Linux</th><th>macOS</th></tr></thead><tbody><tr><td>Next item</td><td><code>J</code></td><td><code>J</code></td></tr><tr><td>Previous item</td><td><code>K</code></td><td><code>K</code></td></tr><tr><td>Reply</td><td><code>Enter</code> or <code>R</code></td><td><code>Enter</code> or <code>R</code></td></tr><tr><td>Add internal note</td><td><code>N</code></td><td><code>N</code></td></tr><tr><td>Add to work item</td><td><code>Shift</code> <code>K</code></td><td><code>Shift</code> <code>K</code></td></tr><tr><td>Change status</td><td><code>D</code></td><td><code>D</code></td></tr><tr><td>Close</td><td><code>E</code></td><td><code>E</code></td></tr><tr><td>Filter</td><td><code>Shift</code> <code>F</code></td><td><code>Shift</code> <code>F</code></td></tr></tbody></table>
 
-***
