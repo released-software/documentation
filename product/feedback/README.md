@@ -1,6 +1,5 @@
 ---
 description: Close the loop by connecting customer feedback to the work being done in Jira.
-hidden: true
 ---
 
 # Feedback
