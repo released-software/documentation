@@ -20,6 +20,26 @@ Manage permissions to control access and visibility of comments and feedback sub
 
 <table data-header-hidden><thead><tr><th width="192.984375"></th><th></th></tr></thead><tbody><tr><td><strong>Author</strong></td><td>Only the author and workspace members can view feedback.</td></tr><tr><td><strong>Everyone</strong></td><td>Everyone with access to the portal will be able to view feedback.</td></tr></tbody></table>
 
+### What happens when the visibility setting is changed?
+
+When a user posts a new comment (starting a thread), it gets a permanent "visibility stamp" based on the portal's setting _at that exact moment_.
+
+* If the portal is Public when the comment is posted, the thread gets a permanent Public stamp.
+* If the portal is Private when the comment is posted, the thread gets a permanent Private stamp.
+
+This stamp never changes from private to public, even if you change the portal's visibility setting later. I private comment will always remain private.&#x20;
+
+**The most private setting wins**
+
+To decide who can see a comment thread, the system looks at two things:
+
+1. The thread's permanent stamp.
+2. The portal's current visibility setting.
+
+The most restrictive (most private) setting of the two is always applied.
+
+<table><thead><tr><th width="161.265625">Thread's Stamp</th><th width="209.00390625">Portal's Current Setting</th><th>Final Visibility</th></tr></thead><tbody><tr><td>Public</td><td>Public</td><td>✅ Visible to Everyone</td></tr><tr><td>Public</td><td>Private</td><td>🔒 Private </td></tr><tr><td>Private</td><td>Public</td><td>🔒 Private </td></tr><tr><td>Private</td><td>Private</td><td>🔒 Private </td></tr></tbody></table>
+
 ## Showing feedback on Jira work items
 
 Feedback can be shown on related Jira items. How it's being displayed differes between Jira and JIra Product Discovery.&#x20;
