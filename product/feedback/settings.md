@@ -42,13 +42,37 @@ The most restrictive (most private) setting of the two is always applied.
 
 ## Showing feedback on Jira work items
 
-Feedback can be shown on related Jira items. How it's being displayed differes between Jira and JIra Product Discovery.&#x20;
+Feedback can be shown on related Jira items. How it's being displayed differs between Jira and JIra Product Discovery.&#x20;
 
 ### Software projects
 
 Feedback is displayed in a “Feedback” panel, where individual feedback items can be reviewed. Additionally, a global “Feedback count” field tracks how many customers gave feedback.&#x20;
 
-#### Configuring the customer count field (coming soon)
+### Discovery projects
+
+Feedback is stored as insights in discovery projects. Once connected, incoming feedback will be added using the connected account below.
+
+Before you can create insights in Jira Product Discovery, you will need to authenticate.&#x20;
+
+{% stepper %}
+{% step %}
+#### Click the **Authenticate** button
+
+Released will ask for permission to view and update content in Jira Product Discovery on your behalf.&#x20;
+{% endstep %}
+
+{% step %}
+#### Select a site (optional)
+
+If you have multiple sites, select the site you want to connect to.&#x20;
+{% endstep %}
+
+{% step %}
+#### Click **Accept**
+{% endstep %}
+{% endstepper %}
+
+### Feedback count field (coming soon)
 
 Add the customer count field to your projects to filter and sort work items by customer count.
 
@@ -85,28 +109,3 @@ You can control which screens a custom field will appear on when an issue is cre
 To change which screens a custom field is associated with, refer to the Jira [configure work items documentation](https://support.atlassian.com/jira-cloud-administration/docs/configure-issues-to-track-individual-pieces-of-work/).&#x20;
 {% endtab %}
 {% endtabs %}
-
-### Discovery projects
-
-Feedback is stored as insights in discovery projects. Once connected, incoming feedback will be added using the connected account below.
-
-Before you can create insights in Jira Product Discovery, you will need to authenticate.&#x20;
-
-{% stepper %}
-{% step %}
-#### Click the **Authenticate** button
-
-Released will ask for permission to view and update content in Jira Product Discovery on your behalf.&#x20;
-{% endstep %}
-
-{% step %}
-#### Select a site (optional)
-
-If you have multiple sites, select the site you want to connect to.&#x20;
-{% endstep %}
-
-{% step %}
-#### Click **Accept**
-{% endstep %}
-{% endstepper %}
-
