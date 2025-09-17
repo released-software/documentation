@@ -46,9 +46,9 @@ Feedback can be shown on related Jira items. How it's being displayed differes b
 
 ### Software projects
 
-Feedback is displayed in a “Customers” panel, where individual feedback items can be reviewed. Additionally, a global “Customer count” field tracks how many customers gave feedback.&#x20;
+Feedback is displayed in a “Feedback” panel, where individual feedback items can be reviewed. Additionally, a global “Feedback count” field tracks how many customers gave feedback.&#x20;
 
-#### Configuring the customer count field&#x20;
+#### Configuring the customer count field (coming soon)
 
 Add the customer count field to your projects to filter and sort work items by customer count.
 
@@ -61,18 +61,18 @@ You must have the administrator role to configure issue types in team-managed pr
 To add the field to your issue types:
 
 1. In the project sidebar, click **Project settings** > **Fields**.
-2. Search for **Customer count**.&#x20;
+2. Search for **Feedback count**.&#x20;
    1. If the field is not available, click the **Add field** button.
-   2. Select the **Customer count** field from the list.
+   2. Select the **Feedback count** field from the list.
    3. Click the **Add 1 field** button.
 3. Use the **Work types** dropdown to select the work types where you want to add the field.
-4. Search for the **Customer count** field in the Fields sidebar on the right.
-5. Drag the **Customer count** field into the context fields section.&#x20;
+4. Search for the **Feedback count** field in the Fields sidebar on the right.
+5. Drag the **Feedback count** field into the context fields section.&#x20;
 6. Click **Save changes**.
 
 Repeat these steps for each work item type in your project.&#x20;
 
-For more detail see: [Customize an issue's field in team-managed projects](https://support.atlassian.com/jira-software-cloud/docs/customize-an-issues-fields-in-team-managed-projects/).&#x20;
+For more detail see: [Customize a work item's fields in team-managed projects](https://support.atlassian.com/jira-software-cloud/docs/customize-an-issues-fields-in-team-managed-projects/).&#x20;
 {% endtab %}
 
 {% tab title="Company-managed projects" %}
