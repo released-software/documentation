@@ -4,7 +4,7 @@ description: Close the loop by connecting customer feedback to the work being do
 
 # Feedback
 
-<figure><img src="../../.gitbook/assets/Feedback-Cover.png" alt=""><figcaption></figcaption></figure>
+{% embed url="https://www.loom.com/share/1ba4a732b57e4f4c81696144db8af840?sid=d50e0ed2-a8e4-444a-803c-54216d5452bd" %}
 
 Released makes it easy to collect, manage, and act on customer and stakeholder feedback across your roadmaps. Once enabled, all feedback lands in a centralized inbox where it can be triaged, responded to, and linked to your Jira work.
 
