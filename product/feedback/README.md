@@ -31,6 +31,10 @@ Once enabled:
 * Users can comment directly on roadmap items via your portal.
 * A _Give feedback_ button will appear in the top right of your portal, allowing users to submit general feedback, not tied to a specific roadmap item.
 
+{% hint style="warning" %}
+Feedback is currently available only in the Product Hub. The option to leave feedback in embedded views will be available soon. You can [track the feature here.](https://hub.released.so/released/roadmap/ad0e75c1/issue/12258)
+{% endhint %}
+
 ## Where Feedback Goes
 
 All feedback in the Feedback [Inbox](inbox.md). Replies to existing threads do not create new entries but are displayed inline within the original thread.
