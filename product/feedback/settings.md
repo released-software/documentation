@@ -72,26 +72,46 @@ If you have multiple sites, select the site you want to connect to.&#x20;
 {% endstep %}
 {% endstepper %}
 
-### Feedback count field (coming soon)
+## Wishlist
 
-Add the customer count field to your projects to filter and sort work items by customer count.
+### Show count
+
+Configure whether the wish count is shown on roadmaps in the portal.&#x20;
+
+Votes are unique per user. If a user votes for the same work item across multiple portals, it is counted only once.
+
+{% hint style="info" %}
+For internal use, you can share wish counts with your team or stakeholders. We recommend keeping counts hidden from customers to avoid influencing their choices.
+{% endhint %}
+
+### Maximum wishes per user
+
+Set a limit on how many active wishes each customer can have at one time. When a user reaches the limit, they’ll need to remove an existing wish before adding a new one. This helps ensure every wish reflects a real priority, not a list of every possible idea.
+
+{% hint style="info" %}
+The wish limit applies across all roadmaps within the same portal.
+{% endhint %}
+
+### Wish count field&#x20;
+
+Add the wish count field to your projects to filter and sort work items by wish count.
 
 {% tabs %}
 {% tab title="Team-managed projects" %}
 {% hint style="warning" %}
-You must have the administrator role to configure issue types in team-managed projects. [Learn more about team-managed project roles](https://confluence.atlassian.com/jirasoftwarecloud/manage-how-people-access-your-next-gen-project-982321983.html).
+You must have the administrator role to configure work item types in team-managed projects. [Learn more about team-managed project roles](https://confluence.atlassian.com/jirasoftwarecloud/manage-how-people-access-your-next-gen-project-982321983.html).
 {% endhint %}
 
-To add the field to your issue types:
+To add the field to your work item types:
 
 1. In the project sidebar, click **Project settings** > **Fields**.
-2. Search for **Feedback count**.&#x20;
+2. Search for **Wish count**.&#x20;
    1. If the field is not available, click the **Add field** button.
-   2. Select the **Feedback count** field from the list.
+   2. Select the **Wish count** field from the list.
    3. Click the **Add 1 field** button.
 3. Use the **Work types** dropdown to select the work types where you want to add the field.
-4. Search for the **Feedback count** field in the Fields sidebar on the right.
-5. Drag the **Feedback count** field into the context fields section.&#x20;
+4. Search for the **Wish count** field in the fields sidebar on the right.
+5. Drag the **Wish count** field into the context fields section.&#x20;
 6. Click **Save changes**.
 
 Repeat these steps for each work item type in your project.&#x20;
@@ -101,10 +121,10 @@ For more detail see: [Customize a work item's fields in team-managed projects](h
 
 {% tab title="Company-managed projects" %}
 {% hint style="warning" %}
-You must have the Jira administrator [global permission](https://confluence.atlassian.com/adminjiracloud/managing-global-permissions-776636359.html) to configure issue screens in company-managed projects.
+You must have the Jira administrator [global permission](https://confluence.atlassian.com/adminjiracloud/managing-global-permissions-776636359.html) to configure work item screens in company-managed projects.
 {% endhint %}
 
-You can control which screens a custom field will appear on when an issue is created, edited, or transitioned through workflow.&#x20;
+You can control which screens a custom field will appear on when a work item is created, edited, or transitioned through workflow.&#x20;
 
 To change which screens a custom field is associated with, refer to the Jira [configure work items documentation](https://support.atlassian.com/jira-cloud-administration/docs/configure-issues-to-track-individual-pieces-of-work/).&#x20;
 {% endtab %}
