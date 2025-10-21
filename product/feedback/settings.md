@@ -6,6 +6,8 @@ icon: gear
 
 ## Enabling feedback
 
+Navigate to **Workspace >** **Settings > Feedback** to access the feedback settings.&#x20;
+
 Feedback can be toggled on or off by workspace. Once enabled, users with portal access can submit feedback through the feedback form or comment directly on roadmap items.
 
 Feedback is accessible in the [Inbox](inbox.md) and linked to its corresponding work item.&#x20;
@@ -78,7 +80,7 @@ If you have multiple sites, select the site you want to connect to.&#x20;
 
 Configure whether the wish count is shown on roadmaps in the portal.&#x20;
 
-Votes are unique per user. If a user votes for the same work item across multiple portals, it is counted only once.
+Wishes are unique per user. If a user wishes for the same work item across multiple portals, it is counted only once.
 
 {% hint style="info" %}
 For internal use, you can share wish counts with your team or stakeholders. We recommend keeping counts hidden from customers to avoid influencing their choices.
@@ -94,7 +96,7 @@ The wish limit applies across all roadmaps within the same portal.
 
 ### Wish count field&#x20;
 
-Add the wish count field to your projects to filter and sort work items by wish count.
+The wish count is stored in a read only custom field against every work item. Add the wish count field to your projects to filter and sort work items by wish count.
 
 {% tabs %}
 {% tab title="Team-managed projects" %}
@@ -129,3 +131,21 @@ You can control which screens a custom field will appear on when a work item is 
 To change which screens a custom field is associated with, refer to the Jira [configure work items documentation](https://support.atlassian.com/jira-cloud-administration/docs/configure-issues-to-track-individual-pieces-of-work/).&#x20;
 {% endtab %}
 {% endtabs %}
+
+#### Configuring wish count in Jira Product Discovery
+
+Jira Product Discovery currently does not support custom fields. Because of this limitation, the wish count field cannot be displayed directly in Jira Product Discovery spaces. However, you can create a _Number_ field within your Jira Product Discovery project and use it to store and display the wish count value.
+
+{% stepper %}
+{% step %}
+#### Configure a number field in Jira Product Discovery
+
+We suggest to name the field _Wish count_ for consistency, but you can give it any name you want.&#x20;
+{% endstep %}
+
+{% step %}
+#### Select the field in the feedback settings
+
+Navigate to **Workspace >** **Settings > Feedback** and select the number field for your JPD project in the Wishlist section.&#x20;
+{% endstep %}
+{% endstepper %}
