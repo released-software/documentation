@@ -28,6 +28,7 @@
     * [Widget Embed](product/portals/portal/widget.md)
 * [Feedback](product/feedback/README.md)
   * [Inbox](product/feedback/inbox.md)
+  * [Wishlists](product/feedback/wishlists.md)
   * [Settings](product/feedback/settings.md)
 * [Roadmaps & Ideas](product/roadmaps-and-ideas/README.md)
   * [Creating & Editing](product/roadmaps-and-ideas/roadmap.md)
