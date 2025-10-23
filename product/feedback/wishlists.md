@@ -17,8 +17,6 @@ Once added, items appear in the wishlist menu, giving users a quick view of all 
 
 The number of items a user can add is controlled by the [wishlist settings](settings.md#maximum-wishes-per-user). Setting a limit ensures that each wish reflects a real priority rather than an exhaustive list of everything a user might want.
 
-***
-
 ## Wishes in Jira
 
 Wishes are also visible and actionable within Jira.&#x20;
