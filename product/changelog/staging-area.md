@@ -39,10 +39,18 @@ Select which version field to use when filtering by version. The field defaults 
 
 Using the filter in a post allows you to narrow down the list of Jira work items to include in your post. The basic filter provides the following filter options
 
-### Basic filter options
+### Basic Mode
 
 <table><thead><tr><th width="260.5">Filter</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>Done since</strong> </td><td>Include issues moved into the done status category since a specific date. This filter uses the <code>statusCategoryChangedDate</code> to determine the date. </td><td></td></tr><tr><td><strong>Version</strong></td><td>Include issues with a specific version. </td><td></td></tr><tr><td><strong>Label</strong></td><td>Include issues with a specific label.</td><td></td></tr><tr><td><strong>Issue type</strong></td><td>Include specific types of issues.</td><td></td></tr><tr><td><strong>Jira filter</strong></td><td>Add a <a href="https://support.atlassian.com/jira-software-cloud/docs/save-your-search-as-a-filter/">Jira filter</a>. See below for details. </td><td></td></tr></tbody></table>
 
-### Jira filter
+#### Jira filter
 
 To access more powerful filtering capabilities, you can add a [Jira filter](https://support.atlassian.com/jira-software-cloud/docs/save-your-search-as-a-filter/) to narrow down the list of issues. Using JQL and Jira's advanced filtering capabilities, Jira filters give you the ability to filter based on any available fields.&#x20;
+
+### JQL Mode
+
+JQL mode gives you the full power of JQL without the need to create a Jira filter. To learn more about JQL and how to use it please, refer to the following documentation.&#x20;
+
+{% embed url="https://support.atlassian.com/jira-service-management-cloud/docs/use-advanced-search-with-jira-query-language-jql/" %}
+
+{% embed url="https://www.atlassian.com/software/jira/guides/jql/cheat-sheet#advanced-search" %}
