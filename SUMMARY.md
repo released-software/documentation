@@ -59,7 +59,7 @@
   * [Aura](product/integrations/aura-karma-for-confluence.md)
   * [Cosmos](product/integrations/cosmos.md)
   * [Karma](product/integrations/karma.md)
-  * [Scroll Viewport for Confluence](product/integrations/scroll-viewport-for-confluence.md)
+  * [Scroll Sites for Confluence](product/integrations/scroll-viewport-for-confluence.md)
 
 ## Resources
 
