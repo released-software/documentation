@@ -37,6 +37,12 @@ Available statuses:
 
 _Tip: You can change status from the keyboard or via the status menu on each feedback item._
 
+## Feedback Search
+
+Use search to find feedback on a specific topic in your inbox. Combine search with filters to target certain workspaces or items by status.
+
+<div align="left"><figure><img src="../../.gitbook/assets/Feedback-Search.png" alt="" width="563"><figcaption><p>Feedback search</p></figcaption></figure></div>
+
 ## Filtering the Inbox
 
 Use filters to focus on the feedback that matters most. You can currently filter bty the&#x20;
