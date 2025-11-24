@@ -11,26 +11,45 @@ description: >-
 
 A Portal gives customers a dedicated space to see updates, roadmaps, and provide feedback. Tailoring it to the right audience ensures messaging is relevant and actionable.
 
-#### Best practices
+### Best practices
 
-* Create a separate Portal for each target audience (e.g., public customers, enterprise customers, or key accounts).
-* [Apply branding](../../product/portals/portal/) to make the Portal feel familiar and professional. Customize logos, colors, and naming.
-* [Configure access](../../product/portals/access.md) and verification settings so the right users can view and interact with the Portal without friction.
+#### Audience selection (decision guide)
+
+* **Public**: Discoverability and transparency. No verification; restrict sensitive content.
+* **Private**: Invite-only for key accounts, internal stakeholders or betas. Higher verification; share detailed plans.
+
+#### [Branding](../../product/portals/portal/) (quick checklist)
+
+* [ ] &#x20;Logo: 256×256 PNG/SVG, square or circle.
+* [ ] Colors: Use brand tokens (primary, background, accent). Ensure contrast accessibility.
+* [ ] Tone: Clear, friendly, and outcome-focused. Avoid jargon.
+
+#### Verified users
+
+[Configure access](../../product/portals/access.md) and verification settings so the right users can view and interact with the Portal without friction.
 
 ## Build a clear Roadmap
 
 A public roadmap helps customers see what’s coming next and understand your priorities, which reduces uncertainty and builds trust. It also aligns expectations, reduces repetitive support questions, and demonstrates transparency by showing that customer feedback is considered. Sharing your roadmap gives customers confidence that work is actively happening and priorities are thoughtfully managed, while also inviting feedback to validate demand before investing in development.
 
-#### Best practices
+### Best practices
 
-* Use Now / Next / Later columns to organize your initiatives and communicate priorities clearly:
-  * **Now**: Work that is actively in progress or about to be released. This shows customers and stakeholders what they can expect imminently.
-  * **Next**: Initiatives planned for the near term. These items are on the horizon and give visibility into what’s coming after current priorities.
-  * **Later**: Ideas or initiatives under consideration. This helps signal longer-term thinking without committing to a timeline.
-  * **Exploring**: An optional column or separate board for concepts you’re investigating but aren’t ready to commit to. Sharing these shows transparency and invites feedback early, while keeping the main roadmap focused on tangible priorities.
-* Keep your roadmap focused on initiatives planned for the next 12 months, rather than speculative work that might happen years from now.
-* Prioritize clarity over detail. High-level initiatives are more valuable than listing every single task.
-* Update your roadmap regularly to reflect changes in priorities, timelines, or delivery dates.
+#### Roadmap structure
+
+Use Now / Next / Later columns to organize your initiatives and communicate priorities clearly:
+
+* **Now**: Work that is actively in progress or about to be released. This shows customers and stakeholders what they can expect imminently.
+* **Next**: Initiatives planned for the near term. These items are on the horizon and give visibility into what’s coming after current priorities.
+* **Later**: Ideas or initiatives under consideration. This helps signal longer-term thinking without committing to a timeline.
+* **Exploring**: An optional column or separate board for concepts you’re investigating but aren’t ready to commit to. Sharing these shows transparency and invites feedback early, while keeping the main roadmap focused on tangible priorities.
+
+Keep your roadmap focused on initiatives planned for the next 12 months, rather than speculative work that might happen years from now.
+
+#### Fields to include&#x20;
+
+Most work item fields are useful internally but create noise for customers. Without full context, fields like priority can mislead or invite debate. Share only what helps customers understand the feature at a glance.
+
+Recommended: expose a single contextual field. Either “Category” or “Theme.” Both clearly signal what the feature relates to without implying internal commitments or rank.
 
 ### Enable Feedback
 
