@@ -1,10 +1,8 @@
 # Change The Portal URL (Slug)
 
-Currently the portal URL can only be updated via the API. The easies way to do so is via the browser [console](how-to-open-the-developer-console-to-check-for-errors.md). \
+Currently the portal URL can only be updated via the API. The easies way to do so is via the browser [console](how-to-open-the-developer-console-to-check-for-errors.md). <br>
 
-
-Here are the steps you'll need to take: \
-
+Here are the steps you'll need to take: <br>
 
 {% stepper %}
 {% step %}
@@ -52,12 +50,9 @@ Reload the dashboard and you see the updates slug in the portal URL in the top.&
 
 Feel free to schedule a [15 minute call](https://cal.com/released/15min) and we will help assist you with the renaming.&#x20;
 
-\
+<br>
 
+<br>
 
-\
-
-
-\
-
+<br>
 

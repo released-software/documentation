@@ -2,7 +2,6 @@
 description: >-
   Learn how to configure Jira to view and edit the AI-generated descriptions
   right on your Jira ticket.
-icon: input-text
 ---
 
 # Changelog Description Field (optional)

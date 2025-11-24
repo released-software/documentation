@@ -33,8 +33,7 @@ Please note that depending on the complexity of the prompt and the input, the qu
 
     Look for the **Base prompt** settings and choose **Custom**.
 4.  **Modify Prompt to output text in another language**\
-    Add instructions to output text in another language (e.g. Japanese). You can adjust not only the language but also the style and other parameters.\
-
+    Add instructions to output text in another language (e.g. Japanese). You can adjust not only the language but also the style and other parameters.<br>
 
     <figure><img src="../../.gitbook/assets/Language Prompt.png" alt=""><figcaption></figcaption></figure>
 5. **Generate a description**\

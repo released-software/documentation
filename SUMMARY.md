@@ -9,7 +9,8 @@
   * [Embedding the Widget](getting-started/setup-guide/embedding-the-widget.md)
   * [Embedding the Page](getting-started/setup-guide/embedding-the-page.md)
   * [Implementing User Verification](getting-started/setup-guide/implementing-user-verification.md)
-  * [Changelog Description Field (optional)](getting-started/setup-guide/released-description-field.md)
+* [Best Practices](getting-started/best-practices/README.md)
+  * [Setting up your Product Hub](getting-started/best-practices/setting-up-your-product-hub.md)
 
 ## Product
 
@@ -45,6 +46,7 @@
     * [Email](product/changelog/settings/email.md)
     * [Jira issue links](product/changelog/settings/jira-issue-links.md)
     * [Confluence](product/changelog/settings/confluence.md)
+    * [Changelog Description Field (optional)](product/changelog/settings/released-description-field.md)
   * [Editor Features](product/changelog/editor/README.md)
     * [Images](product/changelog/editor/images.md)
     * [Videos](product/changelog/editor/videos.md)

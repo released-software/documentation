@@ -32,7 +32,7 @@ To install Released and setup the Changelog description custom field, certain ad
 
 When Released generates a description for you, that description is saved in one of two places:
 
-1. In the [Changelog description field](../../getting-started/setup-guide/released-description-field.md), if the field is available on the issue type.
+1. In the [Changelog description field](../../product/changelog/settings/released-description-field.md), if the field is available on the issue type.
 2. In the [Issue Entity Property](https://developer.atlassian.com/cloud/jira/platform/jira-entity-properties/), if the description custom field is not available.
 
 Since both locations require edit permissions, you will see the message "Not permitted to save some generated descriptions" if you lack permission to edit the issue.
