@@ -30,25 +30,6 @@ Setting the correct URL ensures users who click your logo are taken to your main
 {% endstep %}
 {% endstepper %}
 
-## Custom domain&#x20;
-
-{% hint style="info" %}
-This step requires help from your webmaster or IT team.
-{% endhint %}
-
-Setting up a custom domain makes your Product Hub feel fully branded and trustworthy for customers. You can configure this at the bottom of the General settings page. This step typically requires help from your webmaster or IT team.
-
-By default, your Product Hub is available at  `your_jira_subdomain.releasedhub.com.`&#x20;
-
-When setting up a custom domain, you can use www or choose your own subdomain. Common examples include:
-
-* **`hub`**`.yourcompany.com`&#x20;
-* **`feedback`**`.yourcompany.com`&#x20;
-* **`updates`**`.yourcompany.com`
-* **`roadmaps`**`.yourcompany.com`
-
-Learn how to [setup your custom domain](../../product/administration/custom-domain.md).&#x20;
-
 ## Style your Product Hub
 
 The Product Hub and each portal can be customized and themed individually. This lets you align the Hub with your overall company brand, while tailoring specific portals to match the branding of individual products or customer groups.
@@ -68,6 +49,25 @@ Explain the purpose of your Product Hub. Whether it’s for internal stakeholder
 {% endstepper %}
 
 Learn how to [customize your product hub](../../product/administration/design.md).
+
+## Custom domain&#x20;
+
+{% hint style="info" %}
+This step requires help from your webmaster or IT team.
+{% endhint %}
+
+Setting up a custom domain makes your Product Hub feel fully branded and trustworthy for customers. You can configure this at the bottom of the General settings page. This step typically requires help from your webmaster or IT team.
+
+By default, your Product Hub is available at  `your_jira_subdomain.releasedhub.com.`&#x20;
+
+When setting up a custom domain, you can use www or choose your own subdomain. Common examples include:
+
+* **`hub`**`.yourcompany.com`&#x20;
+* **`feedback`**`.yourcompany.com`&#x20;
+* **`updates`**`.yourcompany.com`
+* **`roadmaps`**`.yourcompany.com`
+
+Learn how to [setup your custom domain](../../product/administration/custom-domain.md).&#x20;
 
 ## User verification
 

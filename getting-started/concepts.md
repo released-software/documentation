@@ -4,21 +4,19 @@ description: Gain a basic understanding of Released and the basic concepts.
 
 # Concepts
 
-<figure><img src="../.gitbook/assets/Space Illustration.png" alt=""><figcaption><p>Roadmaps and Changelogs are organized in portals</p></figcaption></figure>
-
 ## Basic Concepts
+
+<figure><img src="../.gitbook/assets/Untitled whiteboard 2025-11-24.png" alt=""><figcaption></figcaption></figure>
 
 ### Workspace
 
-Workspaces are where you write release notes and create roadmap views to share with your stakeholders or customers. They act as a control center, letting you decide exactly what gets shared and with whom.
+Workspaces are your internal control center. This is where your team creates roadmap views, writes release notes, and manages feedback — all directly linked to your Jira Spaces. You decide what gets published and how it’s presented.
 
-### Product Hub
-
-The Product Hub serves as a central hub for accessing your portals. It can be reached at `your_subdomain.releasedhub.com` or through a custom domain if configured.
+A single workspace can be linked to _one or many Jira Spaces_, giving you the flexibility to keep communication independent of how your teams or Spaces are structured.
 
 ### Portals
 
-Portals give you a dedicated space to communicate with a specific audience. This could be internal stakeholders, such as sales and marketing teams, or your customers.&#x20;
+Portals are the external-facing side of Released. They’re where you share the content created in a workspace with a specific audience. This could be internal stakeholders, such as sales and marketing teams, or your customers.&#x20;
 
 Each portal can include three core features:
 
@@ -27,6 +25,10 @@ Each portal can include three core features:
 * **Changelog** to share product updates
 
 Portals can be accessed through your Product Hub, or embedded directly into your website or app.
+
+### Product Hub
+
+The Product Hub serves as a central hub for accessing your portals. It can be reached at `your_subdomain.releasedhub.com` or through a custom domain if configured.
 
 ## Core features
 
@@ -44,7 +46,7 @@ Changelogs serve various purposes, catering to different stakeholders and object
 
 Unlike the Timeline view or Plans (formerly known as Advanced Roadmaps) in Jira, Released Roadmap views are specifically designed for effectively communicating plans to stakeholders and customers.
 
-Roadmap views in Released are cross-project. This allows teams to consolidate multiple plans into a single, cohesive roadmap while maintaining the flexibility to organize work the way they prefer.
+Roadmap views in Released can span multiple Jira Spaces. This allows teams to consolidate multiple plans into a single, cohesive roadmap while maintaining the flexibility to organize work the way they prefer.
 
 ### Feedback
 
@@ -54,7 +56,7 @@ Feedback can come from many places. Users can leave comments on your roadmap ite
 
 ### Inbox
 
-The Inbox is your central place to review, organise and act on all incoming feedback. It brings every signal together so you can quickly understand what users are telling you and decide what deserves attention.
+The Inbox is your central place to review, organize and act on all incoming feedback. It brings every signal together so you can quickly understand what users are telling you and decide what deserves attention.
 
 From the Inbox, you can link feedback to work items, ideas or opportunities and decide what should influence your roadmap.&#x20;
 

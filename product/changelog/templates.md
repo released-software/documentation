@@ -100,7 +100,7 @@ We recommend to use this block style for bugfixes and small imrovements.&#x20;
 
 That depends.
 
-**If the description is stored in a** [released-description-field.md](settings/released-description-field.md "mention"): Released will use that description in the template and not generate a new description.
+**If the description is stored in a** [released-description-field.md](../../getting-started/setup-guide/released-description-field.md "mention"): Released will use that description in the template and not generate a new description.
 
 **If the description is stored in the issue properties (the default)**: Released will overwrite the description only if a **custom prompt** was used in the template. &#x20;
 

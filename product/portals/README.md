@@ -1,6 +1,6 @@
 # Workspaces & Portals
 
-<figure><img src="../../.gitbook/assets/Portals - Overview.png" alt=""><figcaption><p>Workspace Card</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Workspaces And Portals.png" alt=""><figcaption><p>Workspaces and Portals</p></figcaption></figure>
 
 ## Overview
 
