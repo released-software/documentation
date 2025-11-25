@@ -77,7 +77,7 @@ This block generates descriptions for all issues of the specified type(s) in a l
 For example: If the selection issue type was "Bug", and the filter for the release announcement contains 5 bugs, this block will create 5 bullets points, one for each bug.&#x20;
 
 {% hint style="info" %}
-We recommend to use this block style for bugfixes and small imrovements.&#x20;
+We recommend to use this block style for bugfixes and small improvements.&#x20;
 {% endhint %}
 
 <table data-header-hidden><thead><tr><th width="174"></th><th></th></tr></thead><tbody><tr><td><strong>Usage</strong></td><td>Type <code>/</code> while editing the title field and select <strong>Issue lists</strong> in the AI blocks section. </td></tr><tr><td><strong>Settings</strong></td><td><ul><li><strong>Conditional title and description:</strong> This block contains a text area allowing for adding a title and description. If no issues match this section, this text will not be shown. </li><li><strong>Issue Types:</strong> Select one or more issue types to include in this block. A description will be generated for every issue of this type that matches the filter criteria for a post. </li><li><strong>Custom prompt:</strong> Personalize the AI prompt used to generate the description.   </li></ul></td></tr></tbody></table>
