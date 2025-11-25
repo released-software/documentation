@@ -16,11 +16,13 @@ A Portal gives customers a dedicated space to see updates, roadmaps, and provide
 * **Public**: Discoverability and transparency. No verification; restrict sensitive content.
 * **Private**: Invite-only for key accounts, internal stakeholders or betas. Higher verification; share detailed plans.
 
-### [Branding](../../product/portals/portal/) (quick checklist)
+### Branding (quick checklist)
 
-* [ ] &#x20;Logo: 256×256 PNG/SVG, square or circle.
+* [ ] Logo: 256×256 PNG/SVG, square or circle.
 * [ ] Colors: Use brand tokens (primary, background, accent). Ensure contrast accessibility.
 * [ ] Tone: Clear, friendly, and outcome-focused. Avoid jargon.
+
+Documentation: [portal](../../product/portals/portal/ "mention")
 
 ### Verified users
 
