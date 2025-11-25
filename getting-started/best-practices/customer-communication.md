@@ -7,34 +7,30 @@ description: >-
 
 # Customer Communication
 
-## Set up a Portal for your audience
+## Customer portal
 
 A Portal gives customers a dedicated space to see updates, roadmaps, and provide feedback. Tailoring it to the right audience ensures messaging is relevant and actionable.
 
-### Best practices
-
-#### Audience selection (decision guide)
+### Audience selection (decision guide)
 
 * **Public**: Discoverability and transparency. No verification; restrict sensitive content.
 * **Private**: Invite-only for key accounts, internal stakeholders or betas. Higher verification; share detailed plans.
 
-#### [Branding](../../product/portals/portal/) (quick checklist)
+### [Branding](../../product/portals/portal/) (quick checklist)
 
 * [ ] &#x20;Logo: 256×256 PNG/SVG, square or circle.
 * [ ] Colors: Use brand tokens (primary, background, accent). Ensure contrast accessibility.
 * [ ] Tone: Clear, friendly, and outcome-focused. Avoid jargon.
 
-#### Verified users
+### Verified users
 
 [Configure access](../../product/portals/access.md) and verification settings so the right users can view and interact with the Portal without friction.
 
-## Build a clear Roadmap
+## Roadmaps
 
 A public roadmap helps customers see what’s coming next and understand your priorities, which reduces uncertainty and builds trust. It also aligns expectations, reduces repetitive support questions, and demonstrates transparency by showing that customer feedback is considered. Sharing your roadmap gives customers confidence that work is actively happening and priorities are thoughtfully managed, while also inviting feedback to validate demand before investing in development.
 
-### Best practices
-
-#### Roadmap structure
+### Roadmap structure
 
 Use Now / Next / Later columns to organize your initiatives and communicate priorities clearly:
 
@@ -45,17 +41,17 @@ Use Now / Next / Later columns to organize your initiatives and communicate prio
 
 Keep your roadmap focused on initiatives planned for the next 12 months, rather than speculative work that might happen years from now.
 
-#### Fields to include&#x20;
+### Fields to include&#x20;
 
 Most work item fields are useful internally but create noise for customers. Without full context, fields like priority can mislead or invite debate. Share only what helps customers understand the feature at a glance.
 
 Recommended: expose a single contextual field. Either “Category” or “Theme.” Both clearly signal what the feature relates to without implying internal commitments or rank.
 
-### Enable Feedback
+## Feedback
 
 Feedback gives customers a voice and provides signals about what matters most to them. It also creates engagement and strengthens your relationship.
 
-#### Best practices
+### Configuration tips
 
 * [Enable the Feedback](../../product/feedback/) module in your workspace so users can submit ideas, comment on roadmap items, and add things to their [Wishlist](../../product/feedback/wishlists.md).
 * Use [feedback visibility](../../product/feedback/settings.md#feedback-visibility) to match your requirements
@@ -68,26 +64,32 @@ Feedback gives customers a voice and provides signals about what matters most to
 
 [https://www.released.so/articles/why-public-feature-voting-fails](https://www.released.so/articles/why-public-feature-voting-fails)
 
-### Publish Release Notes
+## Release Notes
 
 Release Notes keep customers informed about what’s changed, showing progress and demonstrating responsiveness to their needs.
 
-#### Best practices
+### Writing style
 
-* Use the Changelog module to publish updates for every release.
-* Keep notes concise, outcome-focused, and easy to scan.&#x20;
+Ship stories, not changelists.
+
+* Outcome-first headlines: Lead with the user benefit, not the feature name.
+* Proof points: Include one visual or short Loom for complex features.
 * Focus on one or two key features, followed by a list of small improvements and bugfixes.&#x20;
-* For major releases with more features, aim to have a theme and a story to tie it all together.&#x20;
-* For stakeholder updates, link keep the related work item visible to provide context where required.
-* Consider adding images or GIFs for more visual impact and clarity.
-* Bonus: Add a Loom showcasing a feature.&#x20;
+* Upgrade notes: Add “how to enable” and “known limitations” where relevant.
+* Cross-links: Link to docs, roadmap item, and feedback thread to deepen context.
+* Use [templates](../../product/changelog/templates.md) for consistency.
+* [Adjust the AI prompts](../../product/changelog/settings/artificial-intelligence.md) for each work item type to match the desired style.
+
+### Voice and Tone Guide&#x20;
+
+Be human, direct, and helpful.
+
+* Clarity over cleverness: Avoid buzzwords; prefer plain English and concrete outcomes.
+* Empathy: Acknowledge trade-offs and uncertainty explicitly.
+* Consistency: Use consistent labels (Now/Next/Later/Exploring) across surfaces.
+* Promises: Avoid hard dates unless ready; offer ranges or criteria instead.
 
 ### Keep a consistent cadence
 
 Regular updates maintain engagement, build trust, and ensure your communication doesn’t feel ad-hoc.
 
-#### Best practices
-
-* Publish release notes at predictable intervals (e.g., weekly or monthly).
-* Update your roadmap frequently (a great habit is to update the roadmap alongside your release notes)
-* Monitor and respond to feedback in the Inbox daily to ensure signals are captured and acted upon.
