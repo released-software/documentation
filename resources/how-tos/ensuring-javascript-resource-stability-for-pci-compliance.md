@@ -2,6 +2,7 @@
 description: >-
   How can I ensure that the referenced JavaScript resource doesn't change for
   PCI compliance reasons?
+hidden: true
 ---
 
 # Ensuring JavaScript Resource Stability for PCI Compliance
