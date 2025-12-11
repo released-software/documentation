@@ -28,7 +28,7 @@ After subscribing to updates, users will receive an email to confirm their subsc
 
 ### Logo
 
-Choose to add the workspace logo to the top of your email by enabling the logo option. You can change the logo in the [General](broken-reference) workspace settings.
+Choose to add the workspace logo to the top of your email by enabling the logo option. You can change the logo in the [General](/broken/pages/M1J2rppJq2UbtY2tc7Tr) workspace settings.
 
 ### Sender Name
 

@@ -16,7 +16,7 @@ Aside from the initial creation via the empty state, there are **3 ways to creat
 
 ## Project configuration
 
-Roadmap views can display work items from multiple Jira projects. To include work items from a specific project on your roadmap, simply add the project to the [linked projects](broken-reference) within the workspace.
+Roadmap views can display work items from multiple Jira projects. To include work items from a specific project on your roadmap, simply add the project to the [linked projects](/broken/pages/M1J2rppJq2UbtY2tc7Tr#linked-projects) within the workspace.
 
 ## Filtering work items
 
@@ -24,7 +24,7 @@ Use filters to refine the work items displayed on the roadmap. You can apply bas
 
 ## Selecting a view
 
-You can view your roadmap as a [Board](broken-reference) or a [Timeline](broken-reference), depending on whether you prefer a Kanban-style layout or a time-based schedule.
+You can view your roadmap as a [Board](/broken/pages/Yl1oAwSxMPeK4QsM18X1) or a [Timeline](/broken/pages/7iW1jp3XViP3bP9ZuFDo), depending on whether you prefer a Kanban-style layout or a time-based schedule.
 
 ## Field configuration
 
