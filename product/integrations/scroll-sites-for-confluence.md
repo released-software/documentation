@@ -11,7 +11,7 @@ Released now integrates with Scroll Sites through their [custom JavaScript injec
 {% hint style="info" %}
 #### Demo
 
-https://released.scroll.site
+[https://released.scroll.site](https://released.scroll.site/)
 {% endhint %}
 
 ## Installation&#x20;
