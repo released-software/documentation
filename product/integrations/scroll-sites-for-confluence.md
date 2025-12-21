@@ -8,6 +8,12 @@ description: Add Release Notes to your Scroll Sites help centre.
 
 Released now integrates with Scroll Sites through their [custom JavaScript inject](https://help.k15t.com/scroll-viewport/inject-custom-javascript) feature. Setting up this integration is a breeze and requires just a few simple steps, taking less than 5 minutes to complete.
 
+{% hint style="info" %}
+#### Demo
+
+https://released.scroll.site
+{% endhint %}
+
 ## Installation&#x20;
 
 {% stepper %}
