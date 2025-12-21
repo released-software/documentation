@@ -40,6 +40,131 @@ Note down the Confluence **Page ID** from the URL (see screenshot below).
 2. [Inject the following JavaScript](https://help.k15t.com/scroll-viewport/inject-custom-javascript).&#x20;
 
 ```javascript
+(function () {
+  /* ----- SCRIPT CONFIGURATION -----
+   * Add your Page IDs here with the matching channel ID and which modules you want to show.
+   */
+  const PAGE_MAPPINGS = {
+    "663257133": { // Confluence pageId
+      channelId: "5cca688e-d54f-4819-ae29-3b8775bc306a", // Released channelId
+      modules: "" //roadmap, changelog or empty for both
+    } 
+  };
+ // ----- SCRIPT CONFIGURATION -----*/
+
+  const SCRIPT_URL = "https://embed.released.so/1/embed.js";
+  const MARKER_ID = "released-embed-root";
+
+  // ----- LOGIC -----
+  const currentPageId =
+    document.documentElement.dataset.confluenceContentId ||
+    (window.vp && vp.source && vp.source.confluencePageId);
+
+  const config = PAGE_MAPPINGS[String(currentPageId)];
+
+  if (!currentPageId || !config) return;
+
+  function injectRoadmap() {
+    if (document.getElementById(MARKER_ID)) return;
+
+    // We target the article container to keep the header visible
+    const article = document.querySelector("#content.fb-layout-container");
+    const articleBody = document.querySelector(".article-body");
+    
+    if (!article || !articleBody) return;
+
+    // 1. Build the custom element tag
+    const moduleAttr = config.modules ? ` modules="${config.modules}"` : "";
+    const embedHtml = `<released-page channel-id="${config.channelId}"${moduleAttr}></released-page>`;
+
+    // 2. Hide only the restricted body and the TOC
+    articleBody.style.display = 'none';
+    const toc = document.querySelector('.toc');
+    if (toc) toc.style.display = 'none';
+
+    // 3. Create wrapper
+    const wrapper = document.createElement("div");
+    wrapper.id = MARKER_ID;
+    wrapper.style.width = "100%";
+    wrapper.style.display = "block";
+    wrapper.innerHTML = embedHtml;
+    
+    // 4. Inject into the article container
+    // This keeps it below the original <header> but replaces the body
+    article.appendChild(wrapper);
+
+    // 5. Load the Released script
+    if (window.vp && typeof vp.loadScript === "function") {
+      vp.loadScript(SCRIPT_URL);
+    } else {
+      const script = document.createElement("script");
+      script.src = SCRIPT_URL;
+      document.head.appendChild(script);
+    }
+  }
+
+  const check = setInterval(() => {
+    if (document.querySelector("#content.fb-layout-container") && document.querySelector(".article-body")) {
+      injectRoadmap();
+      clearInterval(check);
+    }
+  }, 100);
+})();
+```
+
+{% hint style="info" %}
+Ensure you replace the **Page\_ID** and **CHANNEL\_ID** placeholders with the IDs noted in the previous steps.&#x20;
+{% endhint %}
+{% endstep %}
+
+{% step %}
+**Add the custom CSS snippet to your Sites theme**
+
+To override the standard width of the knowledge base theme and enable full-page width for roadmaps, add the following CSS styles:
+
+```css
+/* Selector with Confluence pageID to apply the styles only to those pages.  */
+html[data-confluence-content-id="663257133"]{
+
+    --_content-width: 100% !important;
+    --theme-container-width: 100% !important;
+
+    & .article-page .main-content {
+        display: block !important; 
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-inline: 40px !important; 
+    }
+
+    & #released-embed-root {
+        display: block !important;
+        width: 100% !important;
+        min-height: 800px;
+    }
+
+    & .footer {
+        display: flex !important;
+        clear: both !important;
+    }
+}
+```
+{% endstep %}
+
+{% step %}
+**Save changes**
+
+Click save, and you're done! :tada:
+{% endstep %}
+{% endstepper %}
+
+## Instructions for Scroll Viewport Sites
+
+**Add the custom JavaScript snippet to your Viewport theme**
+
+1. Navigate to your Sites theme settings.
+2. [Inject the following JavaScript](https://help.k15t.com/scroll-viewport/inject-custom-javascript).&#x20;
+
+```javascript
 if (vp.source.confluencePageId === "PAGE_ID") {
   vp.loadScript('https://embed.released.so/1/embed.js').then(() => {
     document.getElementById("article-content").innerHTML = '<released-page channel-id="CHANNEL_ID" color-scheme="light" color-scheme="light" top-offset="80px" color-primary="#FFF"></released-page>'
@@ -50,30 +175,6 @@ if (vp.source.confluencePageId === "PAGE_ID") {
 {% hint style="info" %}
 Ensure you replace the **Page\_ID** and **CHANNEL\_ID** placeholders with the IDs noted in the previous steps.&#x20;
 {% endhint %}
-{% endstep %}
-
-{% step %}
-**Save changes**
-
-Click save, and you're done! :tada:
-{% endstep %}
-{% endstepper %}
-
-## Optional style fine-tuning&#x20;
-
-By default, Scroll Sites adds a 10cm padding at the top of the page. To remove the padding on your release page, you can inject the following CSS in the theme settings:
-
-{% hint style="warning" %}
-The below code most be added into the **Custom CSS** section. **Not** in the Custom JavaScript section where we added the above code.&#x20;
-{% endhint %}
-
-```css
-#article-content:has(> released-page)
-{
-    padding-top:0px;
-    grid-template-columns:1fr;
-}
-```
 
 
 
