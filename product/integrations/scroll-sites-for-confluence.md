@@ -14,7 +14,7 @@ Released now integrates with Scroll Sites through their [custom JavaScript injec
 [https://released.scroll.site](https://released.scroll.site/)
 {% endhint %}
 
-## Installation&#x20;
+## Instructions for Scroll Sites&#x20;
 
 {% stepper %}
 {% step %}
@@ -163,7 +163,15 @@ Click save, and you're done! :tada:
 {% endstep %}
 {% endstepper %}
 
-## Instructions for Scroll Viewport Sites
+**Congratulations, you're done 🎉**
+
+New posts published with Released will now automatically appear in your Sites help centre. <br>
+
+***
+
+## Instructions for Scroll Viewport
+
+Follow steps 1-3 from the [#instructions-for-scroll-sites](scroll-sites-for-confluence.md#instructions-for-scroll-sites "mention")guide above. Then continue with the step below.&#x20;
 
 **Add the custom JavaScript snippet to your Viewport theme**
 
@@ -182,8 +190,3 @@ if (vp.source.confluencePageId === "PAGE_ID") {
 Ensure you replace the **Page\_ID** and **CHANNEL\_ID** placeholders with the IDs noted in the previous steps.&#x20;
 {% endhint %}
 
-
-
-**Congratulations, you're done 🎉**
-
-New posts published with Released will now automatically appear in your Sites help centre.&#x20;
