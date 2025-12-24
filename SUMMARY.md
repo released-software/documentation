@@ -72,6 +72,7 @@
   * [Creating Structured Output](resources/ai-tips/creating-structured-output.md)
   * [International Accents](resources/ai-tips/international-accents.md)
 * [Troubleshooting](resources/troubleshooting/README.md)
+  * [Embeds](resources/troubleshooting/embeds.md)
   * [Permissions Issues](resources/troubleshooting/ensuring-jira-permissions.md)
 * [How-Tos](resources/how-tos/README.md)
   * [Feedback Beta](resources/how-tos/beta.md)
