@@ -6,23 +6,6 @@ description: >-
 
 # How to Apply Atlassian Marketplace App Promo Codes for Cloud
 
-### 1. Access app settings
+On Atlassian’s new billing experience, billing admins add Marketplace app promo codes from the billing portal. Go to admin.atlassian.com/billing, choose your billing account, open Subscriptions, find the app, click Manage, then More actions and select Enter promo code. The discount starts on the next billing cycle once validated. [​⁠](https://support.atlassian.com/subscriptions-and-billing/docs/apply-a-promo-code-to-an-app-purchase/)
 
-* Click on the **App** menu item in the top toolbar.&#x20;
-* select **Manage your apps** in the menu dropdown
-
-<figure><img src="../../.gitbook/assets/App menu.png" alt=""><figcaption><p>Manage your apps in Jira</p></figcaption></figure>
-
-### 2. Access promotion settings
-
-In the Apps settings, click on **Promotions** in the left-hand navigation.&#x20;
-
-Check that your promotion appears in the list of active promotions.
-
-<figure><img src="../../.gitbook/assets/Promotions menu.png" alt=""><figcaption><p>Atlassian App Promotion Settings</p></figcaption></figure>
-
-### 3. Enter your promotion code
-
-Click the **Apply promotion code** button and enter your promotion code.&#x20;
-
-Congratulations, you have successfully applied your promotion.&#x20;
+If you’re on annual billing in the new system, the self-serve option may not appear. Submit a support ticket with your site, entitlement number, app name, and code for Atlassian to apply it. [​⁠](https://community.atlassian.com/forums/App-Central-articles/How-to-apply-Promo-codes-for-Marketplace-apps-it-depends-on-your/ba-p/3003685)
