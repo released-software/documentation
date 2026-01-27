@@ -2,7 +2,6 @@
 description: >-
   Use this guide to troubleshoot problems when embedding a portal in a third
   party site or app.
-hidden: true
 ---
 
 # Embeds
