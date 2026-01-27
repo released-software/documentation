@@ -145,7 +145,7 @@ If CSP was the issue, the Communication error should no longer appear.
 
 This error can also appear if the Product Hub cannot be reached.
 
-**How to fix it**
+#### How to fix it
 
 * Verify that you can open your Product Hub directly in the browser.
 * Check Released Status for any ongoing outages.
@@ -155,7 +155,7 @@ This error can also appear if the Product Hub cannot be reached.
 
 This error means the current domain is not allowed to embed the Product Hub.
 
-**How to fix it**
+#### How to fix it
 
 * Add the embedding domain to Trusted Domains in Released Global Settings.
 * Note that internal and restricted embeds can only be used on trusted domains.
