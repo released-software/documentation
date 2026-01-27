@@ -50,7 +50,7 @@ The internal access setting has been designed to make it easy to grant access to
 Best for stakeholder / internal communication.
 {% endhint %}
 
-<table data-header-hidden><thead><tr><th width="245"></th><th></th></tr></thead><tbody><tr><td><strong>Member access</strong></td><td>Anyone with access to the workspace will be able to access the portal from internal links. </td></tr><tr><td><strong>Internal domains</strong></td><td>Anyone with an email address that matches one of the configured "internal domains" will be able to access the portal. Internal domains can be configured by Released administrators in the <a href="../administration/internal-domains.md">global settings</a>. </td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="245"></th><th></th></tr></thead><tbody><tr><td><strong>Member access</strong></td><td>Anyone with access to the workspace will be able to access the portal from internal links. </td></tr><tr><td><strong>Internal domains</strong></td><td>Anyone with an email address that matches one of the configured "internal domains" will be able to access the portal. Internal domains can be configured by Released administrators in the <a href="../administration/trusted-domains.md">global settings</a>. </td></tr></tbody></table>
 
 #### :closed\_lock\_with\_key: Restricted
 

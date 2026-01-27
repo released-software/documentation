@@ -19,7 +19,7 @@
   * [Product Hub](product/administration/general.md)
   * [Custom Domain](product/administration/custom-domain.md)
   * [Design](product/administration/design.md)
-  * [Internal Domains](product/administration/internal-domains.md)
+  * [Trusted Domains](product/administration/trusted-domains.md)
   * [User Verification](product/administration/user-verification.md)
   * [Permissions](product/administration/permissions.md)
 * [Workspaces & Portals](product/portals/README.md)

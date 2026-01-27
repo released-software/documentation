@@ -19,7 +19,7 @@ In the Jira top navigation:&#x20;
 
 ### Released administrator&#x20;
 
-Released administrators are able to configure and adjust global settings in Released, such as [Product Hub details](general.md), [internal domains](internal-domains.md), or [user verification](user-verification.md).&#x20;
+Released administrators are able to configure and adjust global settings in Released, such as [Product Hub details](general.md), [internal domains](trusted-domains.md), or [user verification](user-verification.md).&#x20;
 
 {% hint style="warning" %}
 By default, all Jira users are granted the **Released: Administrator** permission. To restrict access, you can modify permission in the Global Permissions settings.&#x20;
