@@ -28,6 +28,7 @@
   * [Portal](product/portals/portal/README.md)
     * [Page Embed](product/portals/portal/announcement-page.md)
     * [Widget Embed](product/portals/portal/widget.md)
+    * [Form Embed](product/portals/portal/feedback-form.md)
 * [Feedback](product/feedback/README.md)
   * [Inbox](product/feedback/inbox.md)
   * [Wishlists](product/feedback/wishlists.md)
