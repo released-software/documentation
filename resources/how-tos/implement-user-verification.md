@@ -10,7 +10,7 @@ User verification ensures that only authorized users can access your private roa
 
 This guide provides a complete, minimal working example using Node.js. You can use this to understand the flow before integrating it into your main application.
 
-### Prerequisites
+## Prerequisites
 
 Before running the example, ensure you have the following:
 
@@ -23,7 +23,7 @@ Before running the example, ensure you have the following:
 
 ***
 
-### 1. Set up the project
+## 1. Set up the project
 
 Open your terminal and run the following commands to create a folder and install the necessary web server framework (`express`).
 
@@ -34,7 +34,7 @@ npm init -y
 npm install express
 ```
 
-### 2. Create the server file
+## 2. Create the server file
 
 Create a file named `server.js` and paste in the code below.
 
@@ -125,7 +125,7 @@ app.listen(port, () => {
 });
 ```
 
-### 3. Run the server
+## 3. Run the server
 
 Start the application in your terminal:
 
@@ -135,7 +135,7 @@ Bash
 node server.js
 ```
 
-### 4. Tunneling (Required for HTTPS)
+## 4. Tunneling (Required for HTTPS)
 
 Most browsers restrict embedded widgets or cookies when running on `localhost`. To test this properly, you need a public `https` URL. We recommend using a tool like [ngrok](https://ngrok.com/).
 
@@ -151,7 +151,7 @@ Most browsers restrict embedded widgets or cookies when running on `localhost`. 
 4. Important: Add this URL to your Allowed Domains in the Released dashboard if you have domain restrictions enabled.
 5. Open the URL in your browser to see your authenticated roadmap.
 
-### 5. Whitelist the ngrok domain
+## 5. Whitelist the ngrok domain
 
 Add the ngrok domain to your list of [trusted domains for embedded content](../../product/administration/trusted-domains.md).&#x20;
 
