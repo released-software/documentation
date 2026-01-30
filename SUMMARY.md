@@ -75,7 +75,7 @@
 * [Troubleshooting](resources/troubleshooting/README.md)
   * [Embeds](resources/troubleshooting/embeds.md)
   * [Permissions Issues](resources/troubleshooting/ensuring-jira-permissions.md)
-* [Implement User Verification](resources/how-tos/README.md)
+* [How Tos](resources/how-tos/README.md)
   * [Feedback Beta](resources/how-tos/beta.md)
   * [Accessing Custom Fields](resources/how-tos/accessing-custom-fields.md)
   * [Configuring Dark Mode](resources/how-tos/configuring-dark-mode.md)
@@ -86,3 +86,4 @@
   * [Ensuring JavaScript Resource Stability for PCI Compliance](resources/how-tos/ensuring-javascript-resource-stability-for-pci-compliance.md)
   * [How to Apply Atlassian Marketplace App Promo Codes for Cloud](resources/how-tos/how-to-apply-atlassian-marketplace-app-promo-codes-for-cloud.md)
   * [How to Open the developer console to check for errors](resources/how-tos/how-to-open-the-developer-console-to-check-for-errors.md)
+  * [Implement User Verification](resources/how-tos/implement-user-verification.md)
