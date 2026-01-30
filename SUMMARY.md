@@ -75,7 +75,7 @@
 * [Troubleshooting](resources/troubleshooting/README.md)
   * [Embeds](resources/troubleshooting/embeds.md)
   * [Permissions Issues](resources/troubleshooting/ensuring-jira-permissions.md)
-* [How-Tos](resources/how-tos/README.md)
+* [Implement User Verification](resources/how-tos/README.md)
   * [Feedback Beta](resources/how-tos/beta.md)
   * [Accessing Custom Fields](resources/how-tos/accessing-custom-fields.md)
   * [Configuring Dark Mode](resources/how-tos/configuring-dark-mode.md)
