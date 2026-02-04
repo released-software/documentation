@@ -75,6 +75,7 @@
 * [Troubleshooting](resources/troubleshooting/README.md)
   * [Embeds](resources/troubleshooting/embeds.md)
   * [Permissions Issues](resources/troubleshooting/ensuring-jira-permissions.md)
+  * [Roadmap Publishing](resources/troubleshooting/roadmap-publishing.md)
 * [How Tos](resources/how-tos/README.md)
   * [Feedback Beta](resources/how-tos/beta.md)
   * [Accessing Custom Fields](resources/how-tos/accessing-custom-fields.md)
