@@ -90,6 +90,10 @@ If you need to rotate your shared secret:
 2. Update your server to use the new secret when generating tokens.
 3. Ensure all requests are updated with new tokens.
 
+### Demo <a href="#need-help" id="need-help"></a>
+
+Use [this demo](../../resources/how-tos/implement-user-verification.md) to learn how to implement user verification through a simple example written in Node.js with an Express server.
+
 ### Need Help? <a href="#need-help" id="need-help"></a>
 
 If you run into issues, [contact us](https://released.so/support) and we’ll help you get started.
