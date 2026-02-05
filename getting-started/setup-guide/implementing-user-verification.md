@@ -4,9 +4,11 @@ icon: lock
 
 # Implementing User Verification
 
-User verification lets you securely identify users who access your private widgets or pages. By generating a signed authentication token on your server, you can ensure that only authorized users gain access to restricted content.
+User verification allows you to securely identify users who access your private widgets or pages. By generating a signed authentication token on your server, you can ensure that only authorized users gain access and can leave feedback in your portals.&#x20;
 
-#### Authentication flow
+User verification is a great way to control access while providing a seamless experience for your team and customers.
+
+## Authentication flow
 
 ```mermaid
 sequenceDiagram
@@ -122,6 +124,10 @@ If you need to rotate your shared secret:
 2. Update your server to use the new secret when generating tokens.
 3. Ensure all embeds and requests are updated to use tokens generated with the new secret.
 
-### Need help?
+## Demo
+
+Use [this demo](../../resources/how-tos/implement-user-verification.md) to learn how to implement user verification through a simple example written in Node.js with an Express server.
+
+## Need help?
 
 If you run into issues, [contact us](https://released.so/support) and we’ll help you get started.
