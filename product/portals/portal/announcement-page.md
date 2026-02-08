@@ -38,7 +38,7 @@ Follow the instructions in the install panel. Copy the relevant code snippets an
 {% endstepper %}
 
 {% hint style="warning" %}
-To enable users to log in, you must add the domain's URL to the list of trusted domains. The URL must include the subdomain. For example `feedback.example.com`.
+To enable users to log in, you must add the domain's URL to the list of [trusted domains](../../administration/trusted-domains.md). The URL must include the subdomain. For example `feedback.example.com`.
 {% endhint %}
 
 ## Advanced options

@@ -8,7 +8,7 @@ icon: square-code
 The announcement page enables you to integrate release notes seamlessly into your website or documentation. You can maintain your existing website header and footer, ensuring a consistent user experience across your site.
 
 {% hint style="warning" %}
-To enable users to log in, you must add the domain's URL to the list of trusted domains. The URL must include the subdomain. For example `feedback.example.com`.
+To enable users to log in, you must add the domain's URL to the list of [trusted domains](../../product/administration/trusted-domains.md). The URL must include the subdomain. For example `feedback.example.com`.
 {% endhint %}
 
 ## Installation instructions
