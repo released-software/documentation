@@ -5,7 +5,7 @@ icon: square-code
 
 # Embedding the Widget
 
-The embed widget offers a seamless way to integrate release notes into your application or website. With a simple click on a trigger in form of a link or button, users can access a dialog box displaying the most recent announcements. Additionally, the trigger conveniently displays a badge indicating the presence of new announcements.
+The embed widget offers a seamless way to integrate your portal into your application or website. With a simple click on a trigger in form of a link or button, users can access a dialog box displaying the most recent announcements. Additionally, the trigger conveniently displays a badge indicating the presence of new announcements.
 
 {% hint style="warning" %}
 To enable users to log in, you must add the domain's URL to the list of [trusted domains](../../product/administration/trusted-domains.md). The URL must include the subdomain. For example `feedback.example.com`.
