@@ -1,21 +1,6 @@
 ---
 description: Embed a feedback form into your app or site
-hidden: true
 icon: square-code
-layout:
-  width: default
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
 ---
 
 # Form Embed
