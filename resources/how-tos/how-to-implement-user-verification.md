@@ -4,13 +4,19 @@ description: >-
   simply Node.js Express server.
 ---
 
-# Implement User Verification
+# How to Implement User Verification
 
 User verification ensures that only authorized users can access your private roadmaps or widgets. Because this process involves sensitive credentials (your Shared Secret), the authentication token must be generated on your server, never in the browser.
 
-This guide provides a complete, minimal working example using Node.js. You can use this to understand the flow before integrating it into your main application.
+## NextJS demo&#x20;
 
-## Prerequisites
+You can find an examxple implementation of the user verfiication flow in NextJS on Github.&#x20;
+
+<a href="https://github.com/released-software/released-embed-demo" class="button secondary" data-icon="github">View on Github</a>
+
+## Express server demo
+
+### Prerequisites
 
 Before running the example, ensure you have the following:
 
@@ -23,7 +29,11 @@ Before running the example, ensure you have the following:
 
 ***
 
-## 1. Set up the project
+### Implementation&#x20;
+
+{% stepper %}
+{% step %}
+#### Set up the project
 
 Open your terminal and run the following commands to create a folder and install the necessary web server framework (`express`).
 
@@ -33,8 +43,10 @@ cd released-auth-demo
 npm init -y
 npm install express
 ```
+{% endstep %}
 
-## 2. Create the server file
+{% step %}
+#### Create the server file
 
 Create a file named `server.js` and paste in the code below.
 
@@ -124,8 +136,10 @@ app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
 ```
+{% endstep %}
 
-## 3. Run the server
+{% step %}
+#### Run the server
 
 Start the application in your terminal:
 
@@ -134,8 +148,12 @@ Bash
 ```
 node server.js
 ```
+{% endstep %}
 
-## 4. Tunneling (Required for HTTPS)
+{% step %}
+#### Tunneling (Required for HTTPS)
+
+
 
 Most browsers restrict embedded widgets or cookies when running on `localhost`. To test this properly, you need a public `https` URL. We recommend using a tool like [ngrok](https://ngrok.com/).
 
@@ -150,10 +168,14 @@ Most browsers restrict embedded widgets or cookies when running on `localhost`. 
 3. Copy the Forwarding URL provided by ngrok (e.g., `https://a1b2-c3d4.ngrok-free.dev`).
 4. Important: Add this URL to your Allowed Domains in the Released dashboard if you have domain restrictions enabled.
 5. Open the URL in your browser to see your authenticated roadmap.
+{% endstep %}
 
-## 5. Whitelist the ngrok domain
+{% step %}
+#### Whitelist the ngrok domain
 
 Add the ngrok domain to your list of [trusted domains for embedded content](../../product/administration/trusted-domains.md).&#x20;
+{% endstep %}
+{% endstepper %}
 
 ## Troubleshooting
 

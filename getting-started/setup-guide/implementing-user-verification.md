@@ -8,6 +8,10 @@ User verification allows you to securely identify users who access your private 
 
 User verification is a great way to control access while providing a seamless experience for your team and customers.
 
+## Example Implementations
+
+<a href="https://github.com/released-software/released-embed-demo" class="button secondary" data-icon="github">NextJS demo</a><a href="../../resources/how-tos/how-to-implement-user-verification.md" class="button secondary" data-icon="file-lines">Express demo</a>
+
 ## Authentication flow
 
 ```mermaid
@@ -124,9 +128,7 @@ If you need to rotate your shared secret:
 2. Update your server to use the new secret when generating tokens.
 3. Ensure all embeds and requests are updated to use tokens generated with the new secret.
 
-## Demo
 
-Use [this demo](../../resources/how-tos/implement-user-verification.md) to learn how to implement user verification through a simple example written in Node.js with an Express server.
 
 ## Need help?
 

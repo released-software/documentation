@@ -88,4 +88,4 @@
   * [Ensuring JavaScript Resource Stability for PCI Compliance](resources/how-tos/ensuring-javascript-resource-stability-for-pci-compliance.md)
   * [How to Apply Atlassian Marketplace App Promo Codes for Cloud](resources/how-tos/how-to-apply-atlassian-marketplace-app-promo-codes-for-cloud.md)
   * [How to Open the developer console to check for errors](resources/how-tos/how-to-open-the-developer-console-to-check-for-errors.md)
-  * [Implement User Verification](resources/how-tos/implement-user-verification.md)
+  * [How to Implement User Verification](resources/how-tos/how-to-implement-user-verification.md)
