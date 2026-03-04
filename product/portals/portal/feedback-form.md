@@ -33,6 +33,8 @@ Follow the instructions in the install panel. Copy the relevant code snippets an
 {% endstep %}
 {% endstepper %}
 
+See [embedding-the-page-1.md](../../../getting-started/setup-guide/embedding-the-page-1.md "mention") for detailed instructions.&#x20;
+
 {% hint style="warning" %}
 To enable users to log in, you must add the domain's URL to the list of [trusted domains](../../administration/trusted-domains.md). The URL must include the subdomain. For example `feedback.example.com`.
 {% endhint %}
@@ -43,7 +45,7 @@ To enable users to log in, you must add the domain's URL to the list of [trusted
 
 You can overwrite the configured styles and settings of the form embed by adding custom properties to the embed code. This allows for customizing the styling when embedding the form in different locations.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 When a setting is configured via the properties below, it can no longer be customized via the UI settings.&#x20;
 {% endhint %}
 
@@ -69,13 +71,12 @@ Setting data attributes can be helpful to prevent unwanted interactions with 3rd
 
 The following default values are applied in case a property is not explicitly defined.&#x20;
 
-```html
-<released-form form-id="FORM_ID" 
-  title="What's New"
-  sub-title="The latest updates and improvements."
-  position="bottom-right"
-  trigger="#trigger"
-  color-scheme="system"
-></released-widget>
-```
+<pre class="language-html"><code class="lang-html">&#x3C;released-form form-id="FORM_ID" 
+  title="Give feedback"
+  sub-title="Please tell us the story behind your idea or issue. Instead of “add a blue button”, tell us why you need it. What problem is it solving for you."
+  placeholder="Describe your problem…"
+  dialog="false"
+<strong>  color-scheme="system"
+</strong>>&#x3C;/released-widget>
+</code></pre>
 

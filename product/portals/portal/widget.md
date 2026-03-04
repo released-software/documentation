@@ -37,6 +37,8 @@ Follow the instructions in the install panel. Copy the relevant code snippets an
 {% endstep %}
 {% endstepper %}
 
+See [embedding-the-widget.md](../../../getting-started/setup-guide/embedding-the-widget.md "mention") for detailed instructions.&#x20;
+
 {% hint style="warning" %}
 To enable users to log in, you must add the domain's URL to the list of [trusted domains](../../administration/trusted-domains.md). The URL must include the subdomain. For example `feedback.example.com`.
 {% endhint %}
@@ -47,7 +49,7 @@ To enable users to log in, you must add the domain's URL to the list of [trusted
 
 You can overwrite the configured styles and settings of the widget by adding custom properties to the embed code. This allows for customizing the styling when embedding the widget in different locations.&#x20;
 
-{% hint style="warning" %}
+{% hint style="info" %}
 When a setting is configured via the properties below, it can no longer be customized via the UI settings.&#x20;
 {% endhint %}
 

@@ -1,5 +1,5 @@
 ---
-description: Embed the widget in your website or app with a few lines of code.
+description: Embed your roadmaps and released notes inside your app or website.
 icon: square-code
 ---
 
@@ -47,9 +47,11 @@ Add the following code snippet to the `<body>` section of your site. The widget 
 <released-widget channel-id="CHANNEL_ID"></released-widget>
 ```
 
-{% hint style="warning" %}
-If your portal has restricted access, you’ll need to [implement user verification](implementing-user-verification.md) and pass the `auth-token="AUTH_TOKEN"` attribute to display content in your embed.
-{% endhint %}
+To automatically authenticate users, you can [implement user verification](implementing-user-verification.md) and pass in the `auth-token` attribute.
+
+```
+<released-page channel-id="CHANNEL_ID" auth-token="AUTH_TOKEN"></released-page>
+```
 {% endstep %}
 {% endstepper %}
 
