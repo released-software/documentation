@@ -7,9 +7,7 @@ icon: square-code
 
 The embed page enables you to integrate a portal seamlessly into your website or documentation. You can maintain your existing website header and footer, ensuring a consistent user experience across your site.&#x20;
 
-## Demo
-
-Experience a demo of the page embed on [CodePen](https://codepen.io/released/pen/WNaaMNx).
+<a href="../../../getting-started/setup-guide/embedding-the-page.md" class="button primary" data-icon="code">Installation instructions</a>
 
 ## Configuration
 
@@ -17,33 +15,7 @@ To customize the appearance of your embedded portal, go to **Workspace > Setting
 
 The page embed settings allow you to tailor the look and feel of the page to match your brand or audience. From the right-hand sidebar, you are able to change the title and subtitle, color scheme, locale and more. &#x20;
 
-Alternatively you can use the [advanced options](announcement-page.md#advanced-options) below to specify the configuration via code.&#x20;
-
-## Installation
-
-To embed the portal in your website:
-
-{% stepper %}
-{% step %}
-#### Click the install button
-
-Click the Install button at the bottom of the configuration sidebar.&#x20;
-{% endstep %}
-
-{% step %}
-#### Copy the install code
-
-Follow the instructions in the install panel. Copy the relevant code snippets and paste them into your website or app.
-{% endstep %}
-{% endstepper %}
-
-See [embedding-the-page.md](../../../getting-started/setup-guide/embedding-the-page.md "mention") for detailed instructions.&#x20;
-
-{% hint style="warning" %}
-To enable users to log in, you must add the domain's URL to the list of [trusted domains](../../administration/trusted-domains.md). The URL must include the subdomain. For example `feedback.example.com`.
-{% endhint %}
-
-## Advanced options
+Alternatively you can use the page properties below to specify the configuration via code.&#x20;
 
 ### Overwriting the UI settings
 
@@ -101,3 +73,7 @@ released-badge {
 {% hint style="info" %}
 Experiment with badge positioning on [CodePen](https://codepen.io/released/pen/abQRYgG).
 {% endhint %}
+
+## Demo
+
+Experience a demo of the page embed on [CodePen](https://codepen.io/released/pen/WNaaMNx).

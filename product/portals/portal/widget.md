@@ -7,9 +7,7 @@ icon: square-code
 
 The embed widget offers a seamless way to integrate your portal into your application or website. With a simple click on a trigger in form of a link or button, users can access a dialog box displaying the most recent announcements. Additionally, the trigger conveniently displays a badge indicating the presence of new announcements.
 
-## Demo
-
-Experience a demo of the widget on [CodePen](https://codepen.io/released/pen/WNaaMNx).
+<a href="../../../getting-started/setup-guide/embedding-the-widget.md" class="button primary" data-icon="code">Installation instructions</a>
 
 ## Configuration
 
@@ -17,33 +15,7 @@ To customize the appearance of your embedded portal, go to **Workspace > Setting
 
 The widget embed settings allow you to tailor the look and feel of the widget to match your brand or audience. From the right-hand sidebar, you are able to change the title and subtitle, color scheme, locale and more. &#x20;
 
-Alternatively you can use the [advanced options](widget.md#advanced-options) below to specify the configuration via code.&#x20;
-
-## Installation
-
-To add the widget to your website:
-
-{% stepper %}
-{% step %}
-#### Click the install button
-
-Click the Install button at the bottom of the configuration sidebar.&#x20;
-{% endstep %}
-
-{% step %}
-#### Copy the install code
-
-Follow the instructions in the install panel. Copy the relevant code snippets and paste them into your website or app.&#x20;
-{% endstep %}
-{% endstepper %}
-
-See [embedding-the-widget.md](../../../getting-started/setup-guide/embedding-the-widget.md "mention") for detailed instructions.&#x20;
-
-{% hint style="warning" %}
-To enable users to log in, you must add the domain's URL to the list of [trusted domains](../../administration/trusted-domains.md). The URL must include the subdomain. For example `feedback.example.com`.
-{% endhint %}
-
-## Advanced options
+Alternatively you can use the widget properties below to specify the configuration via code.&#x20;
 
 ### Overwriting the UI settings
 

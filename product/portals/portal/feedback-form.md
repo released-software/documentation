@@ -7,39 +7,15 @@ icon: square-code
 
 The form embed offers a seamless way to integrate a feedback form into your application or website. Embed the form inline or as a dialog.
 
+<a href="../../../getting-started/setup-guide/embedding-the-page-1.md" class="button primary" data-icon="code">Installation instructions</a>
+
 ## Configuration
 
 To customize the appearance of your embedded portal, go to **Workspace > Settings > Form**.
 
 The form embed settings allow you to tailor the look and feel of the form to match your brand or audience. From the right-hand sidebar, you are able to change the title and subtitle, placeholder, color scheme, locale and more.
 
-Alternatively you can use the [advanced options](feedback-form.md#advanced-options) below to specify the configuration via code.&#x20;
-
-## Installation
-
-To add the form embed to your website or app:
-
-{% stepper %}
-{% step %}
-#### Click the install button
-
-Click the Install button at the bottom of the configuration sidebar.&#x20;
-{% endstep %}
-
-{% step %}
-#### Copy the install code
-
-Follow the instructions in the install panel. Copy the relevant code snippets and paste them into your website or app.&#x20;
-{% endstep %}
-{% endstepper %}
-
-See [embedding-the-page-1.md](../../../getting-started/setup-guide/embedding-the-page-1.md "mention") for detailed instructions.&#x20;
-
-{% hint style="warning" %}
-To enable users to log in, you must add the domain's URL to the list of [trusted domains](../../administration/trusted-domains.md). The URL must include the subdomain. For example `feedback.example.com`.
-{% endhint %}
-
-## Advanced options
+Alternatively you can use the form properties below to specify the configuration via code.&#x20;
 
 ### Overwriting the UI settings
 
