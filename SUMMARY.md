@@ -9,7 +9,7 @@
   * [Setting up your Product Hub](getting-started/setup-guide/setting-up-your-product-hub.md)
   * [Embedding the Widget](getting-started/setup-guide/embedding-the-widget.md)
   * [Embedding the Page](getting-started/setup-guide/embedding-the-page.md)
-  * [Embedding the Feedback Form](getting-started/setup-guide/embedding-the-page-1.md)
+  * [Embedding the Feedback Form](getting-started/setup-guide/embedding-the-feedback-form.md)
   * [Implementing User Verification](getting-started/setup-guide/implementing-user-verification.md)
 * [Best Practices](getting-started/best-practices/README.md)
   * [Customer Communication](getting-started/best-practices/customer-communication.md)
