@@ -58,7 +58,7 @@
     * [Categories](product/changelog/editor/categories.md)
     * [Versions](product/changelog/editor/versions.md)
 * [Integrations](product/integrations/README.md)
-  * [Confluence Embed](product/integrations/confluence-embed.md)
+  * [Confluence Embed Macro](product/integrations/confluence-embed.md)
   * [Framer](product/integrations/framer.md)
   * [Webflow](product/integrations/webflow.md)
   * [Slack](product/integrations/slack.md)
