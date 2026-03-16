@@ -6,6 +6,10 @@ description: >-
 
 # Confluence Embed Macro
 
+{% hint style="info" %}
+This Confluence app is a companion to the [Released](https://marketplace.atlassian.com/apps/1230872/released-feedback-portal-public-roadmap-ai-release-notes?hosting=cloud\&tab=overview) app for Jira.&#x20;
+{% endhint %}
+
 ## Installation
 
 {% stepper %}
@@ -55,7 +59,7 @@ description: >-
 #### Configure the Macro
 
 * A configuration dialog will appear
-* Enter your [**Channel ID**](../../resources/how-tos/finding-the-channel-id.md) (required). Ensure you grab the channel ID from the [**Page** Embed](../portals/portal/announcement-page.md) settings in your workspace.&#x20;
+* Find the [**Channel ID**](../../resources/how-tos/finding-the-channel-id.md) within the Released app in Jira. You can find the channel ID on the [**Page** Embed](../portals/portal/announcement-page.md) settings in your workspace
 * Optionally configure additional settings
 
 | Setting           | Description                                                                                       | Required          |
