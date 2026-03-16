@@ -107,7 +107,7 @@ Opening the item shows:
 * Thread history (if applicable)
 * A link to open the conversation in Slack
 
-### Responding to Slack feedback
+## Responding to Slack feedback
 
 You can reply to Slack feedback directly from the Released inbox.
 
