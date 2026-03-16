@@ -55,7 +55,7 @@ description: >-
 #### Configure the Macro
 
 * A configuration dialog will appear
-* Enter your [**Channel ID**](../../resources/how-tos/finding-the-channel-id.md) (required)
+* Enter your [**Channel ID**](../../resources/how-tos/finding-the-channel-id.md) (required). Ensure you grab the channel ID from the [**Page** Embed](../portals/portal/announcement-page.md) settings in your workspace.&#x20;
 * Optionally configure additional settings
 
 | Setting           | Description                                                                                       | Required          |

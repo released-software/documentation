@@ -21,6 +21,7 @@
   * [Custom Domain](product/administration/custom-domain.md)
   * [Design](product/administration/design.md)
   * [Trusted Domains](product/administration/trusted-domains.md)
+  * [Slack](product/administration/slack.md)
   * [User Verification](product/administration/user-verification.md)
   * [Permissions](product/administration/permissions.md)
 * [Workspaces & Portals](product/portals/README.md)

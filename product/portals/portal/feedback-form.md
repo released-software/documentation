@@ -5,6 +5,8 @@ icon: square-code
 
 # Form Embed
 
+**Available in** [<mark style="color:purple;">**Advanced edition**</mark>](https://marketplace.atlassian.com/apps/1230872?hosting=cloud\&tab=pricing)
+
 The form embed offers a seamless way to integrate a feedback form into your application or website. Embed the form inline or as a dialog.
 
 <a href="../../../getting-started/setup-guide/embedding-the-feedback-form.md" class="button primary" data-icon="code">Installation instructions</a>
