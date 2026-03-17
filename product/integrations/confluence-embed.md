@@ -7,7 +7,7 @@ description: >-
 # Confluence Embed Macro
 
 {% hint style="info" %}
-This Confluence app is a companion to the [Released](https://marketplace.atlassian.com/apps/1230872/released-feedback-portal-public-roadmap-ai-release-notes?hosting=cloud\&tab=overview) app for Jira.&#x20;
+This Confluence app works alongside the [Released](https://marketplace.atlassian.com/apps/1230872/released-feedback-portal-public-roadmap-ai-release-notes?hosting=cloud\&tab=overview) app for Jira. To use it, Released must be installed in Jira. The credentials below are generated and managed within the Jira app.
 {% endhint %}
 
 ## Installation
@@ -95,7 +95,7 @@ User verification enables personalized portal experiences for your Confluence us
 
 #### Prerequisites
 
-To enable user verification for your Confluence macro you will require your Released **Account ID** and **Shared Secret** which can be found under [#credentials](../administration/user-verification.md#credentials "mention") within the Released app in Jira.&#x20;
+To enable user verification for your Confluence macro you will require your Released **Account ID** and **Shared Secret** which can be found under [#credentials](../administration/user-verification.md#credentials "mention") within the **Released app in Jira.**&#x20;
 
 #### Configure in Confluence
 
