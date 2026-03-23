@@ -6,7 +6,7 @@ description: >-
 
 # Slack
 
-## Share product updates
+## Share product updates in Slack
 
 Post published updates directly into Slack channels so your team and customers can read them without leaving Slack. The full content of the post is delivered inline, not just a link.
 
