@@ -61,6 +61,24 @@ Select the Released workspace to which you want to send feedback from Slack
 {% endstep %}
 {% endstepper %}
 
+You can pause feedback collection from Slack without disconnecting your workspaces.
+
+1. Go to Global Settings → Slack
+2. Toggle Ingestion on or off
+
+### When disabled:
+
+* New replies from Slack threads are not send into Released
+* Feedback submissions from Slack (via the message menu or slash commands) are disabled
+* Replies sent from the Inbox are still delivered to Slack
+* Existing feedback and previously captured messages remain unchanged in Released
+* The setting applies globally to all connected Slack workspaces, not per workspace
+
+### When re-enabled:
+
+* Feedback collection resumes immediately.&#x20;
+* Messages posted while ingestion was disabled are not backfilled; only new activity flows through
+
 ## Capture feedback from Slack
 
 Once connected, you can create feedback directly from Slack.
@@ -122,6 +140,13 @@ Your message will:
 * Maintain the conversation context
 
 Replies appear in Slack as messages from the **Released bot**, attributed to you.
+
+### Notifications
+
+How participants are notified depends on their source:
+
+* **Slack participants** — Replies and updates are sent as Slack messages to everyone in the original thread.
+* **Non-Slack participants** — Collaborators on the feedback item in Released (excluding the original author) receive email notifications for new replies and updates.
 
 ## Permissions and access
 
@@ -191,6 +216,14 @@ Yes. Each Slack workspace can be connected and mapped to one or more Released wo
 
 <summary><strong>What happens if I disconnect a Slack workspace?</strong></summary>
 
-Existing feedback stays in Released, but new messages can no longer be captured and replies will stop syncing until the workspace is reconnected.
+Existing feedback stays in Released, but new messages can no longer be captured and replies will stop syncing. All Slack users tied to that connection become “Deleted User” in Released. If you reconnect the workspace, those users are re-activated and threads that existed before the disconnection continue to work.
+
+</details>
+
+<details>
+
+<summary><strong>What happens if the Released app is uninstalled from Slack?</strong></summary>
+
+The connection is automatically removed from Released settings, with the same effect as disconnecting from the Released side.
 
 </details>
