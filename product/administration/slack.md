@@ -5,7 +5,7 @@ icon: slack
 
 # Slack
 
-**Available in** [<mark style="color:purple;">**Advanced edition**</mark>](https://marketplace.atlassian.com/apps/1230872?hosting=cloud\&tab=pricing)
+**Available in** [<mark style="color:purple;background-color:purple;">**Advanced edition**</mark>](https://marketplace.atlassian.com/apps/1230872?hosting=cloud\&tab=pricing)
 
 The Slack integration lets you turn Slack messages into feedback items and reply from the Released inbox. When you respond in Released, your message is posted back to the original Slack thread so the conversation stays in sync.
 
