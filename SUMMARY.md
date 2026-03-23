@@ -58,6 +58,7 @@
     * [Keyboard Shortcuts](product/changelog/editor/keyboard-shortcuts.md)
     * [Categories](product/changelog/editor/categories.md)
     * [Versions](product/changelog/editor/versions.md)
+  * [Publishing to Slack](product/changelog/publishing-to-slack.md)
 * [Integrations](product/integrations/README.md)
   * [Confluence Embed Macro](product/integrations/confluence-embed.md)
   * [Framer](product/integrations/framer.md)
