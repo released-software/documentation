@@ -54,7 +54,7 @@ Next, generate an encrypted `AUTH_TOKEN` on your server to securely identify the
 
 Send a **POST** request to the Released token API with your `ACCOUNT_ID` and the `CURRENT_USER_EMAIL`. The API responds with an `AUTH_TOKEN` for that user.
 
-Include this token whenever you embed or load your Released portal. Tokens are valid for seven days; after that, you must generate a new token.
+Include this token whenever you embed or load your Released portal. Tokens must be used within two minutes; after that, you must generate a new token. Once used, the user can interact with Released on that page for up to three days.
 
 The `CURRENT_USER_ID` will be used to identify the user in Released. Make sure that this is a unique identifier for each user in your system. User profiles in Released will use this identifier to match users.
 
@@ -112,7 +112,7 @@ You can find the `SHARED_SECRET` and `ACCOUNT_ID` values in the **User verificat
 {% step %}
 #### Pass the authentication token with the embed tag
 
-Once you’ve generated the token, include it when embedding your portal. It’s valid for 2 minutes and is exchanged for a 7‑day session.&#x20;
+Once you’ve generated the token, include it when embedding your portal. It’s valid for two minutes and is exchanged for a three‑day session.&#x20;
 
 ```html
 <released-page auth-token="AUTH_TOKEN"></released-page>
