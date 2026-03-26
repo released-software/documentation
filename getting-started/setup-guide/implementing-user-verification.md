@@ -4,7 +4,7 @@ icon: lock
 
 # Implementing User Verification
 
-User verification allows you to securely identify users who access your private widgets or pages. By generating a signed authentication token on your server, you can ensure that only authorized users gain access and can leave feedback in your portals.&#x20;
+User verification allows you to securely identify users who access your private widgets or pages. By generating a signed authentication token on your server, you can ensure that only authorized users gain access and can leave feedback in your portals.
 
 User verification is a great way to control access while providing a seamless experience for your team and customers.
 
@@ -34,7 +34,7 @@ sequenceDiagram
 
 {% stepper %}
 {% step %}
-#### Get your shared secret
+**Get your shared secret**
 
 First, retrieve your shared secret, which is used to securely sign the user data in the payload.
 
@@ -48,13 +48,13 @@ First, retrieve your shared secret, which is used to securely sign the user data
 {% endstep %}
 
 {% step %}
-#### Generate an authentication token on your server
+**Generate an authentication token on your server**
 
 Next, generate an encrypted `AUTH_TOKEN` on your server to securely identify the user.
 
-Send a **POST** request to the Released token API with your `ACCOUNT_ID` and the `CURRENT_USER_EMAIL`. The API responds with an `AUTH_TOKEN` for that user.
+Send a **POST** request to the Released token API endpoint: `https://accounts.releasedhub.com/auth/api/impersonation/token`
 
-Include this token whenever you embed or load your Released portal. Tokens must be used within two minutes; after that, you must generate a new token. Once used, the user can interact with Released on that page for up to three days.
+The request must include your `ACCOUNT_ID` and the `CURRENT_USER_EMAIL`. The API responds with an `AUTH_TOKEN` for that user.
 
 The `CURRENT_USER_ID` will be used to identify the user in Released. Make sure that this is a unique identifier for each user in your system. User profiles in Released will use this identifier to match users.
 
@@ -110,9 +110,9 @@ You can find the `SHARED_SECRET` and `ACCOUNT_ID` values in the **User verificat
 {% endstep %}
 
 {% step %}
-#### Pass the authentication token with the embed tag
+**Pass the authentication token with the embed tag**
 
-Once you’ve generated the token, include it when embedding your portal. It’s valid for two minutes and is exchanged for a three‑day session.&#x20;
+Once you’ve generated the token, include it when embedding your portal. It’s valid for two minutes and is exchanged for a three‑day session.
 
 ```html
 <released-page auth-token="AUTH_TOKEN"></released-page>
@@ -128,7 +128,44 @@ If you need to rotate your shared secret:
 2. Update your server to use the new secret when generating tokens.
 3. Ensure all embeds and requests are updated to use tokens generated with the new secret.
 
+## Frequently asked questions
 
+<details>
+
+<summary>What is user verification in Released?</summary>
+
+User verification lets you securely identify users who access your private widgets or pages. It ensures only authorized users can view content and leave feedback in your portals.
+
+</details>
+
+<details>
+
+<summary>How long is an authentication token valid, and when do I need to generate a new one?</summary>
+
+The token lifecycle has two phases:
+
+* Initial use window (2 minutes): Once generated, the token must be passed to a ‎\`\<released-page>\` embed and used to access the portal within two minutes. If the user doesn’t load the portal in that window, the token expires and your server needs to generate a fresh one.
+* Active session (3 days): Once the token is successfully used — meaning the portal verifies it with the Released API — the user gets a session that lasts up to three days. During that session they can interact with the portal without needing a new token.
+
+In practice, this means you should generate a token on demand each time a user navigates to a page containing your Released embed, rather than pre-generating and caching tokens. The two-minute window is short enough that stale tokens are a common source of “access denied” errors if tokens are generated too early.
+
+</details>
+
+<details>
+
+<summary>How do I pass the token to my embedded portal?</summary>
+
+Add it to the embed tag as an attribute: ‎`<released-page auth-token="AUTH_TOKEN"></released-page>`
+
+</details>
+
+<details>
+
+<summary>How do I generate an authentication token?</summary>
+
+Send a POST request from your server to ‎`https://accounts.releasedhub.com/auth/api/impersonation/token` with your Account ID, the user’s ID, and their email. Include your shared secret as a Bearer token in the Authorization header.
+
+</details>
 
 ## Need help?
 
