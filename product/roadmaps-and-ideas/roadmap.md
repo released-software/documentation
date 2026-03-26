@@ -52,7 +52,7 @@ To edit the public description, click any card in a Released roadmap. You can ed
 
 ### Available Jira fields types
 
-* Text field (multi-line)
+* Text field (multi-line) – see known limitations below
 * Short text
 * Status
 * Flagged
