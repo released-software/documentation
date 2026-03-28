@@ -64,7 +64,7 @@ Ensure the iframe includes at least the following sandbox attributes:
 
 {% code overflow="wrap" %}
 ```javascript
-sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation"
+sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-forms allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation"
 ```
 {% endcode %}
 
