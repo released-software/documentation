@@ -68,12 +68,6 @@ Type `/` while editing the title field and select **Issue sections** in the AI b
 We recommend to use this block style for major features and improvements.
 {% endhint %}
 
-
-
-#### Settings
-
-<table data-header-hidden><thead><tr><th width="174"></th><th></th></tr></thead><tbody><tr><td><strong>Filters</strong></td><td><strong>Issue Types:</strong> Select one or more issue types to include in this block. A description will be generated for every issue of this type that matches the filter criteria for a post.</td></tr><tr><td><strong>Custom prompt</strong></td><td>Personalize the AI prompt used to generate the description.   </td></tr></tbody></table>
-
 ### Issue lists
 
 This block generates descriptions for all issues of the specified type(s) in a list format.&#x20;
