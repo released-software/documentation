@@ -76,6 +76,89 @@ In the _Site settings_ screen, click **Save changes** or **Publish Changes.**
 
 Roadmaps and posts published with Released will now automatically appear in your Scroll Sites help centre. <br>
 
+## Adding a feedback form
+
+{% hint style="info" %}
+### Pre-requisites&#x20;
+
+A Released form ID (`FORM_ID`).
+{% endhint %}
+
+{% stepper %}
+{% step %}
+**Open look and feel settings**
+
+In your Help Center, navigate to: **Site settings** → **Look and feel**.
+{% endstep %}
+
+{% step %}
+**Add a header link**
+
+Under the **Section** (header) configuration, create a **new link** in the header navigation.
+
+**Label**: e.g. “Give feedback” (or any label you prefer).
+
+**URL**: Use any URL you like, but note it down; you will need to use the exact same URL in the script below.
+
+> The URL itself does not need to be a real destination; it’s used only as a selector to detect clicks on this link. Although you may pick a real URL as a fallback.
+{% endstep %}
+
+{% step %}
+**Add Custom Code**
+
+* In **Look and feel**, go to the **Code** section.
+* Paste the following script into the custom JavaScript area.
+* Replace:
+  * `FORM_ID` with your actual Released form ID.
+  * `FEEDBACK_URL` with the exact URL you used for the header link in step 2.
+
+```javascript
+(function () {
+  const SCRIPT_URL = "https://embed.released.so/1/embed.js";
+  const FORM_ID = "b67de5f5-2ece-46ba-aa84-602ab58f40ea";
+  const FEEDBACK_URL = "https://released.so/feedback";
+
+  function init() {
+    if (!document.querySelector(`released-form[form-id="${FORM_ID}"]`)) {
+      const form = document.createElement("released-form");
+      form.setAttribute("form-id", FORM_ID);
+      document.body.appendChild(form);
+    }
+    if (!document.querySelector(`script[src="${SCRIPT_URL}"]`)) {
+      const script = document.createElement("script");
+      script.src = SCRIPT_URL;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+  }
+
+  if (document.body) init();
+  else document.addEventListener("DOMContentLoaded", init);
+
+  document.addEventListener("click", function (e) {
+    const selector = `a[href="${FEEDBACK_URL}"]`;
+    const link =
+      e.target.closest(selector) ||
+      e.target.closest("li")?.querySelector(selector);
+    if (!link) return;
+
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    window.Released?.show("form", FORM_ID);
+  }, true);
+})();
+```
+{% endstep %}
+
+{% step %}
+**Save and publish**
+
+* Click **Save** in the Look and feel settings.
+* **Publish** the site so the changes go live.
+{% endstep %}
+{% endstepper %}
+
 ***
 
 ## Legacy installation
