@@ -48,15 +48,13 @@ Our template feature includes dynamic placeholders that can be populated using A
 
 Generates a title based on the post content.&#x20;
 
-<table data-header-hidden><thead><tr><th width="174"></th><th></th></tr></thead><tbody><tr><td><strong>Usage</strong></td><td>Type <code>/</code> while editing the title field and select <strong>Title</strong> in the AI blocks section. </td></tr><tr><td><strong>Settings</strong></td><td><ul><li><strong>Custom prompt:</strong> Personalize the title with a custom AI prompt. </li></ul></td></tr></tbody></table>
-
-&#x20;
+Type `/` while editing the title field and select **Title** in the AI blocks section.
 
 ### Introduction
 
 Generates an introduction based on the post content.&#x20;
 
-<table data-header-hidden><thead><tr><th width="174"></th><th></th></tr></thead><tbody><tr><td><strong>Usage</strong></td><td>Type <code>/</code> in the content editor and select <strong>Introduction</strong> in the AI blocks section. </td></tr><tr><td><strong>Settings</strong></td><td><ul><li><strong>Custom prompt:</strong> Personalize the introduction with a custom AI prompt.  </li></ul></td></tr></tbody></table>
+Type `/` in the content editor and select **Introduction** in the AI blocks section.&#x20;
 
 ### Issue sections
 
@@ -64,11 +62,17 @@ This block generates descriptions for all issues of the specified type(s) in par
 
 For example: If the selected issue type was "Story", and the filter for the release announcement contains 3 stories, this block will create 3 sections, with a heading for each story.&#x20;
 
+Type `/` while editing the title field and select **Issue sections** in the AI blocks section.&#x20;
+
 {% hint style="info" %}
 We recommend to use this block style for major features and improvements.
 {% endhint %}
 
-<table data-header-hidden><thead><tr><th width="174"></th><th></th></tr></thead><tbody><tr><td><strong>Usage</strong></td><td>Type <code>/</code> while editing the title field and select <strong>Issue sections</strong> in the AI blocks section. </td></tr><tr><td><strong>Settings</strong></td><td><ul><li><strong>Issue Types:</strong> Select one or more issue types to include in this block. A description will be generated for every issue of this type that matches the filter criteria for a post. </li><li><strong>Custom prompt:</strong> Personalize the AI prompt used to generate the description.   </li></ul></td></tr></tbody></table>
+
+
+#### Settings
+
+<table data-header-hidden><thead><tr><th width="174"></th><th></th></tr></thead><tbody><tr><td><strong>Filters</strong></td><td><strong>Issue Types:</strong> Select one or more issue types to include in this block. A description will be generated for every issue of this type that matches the filter criteria for a post.</td></tr><tr><td><strong>Custom prompt</strong></td><td>Personalize the AI prompt used to generate the description.   </td></tr></tbody></table>
 
 ### Issue lists
 
@@ -80,7 +84,11 @@ For example: If the selection issue type was "Bug", and the filter for the relea
 We recommend to use this block style for bugfixes and small improvements.&#x20;
 {% endhint %}
 
-<table data-header-hidden><thead><tr><th width="174"></th><th></th></tr></thead><tbody><tr><td><strong>Usage</strong></td><td>Type <code>/</code> while editing the title field and select <strong>Issue lists</strong> in the AI blocks section. </td></tr><tr><td><strong>Settings</strong></td><td><ul><li><strong>Conditional title and description:</strong> This block contains a text area allowing for adding a title and description. If no issues match this section, this text will not be shown. </li><li><strong>Issue Types:</strong> Select one or more issue types to include in this block. A description will be generated for every issue of this type that matches the filter criteria for a post. </li><li><strong>Custom prompt:</strong> Personalize the AI prompt used to generate the description.   </li></ul></td></tr></tbody></table>
+### Settings
+
+Each template block can be filtered to show specific work items, and its AI prompt can be customized to override the global default.
+
+<table data-header-hidden><thead><tr><th width="174"></th><th></th></tr></thead><tbody><tr><td><strong>Filters</strong></td><td><p>Specify which work items appear in this block using one of three approaches:<br></p><ul><li><strong>Basic filters:</strong> Select work item types, status categories or labels directly from the dropdown menus.</li><li><strong>Saved Jira filters:</strong> Pick from your existing Jira filters to reuse filter logic you’ve already defined.</li><li><strong>JQL (advanced):</strong> Write a custom JQL query for full control over which issues are included.</li></ul><p><br><strong>Use cases</strong><br></p><ul><li><strong>Team-specific release notes:</strong> Add multiple Issue sections blocks, each filtered to a different team. This creates a dedicated section per team within a single release note — for example, one for Platform and one for Mobile.</li><li><strong>Audience-targeted updates:</strong> Use filters to separate customer-facing improvements from internal changes, so you can publish relevant updates to different audiences.</li><li><strong>Categorized bug reports:</strong> Combine an Issue sections block filtered to new features with an Issue lists block filtered to bug fixes, giving readers a clear picture of what’s new and what’s fixed.</li><li><strong>Component-based changelogs:</strong> Filter by Jira component or label to organize release notes by product area, such as API, Dashboard, or Integrations.</li></ul></td></tr><tr><td><strong>AI prompt</strong></td><td>Customize the AI prompt used for this section. Note that this only apply to newly generated descriptions. If the work item already has an existing changelog description, the existing descriotion will be used.</td></tr></tbody></table>
 
 ## Frequently Asked Questions
 
