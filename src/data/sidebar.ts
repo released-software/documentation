@@ -3,6 +3,8 @@ import { getSpace, getSpaceFromPath } from './spaces.ts';
 interface SidebarEntry {
   type: string;
   label?: string;
+  href?: string;
+  collapsed?: boolean;
   entries?: SidebarEntry[];
 }
 
@@ -37,6 +39,9 @@ const protectedTerms = new Map([
   ['ai', 'AI'],
   ['id', 'ID']
 ]);
+
+const rootWrappersToPromote = new Set(['Product', 'Resources']);
+const childCategoriesToPromote = new Set(['Best practices']);
 
 function sentenceCaseLabel(label = ''): string {
   const overridden = labelOverrides.get(label);
@@ -76,17 +81,66 @@ function removeDuplicateFolderOverview<T extends SidebarEntry>(
   return entries;
 }
 
-function normalizeHubEntries<T extends SidebarEntry>(entries: T[], groupDepth = 0): T[] {
+function normalizeLink<T extends SidebarEntry>(entry: T): T {
+  return { ...entry, label: sentenceCaseLabel(entry.label) } as T;
+}
+
+function flattenArticleLinks<T extends SidebarEntry>(entries: T[]): T[] {
   return entries.flatMap((entry) => {
-    const normalized = { ...entry, label: sentenceCaseLabel(entry.label) } as T;
-    if (entry.type !== 'group') return [normalized];
+    if (entry.type !== 'group') return [normalizeLink(entry)];
 
-    const children = normalizeHubEntries((entry.entries ?? []) as T[], groupDepth + 1);
-    if (groupDepth === 0 && normalized.label === 'Product') return children;
-    if (groupDepth >= 2) return children;
+    const label = sentenceCaseLabel(entry.label);
+    const children = flattenArticleLinks((entry.entries ?? []) as T[]);
+    return removeDuplicateFolderOverview(label, children);
+  });
+}
 
-    normalized.entries = removeDuplicateFolderOverview(normalized.label, children);
-    return [normalized];
+function createCategory<T extends SidebarEntry>(
+  entry: T,
+  entries: T[] = (entry.entries ?? []) as T[]
+): T {
+  const label = sentenceCaseLabel(entry.label);
+  const links = removeDuplicateFolderOverview(label, flattenArticleLinks(entries));
+
+  return {
+    ...entry,
+    label,
+    collapsed: true,
+    entries: links
+  } as T;
+}
+
+function normalizeRootGroup<T extends SidebarEntry>(entry: T): T[] {
+  const label = sentenceCaseLabel(entry.label);
+  const children = (entry.entries ?? []) as T[];
+
+  if (rootWrappersToPromote.has(label)) {
+    return children.flatMap((child) =>
+      child.type === 'group' ? [createCategory(child)] : [normalizeLink(child)]
+    );
+  }
+
+  const retainedChildren: T[] = [];
+  const promotedCategories: T[] = [];
+
+  for (const child of children) {
+    const childLabel = sentenceCaseLabel(child.label);
+    if (child.type === 'group' && childCategoriesToPromote.has(childLabel)) {
+      promotedCategories.push(createCategory(child));
+    } else {
+      retainedChildren.push(child);
+    }
+  }
+
+  return [
+    createCategory({ ...entry, label } as T, retainedChildren),
+    ...promotedCategories
+  ];
+}
+
+function normalizeHubEntries<T extends SidebarEntry>(entries: T[]): T[] {
+  return entries.flatMap((entry) => {
+    return entry.type === 'group' ? normalizeRootGroup(entry) : [normalizeLink(entry)];
   });
 }
 

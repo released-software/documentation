@@ -36,7 +36,7 @@ test('shows sidebar navigation only for Partner article routes', () => {
   }
 });
 
-test('unwraps and normalizes Hub navigation to two collapsible levels', () => {
+test('normalizes Hub navigation into one collapsed category level', () => {
   const sidebar = [
     {
       type: 'group',
@@ -63,6 +63,22 @@ test('unwraps and normalizes Hub navigation to two collapsible levels', () => {
                       href: '/guide/getting-started/setup-guide/widget/using-released-with-framer/'
                     }
                   ]
+                }
+              ]
+            },
+            {
+              type: 'group',
+              label: 'best-practices',
+              entries: [
+                {
+                  type: 'link',
+                  label: 'Best practices',
+                  href: '/guide/getting-started/best-practices/'
+                },
+                {
+                  type: 'link',
+                  label: 'Customer communication',
+                  href: '/guide/getting-started/best-practices/customer-communication/'
                 }
               ]
             }
@@ -111,6 +127,62 @@ test('unwraps and normalizes Hub navigation to two collapsible levels', () => {
               ]
             }
           ]
+        },
+        {
+          type: 'group',
+          label: 'resources',
+          entries: [
+            {
+              type: 'group',
+              label: 'ai-tips',
+              entries: [
+                {
+                  type: 'link',
+                  label: 'Create output in other languages',
+                  href: '/guide/resources/ai-tips/create-output-in-other-languages/'
+                }
+              ]
+            },
+            {
+              type: 'group',
+              label: 'troubleshooting',
+              entries: [
+                {
+                  type: 'link',
+                  label: 'Embeds',
+                  href: '/guide/resources/troubleshooting/embeds/'
+                }
+              ]
+            },
+            {
+              type: 'group',
+              label: 'how-tos',
+              entries: [
+                {
+                  type: 'link',
+                  label: 'Finding the channel/form ID',
+                  href: '/guide/resources/how-tos/finding-the-channel-id/'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          type: 'group',
+          label: 'product-tour',
+          entries: [
+            {
+              type: 'group',
+              label: 'settings',
+              entries: [
+                {
+                  type: 'link',
+                  label: 'Widget configuration',
+                  href: '/guide/product-tour/settings/widget-configuration/'
+                }
+              ]
+            }
+          ]
         }
       ]
     }
@@ -127,19 +199,47 @@ test('unwraps and normalizes Hub navigation to two collapsible levels', () => {
 
   assert.deepEqual(
     result.map((entry) => entry.label),
-    ['Overview', 'Getting started', 'Administration', 'Changelog']
+    [
+      'Overview',
+      'Getting started',
+      'Best practices',
+      'Administration',
+      'Changelog',
+      'AI tips',
+      'Troubleshooting',
+      'How-tos',
+      'Product tour'
+    ]
   );
-  assert.equal(groupDepth(result), 2);
-  assert.deepEqual(
-    result[1].entries[1].entries.map((entry) => entry.label),
-    ['Using Released with Framer']
+  assert.equal(groupDepth(result), 1);
+  assert.ok(
+    result
+      .filter((entry) => entry.type === 'group')
+      .every((entry) => entry.collapsed === true)
+  );
+  assert.ok(
+    result
+      .filter((entry) => entry.type === 'group')
+      .every((entry) => entry.entries.every((child) => child.type === 'link'))
   );
   assert.deepEqual(
-    result[2].entries.map((entry) => entry.label),
+    result.find((entry) => entry.label === 'Getting started').entries.map((entry) => entry.label),
+    ['Concepts', 'Using Released with Framer']
+  );
+  assert.deepEqual(
+    result.find((entry) => entry.label === 'Best practices').entries.map((entry) => entry.label),
+    ['Customer communication']
+  );
+  assert.deepEqual(
+    result.find((entry) => entry.label === 'Administration').entries.map((entry) => entry.label),
     ['Product Hub']
   );
   assert.deepEqual(
-    result[3].entries.map((entry) => entry.label),
+    result.find((entry) => entry.label === 'Changelog').entries.map((entry) => entry.label),
     ['AI settings', 'Jira issue links']
+  );
+  assert.deepEqual(
+    result.find((entry) => entry.label === 'Product tour').entries.map((entry) => entry.label),
+    ['Widget configuration']
   );
 });
