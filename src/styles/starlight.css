@@ -73,11 +73,6 @@ main[data-pagefind-body] h1#_top,
   padding-block: 0;
 }
 
-.sidebar-pane .top-level > li > details[open] > summary .large {
-  color: var(--released-ink);
-  font-weight: 500;
-}
-
 .sidebar-pane .top-level > li > details > ul {
   padding-block-end: 0.5rem;
 }

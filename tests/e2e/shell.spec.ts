@@ -241,7 +241,7 @@ test('the documentation shell uses the compact Switzer type scale', async ({ pag
     h3: { fontSize: '18px', fontWeight: '600', lineHeight: '24.3px' },
     body: { fontSize: '16px', fontWeight: '400', lineHeight: '27.2px' },
     collapsedCategory: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
-    openCategory: { fontSize: '13px', fontWeight: '500', lineHeight: '18.2px' },
+    openCategory: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
     overviewLink: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
     articleLink: { fontSize: '12.5px', fontWeight: '400', lineHeight: '17.5px' },
     currentArticle: { fontSize: '12.5px', fontWeight: '600', lineHeight: '17.5px' },
