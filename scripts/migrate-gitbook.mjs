@@ -195,6 +195,7 @@ function main() {
     if (fs.existsSync(assetOutputDirectory)) {
       for (const relativePath of fg.sync('**/*', {
         cwd: assetOutputDirectory,
+        dot: true,
         onlyFiles: true,
         unique: true
       })) {

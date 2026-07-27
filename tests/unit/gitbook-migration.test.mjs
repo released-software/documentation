@@ -718,17 +718,20 @@ Released helps teams publish updates.
   );
 });
 
-test('migration check rejects generated Hub media that is no longer referenced', (t) => {
+test('migration check rejects orphaned Hub media inside a dot-directory', (t) => {
   const sourceRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'gitbook-media-orphan-'));
   t.after(() => fs.rmSync(sourceRoot, { recursive: true, force: true }));
-  fs.mkdirSync(path.join(sourceRoot, '.gitbook', 'assets'), { recursive: true });
+  fs.mkdirSync(
+    path.join(sourceRoot, '.gitbook', 'assets', '.hidden'),
+    { recursive: true }
+  );
   fs.mkdirSync(path.join(sourceRoot, 'public'), { recursive: true });
   fs.writeFileSync(
     path.join(sourceRoot, 'SUMMARY.md'),
     '* [Overview](README.md)\n'
   );
   fs.writeFileSync(
-    path.join(sourceRoot, '.gitbook', 'assets', 'orphan.png'),
+    path.join(sourceRoot, '.gitbook', 'assets', '.hidden', 'orphan.png'),
     'generated media fixture'
   );
   fs.writeFileSync(
@@ -737,7 +740,7 @@ test('migration check rejects generated Hub media that is no longer referenced',
   );
   fs.writeFileSync(
     path.join(sourceRoot, 'README.md'),
-    '# Overview\n\n![Screenshot](.gitbook/assets/orphan.png)\n'
+    '# Overview\n\n![Screenshot](.gitbook/assets/.hidden/orphan.png)\n'
   );
 
   const run = (extraArguments = []) =>
@@ -758,7 +761,7 @@ test('migration check rejects generated Hub media that is no longer referenced',
   assert.equal(initialMigration.status, 0, initialMigration.stderr);
   const generatedAsset = path.join(
     sourceRoot,
-    'public/media/hub/orphan.png'
+    'public/media/hub/.hidden/orphan.png'
   );
   assert.equal(fs.readFileSync(generatedAsset, 'utf8'), 'generated media fixture');
 
@@ -774,7 +777,7 @@ test('migration check rejects generated Hub media that is no longer referenced',
   assert.equal(orphanCheck.status, 1);
   assert.match(
     orphanCheck.stderr,
-    /public\/media\/hub\/orphan\.png:1 Unexpected generated GitBook asset/
+    /public\/media\/hub\/\.hidden\/orphan\.png:1 Unexpected generated GitBook asset/
   );
   assert.doesNotMatch(orphanCheck.stderr, /public\/site-logo\.svg/);
 });
