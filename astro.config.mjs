@@ -10,7 +10,11 @@ export default defineConfig({
       customCss: ['./src/styles/tokens.css', './src/styles/starlight.css'],
       routeMiddleware: './src/route-data.ts',
       social: [{ icon: 'external', label: 'Released', href: 'https://released.so' }],
-      sidebar: []
+      sidebar: [
+        { label: 'Hub documentation', items: [{ autogenerate: { directory: 'guide' } }] },
+        { label: 'BetterBoard documentation', items: [{ autogenerate: { directory: 'betterboard' } }] },
+        { label: 'Partner documentation', items: [{ autogenerate: { directory: 'partners' } }] }
+      ]
     })
   ]
 });
