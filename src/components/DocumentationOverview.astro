@@ -1,0 +1,154 @@
+---
+import ProductLogo from './ProductLogo.astro';
+import type { DocumentationSpace } from '../data/spaces';
+
+interface Props {
+  spaces: readonly DocumentationSpace[];
+}
+
+const { spaces } = Astro.props;
+---
+
+<section aria-label="Documentation spaces" class="documentation-overview">
+  {
+    spaces.map((space) =>
+      space.available ? (
+        <a
+          class="documentation-row"
+          data-documentation-space={space.id}
+          href={space.href}
+        >
+          <span class="product-mark">
+            <ProductLogo decorative size={32} space={space.id} />
+          </span>
+          <span class="documentation-copy">
+            <span class="documentation-title">{space.name}</span>
+            <span class="documentation-description">{space.description}</span>
+          </span>
+          <svg
+            aria-hidden="true"
+            class="documentation-arrow"
+            data-row-arrow
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5 12h14m-5-5 5 5-5 5"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.75"
+            />
+          </svg>
+        </a>
+      ) : (
+        <div class="documentation-row" data-documentation-space={space.id}>
+          <span class="product-mark">
+            <ProductLogo decorative size={32} space={space.id} />
+          </span>
+          <span class="documentation-copy">
+            <span class="documentation-title">{space.name}</span>
+            <span class="documentation-description">
+              {space.description}
+              <span class="availability">Coming soon</span>
+            </span>
+          </span>
+          <span aria-hidden="true"></span>
+        </div>
+      )
+    )
+  }
+</section>
+
+<style>
+  .documentation-overview {
+    width: min(100%, 960px);
+    margin-inline: auto;
+    border-top: 1px solid var(--released-line);
+  }
+
+  .documentation-row {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr) 24px;
+    gap: 24px;
+    align-items: center;
+    padding: 30px 4px;
+    border-bottom: 1px solid var(--released-line);
+    color: inherit;
+    background: transparent;
+    box-shadow: none;
+    text-decoration: none;
+  }
+
+  a.documentation-row:focus-visible {
+    border-radius: 2px;
+    outline: 2px solid var(--released-ink);
+    outline-offset: 4px;
+  }
+
+  .product-mark {
+    display: grid;
+    color: var(--released-ink);
+    place-items: center;
+  }
+
+  .documentation-copy {
+    display: grid;
+    min-width: 0;
+    gap: 0.35rem;
+  }
+
+  .documentation-title {
+    font-size: clamp(1.5rem, 1.3rem + 0.6vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--released-ink);
+  }
+
+  .documentation-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--released-ink-muted);
+  }
+
+  .availability {
+    display: inline-block;
+    margin-inline-start: 0.5rem;
+    font-weight: 600;
+    color: var(--released-ink-soft);
+  }
+
+  .documentation-arrow {
+    width: 24px;
+    height: 24px;
+    color: var(--released-ink);
+    transition: transform 160ms ease;
+  }
+
+  a.documentation-row:hover .documentation-arrow {
+    transform: translateX(4px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .documentation-arrow {
+      transition: none;
+    }
+
+    a.documentation-row:hover .documentation-arrow {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 35rem) {
+    .documentation-description {
+      font-size: 0.9375rem;
+    }
+
+    .availability {
+      display: block;
+      margin-block-start: 0.15rem;
+      margin-inline-start: 0;
+    }
+  }
+</style>

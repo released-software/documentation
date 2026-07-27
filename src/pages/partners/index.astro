@@ -1,0 +1,37 @@
+---
+import ProductLogo from '../../components/ProductLogo.astro';
+import DocumentationLanding from '../../layouts/DocumentationLanding.astro';
+---
+
+<DocumentationLanding
+  description="Guidance and resources for Released partners are coming soon."
+  pagefind={false}
+  title="Partner documentation"
+>
+  <section aria-label="Partner documentation status" class="partner-coming-soon">
+    <ProductLogo decorative size={32} space="partners" />
+    <p>Coming soon</p>
+  </section>
+</DocumentationLanding>
+
+<style>
+  .partner-coming-soon {
+    display: flex;
+    width: min(100%, 960px);
+    align-items: center;
+    gap: 24px;
+    margin-inline: auto;
+    padding: 30px 4px;
+    border-block: 1px solid var(--released-line);
+    color: var(--released-ink);
+    background: transparent;
+  }
+
+  .partner-coming-soon p {
+    margin: 0;
+    font-size: clamp(1.5rem, 1.3rem + 0.6vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+  }
+</style>
