@@ -1,0 +1,51 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  width?: number;
+  height?: number;
+}
+
+const { src, alt, caption, width, height } = Astro.props;
+
+if (!alt.trim()) {
+  throw new Error(`Figure requires non-empty alt text for "${src}"`);
+}
+---
+
+<figure class="content-figure">
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading="lazy"
+    decoding="async"
+  />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .content-figure {
+    margin-block: 1.75rem;
+  }
+
+  .content-figure img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--released-line);
+    border-radius: var(--released-radius-md);
+    background: var(--released-bg-raised);
+  }
+
+  .content-figure figcaption {
+    margin-top: 0.65rem;
+    color: var(--released-ink-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+</style>

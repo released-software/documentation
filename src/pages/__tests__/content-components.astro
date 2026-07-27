@@ -1,0 +1,120 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { Steps, TabItem, Tabs } from '@astrojs/starlight/components';
+
+import Figure from '../../components/content/Figure.astro';
+import LinkRow from '../../components/content/LinkRow.astro';
+import NeutralCallout from '../../components/content/NeutralCallout.astro';
+import ResponsiveEmbed from '../../components/content/ResponsiveEmbed.astro';
+---
+
+<StarlightPage
+  hasSidebar={false}
+  sidebar={[]}
+  frontmatter={{
+    title: 'Content component test harness',
+    description: 'Temporary browser harness for migrated documentation content.',
+    editUrl: false,
+    pagefind: false,
+    prev: false,
+    next: false,
+    tableOfContents: false,
+    space: 'hub',
+    head: [
+      {
+        tag: 'meta',
+        attrs: {
+          name: 'robots',
+          content: 'noindex, nofollow'
+        }
+      }
+    ]
+  }}
+>
+  <main class="component-harness" data-pagefind-ignore>
+    <section aria-labelledby="callouts-heading">
+      <h2 id="callouts-heading">Callouts</h2>
+      <NeutralCallout type="note">
+        Notes preserve useful context without competing with the article.
+      </NeutralCallout>
+      <NeutralCallout title="Try this" type="tip">
+        Tips stay readable in either documentation theme.
+      </NeutralCallout>
+      <NeutralCallout type="caution">
+        Check the project permissions before continuing.
+      </NeutralCallout>
+      <NeutralCallout type="danger">
+        Removing a channel cannot be undone.
+      </NeutralCallout>
+    </section>
+
+    <section aria-labelledby="link-row-heading">
+      <h2 id="link-row-heading">Related content</h2>
+      <LinkRow
+        href="/guide/"
+        title="Hub documentation"
+        description="Return to the Hub documentation overview."
+      />
+    </section>
+
+    <section aria-labelledby="figure-heading">
+      <h2 id="figure-heading">Figure</h2>
+      <Figure
+        src="/favicon.svg"
+        alt="Released symbol"
+        caption="The Released product symbol."
+        width={96}
+        height={96}
+      />
+    </section>
+
+    <section aria-labelledby="embed-heading">
+      <h2 id="embed-heading">Responsive embeds</h2>
+      <ResponsiveEmbed
+        src="https://youtu.be/Ll1hArmqOAg"
+        title="YouTube component example"
+        provider="youtube"
+      />
+      <ResponsiveEmbed
+        src="https://www.loom.com/share/e972f54ef3644aa78b822b2cbf573e14"
+        title="Loom component example"
+        provider="loom"
+        aspectRatio="4/3"
+      />
+    </section>
+
+    <section aria-labelledby="interactive-heading">
+      <h2 id="interactive-heading">Tabs and steps</h2>
+      <Tabs>
+        <TabItem label="Team-managed projects">
+          Configure fields from project settings.
+        </TabItem>
+        <TabItem label="Company-managed projects">
+          Configure fields from Jira settings.
+        </TabItem>
+      </Tabs>
+      <Steps>
+        <ol>
+          <li>
+            <p>Open the project settings.</p>
+            <a href="/guide/">Review the Hub guide</a>
+          </li>
+          <li>
+            <p>Confirm the selected fields.</p>
+          </li>
+        </ol>
+      </Steps>
+    </section>
+  </main>
+</StarlightPage>
+
+<style>
+  .component-harness {
+    width: min(100%, var(--released-content));
+    margin-inline: auto;
+  }
+
+  .component-harness section + section {
+    margin-top: 3rem;
+  }
+</style>

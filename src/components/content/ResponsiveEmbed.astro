@@ -1,0 +1,111 @@
+---
+interface Props {
+  src: string;
+  title: string;
+  provider: 'youtube' | 'loom';
+  aspectRatio?: `${number}/${number}`;
+}
+
+const { src, title, provider, aspectRatio = '16/9' } = Astro.props;
+
+let sourceUrl: URL;
+try {
+  sourceUrl = new URL(src);
+} catch {
+  throw new Error(`ResponsiveEmbed received an invalid URL: "${src}"`);
+}
+
+if (
+  sourceUrl.protocol !== 'https:' ||
+  sourceUrl.username ||
+  sourceUrl.password ||
+  (sourceUrl.port && sourceUrl.port !== '443')
+) {
+  throw new Error('ResponsiveEmbed sources must use a standard HTTPS URL without credentials');
+}
+
+const hostname = sourceUrl.hostname.toLowerCase();
+const matchesProvider =
+  provider === 'youtube'
+    ? hostname === 'youtu.be' || hostname === 'youtube.com' || hostname.endsWith('.youtube.com')
+    : hostname === 'loom.com' || hostname.endsWith('.loom.com');
+
+if (!matchesProvider) {
+  throw new Error(
+    `ResponsiveEmbed provider "${provider}" does not allow hostname "${hostname}"`
+  );
+}
+
+let mediaId: string | undefined;
+if (provider === 'youtube') {
+  if (hostname === 'youtu.be') {
+    mediaId = sourceUrl.pathname.split('/').filter(Boolean)[0];
+  } else if (sourceUrl.pathname === '/watch') {
+    mediaId = sourceUrl.searchParams.get('v') ?? undefined;
+  } else {
+    const segments = sourceUrl.pathname.split('/').filter(Boolean);
+    if (['embed', 'shorts', 'live'].includes(segments[0])) {
+      mediaId = segments[1];
+    }
+  }
+  if (!mediaId || !/^[A-Za-z0-9_-]{6,}$/.test(mediaId)) {
+    throw new Error(`ResponsiveEmbed could not find a valid YouTube video ID in "${src}"`);
+  }
+} else {
+  const segments = sourceUrl.pathname.split('/').filter(Boolean);
+  if (['share', 'embed'].includes(segments[0])) {
+    mediaId = segments[1];
+  }
+  if (!mediaId || !/^[A-Fa-f0-9]{16,}$/.test(mediaId)) {
+    throw new Error(`ResponsiveEmbed could not find a valid Loom video ID in "${src}"`);
+  }
+}
+
+const ratioMatch = aspectRatio.match(
+  /^(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/
+);
+if (!ratioMatch || Number(ratioMatch[1]) <= 0 || Number(ratioMatch[2]) <= 0) {
+  throw new Error(`ResponsiveEmbed received an invalid aspect ratio: "${aspectRatio}"`);
+}
+
+const embedSrc =
+  provider === 'youtube'
+    ? `https://www.youtube-nocookie.com/embed/${mediaId}`
+    : `https://www.loom.com/embed/${mediaId}`;
+---
+
+<div
+  class="responsive-embed"
+  data-responsive-embed
+  data-embed-provider={provider}
+  style={`--responsive-embed-ratio: ${ratioMatch[1]} / ${ratioMatch[2]};`}
+>
+  <iframe
+    src={embedSrc}
+    title={title}
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+    referrerpolicy="strict-origin-when-cross-origin"
+  ></iframe>
+</div>
+
+<style>
+  .responsive-embed {
+    width: 100%;
+    max-width: 100%;
+    margin-block: 1.75rem;
+    overflow: hidden;
+    aspect-ratio: var(--responsive-embed-ratio);
+    border: 1px solid var(--released-line);
+    border-radius: var(--released-radius-md);
+    background: var(--released-bg-raised);
+  }
+
+  .responsive-embed iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>

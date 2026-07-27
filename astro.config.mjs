@@ -1,10 +1,25 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 import starlight from '@astrojs/starlight';
+
+const contentComponentHarness = {
+  name: 'released-content-component-harness',
+  hooks: {
+    'astro:config:setup': ({ injectRoute }) => {
+      injectRoute({
+        pattern: '/__tests__/content-components',
+        entrypoint: './src/pages/__tests__/content-components.astro',
+        prerender: true
+      });
+    }
+  }
+};
 
 export default defineConfig({
   site: 'https://docs.released.so',
   trailingSlash: 'always',
   integrations: [
+    contentComponentHarness,
     starlight({
       title: 'Released documentation',
       favicon: '/favicon.svg',
@@ -21,6 +36,9 @@ export default defineConfig({
         { label: 'BetterBoard documentation', items: [{ autogenerate: { directory: 'betterboard' } }] },
         { label: 'Partner documentation', items: [{ autogenerate: { directory: 'partners' } }] }
       ]
+    }),
+    sitemap({
+      filter: (page) => new URL(page).pathname !== '/__tests__/content-components/'
     })
   ]
 });

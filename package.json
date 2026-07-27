@@ -19,6 +19,7 @@
     "test": "npm run check && npm run test:unit && npm run test:build && npm run test:e2e"
   },
   "dependencies": {
+    "@astrojs/sitemap": "3.7.3",
     "@astrojs/starlight": "0.41.4",
     "astro": "7.1.3"
   },
