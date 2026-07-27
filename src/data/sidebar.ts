@@ -82,6 +82,7 @@ function normalizeHubEntries<T extends SidebarEntry>(entries: T[], groupDepth = 
     if (entry.type !== 'group') return [normalized];
 
     const children = normalizeHubEntries((entry.entries ?? []) as T[], groupDepth + 1);
+    if (groupDepth === 0 && normalized.label === 'Product') return children;
     if (groupDepth >= 2) return children;
 
     normalized.entries = removeDuplicateFolderOverview(normalized.label, children);

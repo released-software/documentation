@@ -84,8 +84,55 @@ test('the Hub sidebar starts below the space switcher and has at most two disclo
   expect(maximumDepth).toBe(2);
   await expect(sidebar.getByText('Getting started', { exact: true })).toBeVisible();
   await expect(sidebar.locator('summary .large').getByText('Setup guide', { exact: true })).toBeVisible();
+  await expect(sidebar.getByText('Product', { exact: true })).toHaveCount(0);
+  await expect(
+    sidebar
+      .locator('.top-level > li > details > summary .large')
+      .getByText('Administration', { exact: true })
+  ).toBeVisible();
   await expect(sidebar.getByRole('link', { name: 'Setup guide', exact: true })).toHaveCount(0);
   await expect(sidebar.getByRole('link', { name: 'Administration', exact: true })).toHaveCount(0);
+});
+
+test('the Hub sidebar keeps nested navigation clear of connector lines', async ({ page }) => {
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
+
+  const nestedItems = page.locator('#starlight__sidebar .top-level ul li');
+  await expect(nestedItems.first()).toBeVisible();
+
+  const borderWidths = await nestedItems.evaluateAll((items) =>
+    items.map((item) => getComputedStyle(item).borderInlineStartWidth)
+  );
+
+  expect(new Set(borderWidths)).toEqual(new Set(['0px']));
+});
+
+test('sidebar groups animate without overriding reduced-motion preferences', async ({ page }) => {
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
+
+  const setupGuide = page
+    .locator('#starlight__sidebar summary')
+    .filter({ hasText: 'Setup guide' })
+    .first()
+    .locator('..');
+
+  const motionStyles = await setupGuide.evaluate((details) => {
+    const style = getComputedStyle(details, '::details-content');
+    return {
+      duration: style.transitionDuration,
+      property: style.transitionProperty
+    };
+  });
+
+  expect(motionStyles.duration).not.toBe('0s');
+  expect(motionStyles.property).toContain('block-size');
+
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect
+    .poll(() =>
+      setupGuide.evaluate((details) => getComputedStyle(details, '::details-content').transitionDuration)
+    )
+    .toBe('0s');
 });
 
 test('the active Hub sidebar entry stays transparent with a quiet inset rule', async ({ page }) => {

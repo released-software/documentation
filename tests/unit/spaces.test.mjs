@@ -125,18 +125,21 @@ test('unwraps and normalizes Hub navigation to two collapsible levels', () => {
       )
     );
 
-  assert.deepEqual(result.map((entry) => entry.label), ['Overview', 'Getting started', 'Product']);
+  assert.deepEqual(
+    result.map((entry) => entry.label),
+    ['Overview', 'Getting started', 'Administration', 'Changelog']
+  );
   assert.equal(groupDepth(result), 2);
   assert.deepEqual(
     result[1].entries[1].entries.map((entry) => entry.label),
     ['Using Released with Framer']
   );
   assert.deepEqual(
-    result[2].entries[0].entries.map((entry) => entry.label),
+    result[2].entries.map((entry) => entry.label),
     ['Product Hub']
   );
   assert.deepEqual(
-    result[2].entries[1].entries.map((entry) => entry.label),
+    result[3].entries.map((entry) => entry.label),
     ['AI settings', 'Jira issue links']
   );
 });

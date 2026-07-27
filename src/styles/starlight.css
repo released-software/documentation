@@ -48,6 +48,10 @@ main[data-pagefind-body] h1#_top,
   line-height: 1.4;
 }
 
+.sidebar-pane {
+  interpolate-size: allow-keywords;
+}
+
 .sidebar-pane .large {
   font-size: 0.84375rem;
   font-weight: 400;
@@ -64,6 +68,30 @@ main[data-pagefind-body] h1#_top,
   font-size: 0.84375rem;
   font-weight: 400;
   line-height: 1.4;
+}
+
+.sidebar-pane .top-level ul li {
+  border-inline-start: 0;
+}
+
+.sidebar-pane details::details-content {
+  overflow: hidden;
+  block-size: 0;
+  opacity: 0;
+  transition:
+    content-visibility 160ms allow-discrete,
+    block-size 160ms cubic-bezier(0.2, 0, 0, 1),
+    opacity 120ms ease-out;
+}
+
+.sidebar-pane details[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+}
+
+.sidebar-pane details > summary .caret {
+  transition-duration: 160ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
 }
 
 .sidebar-pane a[aria-current='page'],
@@ -100,5 +128,12 @@ header [data-open-search] {
     align-self: stretch;
     border-inline-end: 1px solid var(--released-line);
     background: var(--released-bg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-pane details::details-content,
+  .sidebar-pane details > summary .caret {
+    transition-duration: 0s;
   }
 }
