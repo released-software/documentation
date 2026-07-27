@@ -179,6 +179,15 @@ test('the active Hub sidebar entry stays transparent without a decorative line',
   await expect(activeSidebarLink).toHaveCSS('box-shadow', 'none');
 });
 
+test('migrated Hub pages render the page title exactly once', async ({ page }) => {
+  await page.goto('/guide/resources/troubleshooting/ensuring-jira-permissions/');
+
+  await expect(page.locator('main h1')).toHaveCount(1);
+  await expect(page.locator('main h1')).toHaveText('Permissions Issues');
+  await expect(page.locator('.sl-markdown-content h1')).toHaveCount(0);
+  await expect(page.getByRole('heading', { level: 2, name: 'Overview' })).toBeVisible();
+});
+
 test('landing and documentation headings keep their distinct typography roles', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('main .hero h1')).toHaveCSS('font-weight', '600');
@@ -188,8 +197,8 @@ test('landing and documentation headings keep their distinct typography roles', 
   await expect(page.locator('main h1#_top')).toHaveCSS('font-weight', '700');
 
   await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
-  await expect(page.locator('.sl-markdown-content h1')).toHaveCSS('font-size', '32px');
-  await expect(page.locator('.sl-markdown-content h1')).toHaveCSS('font-weight', '700');
+  await expect(page.locator('main h1#_top')).toHaveCSS('font-size', '32px');
+  await expect(page.locator('main h1#_top')).toHaveCSS('font-weight', '700');
 });
 
 test('the documentation shell uses the compact Switzer type scale', async ({ page }) => {
@@ -210,7 +219,7 @@ test('the documentation shell uses the compact Switzer type scale', async ({ pag
     };
 
     return {
-      h1: read('.sl-markdown-content h1'),
+      h1: read('main h1#_top'),
       h2: read('.sl-markdown-content h2'),
       h3: read('.sl-markdown-content h3'),
       body: read('.sl-markdown-content p'),

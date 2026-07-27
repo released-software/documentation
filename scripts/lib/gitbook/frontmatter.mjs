@@ -37,10 +37,24 @@ function deriveDescription(body) {
   return undefined;
 }
 
+function stripLeadingDocumentHeading(body) {
+  const heading = body.match(
+    /^(?:[ \t]*\r?\n)*[ \t]*#(?!#)\s+[^\r\n]*(?:\r?\n)?(?:[ \t]*\r?\n)?/
+  );
+  if (!heading) {
+    return { body, removedLineCount: 0 };
+  }
+  return {
+    body: body.slice(heading[0].length),
+    removedLineCount: (heading[0].match(/\r?\n/g) ?? []).length
+  };
+}
+
 export function convertFrontmatter(source, context = {}) {
   const parsed = matter(source);
   const frontmatterMatch = source.match(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/);
   const title = parsed.data.title ?? deriveTitle(parsed.content);
+  const stripped = stripLeadingDocumentHeading(parsed.content);
   const data = {
     ...parsed.data,
     title,
@@ -53,11 +67,11 @@ export function convertFrontmatter(source, context = {}) {
   };
 
   return {
-    body: parsed.content,
+    body: stripped.body,
     bodyLineOffset: frontmatterMatch
-      ? frontmatterMatch[0].split(/\r?\n/).length - 1
-      : 0,
+      ? frontmatterMatch[0].split(/\r?\n/).length - 1 + stripped.removedLineCount
+      : stripped.removedLineCount,
     data,
-    content: matter.stringify(parsed.content, data)
+    content: matter.stringify(stripped.body, data)
   };
 }
