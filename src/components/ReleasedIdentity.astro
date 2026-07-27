@@ -1,0 +1,45 @@
+---
+interface Props {
+  href?: string;
+}
+
+const { href = '/' } = Astro.props;
+---
+
+<div class="released-identity" data-released-identity>
+  <a aria-label="Released" href={href}>
+    <img alt="" aria-hidden="true" height="17" src="/brand/released.svg" width="96" />
+  </a>
+</div>
+
+<style>
+  .released-identity,
+  a {
+    display: flex;
+    align-items: center;
+    flex: none;
+  }
+
+  a {
+    border-radius: 4px;
+    color: var(--released-ink);
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    width: 6rem;
+    height: auto;
+    filter: invert(1);
+  }
+
+  :global(:root[data-theme='dark']) img {
+    filter: none;
+  }
+
+  @media (max-width: 35rem) {
+    img {
+      width: 4.5rem;
+    }
+  }
+</style>

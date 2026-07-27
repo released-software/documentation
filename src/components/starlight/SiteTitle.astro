@@ -1,0 +1,37 @@
+---
+import ReleasedIdentity from '../ReleasedIdentity.astro';
+import SpaceSwitcher from '../SpaceSwitcher.astro';
+import { getSpaceFromPath } from '../../data/spaces';
+
+const { starlightRoute } = Astro.locals;
+const activeSpace = getSpaceFromPath(Astro.url.pathname);
+---
+
+<div class="documentation-identity" data-documentation-identity>
+  <ReleasedIdentity href={starlightRoute.siteTitleHref} />
+  <span aria-hidden="true" class="identity-divider"></span>
+  <SpaceSwitcher activeSpace={activeSpace} />
+</div>
+
+<style>
+  .documentation-identity {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    gap: 0.75rem;
+    color: var(--released-ink);
+  }
+
+  .identity-divider {
+    width: 1px;
+    height: 1.25rem;
+    flex: none;
+    background: var(--released-line-strong);
+  }
+
+  @media (max-width: 35rem) {
+    .documentation-identity {
+      gap: 0.5rem;
+    }
+  }
+</style>

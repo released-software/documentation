@@ -1,1 +1,42 @@
-/* Task 2 establishes the documentation visual system. */
+html {
+  background: var(--released-bg);
+}
+
+body {
+  font-family: 'Switzer', var(--sl-font-system);
+  color: var(--released-ink-soft);
+  background: var(--released-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--released-ink);
+  outline-offset: 3px;
+}
+
+header.header {
+  border-block-end-color: var(--released-line);
+  background: var(--released-bg);
+}
+
+header.header .title-wrapper {
+  overflow: visible;
+}
+
+.sidebar-pane a[aria-current='page'],
+.sidebar-pane a[aria-current='page']:hover,
+.sidebar-pane a[aria-current='page']:focus {
+  border-radius: 0;
+  color: var(--released-ink);
+  background: transparent;
+  box-shadow: inset 2px 0 0 var(--released-ink);
+}
+
+@media (min-width: 50rem) {
+  .sidebar-pane {
+    min-height: calc(100vh - var(--sl-nav-height));
+    align-self: stretch;
+    border-inline-end: 1px solid var(--released-line);
+    background: var(--released-bg);
+  }
+}

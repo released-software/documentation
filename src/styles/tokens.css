@@ -1,5 +1,87 @@
+@font-face {
+  font-family: 'Switzer';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/switzer-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Switzer';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/switzer-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Switzer';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/switzer-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Switzer';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/switzer-700.woff2') format('woff2');
+}
+
 :root {
-  --sl-color-accent-low: #e8eefc;
-  --sl-color-accent: #315ddc;
-  --sl-color-accent-high: #173a9b;
+  --released-bg: #fcfcfc;
+  --released-bg-raised: #f7f7f9;
+  --released-bg-card: #f0f0ee;
+  --released-ink: #0d0d0d;
+  --released-ink-soft: #3f4145;
+  --released-ink-muted: #5d6065;
+  --released-line: #e8e8e5;
+  --released-line-strong: #d6d6d2;
+  --released-radius-sm: 8px;
+  --released-radius-md: 12px;
+  --released-radius-lg: 20px;
+  --released-radius-xl: 28px;
+  --released-radius-pill: 999px;
+  --released-content: 960px;
+  --released-shell: 1200px;
+  --released-gutter: clamp(20px, 4vw, 40px);
+
+  --sl-font: 'Switzer';
+  --sl-content-width: var(--released-content);
+  --sl-color-white: var(--released-ink);
+  --sl-color-gray-1: var(--released-ink);
+  --sl-color-gray-2: var(--released-ink-soft);
+  --sl-color-gray-3: var(--released-ink-muted);
+  --sl-color-gray-4: var(--released-line-strong);
+  --sl-color-gray-5: var(--released-line-strong);
+  --sl-color-gray-6: var(--released-line);
+  --sl-color-gray-7: var(--released-bg-raised);
+  --sl-color-black: var(--released-bg);
+  --sl-color-accent-low: var(--released-bg-card);
+  --sl-color-accent: var(--released-ink-soft);
+  --sl-color-accent-high: var(--released-ink);
+  --sl-color-text: var(--released-ink-soft);
+  --sl-color-text-accent: var(--released-ink);
+  --sl-color-text-invert: var(--released-bg);
+  --sl-color-bg: var(--released-bg);
+  --sl-color-bg-nav: var(--released-bg);
+  --sl-color-bg-sidebar: var(--released-bg);
+  --sl-color-bg-inline-code: var(--released-bg-raised);
+  --sl-color-bg-accent: var(--released-ink);
+  --sl-color-hairline-light: var(--released-line);
+  --sl-color-hairline: var(--released-line);
+  --sl-color-hairline-shade: var(--released-line);
+}
+
+:root[data-theme='dark'] {
+  --released-bg: #0f1115;
+  --released-bg-raised: #16191f;
+  --released-bg-card: #1c2027;
+  --released-ink: #f4f5f7;
+  --released-ink-soft: #c5c9d0;
+  --released-ink-muted: #9298a3;
+  --released-line: #292e37;
+  --released-line-strong: #3a414d;
 }

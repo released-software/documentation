@@ -7,8 +7,12 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Released documentation',
+      favicon: '/favicon.svg',
       customCss: ['./src/styles/tokens.css', './src/styles/starlight.css'],
       routeMiddleware: './src/route-data.ts',
+      components: {
+        SiteTitle: './src/components/starlight/SiteTitle.astro'
+      },
       social: [{ icon: 'external', label: 'Released', href: 'https://released.so' }],
       sidebar: [
         { label: 'Hub documentation', items: [{ autogenerate: { directory: 'guide' } }] },
