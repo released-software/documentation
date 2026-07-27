@@ -50,6 +50,16 @@
 
   --sl-font: 'Switzer';
   --sl-content-width: var(--released-content);
+  --sl-text-h1: 2rem;
+  --sl-text-h2: 1.375rem;
+  --sl-text-h3: 1.125rem;
+  --sl-text-h4: 1rem;
+  --sl-text-h5: 0.9375rem;
+  --sl-text-body: 1rem;
+  --sl-text-xs: 0.8125rem;
+  --sl-text-sm: 0.875rem;
+  --sl-text-2xs: 0.75rem;
+  --sl-line-height: 1.7;
   --sl-color-white: var(--released-ink);
   --sl-color-gray-1: var(--released-ink);
   --sl-color-gray-2: var(--released-ink-soft);

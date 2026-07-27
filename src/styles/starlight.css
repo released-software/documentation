@@ -23,13 +23,61 @@ header.header .title-wrapper {
   overflow: visible;
 }
 
+main h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.sl-markdown-content h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.sl-markdown-content h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.sl-markdown-content h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.sidebar-pane .large {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.sidebar-pane a,
+.sidebar-pane a.large {
+  font-size: 0.84375rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
 .sidebar-pane a[aria-current='page'],
 .sidebar-pane a[aria-current='page']:hover,
 .sidebar-pane a[aria-current='page']:focus {
   border-radius: 0;
   color: var(--released-ink);
+  font-weight: 600;
   background: transparent;
   box-shadow: inset 2px 0 0 var(--released-ink);
+}
+
+.right-sidebar-panel :where(a) {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+header [data-space-switcher] button {
+  font-size: 0.875rem;
+  line-height: 1.4;
 }
 
 @media (min-width: 50rem) {

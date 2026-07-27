@@ -62,14 +62,74 @@ test('space entries use product marks and descriptive availability text, never s
   await expect(partnerLink).toContainText('Coming soon');
 });
 
-test('the active sidebar entry remains unfilled', async ({ page }) => {
-  await page.goto('/guide/');
+test('the Hub sidebar starts below the space switcher and has at most two disclosure levels', async ({ page }) => {
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
 
-  const activeSidebarLink = page
-    .locator('#starlight__sidebar')
-    .getByRole('link', { name: 'Hub documentation', exact: true });
+  const sidebar = page.locator('#starlight__sidebar');
+  await expect(page.locator('header').getByRole('button', { name: 'Hub documentation' })).toBeVisible();
+  await expect(sidebar.getByText('Hub documentation', { exact: true })).toHaveCount(0);
 
-  await expect(activeSidebarLink).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+  const maximumDepth = await sidebar.locator('details').evaluateAll((details) =>
+    Math.max(0, ...details.map((detail) => {
+      let depth = 1;
+      let parent = detail.parentElement?.parentElement?.closest('details');
+      while (parent) {
+        depth += 1;
+        parent = parent.parentElement?.parentElement?.closest('details');
+      }
+      return depth;
+    }))
+  );
+
+  expect(maximumDepth).toBe(2);
+  await expect(sidebar.getByText('Getting started', { exact: true })).toBeVisible();
+  await expect(sidebar.locator('summary .large').getByText('Setup guide', { exact: true })).toBeVisible();
+});
+
+test('the documentation shell uses the compact Switzer type scale', async ({ page }) => {
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
+
+  const styles = await page.evaluate(() => {
+    const read = (selector: string) => {
+      const element = document.querySelector(selector);
+      if (!element) throw new Error(`Missing ${selector}`);
+      const style = getComputedStyle(element);
+      return {
+        fontSize: style.fontSize,
+        fontWeight: style.fontWeight,
+        lineHeight: style.lineHeight
+      };
+    };
+
+    return {
+      h1: read('main h1'),
+      h2: read('.sl-markdown-content h2'),
+      h3: read('.sl-markdown-content h3'),
+      body: read('.sl-markdown-content p'),
+      sidebarGroup: read('#starlight__sidebar summary .large'),
+      sidebarLink: read('#starlight__sidebar a'),
+      tocLink: read('.right-sidebar-panel nav a'),
+      headerControl: read('header [data-space-switcher] button')
+    };
+  });
+
+  expect(styles).toEqual({
+    h1: { fontSize: '32px', fontWeight: '700', lineHeight: '36.8px' },
+    h2: { fontSize: '22px', fontWeight: '700', lineHeight: '27.5px' },
+    h3: { fontSize: '18px', fontWeight: '600', lineHeight: '24.3px' },
+    body: { fontSize: '16px', fontWeight: '400', lineHeight: '27.2px' },
+    sidebarGroup: { fontSize: '12px', fontWeight: '600', lineHeight: '16.8px' },
+    sidebarLink: { fontSize: '13.5px', fontWeight: '400', lineHeight: '18.9px' },
+    tocLink: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
+    headerControl: { fontSize: '14px', fontWeight: '500', lineHeight: '19.6px' }
+  });
+
+  await page.goto('/guide/getting-started/setup-guide/');
+  await expect(page.locator('.sl-markdown-content h4')).toHaveCSS('font-size', '16px');
+  await expect(page.locator('[data-link-row] .link-row__title').first()).toHaveCSS('font-size', '16px');
+
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-widget/');
+  await expect(page.locator('figcaption').first()).toHaveCSS('font-size', '12px');
 });
 
 test('the space switcher and Starlight mobile menu remain operable at 390px', async ({ page }) => {

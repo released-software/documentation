@@ -41,20 +41,21 @@ const { href, title, description } = Astro.props;
   }
 
   .link-row__title {
+    font-size: var(--sl-text-body);
     font-weight: 600;
     line-height: 1.4;
   }
 
   .link-row__description {
     color: var(--released-ink-muted);
-    font-size: 0.9rem;
+    font-size: var(--sl-text-sm);
     line-height: 1.5;
   }
 
   .link-row__arrow {
     flex: none;
     color: var(--released-ink-muted);
-    font-size: 1.15rem;
+    font-size: var(--sl-text-lg);
     transition: transform 160ms ease;
   }
 
