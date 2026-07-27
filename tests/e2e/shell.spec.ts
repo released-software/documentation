@@ -62,10 +62,15 @@ test('space entries use product marks and descriptive availability text, never s
   await expect(partnerLink).toContainText('Coming soon');
 });
 
-test('the Hub sidebar starts below the space switcher and has at most two disclosure levels', async ({ page }) => {
+test('the Hub sidebar is shallow and opens only the active category on initial load', async ({ page }) => {
+  await page.goto('/guide/');
+  const sidebar = page.locator('#starlight__sidebar');
+
+  await expect(sidebar.locator('details')).toHaveCount(12);
+  await expect(sidebar.locator('details[open]')).toHaveCount(0);
+
   await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
 
-  const sidebar = page.locator('#starlight__sidebar');
   await expect(page.locator('header').getByRole('button', { name: 'Hub documentation' })).toBeVisible();
   await expect(sidebar.getByText('Hub documentation', { exact: true })).toHaveCount(0);
 
@@ -81,17 +86,44 @@ test('the Hub sidebar starts below the space switcher and has at most two disclo
     }))
   );
 
-  expect(maximumDepth).toBe(2);
-  await expect(sidebar.getByText('Getting started', { exact: true })).toBeVisible();
-  await expect(sidebar.locator('summary .large').getByText('Setup guide', { exact: true })).toBeVisible();
+  expect(maximumDepth).toBe(1);
+  await expect(sidebar.locator('details[open]')).toHaveCount(1);
+  await expect(
+    sidebar.locator('details[open] > summary').getByText('Getting started', { exact: true })
+  ).toBeVisible();
+  await expect(sidebar.getByText('Setup guide', { exact: true })).toHaveCount(0);
+  await expect(sidebar.getByText('Resources', { exact: true })).toHaveCount(0);
+  await expect(
+    sidebar.locator('summary .large').getByText('Settings', { exact: true })
+  ).toHaveCount(0);
   await expect(sidebar.getByText('Product', { exact: true })).toHaveCount(0);
   await expect(
     sidebar
       .locator('.top-level > li > details > summary .large')
-      .getByText('Administration', { exact: true })
+      .getByText('Best practices', { exact: true })
   ).toBeVisible();
-  await expect(sidebar.getByRole('link', { name: 'Setup guide', exact: true })).toHaveCount(0);
+  await expect(
+    sidebar
+      .locator('.top-level > li > details > summary .large')
+      .getByText('AI tips', { exact: true })
+  ).toBeVisible();
   await expect(sidebar.getByRole('link', { name: 'Administration', exact: true })).toHaveCount(0);
+});
+
+test('Hub categories can be opened independently after the active branch initializes', async ({ page }) => {
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
+
+  const sidebar = page.locator('#starlight__sidebar');
+  const administration = sidebar.locator('summary').filter({ hasText: 'Administration' });
+
+  await administration.focus();
+  await administration.press('Enter');
+
+  await expect(sidebar.locator('details[open]')).toHaveCount(2);
+  await expect(administration.locator('..')).toHaveAttribute('open', '');
+  await expect(
+    sidebar.locator('details[open] > summary').getByText('Getting started', { exact: true })
+  ).toBeVisible();
 });
 
 test('the Hub sidebar keeps nested navigation clear of connector lines', async ({ page }) => {
@@ -110,13 +142,13 @@ test('the Hub sidebar keeps nested navigation clear of connector lines', async (
 test('sidebar groups animate without overriding reduced-motion preferences', async ({ page }) => {
   await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
 
-  const setupGuide = page
+  const gettingStarted = page
     .locator('#starlight__sidebar summary')
-    .filter({ hasText: 'Setup guide' })
+    .filter({ hasText: 'Getting started' })
     .first()
     .locator('..');
 
-  const motionStyles = await setupGuide.evaluate((details) => {
+  const motionStyles = await gettingStarted.evaluate((details) => {
     const style = getComputedStyle(details, '::details-content');
     return {
       duration: style.transitionDuration,
@@ -130,7 +162,9 @@ test('sidebar groups animate without overriding reduced-motion preferences', asy
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await expect
     .poll(() =>
-      setupGuide.evaluate((details) => getComputedStyle(details, '::details-content').transitionDuration)
+      gettingStarted.evaluate(
+        (details) => getComputedStyle(details, '::details-content').transitionDuration
+      )
     )
     .toBe('0s');
 });
@@ -182,11 +216,19 @@ test('the documentation shell uses the compact Switzer type scale', async ({ pag
       h2: read('.sl-markdown-content h2'),
       h3: read('.sl-markdown-content h3'),
       body: read('.sl-markdown-content p'),
-      firstLevelGroup: read('#starlight__sidebar .top-level > li > details > summary .large'),
-      secondLevelGroup: read(
-        '#starlight__sidebar .top-level > li > details > ul > li > details > summary .large'
+      collapsedCategory: read(
+        '#starlight__sidebar .top-level > li > details:not([open]) > summary .large'
       ),
-      sidebarLink: read('#starlight__sidebar a'),
+      openCategory: read(
+        '#starlight__sidebar .top-level > li > details[open] > summary .large'
+      ),
+      overviewLink: read('#starlight__sidebar .top-level > li > a'),
+      articleLink: read(
+        '#starlight__sidebar .top-level > li > details[open] > ul a:not([aria-current="page"])'
+      ),
+      currentArticle: read(
+        '#starlight__sidebar .top-level > li > details[open] > ul a[aria-current="page"]'
+      ),
       tocLink: read('.right-sidebar-panel nav a:not([aria-current="true"])'),
       activeTocLink: read('.right-sidebar-panel nav a[aria-current="true"]'),
       headerControl: read('header [data-space-switcher] button'),
@@ -200,9 +242,11 @@ test('the documentation shell uses the compact Switzer type scale', async ({ pag
     h2: { fontSize: '22px', fontWeight: '700', lineHeight: '27.5px' },
     h3: { fontSize: '18px', fontWeight: '600', lineHeight: '24.3px' },
     body: { fontSize: '16px', fontWeight: '400', lineHeight: '27.2px' },
-    firstLevelGroup: { fontSize: '14px', fontWeight: '600', lineHeight: '19.6px' },
-    secondLevelGroup: { fontSize: '13.5px', fontWeight: '400', lineHeight: '18.9px' },
-    sidebarLink: { fontSize: '13.5px', fontWeight: '400', lineHeight: '18.9px' },
+    collapsedCategory: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
+    openCategory: { fontSize: '13px', fontWeight: '500', lineHeight: '18.2px' },
+    overviewLink: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
+    articleLink: { fontSize: '12.5px', fontWeight: '400', lineHeight: '17.5px' },
+    currentArticle: { fontSize: '12.5px', fontWeight: '600', lineHeight: '17.5px' },
     tocLink: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
     activeTocLink: { fontSize: '13px', fontWeight: '600', lineHeight: '18.2px' },
     headerControl: { fontSize: '14px', fontWeight: '500', lineHeight: '19.6px' },
@@ -234,5 +278,14 @@ test('the space switcher and Starlight mobile menu remain operable at 390px', as
   await expect(mobileMenu).toBeVisible();
   await mobileMenu.click();
   await expect(page.locator('body')).toHaveAttribute('data-mobile-menu-expanded', '');
-  await expect(page.locator('#starlight__sidebar')).toBeVisible();
+  const mobileSidebar = page.locator('#starlight__sidebar');
+  await expect(mobileSidebar).toBeVisible();
+  await expect(mobileSidebar.locator('details[open]')).toHaveCount(0);
+
+  await page.goto('/guide/resources/how-tos/embed-the-portal-in-a-forge-app/');
+  await page.locator('starlight-menu-button button').click();
+  await expect(mobileSidebar.locator('details[open]')).toHaveCount(1);
+  await expect(
+    mobileSidebar.locator('details[open] > summary').getByText('How-tos', { exact: true })
+  ).toBeVisible();
 });

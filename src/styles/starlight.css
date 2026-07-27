@@ -52,26 +52,58 @@ main[data-pagefind-body] h1#_top,
   interpolate-size: allow-keywords;
 }
 
-.sidebar-pane .large {
-  font-size: 0.84375rem;
+.sidebar-pane .large,
+.sidebar-pane .top-level > li > details > summary .large,
+.sidebar-pane .top-level > li > a.large {
+  font-size: 0.8125rem;
   font-weight: 400;
   line-height: 1.4;
 }
 
-.sidebar-pane .top-level > li > details > summary .large {
-  font-size: 0.875rem;
-  font-weight: 600;
+.sidebar-pane .top-level > li + li {
+  margin-top: 0;
 }
 
-.sidebar-pane a,
-.sidebar-pane a.large {
-  font-size: 0.84375rem;
-  font-weight: 400;
-  line-height: 1.4;
+.sidebar-pane .top-level > li > details > summary,
+.sidebar-pane .top-level > li > a {
+  min-height: 34px;
 }
 
-.sidebar-pane .top-level ul li {
+.sidebar-pane .top-level > li > details > summary {
+  padding-block: 0;
+}
+
+.sidebar-pane .top-level > li > details[open] > summary .large {
+  color: var(--released-ink);
+  font-weight: 500;
+}
+
+.sidebar-pane .top-level > li > details > ul {
+  padding-block-end: 0.5rem;
+}
+
+.sidebar-pane .top-level > li > details > ul > li {
+  margin-inline-start: 0;
   border-inline-start: 0;
+  padding-inline-start: 1rem;
+}
+
+.sidebar-pane .top-level > li > details > ul a {
+  display: flex;
+  min-height: 30px;
+  align-items: center;
+  padding-block: 0;
+  font-size: 0.78125rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.sidebar-pane .top-level > li > a {
+  display: flex;
+  align-items: center;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .sidebar-pane details::details-content {
@@ -90,13 +122,16 @@ main[data-pagefind-body] h1#_top,
 }
 
 .sidebar-pane details > summary .caret {
+  width: 0.875rem;
+  height: 0.875rem;
+  color: var(--released-ink-muted);
   transition-duration: 160ms;
   transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
 }
 
-.sidebar-pane a[aria-current='page'],
-.sidebar-pane a[aria-current='page']:hover,
-.sidebar-pane a[aria-current='page']:focus {
+.sidebar-pane .top-level a[aria-current='page'],
+.sidebar-pane .top-level a[aria-current='page']:hover,
+.sidebar-pane .top-level a[aria-current='page']:focus {
   border-radius: 0;
   color: var(--released-ink);
   font-weight: 600;
