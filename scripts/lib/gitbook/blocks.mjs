@@ -2,6 +2,7 @@ import path from 'node:path';
 
 import matter from 'gray-matter';
 
+import { isFenceClosing, matchFenceOpening } from './fences.mjs';
 import { convertFrontmatter } from './frontmatter.mjs';
 import { convertHtml } from './html.mjs';
 import { mapGitBookLink } from './paths.mjs';
@@ -14,22 +15,20 @@ function protectedRanges(source) {
   for (const match of lines) {
     if (!match[0]) continue;
     const line = match[0].replace(/\r?\n$/, '');
-    const marker = line.match(/^\s*(`{3,}|~{3,})/);
-    if (marker) {
-      const character = marker[1][0];
-      if (!fence) {
-        fence = { character, length: marker[1].length, start: match.index };
-      } else if (
-        character === fence.character &&
-        marker[1].length >= fence.length
-      ) {
+    if (fence) {
+      if (isFenceClosing(line, fence)) {
         ranges.push([fence.start, match.index + match[0].length]);
         fence = null;
       }
       continue;
     }
 
-    if (fence) continue;
+    const opening = matchFenceOpening(line);
+    if (opening) {
+      fence = { ...opening, start: match.index };
+      continue;
+    }
+
     let cursor = 0;
     while (cursor < line.length) {
       const opening = line.slice(cursor).match(/`+/);
@@ -114,6 +113,7 @@ function convertTags(body, context, lineOffset) {
   const tokens = scanTags(body);
   const replacements = [];
   const stack = [];
+  const warnings = [];
   let usesNeutralCallout = false;
   let usesSteps = false;
   let usesTabs = false;
@@ -257,8 +257,14 @@ function convertTags(body, context, lineOffset) {
         : null;
       if (!provider) {
         const title = closing
-          ? body.slice(token.end, closing.start).trim() || parsedUrl.hostname
+          ? body.slice(token.end, closing.start).replace(/\s+/g, ' ').trim() ||
+            parsedUrl.hostname
           : parsedUrl.hostname;
+        warnings.push({
+          file: context.sourcePath,
+          line: token.line + lineOffset,
+          construct: 'embed'
+        });
         usesLinkRow = true;
         replacements.push({
           start: token.start,
@@ -392,7 +398,8 @@ function convertTags(body, context, lineOffset) {
     );
   }
   return {
-    body: imports.length ? `${imports.join('\n')}\n\n${converted}` : converted
+    body: imports.length ? `${imports.join('\n')}\n\n${converted}` : converted,
+    warnings
   };
 }
 
@@ -407,6 +414,6 @@ export function convertGitBookPage(source, context = {}) {
   return {
     content: matter.stringify(html.body, converted.data),
     assetCopies: html.assetCopies,
-    warnings: []
+    warnings: blocks.warnings
   };
 }

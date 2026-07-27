@@ -6,6 +6,7 @@ import path from 'node:path';
 import fg from 'fast-glob';
 
 import { convertGitBookPage } from './lib/gitbook/blocks.mjs';
+import { isFenceClosing, matchFenceOpening } from './lib/gitbook/fences.mjs';
 import { mapGitBookPath } from './lib/gitbook/paths.mjs';
 import { parseSummary } from './lib/gitbook/summary.mjs';
 
@@ -35,19 +36,15 @@ function brandReviewEntries(source, sourceFile) {
   const entries = [];
   let fence = null;
   for (const [lineIndex, fullLine] of source.split(/\r?\n/).entries()) {
-    const marker = fullLine.match(/^\s*(`{3,}|~{3,})/);
-    if (marker) {
-      if (!fence) {
-        fence = { character: marker[1][0], length: marker[1].length };
-      } else if (
-        marker[1][0] === fence.character &&
-        marker[1].length >= fence.length
-      ) {
-        fence = null;
-      }
+    if (fence) {
+      if (isFenceClosing(fullLine, fence)) fence = null;
       continue;
     }
-    if (fence) continue;
+    const opening = matchFenceOpening(fullLine);
+    if (opening) {
+      fence = opening;
+      continue;
+    }
 
     const withoutInlineCode = fullLine.replace(/(`+).*?\1/g, '');
     const sentences = withoutInlineCode.match(/[^.!?]*Released[^.!?]*(?:[.!?]|$)/g) ?? [];
@@ -110,16 +107,8 @@ function main() {
     ...summary.map((entry) => entry.sourcePath),
     ...discovered.filter((sourcePath) => !summaryBySource.has(sourcePath))
   ];
-
-  const outputs = new Map();
-  const assets = new Map();
-  const review = [];
-  for (const [index, sourcePath] of sourcePaths.entries()) {
-    const absoluteSourcePath = path.join(sourceRoot, sourcePath);
-    if (!fs.existsSync(absoluteSourcePath)) {
-      throw new Error(`${sourcePath}:1 Source listed in SUMMARY.md does not exist`);
-    }
-    const source = fs.readFileSync(absoluteSourcePath, 'utf8');
+  const outputOwners = new Map();
+  const migrationEntries = sourcePaths.map((sourcePath, index) => {
     const mapped = summaryBySource.get(sourcePath) ??
       {
         ...mapGitBookPath(sourcePath, {
@@ -127,13 +116,38 @@ function main() {
         }),
         order: index + 1
       };
+    const absoluteOutputPath = path.resolve(sourceRoot, mapped.outputPath);
+    const owner = outputOwners.get(absoluteOutputPath);
+    if (owner) {
+      throw new Error(
+        `${sourcePath}:1 Duplicate migration destination "${mapped.outputPath}" already claimed by "${owner}"`
+      );
+    }
+    outputOwners.set(absoluteOutputPath, sourcePath);
+    return { sourcePath, mapped, absoluteOutputPath };
+  });
+
+  const outputs = new Map();
+  const assets = new Map();
+  const review = [];
+  for (const { sourcePath, mapped, absoluteOutputPath } of migrationEntries) {
+    const absoluteSourcePath = path.join(sourceRoot, sourcePath);
+    if (!fs.existsSync(absoluteSourcePath)) {
+      throw new Error(`${sourcePath}:1 Source listed in SUMMARY.md does not exist`);
+    }
+    const source = fs.readFileSync(absoluteSourcePath, 'utf8');
     const converted = convertGitBookPage(source, {
       sourcePath,
       outputPath: mapped.outputPath,
       order: mapped.order,
       sourceRoot
     });
-    outputs.set(path.resolve(sourceRoot, mapped.outputPath), Buffer.from(converted.content));
+    for (const warning of converted.warnings) {
+      console.warn(
+        `${warning.file}:${warning.line} Review converted GitBook construct "${warning.construct}"`
+      );
+    }
+    outputs.set(absoluteOutputPath, Buffer.from(converted.content));
     for (const copy of converted.assetCopies) {
       const assetSource = path.resolve(sourceRoot, copy.sourcePath);
       if (!fs.existsSync(assetSource)) {
@@ -151,6 +165,7 @@ function main() {
   const report = Buffer.from(`${JSON.stringify(review, null, 2)}\n`);
   if (options.check) {
     const stale = [];
+    const unexpected = [];
     for (const [filePath, value] of [...outputs, ...assets]) {
       if (!sameFile(filePath, value)) {
         stale.push(path.relative(sourceRoot, filePath));
@@ -159,9 +174,25 @@ function main() {
     if (!sameFile(reportPath, report)) {
       stale.push(path.relative(sourceRoot, reportPath));
     }
-    if (stale.length) {
+    const outputDirectory = path.resolve(sourceRoot, outputRoot);
+    if (fs.existsSync(outputDirectory)) {
+      for (const relativePath of fg.sync(['**/*.md', '**/*.mdx'], {
+        cwd: outputDirectory,
+        onlyFiles: true,
+        unique: true
+      })) {
+        const filePath = path.resolve(outputDirectory, relativePath);
+        if (!outputs.has(filePath)) {
+          unexpected.push(path.relative(sourceRoot, filePath));
+        }
+      }
+    }
+    if (stale.length || unexpected.length) {
       for (const filePath of stale) {
         console.error(`${filePath}:1 Generated GitBook output is missing or stale`);
+      }
+      for (const filePath of unexpected.sort()) {
+        console.error(`${filePath}:1 Unexpected generated GitBook output`);
       }
       process.exitCode = 1;
       return;

@@ -6,6 +6,7 @@ import { spawnSync } from 'node:child_process';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
+import { compile } from '@mdx-js/mdx';
 import matter from 'gray-matter';
 
 import { convertGitBookPage } from '../../scripts/lib/gitbook/blocks.mjs';
@@ -229,6 +230,29 @@ ${fenced}
   assert.doesNotMatch(result.content, /\{% code|\{% endcode/);
 });
 
+test('does not close fenced code on a fence-like line with trailing content', () => {
+  const fenced = `\`\`\`text
+before
+\`\`\`not-a-close
+{% mystery %}
+<br>
+\`\`\``;
+  const result = convertGitBookPage(
+    `---
+title: Fence
+description: Fence fixture
+---
+${fenced}
+`,
+    fixtureContext('resources/fence.md')
+  );
+
+  assert.match(
+    result.content,
+    new RegExp(fenced.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+  );
+});
+
 test('converts nested GitBook step blocks to Starlight Steps', () => {
   const result = convertGitBookPage(
     pageFixture('stepper.md'),
@@ -309,6 +333,11 @@ title: External embed
 description: External embed fixture
 ---
 {% embed url="https://support.atlassian.com/jira/docs/example/" %}
+
+{% embed url="https://www.atlassian.com/software/jira/guides/" %}
+  Atlassian
+  support guide
+{% endembed %}
 `,
     fixtureContext('product/changelog/staging-area.md')
   );
@@ -317,6 +346,22 @@ description: External embed fixture
     result.content,
     /<LinkRow href="https:\/\/support\.atlassian\.com\/jira\/docs\/example\/" title="support\.atlassian\.com" \/>/
   );
+  assert.match(
+    result.content,
+    /<LinkRow href="https:\/\/www\.atlassian\.com\/software\/jira\/guides\/" title="Atlassian support guide" \/>/
+  );
+  assert.deepEqual(result.warnings, [
+    {
+      file: 'product/changelog/staging-area.md',
+      line: 5,
+      construct: 'embed'
+    },
+    {
+      file: 'product/changelog/staging-area.md',
+      line: 7,
+      construct: 'embed'
+    }
+  ]);
   assert.doesNotMatch(result.content, /\{%/);
 });
 
@@ -340,6 +385,21 @@ test('converts figures without losing image semantics or copy operations', () =>
       publicPath: 'public/media/hub/Theme - Sydney.png'
     }
   ]);
+});
+
+test('preserves both figure width and height dimensions', () => {
+  const result = convertGitBookPage(
+    `---
+title: Figure dimensions
+description: Figure dimension fixture
+---
+<figure><img src="../../.gitbook/assets/Theme - Sydney.png" alt="Sydney portal layout" width="563" height="316"><figcaption>Portal layout</figcaption></figure>
+`,
+    fixtureContext('product/administration/design.md')
+  );
+
+  assert.match(result.content, /width=\{563\}/);
+  assert.match(result.content, /height=\{316\}/);
 });
 
 test('rewrites Markdown assets to Hub media and records explicit copies', () => {
@@ -503,12 +563,86 @@ value
   assert.match(result.content, /```html\nExample:\n\nvalue\n```/);
 });
 
+test('preserves trailing code bytes when converting legacy pre blocks', () => {
+  const twoTrailingSpaces = '  ';
+  const result = convertGitBookPage(
+    `---
+title: Code bytes
+description: Code byte fixture
+---
+<pre class="language-html"><code class="lang-html">line one${twoTrailingSpaces}
+line two
+
+</code></pre>
+`,
+    fixtureContext('resources/code-bytes.md')
+  );
+
+  assert.match(result.content, /```html\nline one  \nline two\n\n```/);
+});
+
+test('preserves inline whitespace between table-cell elements', () => {
+  const result = convertGitBookPage(
+    `---
+title: Table spacing
+description: Table spacing fixture
+---
+<table><tbody><tr><td><strong>First</strong> <em>second</em></td></tr></tbody></table>
+`,
+    fixtureContext('resources/table-spacing.md')
+  );
+
+  assert.match(result.content, /<strong>First<\/strong> <em>second<\/em>/);
+});
+
+test('declares the MDX compiler and compiles representative converted output', async () => {
+  const result = convertGitBookPage(
+    `---
+title: Representative MDX
+description: Representative compile fixture
+---
+{% stepper %}
+{% step %}
+### Configure
+
+<details>
+
+<summary>More detail</summary>
+
+{% hint style="info" %}
+Nested component content.
+{% endhint %}
+
+</details>
+
+<table><thead><tr><th>Key</th><th>Value</th></tr></thead><tbody><tr><td><strong>First</strong> <em>second</em></td><td>Preserved</td></tr></tbody></table>
+
+{% code overflow="wrap" %}
+\`\`\`js
+const marker = "{% literal %}";
+\`\`\`
+{% endcode %}
+{% endstep %}
+{% endstepper %}
+`,
+    fixtureContext('resources/representative.md')
+  );
+
+  const compiled = await compile(matter(result.content).content);
+  assert.ok(String(compiled.value).includes('function MDXContent'));
+
+  const packageJson = JSON.parse(
+    fs.readFileSync(path.join(repositoryRoot, 'package.json'), 'utf8')
+  );
+  assert.equal(packageJson.devDependencies['@mdx-js/mdx'], '3.1.1');
+});
+
 test('migration CLI is deterministic, checkable, and emits a brand review', (t) => {
   const sourceRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'gitbook-migrate-'));
   t.after(() => fs.rmSync(sourceRoot, { recursive: true, force: true }));
   fs.writeFileSync(
     path.join(sourceRoot, 'SUMMARY.md'),
-    '* [Overview](README.md)\n'
+    '* [Overview](README.md)\n* [Extra](extra.md)\n'
   );
   fs.writeFileSync(
     path.join(sourceRoot, 'README.md'),
@@ -519,6 +653,10 @@ description: Fixture overview
 
 Released helps teams publish updates.
 `
+  );
+  fs.writeFileSync(
+    path.join(sourceRoot, 'extra.md'),
+    '# Extra\n\nExtra fixture page.\n'
   );
 
   const run = (extraArguments = []) =>
@@ -566,6 +704,53 @@ Released helps teams publish updates.
 
   const check = run(['--check']);
   assert.equal(check.status, 0, check.stderr);
+
+  fs.writeFileSync(
+    path.join(sourceRoot, 'SUMMARY.md'),
+    '* [Overview](README.md)\n'
+  );
+  fs.unlinkSync(path.join(sourceRoot, 'extra.md'));
+  const orphanCheck = run(['--check']);
+  assert.equal(orphanCheck.status, 1);
+  assert.match(
+    orphanCheck.stderr,
+    /src\/content\/docs\/guide\/extra\.mdx:1 Unexpected generated GitBook output/
+  );
+});
+
+test('migration CLI rejects duplicate output destinations before writing', (t) => {
+  const sourceRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'gitbook-duplicate-'));
+  t.after(() => fs.rmSync(sourceRoot, { recursive: true, force: true }));
+  fs.writeFileSync(
+    path.join(sourceRoot, 'SUMMARY.md'),
+    '* [Overview](README.md)\n* [Overview alias](./README.md)\n'
+  );
+  fs.writeFileSync(
+    path.join(sourceRoot, 'README.md'),
+    '# Overview\n\nDuplicate destination fixture.\n'
+  );
+
+  const result = spawnSync(
+    process.execPath,
+    [
+      path.join(repositoryRoot, 'scripts', 'migrate-gitbook.mjs'),
+      '--source',
+      '.',
+      '--output',
+      'src/content/docs/guide'
+    ],
+    { cwd: sourceRoot, encoding: 'utf8' }
+  );
+
+  assert.equal(result.status, 1);
+  assert.match(
+    result.stderr,
+    /\.\/README\.md:1 Duplicate migration destination "src\/content\/docs\/guide\/index\.mdx" already claimed by "README\.md"/
+  );
+  assert.equal(
+    fs.existsSync(path.join(sourceRoot, 'src/content/docs/guide/index.mdx')),
+    false
+  );
 });
 
 test('content validation reports every failure as path:line', (t) => {
@@ -614,6 +799,19 @@ description: Missing fields
 ---
 `
   );
+  fs.writeFileSync(
+    path.join(validationRoot, 'content', 'guide', 'c.md'),
+    `---
+title: Fence
+description: Fence validation fixture
+space: hub
+---
+\`\`\`text
+\`\`\`not-a-close
+{% ignored-after-literal-fence %}
+\`\`\`
+`
+  );
 
   const result = spawnSync(
     process.execPath,
@@ -639,4 +837,5 @@ description: Missing fields
   assert.match(result.stderr, /content\/guide\/b\.md:1 Missing required frontmatter "space"/);
   assert.doesNotMatch(result.stderr, /ignored/);
   assert.doesNotMatch(result.stderr, /Has%20space/);
+  assert.doesNotMatch(result.stderr, /content\/guide\/c\.md/);
 });

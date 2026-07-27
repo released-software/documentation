@@ -2,6 +2,7 @@ import path from 'node:path';
 
 import * as cheerio from 'cheerio';
 
+import { isFenceClosing, matchFenceOpening } from './fences.mjs';
 import { mapGitBookLink } from './paths.mjs';
 
 function escapeAttribute(value) {
@@ -34,25 +35,19 @@ function transformOutsideFences(source, transform) {
   for (const fullLine of lines) {
     if (!fullLine) continue;
     const line = fullLine.replace(/\r?\n$/, '');
-    const marker = line.match(/^\s*(`{3,}|~{3,})/);
-    if (!fence && marker) {
-      flush();
-      fence = { character: marker[1][0], length: marker[1].length };
-      result += fullLine;
-      continue;
-    }
-    if (fence) {
-      result += fullLine;
-      if (
-        marker &&
-        marker[1][0] === fence.character &&
-        marker[1].length >= fence.length
-      ) {
-        fence = null;
+    if (!fence) {
+      const opening = matchFenceOpening(line);
+      if (!opening) {
+        plain += fullLine;
+        continue;
       }
+      flush();
+      fence = opening;
+      result += fullLine;
       continue;
     }
-    plain += fullLine;
+    result += fullLine;
+    if (isFenceClosing(line, fence)) fence = null;
   }
   flush();
   return result;
@@ -143,6 +138,7 @@ export function convertHtml(source, context) {
       if (mapped.copy) assetCopies.push(mapped.copy);
       const caption = $('figcaption').first().text().replace(/\s+/g, ' ').trim();
       const width = image.attr('width');
+      const height = image.attr('height');
       const fallbackAlt = caption ||
         path.posix.basename(mapped.copy?.sourcePath ?? mapped.url)
           .replace(/\.[^.]+$/, '')
@@ -154,6 +150,7 @@ export function convertHtml(source, context) {
       ];
       if (caption) props.push(`caption="${escapeAttribute(caption)}"`);
       if (width && /^\d+$/.test(width)) props.push(`width={${width}}`);
+      if (height && /^\d+$/.test(height)) props.push(`height={${height}}`);
       usesFigure = true;
       return `<Figure ${props.join(' ')} />`;
       }
@@ -223,15 +220,26 @@ export function convertHtml(source, context) {
         const code = $('code').first();
         const languageClass = `${code.attr('class') ?? ''} ${$('pre').attr('class') ?? ''}`;
         const language = languageClass.match(/(?:lang|language)-([a-z\d_-]+)/i)?.[1] ?? '';
-        return `\n\`\`\`${language}\n${code.text().trimEnd()}\n\`\`\`\n`;
+        const codeText = code.text();
+        const closingSeparator = codeText.endsWith('\n') ? '' : '\n';
+        return `\n\`\`\`${language}\n${codeText}${closingSeparator}\`\`\`\n`;
       }
     );
     converted = converted.replace(
       /<table\b[\s\S]*?<\/table>/gi,
-      (blockHtml) => cheerio
+      (blockHtml) => {
+        const structuralTag = '(?:table|thead|tbody|tfoot|tr|th|td)';
+        return cheerio
           .load(blockHtml, null, false)
           .html()
-          .replace(/>\s+</g, '><')
+          .replace(
+            new RegExp(
+              `(<\\/?${structuralTag}\\b[^>]*>)\\s+(?=<\\/?${structuralTag}\\b)`,
+              'gi'
+            ),
+            '$1'
+          );
+      }
     );
     converted = converted.replace(/<br(\s[^>]*)?>/gi, (fullMatch, attributes = '') =>
       /\/\s*>$/.test(fullMatch) ? fullMatch : `<br${attributes} />`

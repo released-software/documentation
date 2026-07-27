@@ -6,6 +6,11 @@ import path from 'node:path';
 import fg from 'fast-glob';
 import matter from 'gray-matter';
 
+import {
+  isFenceClosing,
+  matchFenceOpening
+} from './lib/gitbook/fences.mjs';
+
 const knownSpaces = new Set(['hub', 'betterboard', 'partners']);
 
 function parseArguments(argv) {
@@ -129,19 +134,15 @@ function main() {
 
     let fence = null;
     for (const [lineIndex, line] of source.split(/\r?\n/).entries()) {
-      const marker = line.match(/^\s*(`{3,}|~{3,})/);
-      if (marker) {
-        if (!fence) {
-          fence = { character: marker[1][0], length: marker[1].length };
-        } else if (
-          marker[1][0] === fence.character &&
-          marker[1].length >= fence.length
-        ) {
-          fence = null;
-        }
+      if (fence) {
+        if (isFenceClosing(line, fence)) fence = null;
         continue;
       }
-      if (fence) continue;
+      const opening = matchFenceOpening(line);
+      if (opening) {
+        fence = opening;
+        continue;
+      }
       const withoutInlineCode = line.replace(/(`+).*?\1/g, '');
       if (withoutInlineCode.includes('{%') || withoutInlineCode.includes('%}')) {
         addFailure(filePath, lineIndex + 1, 'Remaining GitBook construct');
