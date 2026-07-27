@@ -3,6 +3,8 @@ import { readFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import test from 'node:test';
 
+import matter from 'gray-matter';
+
 const sourceUrl = new URL(
   '../fixtures/gitbook/all-content-components.md',
   import.meta.url
@@ -28,6 +30,15 @@ test('the committed all-component MDX fixture is deterministic converter output'
 
   assert.match(source, /Fixture sources:/);
   assert.match(output, /pagefind: false/);
+  assert.deepEqual(matter(output).data.head, [
+    {
+      tag: 'meta',
+      attrs: {
+        name: 'robots',
+        content: 'noindex, nofollow'
+      }
+    }
+  ]);
   assert.match(output, /import NeutralCallout from/);
   assert.match(output, /import LinkRow from/);
   assert.match(output, /import Figure from/);

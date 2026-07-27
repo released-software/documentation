@@ -62,6 +62,10 @@ test('real converter output resolves and renders every migrated-content componen
   await page.goto(generatedFixturePath);
 
   await expect(page.locator('[data-pagefind-body]')).toHaveCount(0);
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+    'content',
+    'noindex, nofollow'
+  );
   await expect(page.locator('[data-neutral-callout]')).toContainText(
     'Check the portal access settings before continuing.'
   );
