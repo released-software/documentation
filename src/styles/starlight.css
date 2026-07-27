@@ -49,9 +49,14 @@ main[data-pagefind-body] h1#_top,
 }
 
 .sidebar-pane .large {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.84375rem;
+  font-weight: 400;
   line-height: 1.4;
+}
+
+.sidebar-pane .top-level > li > details > summary .large {
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 
 .sidebar-pane a,

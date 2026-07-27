@@ -52,6 +52,30 @@ function sentenceCaseLabel(label = ''): string {
   return result;
 }
 
+function canonicalLabel(label = ''): string {
+  return label
+    .normalize('NFKD')
+    .toLocaleLowerCase('en')
+    .replace(/[^\p{L}\p{N}]+/gu, '');
+}
+
+function removeDuplicateFolderOverview<T extends SidebarEntry>(
+  groupLabel: string | undefined,
+  entries: T[]
+): T[] {
+  const [firstEntry, ...remainingEntries] = entries;
+  const normalizedGroupLabel = canonicalLabel(groupLabel);
+  if (
+    normalizedGroupLabel &&
+    firstEntry?.type === 'link' &&
+    canonicalLabel(firstEntry.label) === normalizedGroupLabel
+  ) {
+    return remainingEntries;
+  }
+
+  return entries;
+}
+
 function normalizeHubEntries<T extends SidebarEntry>(entries: T[], groupDepth = 0): T[] {
   return entries.flatMap((entry) => {
     const normalized = { ...entry, label: sentenceCaseLabel(entry.label) } as T;
@@ -60,7 +84,7 @@ function normalizeHubEntries<T extends SidebarEntry>(entries: T[], groupDepth = 
     const children = normalizeHubEntries((entry.entries ?? []) as T[], groupDepth + 1);
     if (groupDepth >= 2) return children;
 
-    normalized.entries = children;
+    normalized.entries = removeDuplicateFolderOverview(normalized.label, children);
     return [normalized];
   });
 }

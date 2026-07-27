@@ -74,6 +74,22 @@ test('unwraps and normalizes Hub navigation to two collapsible levels', () => {
           entries: [
             {
               type: 'group',
+              label: 'administration',
+              entries: [
+                {
+                  type: 'link',
+                  label: 'Administration',
+                  href: '/guide/product/administration/'
+                },
+                {
+                  type: 'link',
+                  label: 'Product Hub',
+                  href: '/guide/product/administration/general/'
+                }
+              ]
+            },
+            {
+              type: 'group',
               label: 'changelog',
               entries: [
                 {
@@ -113,10 +129,14 @@ test('unwraps and normalizes Hub navigation to two collapsible levels', () => {
   assert.equal(groupDepth(result), 2);
   assert.deepEqual(
     result[1].entries[1].entries.map((entry) => entry.label),
-    ['Setup guide', 'Using Released with Framer']
+    ['Using Released with Framer']
   );
   assert.deepEqual(
     result[2].entries[0].entries.map((entry) => entry.label),
+    ['Product Hub']
+  );
+  assert.deepEqual(
+    result[2].entries[1].entries.map((entry) => entry.label),
     ['AI settings', 'Jira issue links']
   );
 });

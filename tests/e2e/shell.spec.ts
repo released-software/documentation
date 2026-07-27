@@ -84,6 +84,8 @@ test('the Hub sidebar starts below the space switcher and has at most two disclo
   expect(maximumDepth).toBe(2);
   await expect(sidebar.getByText('Getting started', { exact: true })).toBeVisible();
   await expect(sidebar.locator('summary .large').getByText('Setup guide', { exact: true })).toBeVisible();
+  await expect(sidebar.getByRole('link', { name: 'Setup guide', exact: true })).toHaveCount(0);
+  await expect(sidebar.getByRole('link', { name: 'Administration', exact: true })).toHaveCount(0);
 });
 
 test('the active Hub sidebar entry stays transparent with a quiet inset rule', async ({ page }) => {
@@ -133,7 +135,10 @@ test('the documentation shell uses the compact Switzer type scale', async ({ pag
       h2: read('.sl-markdown-content h2'),
       h3: read('.sl-markdown-content h3'),
       body: read('.sl-markdown-content p'),
-      sidebarGroup: read('#starlight__sidebar summary .large'),
+      firstLevelGroup: read('#starlight__sidebar .top-level > li > details > summary .large'),
+      secondLevelGroup: read(
+        '#starlight__sidebar .top-level > li > details > ul > li > details > summary .large'
+      ),
       sidebarLink: read('#starlight__sidebar a'),
       tocLink: read('.right-sidebar-panel nav a:not([aria-current="true"])'),
       activeTocLink: read('.right-sidebar-panel nav a[aria-current="true"]'),
@@ -148,7 +153,8 @@ test('the documentation shell uses the compact Switzer type scale', async ({ pag
     h2: { fontSize: '22px', fontWeight: '700', lineHeight: '27.5px' },
     h3: { fontSize: '18px', fontWeight: '600', lineHeight: '24.3px' },
     body: { fontSize: '16px', fontWeight: '400', lineHeight: '27.2px' },
-    sidebarGroup: { fontSize: '12px', fontWeight: '600', lineHeight: '16.8px' },
+    firstLevelGroup: { fontSize: '14px', fontWeight: '600', lineHeight: '19.6px' },
+    secondLevelGroup: { fontSize: '13.5px', fontWeight: '400', lineHeight: '18.9px' },
     sidebarLink: { fontSize: '13.5px', fontWeight: '400', lineHeight: '18.9px' },
     tocLink: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
     activeTocLink: { fontSize: '13px', fontWeight: '600', lineHeight: '18.2px' },
