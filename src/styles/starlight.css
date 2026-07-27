@@ -136,7 +136,6 @@ main[data-pagefind-body] h1#_top,
   color: var(--released-ink);
   font-weight: 600;
   background: transparent;
-  box-shadow: inset 2px 0 0 var(--released-ink);
 }
 
 .right-sidebar-panel :where(a) {

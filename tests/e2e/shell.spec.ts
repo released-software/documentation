@@ -169,16 +169,14 @@ test('sidebar groups animate without overriding reduced-motion preferences', asy
     .toBe('0s');
 });
 
-test('the active Hub sidebar entry stays transparent with a quiet inset rule', async ({ page }) => {
-  await page.goto('/guide/');
+test('the active Hub sidebar entry stays transparent without a decorative line', async ({ page }) => {
+  await page.goto('/guide/product/changelog/settings/artificial-intelligence/');
 
-  const activeSidebarLink = page
-    .locator('#starlight__sidebar')
-    .getByRole('link', { name: 'Overview', exact: true });
+  const activeSidebarLink = page.locator('#starlight__sidebar a[aria-current="page"]');
 
   await expect(activeSidebarLink).toHaveAttribute('aria-current', 'page');
   await expect(activeSidebarLink).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
-  await expect(activeSidebarLink).toHaveCSS('box-shadow', /inset/);
+  await expect(activeSidebarLink).toHaveCSS('box-shadow', 'none');
 });
 
 test('landing and documentation headings keep their distinct typography roles', async ({ page }) => {
