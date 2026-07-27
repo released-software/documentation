@@ -166,6 +166,7 @@ function main() {
   if (options.check) {
     const stale = [];
     const unexpected = [];
+    const unexpectedAssets = [];
     for (const [filePath, value] of [...outputs, ...assets]) {
       if (!sameFile(filePath, value)) {
         stale.push(path.relative(sourceRoot, filePath));
@@ -187,12 +188,31 @@ function main() {
         }
       }
     }
-    if (stale.length || unexpected.length) {
+    const assetOutputDirectory = path.resolve(
+      sourceRoot,
+      'public/media/hub'
+    );
+    if (fs.existsSync(assetOutputDirectory)) {
+      for (const relativePath of fg.sync('**/*', {
+        cwd: assetOutputDirectory,
+        onlyFiles: true,
+        unique: true
+      })) {
+        const filePath = path.resolve(assetOutputDirectory, relativePath);
+        if (!assets.has(filePath)) {
+          unexpectedAssets.push(path.relative(sourceRoot, filePath));
+        }
+      }
+    }
+    if (stale.length || unexpected.length || unexpectedAssets.length) {
       for (const filePath of stale) {
         console.error(`${filePath}:1 Generated GitBook output is missing or stale`);
       }
       for (const filePath of unexpected.sort()) {
         console.error(`${filePath}:1 Unexpected generated GitBook output`);
+      }
+      for (const filePath of unexpectedAssets.sort()) {
+        console.error(`${filePath}:1 Unexpected generated GitBook asset`);
       }
       process.exitCode = 1;
       return;

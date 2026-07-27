@@ -718,6 +718,67 @@ Released helps teams publish updates.
   );
 });
 
+test('migration check rejects generated Hub media that is no longer referenced', (t) => {
+  const sourceRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'gitbook-media-orphan-'));
+  t.after(() => fs.rmSync(sourceRoot, { recursive: true, force: true }));
+  fs.mkdirSync(path.join(sourceRoot, '.gitbook', 'assets'), { recursive: true });
+  fs.mkdirSync(path.join(sourceRoot, 'public'), { recursive: true });
+  fs.writeFileSync(
+    path.join(sourceRoot, 'SUMMARY.md'),
+    '* [Overview](README.md)\n'
+  );
+  fs.writeFileSync(
+    path.join(sourceRoot, '.gitbook', 'assets', 'orphan.png'),
+    'generated media fixture'
+  );
+  fs.writeFileSync(
+    path.join(sourceRoot, 'public', 'site-logo.svg'),
+    '<svg></svg>\n'
+  );
+  fs.writeFileSync(
+    path.join(sourceRoot, 'README.md'),
+    '# Overview\n\n![Screenshot](.gitbook/assets/orphan.png)\n'
+  );
+
+  const run = (extraArguments = []) =>
+    spawnSync(
+      process.execPath,
+      [
+        path.join(repositoryRoot, 'scripts', 'migrate-gitbook.mjs'),
+        '--source',
+        '.',
+        '--output',
+        'src/content/docs/guide',
+        ...extraArguments
+      ],
+      { cwd: sourceRoot, encoding: 'utf8' }
+    );
+
+  const initialMigration = run();
+  assert.equal(initialMigration.status, 0, initialMigration.stderr);
+  const generatedAsset = path.join(
+    sourceRoot,
+    'public/media/hub/orphan.png'
+  );
+  assert.equal(fs.readFileSync(generatedAsset, 'utf8'), 'generated media fixture');
+
+  fs.writeFileSync(
+    path.join(sourceRoot, 'README.md'),
+    '# Overview\n\nThe screenshot is no longer used.\n'
+  );
+  const nonDestructiveMigration = run();
+  assert.equal(nonDestructiveMigration.status, 0, nonDestructiveMigration.stderr);
+  assert.equal(fs.existsSync(generatedAsset), true);
+
+  const orphanCheck = run(['--check']);
+  assert.equal(orphanCheck.status, 1);
+  assert.match(
+    orphanCheck.stderr,
+    /public\/media\/hub\/orphan\.png:1 Unexpected generated GitBook asset/
+  );
+  assert.doesNotMatch(orphanCheck.stderr, /public\/site-logo\.svg/);
+});
+
 test('migration CLI rejects duplicate output destinations before writing', (t) => {
   const sourceRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'gitbook-duplicate-'));
   t.after(() => fs.rmSync(sourceRoot, { recursive: true, force: true }));
