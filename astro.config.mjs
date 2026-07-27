@@ -38,7 +38,13 @@ export default defineConfig({
       ]
     }),
     sitemap({
-      filter: (page) => new URL(page).pathname !== '/__tests__/content-components/'
+      filter: (page) => {
+        const pathname = new URL(page).pathname;
+        return ![
+          '/__tests__/content-components/',
+          '/component-tests/generated-content-components/'
+        ].includes(pathname);
+      }
     })
   ]
 });

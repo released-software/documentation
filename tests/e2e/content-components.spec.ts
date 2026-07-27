@@ -1,6 +1,7 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
 
 const harnessPath = '/__tests__/content-components/';
+const generatedFixturePath = '/component-tests/generated-content-components/';
 
 function channelToLinear(value: number) {
   const channel = value / 255;
@@ -52,7 +53,35 @@ test('the temporary harness is excluded from indexing and the sitemap', async ({
   await expect(page.locator('[data-pagefind-body]')).toHaveCount(0);
 
   const sitemap = await request.get('/sitemap-0.xml');
-  expect(await sitemap.text()).not.toContain(harnessPath);
+  const sitemapText = await sitemap.text();
+  expect(sitemapText).not.toContain(harnessPath);
+  expect(sitemapText).not.toContain(generatedFixturePath);
+});
+
+test('real converter output resolves and renders every migrated-content component', async ({ page }) => {
+  await page.goto(generatedFixturePath);
+
+  await expect(page.locator('[data-pagefind-body]')).toHaveCount(0);
+  await expect(page.locator('[data-neutral-callout]')).toContainText(
+    'Check the portal access settings before continuing.'
+  );
+  const linkRow = page.locator('[data-link-row]');
+  await expect(linkRow).toContainText('Hub documentation');
+  await expect(linkRow).toContainText('Return to the Hub documentation overview.');
+
+  const figure = page.getByRole('figure');
+  await expect(figure.getByRole('img')).toHaveAttribute('width', '96');
+  await expect(figure.getByRole('img')).toHaveAttribute('height', '96');
+  await expect(figure.locator('figcaption')).toHaveText('Generated figure caption.');
+
+  await expect(page.locator('[data-embed-provider="youtube"] iframe')).toHaveAttribute(
+    'src',
+    'https://www.youtube-nocookie.com/embed/Ll1hArmqOAg'
+  );
+  await expect(page.locator('[data-embed-provider="loom"] iframe')).toHaveAttribute(
+    'src',
+    'https://www.loom.com/embed/e972f54ef3644aa78b822b2cbf573e14'
+  );
 });
 
 test('callout variants share a readable neutral surface without accent bars', async ({ page }) => {

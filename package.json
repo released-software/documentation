@@ -11,6 +11,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "generate:content-fixture": "node scripts/generate-content-component-fixture.mjs",
+    "check:content-fixture": "node scripts/generate-content-component-fixture.mjs --check",
     "migrate:hub": "node scripts/migrate-gitbook.mjs --source . --output src/content/docs/guide",
     "validate:content": "node scripts/validate-content.mjs",
     "test:unit": "node --test tests/unit/*.test.mjs",

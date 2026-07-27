@@ -218,13 +218,23 @@ function convertTags(body, context, lineOffset) {
         );
       }
       const child = body.slice(token.end, closing.start);
-      const title = child.match(/\[([^\]]+)\]\([^)]+\)/)?.[1] ?? target;
+      const link = child.match(/\[([^\]]+)\]\([^)]+\)/);
+      const title = link?.[1] ?? target;
+      const description = link
+        ? child
+            .replace(link[0], '')
+            .replace(/\s+/g, ' ')
+            .trim()
+        : '';
       const href = mapGitBookLink(target, context.sourcePath);
       usesLinkRow = true;
+      const descriptionProp = description
+        ? ` description="${escapeAttribute(description)}"`
+        : '';
       replacements.push({
         start: token.start,
         end: closing.end,
-        value: `<LinkRow href="${escapeAttribute(href)}" title="${escapeAttribute(title)}" />`
+        value: `<LinkRow href="${escapeAttribute(href)}" title="${escapeAttribute(title)}"${descriptionProp} />`
       });
       tokenIndex += 1;
       continue;

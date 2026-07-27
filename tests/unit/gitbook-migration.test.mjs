@@ -305,6 +305,26 @@ test('converts a GitBook content reference to a routed LinkRow', () => {
   assert.doesNotMatch(result.content, /endcontent-ref|\{% content-ref/);
 });
 
+test('converts content reference copy to a LinkRow description', () => {
+  const result = convertGitBookPage(
+    `---
+title: Related content
+description: Related content fixture
+---
+{% content-ref url="../../../README.md" %}
+[Hub documentation](../../../README.md)
+Return to the Hub documentation overview.
+{% endcontent-ref %}
+`,
+    fixtureContext('tests/fixtures/gitbook/all-components.md')
+  );
+
+  assert.match(
+    result.content,
+    /<LinkRow href="\/guide\/" title="Hub documentation" description="Return to the Hub documentation overview\." \/>/
+  );
+});
+
 test('converts paired Loom and self-closing YouTube embeds', () => {
   const result = convertGitBookPage(
     pageFixture('embed.md'),
