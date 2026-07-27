@@ -7,6 +7,11 @@ const pathSpace = getSpaceFromPath(Astro.url.pathname);
 const pagefindEnabled = starlightRoute.entry.data.pagefind !== false;
 const entrySpace = starlightRoute.entry.data.space as SpaceId | undefined;
 
+// Temporary Task 5 scaffold fallback: `/guide/` has no Markdown body yet, so Pagefind
+// needs its title inside the filtered body. Remove this in Task 8 after Hub content arrives.
+const needsTemporaryEmptyHubTitleFallback =
+  pagefindEnabled && Astro.url.pathname === '/guide/';
+
 if (pagefindEnabled && pathSpace === 'all') {
   throw new Error(`Cannot assign documentation space to article route: ${Astro.url.pathname}`);
 }
@@ -28,8 +33,8 @@ const pagefindAttributes = pagefindEnabled
 
 <div class="sl-markdown-content" {...pagefindAttributes}>
   {
-    pagefindEnabled && (
-      <span aria-hidden="true" class="pagefind-title">
+    needsTemporaryEmptyHubTitleFallback && (
+      <span aria-hidden="true" class="temporary-empty-hub-pagefind-title">
         {starlightRoute.entry.data.title}
       </span>
     )
@@ -38,7 +43,7 @@ const pagefindAttributes = pagefindEnabled
 </div>
 
 <style>
-  .pagefind-title {
+  .temporary-empty-hub-pagefind-title {
     position: absolute;
     width: 1px;
     height: 1px;

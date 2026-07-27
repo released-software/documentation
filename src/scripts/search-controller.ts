@@ -78,7 +78,6 @@ export class SearchController {
     this.scope = options.initialScope;
 
     this.scopeSelect.value = this.scope;
-    this.announceScope();
     this.bindEvents();
     this.trigger.disabled = false;
   }
@@ -94,6 +93,7 @@ export class SearchController {
     this.closeButton.addEventListener('click', () => this.close());
     this.dialog.addEventListener('close', () => {
       document.body.toggleAttribute('data-search-modal-open', false);
+      this.scopeAnnouncement.textContent = '';
       this.trigger.focus();
     });
     this.dialog.addEventListener('click', (event) => {
@@ -143,6 +143,7 @@ export class SearchController {
   private open() {
     if (!this.dialog.open) this.dialog.showModal();
     document.body.toggleAttribute('data-search-modal-open', true);
+    this.announceScope();
     this.input.focus();
     void this.runSearch();
   }

@@ -16,15 +16,20 @@ test('search defaults to the pathname-derived documentation scope', async ({ pag
 
   for (const { route, scope } of cases) {
     await page.goto(route);
-    await openSearch(page);
+    const announcement = page.locator('[data-search-scope-announcement]');
+    await expect(announcement).toBeEmpty();
+    const trigger = await openSearch(page);
 
     await expect(
       page.getByRole('combobox', { name: 'Search scope' }).locator('option:checked')
     ).toHaveText(scope);
-    await expect(page.locator('[data-search-scope-announcement]')).toHaveText(
-      `Search scope: ${scope}`
-    );
+    await expect(announcement).toHaveText(`Search scope: ${scope}`);
 
+    await page.getByRole('button', { name: 'Close search' }).click();
+    await expect(announcement).toBeEmpty();
+
+    await trigger.click();
+    await expect(announcement).toHaveText(`Search scope: ${scope}`);
     await page.getByRole('button', { name: 'Close search' }).click();
   }
 });
