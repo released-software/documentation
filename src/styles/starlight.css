@@ -23,7 +23,8 @@ header.header .title-wrapper {
   overflow: visible;
 }
 
-main h1 {
+main[data-pagefind-body] h1#_top,
+.sl-markdown-content h1 {
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.15;
@@ -75,8 +76,16 @@ main h1 {
   line-height: 1.4;
 }
 
+.right-sidebar-panel :where(a[aria-current='true']) {
+  font-weight: 600;
+}
+
 header [data-space-switcher] button {
   font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+header [data-open-search] {
   line-height: 1.4;
 }
 

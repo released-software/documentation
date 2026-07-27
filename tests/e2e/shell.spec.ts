@@ -86,8 +86,35 @@ test('the Hub sidebar starts below the space switcher and has at most two disclo
   await expect(sidebar.locator('summary .large').getByText('Setup guide', { exact: true })).toBeVisible();
 });
 
+test('the active Hub sidebar entry stays transparent with a quiet inset rule', async ({ page }) => {
+  await page.goto('/guide/');
+
+  const activeSidebarLink = page
+    .locator('#starlight__sidebar')
+    .getByRole('link', { name: 'Overview', exact: true });
+
+  await expect(activeSidebarLink).toHaveAttribute('aria-current', 'page');
+  await expect(activeSidebarLink).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+  await expect(activeSidebarLink).toHaveCSS('box-shadow', /inset/);
+});
+
+test('landing and documentation headings keep their distinct typography roles', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('main .hero h1')).toHaveCSS('font-weight', '600');
+
+  await page.goto('/betterboard/');
+  await expect(page.locator('main h1#_top')).toHaveCSS('font-size', '32px');
+  await expect(page.locator('main h1#_top')).toHaveCSS('font-weight', '700');
+
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
+  await expect(page.locator('.sl-markdown-content h1')).toHaveCSS('font-size', '32px');
+  await expect(page.locator('.sl-markdown-content h1')).toHaveCSS('font-weight', '700');
+});
+
 test('the documentation shell uses the compact Switzer type scale', async ({ page }) => {
   await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
+
+  await expect(page.locator('.right-sidebar-panel nav a[aria-current="true"]')).toBeVisible();
 
   const styles = await page.evaluate(() => {
     const read = (selector: string) => {
@@ -102,14 +129,17 @@ test('the documentation shell uses the compact Switzer type scale', async ({ pag
     };
 
     return {
-      h1: read('main h1'),
+      h1: read('.sl-markdown-content h1'),
       h2: read('.sl-markdown-content h2'),
       h3: read('.sl-markdown-content h3'),
       body: read('.sl-markdown-content p'),
       sidebarGroup: read('#starlight__sidebar summary .large'),
       sidebarLink: read('#starlight__sidebar a'),
-      tocLink: read('.right-sidebar-panel nav a'),
-      headerControl: read('header [data-space-switcher] button')
+      tocLink: read('.right-sidebar-panel nav a:not([aria-current="true"])'),
+      activeTocLink: read('.right-sidebar-panel nav a[aria-current="true"]'),
+      headerControl: read('header [data-space-switcher] button'),
+      searchTrigger: read('header [data-open-search]'),
+      calloutLabel: read('[data-neutral-callout] [data-callout-label]')
     };
   });
 
@@ -121,7 +151,10 @@ test('the documentation shell uses the compact Switzer type scale', async ({ pag
     sidebarGroup: { fontSize: '12px', fontWeight: '600', lineHeight: '16.8px' },
     sidebarLink: { fontSize: '13.5px', fontWeight: '400', lineHeight: '18.9px' },
     tocLink: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
-    headerControl: { fontSize: '14px', fontWeight: '500', lineHeight: '19.6px' }
+    activeTocLink: { fontSize: '13px', fontWeight: '600', lineHeight: '18.2px' },
+    headerControl: { fontSize: '14px', fontWeight: '500', lineHeight: '19.6px' },
+    searchTrigger: { fontSize: '14px', fontWeight: '400', lineHeight: '19.6px' },
+    calloutLabel: { fontSize: '14px', fontWeight: '500', lineHeight: '19.6px' }
   });
 
   await page.goto('/guide/getting-started/setup-guide/');
