@@ -81,6 +81,8 @@ The migration uses this explicit, committed mapping:
 - Create: `src/env.d.ts`
 - Create: `playwright.config.ts`
 - Create: `tests/unit/scaffold.test.mjs`
+- Create: `tests/build/scaffold-output.test.mjs`
+- Create: `tests/e2e/scaffold.spec.ts`
 - Create: `src/content/docs/betterboard/index.md`
 - Modify: `.gitignore`
 
@@ -110,6 +112,22 @@ test('the project exposes the required verification commands', async () => {
   }
 });
 ```
+
+- [ ] **Step 1a: Add meaningful initial build and browser smoke tests**
+
+Create `tests/build/scaffold-output.test.mjs` to assert that the production
+build contains:
+
+```text
+dist/guide/index.html
+dist/betterboard/index.html
+dist/pagefind/
+```
+
+Create `tests/e2e/scaffold.spec.ts` to open `/guide/` and `/betterboard/` in
+Chromium and assert each page exposes its expected level-one heading. These
+tests make `test:build`, `test:e2e`, and the aggregate `npm test` runnable
+before later tasks add their focused suites.
 
 - [ ] **Step 2: Run the test and confirm the expected failure**
 
@@ -264,15 +282,16 @@ Run:
 npm run test:unit
 npm run check
 npm run build
+npm test
 ```
 
-Expected: all three commands exit 0 and both `dist/guide/index.html` and
+Expected: all four commands exit 0 and both `dist/guide/index.html` and
 `dist/betterboard/index.html` exist.
 
 - [ ] **Step 8: Commit the scaffold**
 
 ```bash
-git add package.json package-lock.json astro.config.mjs tsconfig.json playwright.config.ts src/content.config.ts src/env.d.ts src/route-data.ts src/styles/tokens.css src/styles/starlight.css src/content/docs/guide/index.md src/content/docs/betterboard/index.md tests/unit/scaffold.test.mjs .gitignore
+git add package.json package-lock.json astro.config.mjs tsconfig.json playwright.config.ts src/content.config.ts src/env.d.ts src/route-data.ts src/styles/tokens.css src/styles/starlight.css src/content/docs/guide/index.md src/content/docs/betterboard/index.md tests/unit/scaffold.test.mjs tests/build/scaffold-output.test.mjs tests/e2e/scaffold.spec.ts .gitignore
 git commit -m "chore: scaffold Astro documentation project"
 ```
 
