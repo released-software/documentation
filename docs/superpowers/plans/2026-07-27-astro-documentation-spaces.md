@@ -6,7 +6,7 @@
 
 **Architecture:** One static Astro build owns all three spaces. Starlight supplies the article shell, content collections, mobile navigation, table of contents, metadata, and Pagefind integration. Small component overrides add the Released identity, a left-aligned product-space switcher, space-filtered sidebars, and scoped search. Deterministic migration scripts convert the existing GitBook source and the BetterBoard Astro source into committed MDX; build-time tests validate routes, links, assets, and search metadata.
 
-**Tech Stack:** Node 22, npm 10, Astro 7.1.3, Starlight 0.41.4, TypeScript 7.0.2, Pagefind 1.5.2, Playwright 1.62.0, Node test runner, Cheerio 1.2.0, Turndown 7.2.4, gray-matter 4.0.3, fast-glob 3.3.3.
+**Tech Stack:** Node 22, npm 10, Astro 7.1.3, Starlight 0.41.4, TypeScript 6.0.3, Pagefind 1.5.2, Playwright 1.62.0, Node test runner, Cheerio 1.2.0, Turndown 7.2.4, gray-matter 4.0.3, fast-glob 3.3.3.
 
 ## Global Constraints
 
@@ -157,7 +157,7 @@ Create `package.json` with:
     "gray-matter": "4.0.3",
     "pagefind": "1.5.2",
     "turndown": "7.2.4",
-    "typescript": "7.0.2"
+    "typescript": "6.0.3"
   }
 }
 ```
