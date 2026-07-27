@@ -11,6 +11,8 @@ export default defineConfig({
       customCss: ['./src/styles/tokens.css', './src/styles/starlight.css'],
       routeMiddleware: './src/route-data.ts',
       components: {
+        MarkdownContent: './src/components/starlight/MarkdownContent.astro',
+        Search: './src/components/starlight/Search.astro',
         SiteTitle: './src/components/starlight/SiteTitle.astro'
       },
       social: [{ icon: 'external', label: 'Released', href: 'https://released.so' }],

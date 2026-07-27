@@ -1,0 +1,354 @@
+---
+import { getSpaceFromPath, spaces } from '../../data/spaces';
+
+const initialScope = getSpaceFromPath(Astro.url.pathname);
+---
+
+<site-search class={Astro.props.class} data-scoped-search data-initial-scope={initialScope}>
+  <button
+    aria-keyshortcuts="Control+K"
+    aria-label="Search documentation"
+    data-open-search
+    disabled
+    type="button"
+  >
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <path
+        d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-width="2"
+      ></path>
+    </svg>
+    <span class="search-label">Search</span>
+    <kbd aria-hidden="true"><kbd data-platform-key>Ctrl</kbd><kbd>K</kbd></kbd>
+  </button>
+
+  <dialog aria-label="Search documentation">
+    <div class="dialog-frame">
+      <div class="search-toolbar">
+        <label>
+          <span>Search scope</span>
+          <select data-search-scope>
+            <option value="all">All documentation</option>
+            {
+              spaces.map((space) => (
+                <option disabled={!space.searchIndexed} value={space.id}>
+                  {space.name}
+                </option>
+              ))
+            }
+          </select>
+        </label>
+        <button aria-label="Close search" data-close-search type="button">Close</button>
+      </div>
+
+      <label class="search-input">
+        <span class="visually-hidden">Search documentation</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path
+            d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-width="2"
+          ></path>
+        </svg>
+        <input
+          autocomplete="off"
+          data-search-input
+          placeholder="Search documentation"
+          type="search"
+        />
+      </label>
+
+      <p
+        aria-live="polite"
+        class="visually-hidden"
+        data-search-scope-announcement
+      ></p>
+      <div aria-atomic="true" aria-live="polite" data-search-state></div>
+      <ul data-search-results></ul>
+    </div>
+  </dialog>
+</site-search>
+
+<script>
+  import { SearchController, type SearchScope } from '../../scripts/search-controller';
+
+  for (const root of document.querySelectorAll<HTMLElement>('[data-scoped-search]')) {
+    new SearchController(root, {
+      initialScope: root.dataset.initialScope as SearchScope
+    });
+  }
+</script>
+
+<script is:inline>
+  (() => {
+    const root = document.currentScript?.previousElementSibling?.previousElementSibling;
+    if (!(root instanceof HTMLElement)) return;
+
+    const platformKey = root.querySelector('[data-platform-key]');
+    const trigger = root.querySelector('[data-open-search]');
+    if (
+      platformKey &&
+      trigger &&
+      /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)
+    ) {
+      platformKey.textContent = '⌘';
+      trigger.setAttribute('aria-keyshortcuts', 'Meta+K');
+    }
+  })();
+</script>
+
+<style>
+  @layer starlight.core {
+    site-search {
+      display: contents;
+    }
+
+    button[data-open-search] {
+      display: flex;
+      height: 2.5rem;
+      align-items: center;
+      gap: 0.5rem;
+      border: 0;
+      color: var(--sl-color-gray-1);
+      background: transparent;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    button[data-open-search] > svg {
+      width: 1.25rem;
+      flex: 0 0 auto;
+    }
+
+    button[data-open-search] > kbd {
+      display: none;
+      gap: 0.25rem;
+      margin-inline-start: auto;
+      padding-inline: 0.375rem;
+      border-radius: 0.25rem;
+      color: var(--sl-color-gray-2);
+      background: var(--sl-color-gray-6);
+      font-family: var(--__sl-font);
+      font-size: var(--sl-text-2xs);
+    }
+
+    .search-label {
+      display: none;
+    }
+
+    dialog {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      max-height: 100%;
+      margin: 0;
+      padding: 0;
+      border: 1px solid var(--released-line);
+      color: var(--released-ink);
+      background: var(--released-surface);
+      box-shadow: var(--sl-shadow-lg);
+    }
+
+    dialog[open] {
+      display: flex;
+    }
+
+    dialog::backdrop {
+      background: var(--sl-color-backdrop-overlay);
+      backdrop-filter: blur(0.25rem);
+    }
+
+    .dialog-frame {
+      display: flex;
+      min-width: 0;
+      flex: 1;
+      flex-direction: column;
+      gap: 1rem;
+      overflow: auto;
+      padding: 1rem;
+    }
+
+    .search-toolbar {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .search-toolbar label {
+      display: grid;
+      flex: 1;
+      gap: 0.35rem;
+      color: var(--released-ink-muted);
+      font-size: var(--sl-text-xs);
+      font-weight: 600;
+    }
+
+    select,
+    input,
+    button[data-close-search],
+    [data-search-state] button {
+      min-height: 2.75rem;
+      border: 1px solid var(--released-line);
+      border-radius: var(--released-radius-sm);
+      color: var(--released-ink);
+      background: var(--released-surface);
+      font: inherit;
+    }
+
+    select,
+    input {
+      width: 100%;
+      padding-inline: 0.75rem;
+    }
+
+    button[data-close-search],
+    [data-search-state] button {
+      padding-inline: 0.875rem;
+      cursor: pointer;
+    }
+
+    .search-input {
+      position: relative;
+    }
+
+    .search-input svg {
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 0.85rem;
+      width: 1.15rem;
+      transform: translateY(-50%);
+      color: var(--released-ink-muted);
+      pointer-events: none;
+    }
+
+    .search-input input {
+      padding-inline-start: 2.75rem;
+      font-size: var(--sl-text-lg);
+    }
+
+    select:focus-visible,
+    input:focus-visible,
+    button:focus-visible,
+    [data-search-results] a:focus-visible {
+      outline: 2px solid var(--released-focus);
+      outline-offset: 2px;
+    }
+
+    [data-search-state] {
+      color: var(--released-ink-muted);
+    }
+
+    [data-search-state] p {
+      margin: 0;
+    }
+
+    [data-search-state] ul {
+      display: flex;
+      gap: 1rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    [data-search-state] button {
+      margin-block-start: 0.75rem;
+    }
+
+    [data-search-results] {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--released-line);
+      list-style: none;
+    }
+
+    [data-search-results] li {
+      border-bottom: 1px solid var(--released-line);
+    }
+
+    [data-search-results] a {
+      display: grid;
+      gap: 0.35rem;
+      padding: 1rem 0.25rem;
+      color: var(--released-ink);
+      text-decoration: none;
+    }
+
+    [data-search-results] a:hover span {
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+
+    [data-search-results] span {
+      font-weight: 600;
+    }
+
+    [data-search-results] p {
+      margin: 0;
+      color: var(--released-ink-muted);
+      font-size: var(--sl-text-sm);
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    :global([data-search-modal-open]) {
+      overflow: hidden;
+    }
+
+    @media (min-width: 50rem) {
+      button[data-open-search] {
+        width: 100%;
+        max-width: 22rem;
+        padding-inline: 0.75rem 0.5rem;
+        border: 1px solid var(--sl-color-gray-5);
+        border-radius: 0.5rem;
+        color: var(--sl-color-gray-2);
+        background: var(--sl-color-black);
+        font-size: var(--sl-text-sm);
+      }
+
+      button[data-open-search]:hover {
+        border-color: var(--sl-color-gray-2);
+        color: var(--sl-color-white);
+      }
+
+      button[data-open-search] > kbd {
+        display: flex;
+      }
+
+      .search-label {
+        display: block;
+      }
+
+      dialog {
+        width: 90%;
+        max-width: 42rem;
+        height: max-content;
+        min-height: 18rem;
+        max-height: calc(100% - 8rem);
+        margin: 4rem auto auto;
+        border-radius: var(--released-radius-md);
+      }
+
+      .dialog-frame {
+        padding: 1.5rem;
+      }
+    }
+  }
+</style>

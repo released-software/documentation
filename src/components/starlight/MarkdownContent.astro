@@ -1,0 +1,52 @@
+---
+import '@astrojs/starlight/style/markdown.css';
+import { getSpaceFromPath, type SpaceId } from '../../data/spaces';
+
+const { starlightRoute } = Astro.locals;
+const pathSpace = getSpaceFromPath(Astro.url.pathname);
+const pagefindEnabled = starlightRoute.entry.data.pagefind !== false;
+const entrySpace = starlightRoute.entry.data.space as SpaceId | undefined;
+
+if (pagefindEnabled && pathSpace === 'all') {
+  throw new Error(`Cannot assign documentation space to article route: ${Astro.url.pathname}`);
+}
+
+if (pagefindEnabled && entrySpace !== pathSpace) {
+  throw new Error(
+    `Documentation space mismatch for ${Astro.url.pathname}: expected ${pathSpace}, received ${entrySpace ?? 'none'}`
+  );
+}
+
+const pagefindAttributes = pagefindEnabled
+  ? {
+      'data-pagefind-body': '',
+      'data-pagefind-filter': `space:${pathSpace}`,
+      'data-pagefind-meta': `space:${pathSpace}`
+    }
+  : {};
+---
+
+<div class="sl-markdown-content" {...pagefindAttributes}>
+  {
+    pagefindEnabled && (
+      <span aria-hidden="true" class="pagefind-title">
+        {starlightRoute.entry.data.title}
+      </span>
+    )
+  }
+  <slot />
+</div>
+
+<style>
+  .pagefind-title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
