@@ -81,6 +81,7 @@ The migration uses this explicit, committed mapping:
 - Create: `src/env.d.ts`
 - Create: `playwright.config.ts`
 - Create: `tests/unit/scaffold.test.mjs`
+- Create: `src/content/docs/betterboard/index.md`
 - Modify: `.gitignore`
 
 **Produced interfaces:**
@@ -224,6 +225,7 @@ Create:
 - `src/styles/starlight.css`
 - `src/route-data.ts`
 - `src/content/docs/guide/index.md`
+- `src/content/docs/betterboard/index.md`
 
 Use minimal valid contents. The temporary Hub page frontmatter must contain:
 
@@ -237,6 +239,23 @@ space: hub
 
 Do not copy the final visual styles into this task.
 
+The temporary BetterBoard landing must use final customer-facing copy so the
+space switcher and scoped-search tasks have a valid destination before the
+full migration:
+
+```yaml
+---
+title: BetterBoard documentation
+description: Build and shape clearer Jira boards.
+space: betterboard
+---
+
+BetterBoard documentation is being organized into start, board setup,
+board-shaping, and faster-work guides.
+```
+
+Task 9 replaces this body with the migrated grouped overview.
+
 - [ ] **Step 7: Run the scaffold checks**
 
 Run:
@@ -247,12 +266,13 @@ npm run check
 npm run build
 ```
 
-Expected: all three commands exit 0 and `dist/guide/index.html` exists.
+Expected: all three commands exit 0 and both `dist/guide/index.html` and
+`dist/betterboard/index.html` exist.
 
 - [ ] **Step 8: Commit the scaffold**
 
 ```bash
-git add package.json package-lock.json astro.config.mjs tsconfig.json playwright.config.ts src/content.config.ts src/env.d.ts src/route-data.ts src/styles/tokens.css src/styles/starlight.css src/content/docs/guide/index.md tests/unit/scaffold.test.mjs .gitignore
+git add package.json package-lock.json astro.config.mjs tsconfig.json playwright.config.ts src/content.config.ts src/env.d.ts src/route-data.ts src/styles/tokens.css src/styles/starlight.css src/content/docs/guide/index.md src/content/docs/betterboard/index.md tests/unit/scaffold.test.mjs .gitignore
 git commit -m "chore: scaffold Astro documentation project"
 ```
 
