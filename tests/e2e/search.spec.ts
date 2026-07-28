@@ -101,6 +101,77 @@ test('typing keeps completed results visible until the latest search replaces th
   await expect(results.locator('a').first()).toBeVisible();
 });
 
+test('closing synchronously cancels a pending debounced search', async ({ page }) => {
+  let loadAttempts = 0;
+  await page.route('**/pagefind/pagefind.js*', (route) => {
+    loadAttempts += 1;
+    return route.continue();
+  });
+  await page.goto('/');
+  await openSearch(page);
+  await page.clock.install();
+
+  const input = page.getByRole('searchbox', { name: 'Search documentation' });
+  const results = page.locator('[data-search-results]');
+  await input.fill('Jira');
+  await expect(results).toHaveAttribute('aria-busy', 'true');
+
+  const busyOnClose = await page.evaluate(() => {
+    const closeButton = document.querySelector<HTMLButtonElement>('[data-close-search]');
+    const resultsElement = document.querySelector<HTMLElement>('[data-search-results]');
+    if (!closeButton || !resultsElement) throw new Error('Search controls are missing');
+
+    closeButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    return resultsElement.getAttribute('aria-busy');
+  });
+
+  expect(busyOnClose).toBe('false');
+  await expect(page.getByRole('dialog', { name: 'Search documentation' })).toBeHidden();
+  await page.clock.fastForward(200);
+  expect(loadAttempts).toBe(0);
+});
+
+test('Escape synchronously cancels a pending debounced search', async ({ page }) => {
+  let loadAttempts = 0;
+  await page.route('**/pagefind/pagefind.js*', (route) => {
+    loadAttempts += 1;
+    return route.continue();
+  });
+  await page.goto('/');
+  await openSearch(page);
+  await page.clock.install();
+
+  const input = page.getByRole('searchbox', { name: 'Search documentation' });
+  const results = page.locator('[data-search-results]');
+  await input.fill('Jira');
+  await expect(results).toHaveAttribute('aria-busy', 'true');
+  await page.getByRole('button', { name: 'Close search' }).focus();
+  await page.evaluate(() => {
+    const dialog = document.querySelector<HTMLDialogElement>('dialog');
+    const resultsElement = document.querySelector<HTMLElement>('[data-search-results]');
+    if (!dialog || !resultsElement) throw new Error('Search controls are missing');
+
+    dialog.addEventListener(
+      'cancel',
+      () => {
+        document.documentElement.dataset.searchBusyDuringCancel =
+          resultsElement.getAttribute('aria-busy') ?? '';
+      },
+      { once: true }
+    );
+  });
+
+  await page.keyboard.press('Escape');
+
+  await expect(page.locator('html')).toHaveAttribute(
+    'data-search-busy-during-cancel',
+    'false'
+  );
+  await expect(page.getByRole('dialog', { name: 'Search documentation' })).toBeHidden();
+  await page.clock.fastForward(200);
+  expect(loadAttempts).toBe(0);
+});
+
 test('changing scope updates search results without navigation', async ({ page }) => {
   await page.goto('/guide/');
   await openSearch(page);

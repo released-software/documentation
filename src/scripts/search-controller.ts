@@ -101,13 +101,11 @@ export class SearchController {
     this.trigger.addEventListener('click', () => this.open());
     this.closeButton.addEventListener('click', () => this.close());
     this.dialog.addEventListener('close', () => {
-      this.cancelPendingSearch();
-      this.requestId += 1;
-      this.setSearchBusy(false);
       document.body.toggleAttribute('data-search-modal-open', false);
       this.scopeAnnouncement.textContent = '';
       this.trigger.focus();
     });
+    this.dialog.addEventListener('cancel', () => this.invalidateSearch());
     this.dialog.addEventListener('click', (event) => {
       if (event.target === this.dialog) this.close();
     });
@@ -161,6 +159,7 @@ export class SearchController {
   }
 
   private close() {
+    this.invalidateSearch();
     if (this.dialog.open) this.dialog.close();
   }
 
@@ -229,6 +228,12 @@ export class SearchController {
     if (this.searchTimer === undefined) return;
     window.clearTimeout(this.searchTimer);
     this.searchTimer = undefined;
+  }
+
+  private invalidateSearch() {
+    this.cancelPendingSearch();
+    this.requestId += 1;
+    this.setSearchBusy(false);
   }
 
   private setSearchBusy(busy: boolean) {
