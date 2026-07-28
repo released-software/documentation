@@ -26,7 +26,7 @@ This change is limited to the search dialog’s scope selector, empty-query stat
 ## Empty-query state
 
 - Remove suggested-section generation and its associated link styles.
-- Opening search with an empty query shows only the scope control, close button, and search field.
+- In a production build, opening search with an empty query shows only the scope control, close button, and search field.
 - Clearing an existing query removes results and visible status text immediately.
 - An empty query must not initialize Pagefind or display a loading message.
 - With no results or visible state content, the desktop dialog is content-sized rather than held open by the current minimum height.
@@ -43,6 +43,7 @@ This change is limited to the search dialog’s scope selector, empty-query stat
 - Existing request identifiers continue to prevent stale responses from replacing newer results.
 - Clearing the query or closing the dialog cancels any pending debounce and invalidates in-flight responses.
 - Pagefind module loading remains lazy and begins only after a non-empty query is scheduled.
+- Development mode retains its explicit production-preview warning and never attempts to load Pagefind.
 
 ## Error and no-result behavior
 
