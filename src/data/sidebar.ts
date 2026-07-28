@@ -42,6 +42,13 @@ const protectedTerms = new Map([
 
 const rootWrappersToPromote = new Set(['Product', 'Resources']);
 const childCategoriesToPromote = new Set(['Best practices']);
+const betterBoardCategoryOrder = new Map([
+  ['BetterBoard documentation', 0],
+  ['Start', 1],
+  ['Board setup', 2],
+  ['Shape the board', 3],
+  ['Work faster', 4]
+]);
 
 function sentenceCaseLabel(label = ''): string {
   const overridden = labelOverrides.get(label);
@@ -144,6 +151,17 @@ function normalizeHubEntries<T extends SidebarEntry>(entries: T[]): T[] {
   });
 }
 
+function normalizeBetterBoardEntries<T extends SidebarEntry>(entries: T[]): T[] {
+  return entries
+    .map((entry) => (
+      entry.type === 'group' ? createCategory(entry) : normalizeLink(entry)
+    ))
+    .sort((left, right) => (
+      (betterBoardCategoryOrder.get(left.label ?? '') ?? Number.MAX_SAFE_INTEGER) -
+      (betterBoardCategoryOrder.get(right.label ?? '') ?? Number.MAX_SAFE_INTEGER)
+    ));
+}
+
 export function filterSidebarForPath<T extends SidebarEntry>(pathname: string, sidebar: T[]): T[] {
   if (pathname === '/' || pathname === '/partners/') return [];
 
@@ -154,7 +172,11 @@ export function filterSidebarForPath<T extends SidebarEntry>(pathname: string, s
     (entry) => entry.type === 'group' && entry.label === getSpace(space).name
   );
 
-  if (space !== 'hub') return matchingEntries;
-
-  return normalizeHubEntries((matchingEntries[0]?.entries ?? []) as T[]);
+  if (space === 'hub') {
+    return normalizeHubEntries((matchingEntries[0]?.entries ?? []) as T[]);
+  }
+  if (space === 'betterboard') {
+    return normalizeBetterBoardEntries((matchingEntries[0]?.entries ?? []) as T[]);
+  }
+  return matchingEntries;
 }

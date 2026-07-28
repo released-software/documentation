@@ -12,7 +12,7 @@ import NeutralCallout from '../../../../../components/content/NeutralCallout.ast
 
 User verification ensures that only authorized users can access your private roadmaps or widgets. Because this process involves sensitive credentials (your Shared Secret), the authentication token must be generated on your server, never in the browser.
 
-## NextJS demo 
+## NextJS demo
 
 You can find an examxple implementation of the user verfiication flow in NextJS on Github. 
 
@@ -33,7 +33,7 @@ Before running the example, ensure you have the following:
 
 ***
 
-### Implementation 
+### Implementation
 
 <Steps>
 <ol>
@@ -55,8 +55,7 @@ npm install express
 
 Create a file named `server.js` and paste in the code below.
 
-<NeutralCallout type="danger">
-### Security Warning
+<NeutralCallout type="danger" title="Security Warning">
 
 This example includes your `SHARED_SECRET` for demonstration purposes. In a production environment, use Environment Variables (e.g., `.env` files) to keep secrets out of your source code.
 </NeutralCallout>

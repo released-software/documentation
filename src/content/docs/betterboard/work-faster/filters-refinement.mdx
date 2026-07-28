@@ -1,0 +1,97 @@
+---
+title: Filters and refinement
+description: >-
+  BetterBoard's filter bar narrows the board to exactly the work you care about
+  — composable, 25+ operators, and saved automatically with the board.
+space: betterboard
+sidebar:
+  order: 1
+---
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+BetterBoard's filter bar lets you narrow the board to exactly the work items you care about. Filters are composable and support 25+ operators across all field types.
+
+<a id="opening-filters"></a>
+
+## Opening the filter bar
+
+Click the **Filter** button in the board toolbar. The filter bar expands below the toolbar, showing any active filters and an **Add filter** button.
+
+## Adding a filter
+
+1.  Click the **Filter** button in the toolbar to open the filter bar
+2.  Choose a field from the dropdown (e.g. Assignee, Sprint, Priority, Labels)
+3.  Choose an operator (e.g. is, is not, contains, is empty)
+4.  Select or enter a value — the board updates immediately
+5.  Click the blue **Save** button in the toolbar to persist the filter with the board
+
+Multiple filters are combined with AND logic: an work item must match all active filters to appear on the board.
+
+<NeutralCallout type="note">
+
+You can apply filters without saving them — useful for a temporary view. Unsaved filters are visible only to you in your current session and are not shared with others viewing the board.
+
+</NeutralCallout>
+
+## Filter operators
+
+Operators available depend on the field type:
+
+### Option fields
+
+For **option fields** (Priority, Status, Labels, single/multi-select):
+
+-   `is` — exact match (one value)
+-   `is any of` — matches one or more values
+-   `is not` — excludes a value
+-   `is none of` — excludes multiple values
+-   `is empty` / `is not empty`
+
+### User fields
+
+For **user fields** (Assignee, Reporter):
+
+-   `is` — assigned to a specific person
+-   `is any of` — assigned to any of several people
+-   `is not` / `is none of`
+-   `is empty` (unassigned) / `is not empty`
+-   `is current user` — dynamic: filters to whoever is viewing the board
+
+### Date fields
+
+For **date fields** (Due Date, Created, Updated):
+
+-   `is before` / `is after` — absolute date
+-   `is on` — exact date
+-   `is within` — relative range (e.g. "the last 7 days")
+-   `is empty` / `is not empty`
+
+### Text fields
+
+-   `contains` / `does not contain`
+-   `is` / `is not`
+
+### Number fields
+
+-   `=`, `≠`, `>`, `≥`, `<`, `≤`
+
+## Sprint filter
+
+The Sprint filter has dedicated options:
+
+-   `is active sprint` — shows work items in any currently active sprint
+-   `is` — pick a specific named sprint
+-   `is any of` — pick multiple sprints
+-   `is backlog` — work items not in any sprint
+
+## Blockers filter
+
+The synthetic Blockers field lets you filter by blocking relationships:
+
+-   `has blockers` — shows work items with at least one "is blocked by" link
+-   `is blocking` — shows work items that are blocking other work items
+
+## Current user filter
+
+The `is current user` operator on the Assignee filter is dynamic — it resolves to whoever is currently viewing the board. On a shared board, setting Assignee `is current user` means each person sees only their own work items without needing separate boards.

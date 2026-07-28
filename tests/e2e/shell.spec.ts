@@ -1,17 +1,20 @@
 import { expect, test } from '@playwright/test';
 
-test('the Released identity precedes an accessible documentation space switcher', async ({ page }) => {
+test('the Released documentation identity precedes a product-only space switcher', async ({ page }) => {
   await page.goto('/guide/');
 
   const header = page.locator('header');
+  const documentationIdentity = header.locator('[data-documentation-identity]');
   const identity = header
     .locator('[data-released-identity]')
     .getByRole('link', { name: 'Released', exact: true });
-  const switcher = header.getByRole('button', { name: 'Hub documentation' });
+  const switcher = header.getByRole('button', { name: 'Hub', exact: true });
 
   await expect(identity).toBeVisible();
+  await expect(documentationIdentity.getByText('Documentation', { exact: true })).toBeVisible();
   await expect(switcher).toBeVisible();
-  await expect(switcher).toHaveText(/Hub documentation/);
+  await expect(switcher).toHaveText('Hub');
+  await expect(switcher.locator('img')).toHaveCount(0);
   await expect(
     identity.evaluate((element) => {
       const switcherElement = element
@@ -23,11 +26,157 @@ test('the Released identity precedes an accessible documentation space switcher'
   ).resolves.toBe(true);
 });
 
+test('the documentation label and current product balance their spacing around the divider', async ({
+  page
+}) => {
+  await page.goto('/guide/');
+
+  const gaps = await page.locator('[data-documentation-identity]').evaluate((identity) => {
+    const label = identity.querySelector<HTMLElement>('.documentation-label');
+    const divider = identity.querySelector<HTMLElement>('.identity-divider');
+    const spaceName = identity.querySelector<HTMLElement>('.space-name');
+    if (!label || !divider || !spaceName) throw new Error('Missing documentation identity parts');
+
+    const labelBox = label.getBoundingClientRect();
+    const dividerBox = divider.getBoundingClientRect();
+    const spaceNameBox = spaceName.getBoundingClientRect();
+
+    return {
+      beforeDivider: Math.round(dividerBox.left - labelBox.right),
+      afterDivider: Math.round(spaceNameBox.left - dividerBox.right)
+    };
+  });
+
+  expect(gaps).toEqual({
+    beforeDivider: 12,
+    afterDivider: 12
+  });
+});
+
+test('the Released wordmark is optically raised to share the navigation text baseline', async ({
+  page
+}) => {
+  await page.goto('/guide/');
+
+  const baselineOffset = await page
+    .locator('[data-documentation-identity]')
+    .evaluate((identity) => {
+      const wordmark = identity.querySelector<HTMLImageElement>('[data-released-identity] img');
+      const label = identity.querySelector<HTMLElement>('.documentation-label');
+      if (!wordmark || !label) throw new Error('Missing documentation identity artwork');
+
+      return Math.round(label.getBoundingClientRect().bottom - wordmark.getBoundingClientRect().bottom);
+    });
+
+  expect(baselineOffset).toBe(3);
+});
+
+test('desktop utilities keep search at the right beside the theme control', async ({ page }) => {
+  await page.setViewportSize({ width: 1908, height: 1200 });
+  await page.goto('/guide/resources/troubleshooting/ensuring-jira-permissions/');
+
+  const alignment = await page.locator('header.header > .header').evaluate((header) => {
+    const searchGroup = header.children[1] as HTMLElement;
+    const search = header.querySelector<HTMLElement>('[data-open-search]');
+    const theme = header.querySelector<HTMLElement>('[data-theme-trigger]');
+    if (!search || !theme) throw new Error('Missing header utility controls');
+
+    const groupBox = searchGroup.getBoundingClientRect();
+    const searchBox = search.getBoundingClientRect();
+    const themeBox = theme.getBoundingClientRect();
+    return {
+      searchToGroupEnd: Math.round(groupBox.right - searchBox.right),
+      searchBeforeTheme: searchBox.right < themeBox.left
+    };
+  });
+
+  expect(alignment).toEqual({
+    searchToGroupEnd: 0,
+    searchBeforeTheme: true
+  });
+});
+
+test('the custom theme menu is keyboard operable and uses restrained focus rings', async ({
+  page
+}) => {
+  await page.goto('/guide/');
+
+  const themePicker = page.locator('header starlight-theme-select');
+  const trigger = themePicker.getByRole('button', { name: /Select theme/ });
+  const menu = themePicker.getByRole('menu');
+
+  await expect(themePicker.locator('select')).toHaveCount(0);
+  await expect(trigger).toContainText('Auto');
+
+  await trigger.focus();
+  await expect(trigger).toHaveCSS('outline-width', '1px');
+  await trigger.press('Enter');
+  await expect(menu).toBeVisible();
+
+  const options = menu.getByRole('menuitemradio');
+  await expect(options).toHaveCount(3);
+  await expect(options.filter({ hasText: 'Auto' })).toHaveAttribute('aria-checked', 'true');
+  await expect(menu.locator('[data-theme-check]:visible')).toHaveCount(1);
+  await expect(options.filter({ hasText: 'Auto' })).toBeFocused();
+
+  await page.keyboard.press('ArrowUp');
+  const lightOption = options.filter({ hasText: 'Light' });
+  await expect(lightOption).toBeFocused();
+  await expect(lightOption).toHaveCSS('outline-width', '1px');
+  await lightOption.press('Enter');
+
+  await expect(menu).toBeHidden();
+  await expect(trigger).toBeFocused();
+  await expect(trigger).toContainText('Light');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+
+  await page.reload();
+  await expect(trigger).toContainText('Light');
+
+  await trigger.press('Enter');
+  await options.filter({ hasText: 'Auto' }).focus();
+  await options.filter({ hasText: 'Auto' }).press('Enter');
+});
+
+test('article pagination uses quiet divider links with subtle interaction feedback', async ({
+  page
+}) => {
+  await page.goto('/guide/resources/troubleshooting/ensuring-jira-permissions/');
+
+  const pagination = page.locator('.pagination-links');
+  const previous = pagination.getByRole('link', { name: /Previous Embeds/ });
+  const next = pagination.getByRole('link', { name: /Next Roadmap Publishing/ });
+
+  await expect(previous).toBeVisible();
+  await expect(next).toBeVisible();
+  await expect(pagination).toHaveCSS('border-top-width', '1px');
+
+  for (const link of [previous, next]) {
+    await expect(link).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+    await expect(link).toHaveCSS('box-shadow', 'none');
+    await expect(link).toHaveCSS('border-top-width', '0px');
+    await expect(link).toHaveCSS('border-right-width', '0px');
+    await expect(link).toHaveCSS('border-bottom-width', '0px');
+    await expect(link).toHaveCSS('border-left-width', '0px');
+  }
+
+  await previous.hover();
+  await expect(previous).toHaveCSS('background-color', 'rgb(247, 247, 249)');
+  await expect(previous).toHaveCSS('box-shadow', 'none');
+
+  await next.focus();
+  await expect(next).toHaveCSS('background-color', 'rgb(247, 247, 249)');
+  await expect(next).toHaveCSS('box-shadow', 'none');
+
+  await previous.focus();
+  await expect(previous).toHaveCSS('outline-width', '1px');
+});
+
 test('the space switcher supports keyboard navigation and restores trigger focus', async ({ page }) => {
   await page.goto('/guide/');
 
-  const trigger = page.getByRole('button', { name: 'Hub documentation' });
-  const betterBoardLink = page.getByRole('menuitem', { name: /BetterBoard documentation/ });
+  const trigger = page.getByRole('button', { name: 'Hub', exact: true });
+  const betterBoardLink = page.getByRole('menuitem', { name: /BetterBoard/ });
 
   await trigger.focus();
   await trigger.press('Enter');
@@ -47,7 +196,9 @@ test('the space switcher supports keyboard navigation and restores trigger focus
 
 test('space entries use product marks and descriptive availability text, never status dots', async ({ page }) => {
   await page.goto('/guide/');
-  await page.getByRole('button', { name: 'Hub documentation' }).click();
+  const trigger = page.getByRole('button', { name: 'Hub', exact: true });
+  await expect(trigger.locator('img')).toHaveCount(0);
+  await trigger.click();
 
   await expect(page.locator('.status-dot, [data-status-dot]')).toHaveCount(0);
 
@@ -57,7 +208,14 @@ test('space entries use product marks and descriptive availability text, never s
     await expect(menuItem).not.toHaveText(/^\s*[•·●∙◦]/);
   }
 
-  const partnerLink = page.getByRole('menuitem', { name: /Partner documentation/ });
+  await expect(
+    page.getByRole('menuitem', { name: /Hub/ }).locator('img')
+  ).toHaveAttribute('src', '/brand/released-favicon.svg');
+  await expect(
+    page.getByRole('menuitem', { name: /BetterBoard/ }).locator('img')
+  ).toHaveAttribute('src', '/brand/betterboard-favicon.svg');
+
+  const partnerLink = page.getByRole('menuitem', { name: /Partners/ });
   await expect(partnerLink).toHaveAttribute('href', '/partners/');
   await expect(partnerLink).toContainText('Coming soon');
 });
@@ -71,7 +229,7 @@ test('the Hub sidebar is shallow and opens only the active category on initial l
 
   await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
 
-  await expect(page.locator('header').getByRole('button', { name: 'Hub documentation' })).toBeVisible();
+  await expect(page.locator('header').getByRole('button', { name: 'Hub', exact: true })).toBeVisible();
   await expect(sidebar.getByText('Hub documentation', { exact: true })).toHaveCount(0);
 
   const maximumDepth = await sidebar.locator('details').evaluateAll((details) =>
@@ -318,8 +476,7 @@ test('the documentation shell uses the compact Switzer type scale', async ({ pag
       tocLink: read('.right-sidebar-panel nav a:not([aria-current="true"])'),
       activeTocLink: read('.right-sidebar-panel nav a[aria-current="true"]'),
       headerControl: read('header [data-space-switcher] button'),
-      searchTrigger: read('header [data-open-search]'),
-      calloutLabel: read('[data-neutral-callout] [data-callout-label]')
+      searchTrigger: read('header [data-open-search]')
     };
   });
 
@@ -336,13 +493,19 @@ test('the documentation shell uses the compact Switzer type scale', async ({ pag
     tocLink: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
     activeTocLink: { fontSize: '13px', fontWeight: '600', lineHeight: '18.2px' },
     headerControl: { fontSize: '14px', fontWeight: '500', lineHeight: '19.6px' },
-    searchTrigger: { fontSize: '14px', fontWeight: '400', lineHeight: '19.6px' },
-    calloutLabel: { fontSize: '14px', fontWeight: '500', lineHeight: '19.6px' }
+    searchTrigger: { fontSize: '14px', fontWeight: '400', lineHeight: '19.6px' }
   });
 
+  await page.goto('/guide/resources/troubleshooting/ensuring-jira-permissions/');
+  await expect(page.locator('[data-callout-title]')).toHaveCSS('font-size', '14px');
+  await expect(page.locator('[data-callout-title]')).toHaveCSS('font-weight', '500');
+  await expect(page.locator('[data-callout-title]')).toHaveCSS('line-height', '19.6px');
+
+  await page.goto('/guide/product/roadmaps-and-ideas/roadmap/');
+  await expect(page.locator('.sl-markdown-content h4').first()).toHaveCSS('font-size', '15px');
+  await expect(page.locator('.sl-markdown-content h4').first()).toHaveCSS('line-height', '22px');
+
   await page.goto('/guide/getting-started/setup-guide/');
-  await expect(page.locator('.sl-markdown-content h4')).toHaveCSS('font-size', '15px');
-  await expect(page.locator('.sl-markdown-content h4')).toHaveCSS('line-height', '22px');
   await expect(page.locator('[data-link-row] .link-row__title').first()).toHaveCSS('font-size', '16px');
 
   await page.goto('/guide/getting-started/setup-guide/embedding-the-widget/');
@@ -353,7 +516,7 @@ test('the space switcher and Starlight mobile menu remain operable at 390px', as
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/guide/');
 
-  const trigger = page.getByRole('button', { name: 'Hub documentation' });
+  const trigger = page.getByRole('button', { name: 'Hub', exact: true });
   await expect(trigger).toBeVisible();
   await trigger.focus();
   await trigger.press('Enter');

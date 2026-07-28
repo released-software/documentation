@@ -243,3 +243,94 @@ test('normalizes Hub navigation into one collapsed category level', () => {
     ['Widget configuration']
   );
 });
+
+test('orders and labels BetterBoard navigation without its outer wrapper', () => {
+  const sidebar = [
+    {
+      type: 'group',
+      label: 'BetterBoard documentation',
+      entries: [
+        {
+          type: 'link',
+          label: 'BetterBoard documentation',
+          href: '/betterboard/'
+        },
+        {
+          type: 'group',
+          label: 'board-setup',
+          entries: [
+            {
+              type: 'link',
+              label: 'Creating and managing boards',
+              href: '/betterboard/board-setup/creating-managing-boards/'
+            }
+          ]
+        },
+        {
+          type: 'group',
+          label: 'shape-the-board',
+          entries: [
+            {
+              type: 'link',
+              label: 'Columns and grouping',
+              href: '/betterboard/shape-the-board/columns-grouping/'
+            }
+          ]
+        },
+        {
+          type: 'group',
+          label: 'start',
+          entries: [
+            {
+              type: 'link',
+              label: 'Overview',
+              href: '/betterboard/start/overview/'
+            }
+          ]
+        },
+        {
+          type: 'group',
+          label: 'work-faster',
+          entries: [
+            {
+              type: 'link',
+              label: 'Keyboard shortcuts',
+              href: '/betterboard/work-faster/keyboard-shortcuts/'
+            }
+          ]
+        }
+      ]
+    }
+  ];
+
+  const result = filterSidebarForPath(
+    '/betterboard/shape-the-board/columns-grouping/',
+    structuredClone(sidebar)
+  );
+
+  assert.deepEqual(
+    result.map(({ label }) => label),
+    [
+      'BetterBoard documentation',
+      'Start',
+      'Board setup',
+      'Shape the board',
+      'Work faster'
+    ]
+  );
+  assert.ok(
+    result
+      .filter(({ type }) => type === 'group')
+      .every(({ collapsed }) => collapsed === true)
+  );
+  assert.deepEqual(
+    result.find(({ label }) => label === 'Shape the board').entries,
+    [
+      {
+        type: 'link',
+        label: 'Columns and grouping',
+        href: '/betterboard/shape-the-board/columns-grouping/'
+      }
+    ]
+  );
+});

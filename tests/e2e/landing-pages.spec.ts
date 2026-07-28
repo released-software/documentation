@@ -36,6 +36,12 @@ test('the documentation overview is a content-width editorial destination list',
     await expect(row).toHaveRole('link');
     await expect(row).toHaveAttribute('href', space.id === 'hub' ? '/guide/' : '/betterboard/');
     await expect(row.getByText(space.name)).toBeVisible();
+    await expect(row.locator('.product-mark img')).toHaveAttribute(
+      'src',
+      space.id === 'hub'
+        ? '/brand/released-favicon.svg'
+        : '/brand/betterboard-favicon.svg'
+    );
     await expect(row.locator('[data-row-arrow]')).toHaveCount(1);
   }
 
@@ -43,12 +49,12 @@ test('the documentation overview is a content-width editorial destination list',
   await expect(partnerRow).not.toHaveRole('link');
   await expect(partnerRow).toContainText('Partner documentation');
   await expect(partnerRow).toContainText('Coming soon');
+  await expect(partnerRow.locator('.product-mark svg')).toHaveCount(1);
   await expect(partnerRow.locator('[data-row-arrow]')).toHaveCount(0);
 
   const rows = overview.locator('.documentation-row');
   await expect(rows).toHaveCount(3);
   for (const row of await rows.all()) {
-    await expect(row.locator('.product-mark svg')).toHaveCount(1);
     await expect(row).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
     await expect(row).toHaveCSS('border-bottom-style', 'solid');
     await expect(row).toHaveCSS('border-bottom-width', '1px');

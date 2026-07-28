@@ -1,0 +1,68 @@
+---
+title: Sprint management
+description: >-
+  BetterBoard shows sprint state on cards and lets you move issues between
+  sprints directly from the board — without opening each issue individually.
+space: betterboard
+sidebar:
+  order: 6
+---
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+BetterBoard shows sprint state on cards and lets you move work items between sprints directly from the board — without opening each work item individually.
+
+<a id="sprint-on-cards"></a>
+
+## Sprint display on cards
+
+When the Sprint field is enabled in display fields, each card shows its current sprint as a chip. Sprint chips have visual states:
+
+-   **Active sprint**: blue half circle
+-   **Future sprint**: grey dashed circle
+-   **Backlog**: no icon shown (work item not in any sprint)
+-   **Closed sprint**: green circle with a tick
+
+<a id="moving-to-sprint"></a>
+
+## Moving work items to a sprint
+
+**Via inline editing**: Click the sprint chip on a card, then select a different sprint from the picker.
+
+**Via drag**: If the board is grouped by Sprint, drag the work item card to the target sprint's column.
+
+**Via bulk action**: Select multiple work items, then use the bulk action bar → **Move to sprint** → choose target sprint.
+
+<a id="sprint-filter"></a>
+
+## Filtering by sprint
+
+Use the Sprint filter to scope the board to specific sprints:
+
+-   **Active sprint**: shows only work items in the current active sprint
+-   **Named sprint**: pick any sprint by name
+-   **Backlog**: work items not in any sprint
+
+Combined with the `is current user` assignee filter, a "My active sprint" view can be created on a shared board that personalizes automatically for each viewer.
+
+## Sprint column view
+
+Group the board by Sprint to get one column per sprint:
+
+1.  Open Settings → **Columns** → **Group by** → Sprint
+2.  BetterBoard creates columns for active, future, and recent sprints
+3.  Drag work items between sprint columns to change their sprint assignment
+
+Toggle **Show closed sprints** in column settings to include or hide completed sprints.
+
+<a id="sprint-permissions"></a>
+
+## Permissions
+
+Moving work items to sprints requires the **Manage sprints** permission in Jira. If you don't have this permission, sprint chips are read-only and the sprint picker is disabled.
+
+<NeutralCallout type="note">
+
+Creating, starting, or closing sprints is not supported in BetterBoard — those operations happen in Jira's native backlog. BetterBoard is a board view; sprint lifecycle management stays in Jira.
+
+</NeutralCallout>

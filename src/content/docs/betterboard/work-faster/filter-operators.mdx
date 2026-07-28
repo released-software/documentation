@@ -1,0 +1,49 @@
+---
+title: Filter operators
+description: >-
+  A complete reference for every filter operator in BetterBoard — what each
+  does, which field types support it, and practical usage examples.
+space: betterboard
+sidebar:
+  order: 2
+---
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+A reference for every filter operator in BetterBoard — what it does, which field types support it, and how it behaves.
+
+## Selection operators
+
+Available on enumerable fields: Status, Priority, Work item Type, Assignee, Reporter, Labels, Fix Version, Component, Sprint, and single- or multi-select custom fields.
+
+<table><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td><code>is</code></td><td>Matches exactly one selected value</td></tr><tr><td><code>is any of</code></td><td>Matches any of the selected values (OR)</td></tr><tr><td><code>is not</code></td><td>Excludes one selected value</td></tr><tr><td><code>is none of</code></td><td>Excludes all of the selected values</td></tr><tr><td><code>includes all of</code></td><td>Work item must have every selected value (AND — for multi-value fields like Labels, Sprint, and multi-select custom fields)</td></tr><tr><td><code>is empty</code></td><td>Field has no value</td></tr><tr><td><code>is not empty</code></td><td>Field has any value</td></tr></tbody></table>
+
+<NeutralCallout type="note">
+
+For Assignee and Reporter, you can select **Current user** as a value. This resolves dynamically — a board filtered by "Assignee is Current user" shows each viewer only their own work items.
+
+</NeutralCallout>
+
+## Text operators
+
+Available on text fields (Summary, short text, and URL custom fields).
+
+<table><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td><code>is</code></td><td>Exactly matches the entered text</td></tr><tr><td><code>is not</code></td><td>Does not exactly match the entered text</td></tr><tr><td><code>contains</code></td><td>Field includes the search string (case-insensitive substring match)</td></tr><tr><td><code>does not contain</code></td><td>Field does not include the search string</td></tr><tr><td><code>is empty</code></td><td>Field has no value</td></tr><tr><td><code>is not empty</code></td><td>Field has any value</td></tr></tbody></table>
+
+## Numeric operators
+
+Available on number and rating custom fields.
+
+<table><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td><code>is</code></td><td>Exactly equal to the number</td></tr><tr><td><code>is not</code></td><td>Not equal to the number</td></tr><tr><td><code>greater than</code></td><td>Value is strictly greater than the number</td></tr><tr><td><code>at least</code></td><td>Value is greater than or equal to the number</td></tr><tr><td><code>less than</code></td><td>Value is strictly less than the number</td></tr><tr><td><code>at most</code></td><td>Value is less than or equal to the number</td></tr><tr><td><code>is empty</code></td><td>Field has no value</td></tr><tr><td><code>is not empty</code></td><td>Field has any value</td></tr></tbody></table>
+
+## Date operators
+
+Available on date and date-time fields (Due Date, Start Date, Created, Updated, and date custom fields).
+
+<table><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td><code>is</code></td><td>Exactly on the selected date</td></tr><tr><td><code>is not</code></td><td>Not on the selected date</td></tr><tr><td><code>before</code></td><td>Earlier than the selected date</td></tr><tr><td><code>on or before</code></td><td>On or earlier than the selected date</td></tr><tr><td><code>after</code></td><td>Later than the selected date</td></tr><tr><td><code>on or after</code></td><td>On or later than the selected date</td></tr><tr><td><code>is empty</code></td><td>No date set</td></tr><tr><td><code>is not empty</code></td><td>A date is set</td></tr></tbody></table>
+
+## Blockers operators
+
+Available on the Blockers field. These operators have no value to pick — they act as toggles based on the presence of work item links.
+
+<table><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td><code>is blocked</code></td><td>Has at least one "is blocked by" work item link</td></tr><tr><td><code>is not blocked</code></td><td>Has no "is blocked by" links</td></tr><tr><td><code>is blocking</code></td><td>Is blocking at least one other work item</td></tr><tr><td><code>is not blocking</code></td><td>Is not blocking any other work items</td></tr></tbody></table>

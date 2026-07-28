@@ -273,10 +273,35 @@ test('converts a GitBook hint to a usage-based NeutralCallout import', () => {
     result.content,
     /import NeutralCallout from '\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/components\/content\/NeutralCallout\.astro';/
   );
-  assert.match(result.content, /<NeutralCallout type="caution">/);
+  assert.match(
+    result.content,
+    /<NeutralCallout type="caution" title="Not seeing the feedback button\?">/
+  );
   assert.match(result.content, /Not seeing the feedback button/);
+  assert.doesNotMatch(result.content, /\*\*Not seeing the feedback button\?\*\*/);
   assert.match(result.content, /<\/NeutralCallout>/);
   assert.doesNotMatch(result.content, /\{%/);
+});
+
+test('promotes an opening bold phrase to the callout title without losing its message', () => {
+  const result = convertGitBookPage(
+    `---
+title: Inline callout title
+description: Inline title fixture
+---
+{% hint style="danger" %}
+**Keep your secret safe!** Never expose it in client-side code.
+{% endhint %}
+`,
+    fixtureContext('product/administration/user-verification.md')
+  );
+
+  assert.match(
+    result.content,
+    /<NeutralCallout type="danger" title="Keep your secret safe!">/
+  );
+  assert.match(result.content, /^Never expose it in client-side code\.$/m);
+  assert.doesNotMatch(result.content, /\*\*Keep your secret safe!\*\*/);
 });
 
 test('removes GitBook code wrappers while preserving fenced code byte-for-byte', () => {
@@ -649,6 +674,21 @@ test('retains table headers and cells', () => {
   assert.match(result.content, /<td>Accessing and creating portal content\.<\/td>/);
 });
 
+test('converts headings used as table labels to non-structural emphasis', () => {
+  const result = convertGitBookPage(
+    `---
+title: Table labels
+description: Table label fixture
+---
+<table><tbody><tr><td><h4>Color scheme</h4></td><td>Description</td></tr></tbody></table>
+`,
+    fixtureContext('product/administration/design.md')
+  );
+
+  assert.match(result.content, /<td><strong>Color scheme<\/strong><\/td>/);
+  assert.doesNotMatch(result.content, /<h[1-6]\b/);
+});
+
 test('normalizes legacy HTML blocks into MDX-compatible markup', () => {
   const source = `---
 title: HTML normalization
@@ -685,7 +725,7 @@ description: Stable heading fixture
     fixtureContext('product/feedback/settings.md')
   );
 
-  assert.match(result.content, /### Wish count field\s*\n/);
+  assert.match(result.content, /## Wish count field\s*\n/);
   assert.doesNotMatch(result.content, /Wish count field&#x20;/);
   assert.match(result.content, /`literal&#x20;`/);
 });
@@ -1140,6 +1180,41 @@ space: hub
 \`\`\`
 `
   );
+  fs.writeFileSync(
+    path.join(validationRoot, 'content', 'guide', 'first-skip.mdx'),
+    `---
+title: First skip
+description: Invalid first heading
+space: hub
+---
+
+### Starts too deep
+`
+  );
+  fs.writeFileSync(
+    path.join(validationRoot, 'content', 'guide', 'nested-skip.mdx'),
+    `---
+title: Nested skip
+description: Invalid nested heading
+space: hub
+---
+
+## Section
+
+#### Skipped subsection
+`
+  );
+  fs.writeFileSync(
+    path.join(validationRoot, 'content', 'guide', 'body-h1.mdx'),
+    `---
+title: Body H1
+description: Duplicate document heading
+space: hub
+---
+
+# Duplicate title
+`
+  );
 
   const result = spawnSync(
     process.execPath,
@@ -1163,6 +1238,9 @@ space: hub
   assert.match(result.stderr, /content\/guide\/a\.md:1 Duplicate route "\/guide\/a\/"/);
   assert.match(result.stderr, /content\/guide\/b\.md:1 Missing required frontmatter "title"/);
   assert.match(result.stderr, /content\/guide\/b\.md:1 Missing required frontmatter "space"/);
+  assert.match(result.stderr, /content\/guide\/first-skip\.mdx:7 Heading level jumps from H1 to H3/);
+  assert.match(result.stderr, /content\/guide\/nested-skip\.mdx:9 Heading level jumps from H2 to H4/);
+  assert.match(result.stderr, /content\/guide\/body-h1\.mdx:7 Body H1 duplicates the page title/);
   assert.doesNotMatch(result.stderr, /ignored/);
   assert.doesNotMatch(result.stderr, /Has%20space/);
   assert.doesNotMatch(result.stderr, /content\/guide\/c\.md/);

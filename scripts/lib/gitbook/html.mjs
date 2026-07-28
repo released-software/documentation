@@ -236,6 +236,10 @@ export function convertHtml(source, context) {
           .load(blockHtml, null, false)
           .html()
           .replace(
+            /<h[1-6](?:\s[^>]*)?>([\s\S]*?)<\/h[1-6]>/gi,
+            '<strong>$1</strong>'
+          )
+          .replace(
             new RegExp(
               `(<\\/?${structuralTag}\\b[^>]*>)\\s+(?=<\\/?${structuralTag}\\b)`,
               'gi'

@@ -16,7 +16,10 @@ function contrastRatio(foreground: string, background: string) {
     if (!channels || channels.length !== 3) {
       throw new Error(`Expected an RGB color, received "${color}"`);
     }
-    const [red, green, blue] = channels.map(channelToLinear);
+    const scale = color.startsWith('color(srgb ') ? 255 : 1;
+    const [red, green, blue] = channels.map((channel) =>
+      channelToLinear(channel * scale)
+    );
     return 0.2126 * red + 0.7152 * green + 0.0722 * blue;
   };
   const foregroundLuminance = parse(foreground);
@@ -26,16 +29,16 @@ function contrastRatio(foreground: string, background: string) {
   return (lighter + 0.05) / (darker + 0.05);
 }
 
-async function expectReadable(locator: Locator) {
-  const colors = await locator.evaluate((element) => {
-    const style = getComputedStyle(element);
-    return {
-      foreground: style.color,
-      background: style.backgroundColor
-    };
-  });
+async function expectReadable(locator: Locator, surface: Locator = locator) {
+  const [foreground, background] = await Promise.all([
+    locator.evaluate((element) => getComputedStyle(element).color),
+    surface.evaluate((element) => getComputedStyle(element).backgroundColor)
+  ]);
 
-  expect(contrastRatio(colors.foreground, colors.background)).toBeGreaterThanOrEqual(4.5);
+  expect(
+    contrastRatio(foreground, background),
+    `expected ${foreground} to remain readable on ${background}`
+  ).toBeGreaterThanOrEqual(4.5);
 }
 
 async function useTheme(page: Page, theme: 'light' | 'dark') {
@@ -88,18 +91,55 @@ test('real converter output resolves and renders every migrated-content componen
   );
 });
 
-test('callout variants share a readable neutral surface without accent bars', async ({ page }) => {
+test('callout variants use content titles and restrained state surfaces without accent bars', async ({ page }) => {
   const callouts = page.locator('[data-neutral-callout]');
   await expect(callouts).toHaveCount(4);
   await expect(page.locator('.status-dot, [data-status-dot]')).toHaveCount(0);
+  await expect(callouts.locator('[data-callout-title]')).toHaveCount(3);
+  await expect(callouts.getByText(/^(Note|Tip|Caution|Danger)$/)).toHaveCount(0);
+  await expect(callouts.nth(0).locator('[data-callout-title]')).toHaveCount(0);
+  await expect(callouts.nth(1).locator('[data-callout-title]')).toHaveText('Try this');
+  await expect(callouts.nth(2).locator('[data-callout-title]')).toHaveText(
+    'Check permissions'
+  );
+  await expect(callouts.nth(3).locator('[data-callout-title]')).toHaveText(
+    'Destructive action'
+  );
+  const untitledAlignment = await callouts.nth(0).evaluate((callout) => {
+    const icon = callout.querySelector('[data-callout-icon]') as SVGElement;
+    const content = callout.querySelector('[data-callout-content]') as HTMLElement;
+    const iconBox = icon.getBoundingClientRect();
+    const contentBox = content.getBoundingClientRect();
+    const lineHeight = Number.parseFloat(
+      getComputedStyle(content.firstElementChild ?? content).lineHeight
+    );
+    const firstLineCenter = contentBox.top + lineHeight / 2;
+    return {
+      offset: Math.abs(iconBox.top + iconBox.height / 2 - firstLineCenter),
+      iconTop: iconBox.top,
+      iconHeight: iconBox.height,
+      contentTop: contentBox.top,
+      lineHeight
+    };
+  });
+  expect(
+    untitledAlignment.offset,
+    `expected the untitled callout icon to align with its first line: ${JSON.stringify(
+      untitledAlignment
+    )}`
+  ).toBeLessThanOrEqual(1);
 
   for (const theme of ['light', 'dark'] as const) {
     await useTheme(page, theme);
     const surfaces = await callouts.evaluateAll((elements) =>
       elements.map((element) => {
         const style = getComputedStyle(element);
+        const iconStyle = getComputedStyle(
+          element.querySelector('[data-callout-icon]') as SVGElement
+        );
         return {
           background: style.backgroundColor,
+          icon: iconStyle.color,
           borderTop: style.borderTopColor,
           borderRight: style.borderRightColor,
           borderBottom: style.borderBottomColor,
@@ -108,7 +148,8 @@ test('callout variants share a readable neutral surface without accent bars', as
       })
     );
 
-    expect(new Set(surfaces.map(({ background }) => background)).size).toBe(1);
+    expect(new Set(surfaces.map(({ background }) => background)).size).toBe(4);
+    expect(new Set(surfaces.map(({ icon }) => icon)).size).toBe(4);
     for (const surface of surfaces) {
       expect(surface.background).not.toBe('rgba(0, 0, 0, 0)');
       expect(surface.borderTop).toBe(surface.borderRight);
@@ -117,9 +158,21 @@ test('callout variants share a readable neutral surface without accent bars', as
     }
     for (const callout of await callouts.all()) {
       await expectReadable(callout);
-      await expectReadable(callout.locator('[data-callout-label]'));
+      const title = callout.locator('[data-callout-title]');
+      if (await title.count()) await expectReadable(title, callout);
     }
   }
+});
+
+test('migrated callouts promote their authored title without retaining the type label', async ({
+  page
+}) => {
+  await page.goto('/guide/resources/troubleshooting/ensuring-jira-permissions/');
+
+  const callout = page.locator('[data-neutral-callout]').first();
+  await expect(callout.locator('[data-callout-title]')).toHaveText('App Access Rules');
+  await expect(callout.getByText('Caution', { exact: true })).toHaveCount(0);
+  await expect(callout.locator('[data-callout-content] strong')).toHaveCount(0);
 });
 
 test('LinkRow is a keyboard-focusable divider row rather than a filled card', async ({ page }) => {

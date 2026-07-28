@@ -58,6 +58,38 @@ test('search scope uses the custom chevron and restrained keyboard focus', async
   await expect(scope).not.toHaveCSS('box-shadow', 'none');
 });
 
+test('search controls use neutral focus and clear-button styling', async ({ page }) => {
+  await page.goto('/');
+  await openSearch(page);
+
+  const input = page.getByRole('searchbox', { name: 'Search documentation' });
+  await input.fill('Jira');
+  await input.focus();
+  await expect(input).toHaveCSS('outline-style', 'none');
+  await expect(input).not.toHaveCSS('box-shadow', 'none');
+
+  const closeButton = page.getByRole('button', { name: 'Close search' });
+  await closeButton.focus();
+  await expect(closeButton).toHaveCSS('outline-style', 'none');
+  await expect(closeButton).not.toHaveCSS('box-shadow', 'none');
+
+  const clearButton = page.getByRole('button', { name: 'Clear search' });
+  await expect(clearButton).toBeVisible();
+  const [clearColor, searchIconColor] = await Promise.all([
+    clearButton.evaluate((element) => getComputedStyle(element).color),
+    page
+      .locator('.search-input > svg')
+      .evaluate((element) => getComputedStyle(element).color)
+  ]);
+  expect(clearColor).toBe(searchIconColor);
+
+  await clearButton.click();
+  await expect(input).toHaveValue('');
+  await expect(input).toBeFocused();
+  await expect(clearButton).toBeHidden();
+  await expect(page.locator('[data-search-results]')).toBeEmpty();
+});
+
 test('an empty query has no suggestions, loading state, or result divider', async ({
   page
 }) => {
@@ -306,6 +338,8 @@ test('ArrowDown and ArrowUp move focus through search results', async ({ page })
 
   await input.press('ArrowDown');
   await expect(results.nth(0)).toBeFocused();
+  await expect(results.nth(0)).toHaveCSS('outline-style', 'none');
+  await expect(results.nth(0)).not.toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
   await page.keyboard.press('ArrowDown');
   await expect(results.nth(1)).toBeFocused();
   await page.keyboard.press('ArrowUp');

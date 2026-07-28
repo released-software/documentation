@@ -81,9 +81,10 @@ test('substantive Hub content creates its Pagefind record without a title fallba
     'utf8'
   );
   assert.doesNotMatch(hubHtml, /temporary-empty-hub-pagefind-title/);
-  assert.equal(
-    betterboard?.raw_content.match(/BetterBoard documentation/g)?.length,
-    1,
-    'expected BetterBoard to contain only its substantive body title'
+  assert.equal(betterboard?.meta.title, 'Overview');
+  assert.match(
+    betterboard?.raw_content ?? '',
+    /Set up one Jira board across spaces/
   );
+  assert.match(betterboard?.raw_content ?? '', /Shape the board/);
 });

@@ -10,6 +10,7 @@ import {
   isFenceClosing,
   matchFenceOpening
 } from './lib/gitbook/fences.mjs';
+import { markdownHeadingHierarchyIssues } from './lib/gitbook/headings.mjs';
 
 const knownSpaces = new Set(['hub', 'betterboard', 'partners']);
 
@@ -130,6 +131,18 @@ function main() {
         spaceLine || 1,
         `Unknown space "${parsed.data.space}"`
       );
+    }
+    const frontmatterMatch = source.match(
+      /^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/
+    );
+    const headingLineOffset = frontmatterMatch
+      ? (frontmatterMatch[0].match(/\r?\n/g) ?? []).length
+      : 0;
+    for (const issue of markdownHeadingHierarchyIssues(
+      parsed.content,
+      headingLineOffset
+    )) {
+      addFailure(filePath, issue.line, issue.message);
     }
 
     let fence = null;

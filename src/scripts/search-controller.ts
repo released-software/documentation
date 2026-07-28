@@ -53,6 +53,7 @@ export class SearchController {
   private readonly dialog: HTMLDialogElement;
   private readonly trigger: HTMLButtonElement;
   private readonly closeButton: HTMLButtonElement;
+  private readonly clearButton: HTMLButtonElement;
   private readonly input: HTMLInputElement;
   private readonly scopeSelect: HTMLSelectElement;
   private readonly scopeAnnouncement: HTMLElement;
@@ -75,6 +76,7 @@ export class SearchController {
     this.dialog = this.required('dialog');
     this.trigger = this.required('[data-open-search]');
     this.closeButton = this.required('[data-close-search]');
+    this.clearButton = this.required('[data-clear-search]');
     this.input = this.required('[data-search-input]');
     this.scopeSelect = this.required('[data-search-scope]');
     this.scopeAnnouncement = this.required('[data-search-scope-announcement]');
@@ -87,6 +89,7 @@ export class SearchController {
     this.scope = options.initialScope;
 
     this.scopeSelect.value = this.scope;
+    this.updateClearButton();
     this.bindEvents();
     this.trigger.disabled = false;
   }
@@ -100,6 +103,12 @@ export class SearchController {
   private bindEvents() {
     this.trigger.addEventListener('click', () => this.open());
     this.closeButton.addEventListener('click', () => this.close());
+    this.clearButton.addEventListener('click', () => {
+      this.input.value = '';
+      this.updateClearButton();
+      this.scheduleSearch(false);
+      this.input.focus();
+    });
     this.dialog.addEventListener('close', () => {
       document.body.toggleAttribute('data-search-modal-open', false);
       this.scopeAnnouncement.textContent = '';
@@ -109,7 +118,10 @@ export class SearchController {
     this.dialog.addEventListener('click', (event) => {
       if (event.target === this.dialog) this.close();
     });
-    this.input.addEventListener('input', () => this.scheduleSearch(true));
+    this.input.addEventListener('input', () => {
+      this.updateClearButton();
+      this.scheduleSearch(true);
+    });
     this.input.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
         const links = this.resultLinks();
@@ -165,6 +177,10 @@ export class SearchController {
 
   private announceScope() {
     this.scopeAnnouncement.textContent = `Search scope: ${this.scopeLabel()}`;
+  }
+
+  private updateClearButton() {
+    this.clearButton.hidden = this.input.value.length === 0;
   }
 
   private scopeLabel() {

@@ -1,0 +1,75 @@
+---
+// @ts-nocheck
+import SeoHead from '../../../components/SeoHead.astro';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <SeoHead
+      title="Card Colors — BetterBoard Documentation"
+      description="Color cards with conditional formatting based on Jira field values."
+      canonical="/docs/card-colors/"
+    />
+    <style>
+      .docs-content { color: rebeccapurple; }
+    </style>
+  </head>
+  <body>
+    <header>BetterBoard marketing navigation</header>
+    <aside class="docs-sidebar">Source documentation sidebar</aside>
+    <main class="docs-content" id="docs-content">
+      <h1 class="docs-page-title">Card Colors</h1>
+      <p class="docs-page-lead">Conditional formatting paints cards using their Jira data.</p>
+
+      <figure class="docs-figure">
+        <picture>
+          <source srcset="/images/docs/card-colors-example.webp" type="image/webp" />
+          <img
+            src="/images/docs/card-colors-example.png"
+            alt="A BetterBoard board with several card-color effects"
+            width="1320"
+            height="743"
+          />
+        </picture>
+        <figcaption>Several card-color effects applied to one board.</figcaption>
+      </figure>
+
+      <section class="docs-section">
+        <h2 id="configure-rules">Configure rules</h2>
+        <p>Open the panel and add rules in priority order.</p>
+        <ul>
+          <li>First rule</li>
+          <li>Second rule</li>
+        </ul>
+        <div class="callout callout-warning">
+          <svg aria-hidden="true"><path d="M0 0h1v1z" /></svg>
+          <div class="callout-body">
+            <strong>Check the scale.</strong> Values must move in one direction.
+          </div>
+        </div>
+        <p>
+          Use the
+          <a href="/docs/keyboard-shortcuts/#command-palette">Shortcuts</a>
+          page to open the command palette.
+        </p>
+        <p>
+          Install BetterBoard from the
+          <a href={LINKS.marketplace}>Atlassian Marketplace</a>.
+        </p>
+        <table style="width: 100%">
+          <thead>
+            <tr><th>Effect</th><th>Result</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Background</td><td>Colors the card surface</td></tr>
+          </tbody>
+        </table>
+        <pre><code class="language-json">&#123;"enabled": true&#125;</code></pre>
+        <h2 id="short-anchor">A longer heading label</h2>
+        <p>This heading keeps its shorter source anchor.</p>
+      </section>
+    </main>
+    <footer>Released footer</footer>
+    <script>console.log('sourceSiteOnly');</script>
+  </body>
+</html>

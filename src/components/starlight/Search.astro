@@ -62,8 +62,10 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
         <button aria-label="Close search" data-close-search type="button">Close</button>
       </div>
 
-      <label class="search-input">
-        <span class="visually-hidden">Search documentation</span>
+      <div class="search-input">
+        <label class="visually-hidden" for="documentation-search-query">
+          Search documentation
+        </label>
         <svg aria-hidden="true" viewBox="0 0 24 24">
           <path
             d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
@@ -76,10 +78,22 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
         <input
           autocomplete="off"
           data-search-input
+          id="documentation-search-query"
           placeholder="Search documentation"
           type="search"
         />
-      </label>
+        <button aria-label="Clear search" data-clear-search hidden type="button">
+          <svg aria-hidden="true" viewBox="0 0 16 16">
+            <path
+              d="m4 4 8 8m0-8-8 8"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="1.5"
+            ></path>
+          </svg>
+        </button>
+      </div>
 
       <p
         aria-live="polite"
@@ -275,17 +289,66 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
     }
 
     .search-input input {
-      padding-inline-start: 2.75rem;
+      padding-inline: 2.75rem;
       font-size: var(--sl-text-lg);
     }
 
+    .search-input input::-webkit-search-cancel-button {
+      appearance: none;
+    }
+
+    button[data-clear-search] {
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-end: 0.65rem;
+      display: grid;
+      width: 2rem;
+      height: 2rem;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      place-items: center;
+      transform: translateY(-50%);
+      color: var(--released-ink-muted);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    button[data-clear-search][hidden] {
+      display: none;
+    }
+
+    button[data-clear-search] svg {
+      position: static;
+      width: 1rem;
+      transform: none;
+      color: inherit;
+    }
+
+    button[data-clear-search]:hover,
+    button[data-clear-search]:focus,
+    button[data-clear-search]:focus-visible {
+      outline: none !important;
+      background: var(--released-bg-raised);
+    }
+
+    input:focus,
     input:focus-visible,
-    button:focus-visible,
+    button[data-close-search]:focus,
+    button[data-close-search]:focus-visible,
+    [data-search-state] :global(button:focus),
     [data-search-state] :global(button:focus-visible),
-    [data-search-state] :global(a:focus-visible),
+    [data-search-state] :global(a:focus),
+    [data-search-state] :global(a:focus-visible) {
+      outline: none !important;
+      border-color: var(--released-line-strong);
+      box-shadow: 0 0 0 3px var(--released-bg-card);
+    }
+
+    [data-search-results] :global(a:focus),
     [data-search-results] :global(a:focus-visible) {
-      outline: 2px solid var(--released-ink);
-      outline-offset: 2px;
+      outline: none !important;
+      background: var(--released-bg-raised);
     }
 
     [data-search-state] {

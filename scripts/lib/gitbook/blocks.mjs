@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 
 import { isFenceClosing, matchFenceOpening } from './fences.mjs';
 import { convertFrontmatter } from './frontmatter.mjs';
+import { normalizeMarkdownHeadingHierarchy } from './headings.mjs';
 import { convertHtml } from './html.mjs';
 import { mapGitBookLink } from './paths.mjs';
 
@@ -421,8 +422,9 @@ export function convertGitBookPage(source, context = {}) {
     converted.bodyLineOffset
   );
   const html = convertHtml(blocks.body, context);
+  const body = normalizeMarkdownHeadingHierarchy(html.body);
   return {
-    content: matter.stringify(html.body, converted.data),
+    content: matter.stringify(body, converted.data),
     assetCopies: html.assetCopies,
     warnings: blocks.warnings
   };

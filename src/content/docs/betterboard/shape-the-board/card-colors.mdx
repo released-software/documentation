@@ -1,0 +1,135 @@
+---
+title: Card colors
+description: >-
+  Color cards with conditional formatting — paint backgrounds, accent lines,
+  border fades, corner badges, or tinted chips based on field values.
+space: betterboard
+sidebar:
+  order: 5
+---
+
+import Figure from '../../../../components/content/Figure.astro';
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+Conditional formatting paints your cards by their data. Define rules that match work items by their field values, then apply a visual effect — a background tint, an accent line, a faded border, a corner flag, or a colored field chip. You can also map a numeric field across a color scale so cards heat up as the value rises.
+
+<Figure
+  src="/media/betterboard/card-colors-example.png"
+  alt="A BetterBoard board with several card-color effects applied at once: colored side lines, tinted backgrounds, faded border gradients, and corner accents distinguish work items across the Mobile App columns."
+  caption="Several effects at work on one board — side lines, backgrounds, border gradients, and corner accents layered across cards."
+  width={1320}
+  height={743}
+/>
+
+<a id="how-it-works"></a>
+
+## How card colors work
+
+Card colors are a list of **rules** attached to a board. BetterBoard evaluates every rule against each card and applies the colors that match. There are two kinds of rule:
+
+-   **Single color** — match work items by their field values (using the same conditions as board filters) and paint them one fixed color.
+-   **Color scale** — pick a numeric field and blend across a gradient, so the color reflects how large the value is.
+
+Every rule applies one **effect** — where and how the color shows up on the card. Rules are listed in priority order and you can add up to ten per board.
+
+<NeutralCallout type="note">
+
+Card colors are display-only. They never change the work item in Jira — they just change how it looks on this board.
+
+</NeutralCallout>
+
+<a id="opening"></a>
+
+## Opening the panel
+
+Open the board's **Display** settings and select **Card colors**. You can also jump straight there by pressing `Shift+C` anywhere on the board, or by running **Open color options…** from the [command palette](/betterboard/work-faster/keyboard-shortcuts/).
+
+The panel lists your rules, each with a small live preview of its effect. Use the **+** button to add a rule, drag rules to reorder them, and use the duplicate action to clone a rule you want to tweak. Each rule has a **toggle switch** — flip it off to mute a rule without deleting it, then flip it back on whenever you need it.
+
+## Single-color rules
+
+A single-color rule colors any card that matches its conditions.
+
+### Conditions
+
+Conditions use the same field, operator, and value pickers as [board filters](/betterboard/work-faster/filters-refinement/) — pick a field (Priority, Status, Assignee, a label, a number, and so on), an operator (`is`, `is not`, `contains`, `is empty`…), and the values to match. A rule can hold up to two conditions; when you set both, a card must satisfy **both** of them to be colored.
+
+### Color
+
+Pick a color from the palette. Each swatch is tuned for legibility and previews in both light and dark mode.
+
+### Effect
+
+Choose where the color appears — see [Effects](#effects) below.
+
+<NeutralCallout type="tip">
+
+**Examples.** Priority `is` Highest → red side line. Flagged `is not empty` → amber background. Assignee `is` Current user → tinted assignee chip.
+
+</NeutralCallout>
+
+## Color scales
+
+Switch a rule to **Color scale** to blend a color from a numeric field, such as Story points or a rating.
+
+-   **Scale field** — the number the scale reads. Only numeric fields are offered.
+-   **Stops** — three points, *Start*, *Mid*, and *End*, each with a value and a color. A card's value is interpolated between the surrounding stops to produce its exact color.
+
+Out-of-range values clamp to the nearest end: anything at or below the Start value gets the Start color, anything at or above the End value gets the End color. The default scale runs `0` green → `5` yellow → `13` red — a story-point heat map.
+
+<NeutralCallout type="caution">
+
+Stop values must move in one direction — consistently increasing or consistently decreasing. A scale whose values zig-zag is invalid and won't color any cards until you fix it. Cards whose scale field is empty or non-numeric are left uncolored.
+
+</NeutralCallout>
+
+## Effects
+
+The effect decides where the color lands on the card. Six are available:
+
+-   **Side line** — A thin colored bar down the left edge of the card. Subtle and stackable.
+-   **Top line** — A thin colored bar across the top of the card.
+-   **Background** — Tints the whole card. The strongest, most scannable effect — best for one or two high-signal rules.
+-   **Border gradient** — A colored border with a soft diagonal fade from the color into the card surface.
+-   **Corner** — A colored accent in the corner of the card — a small flag that doesn't compete with the card body.
+-   **Chip** — Tints a single field's chip rather than the card. The text color flips automatically to stay readable on the fill.
+
+<NeutralCallout type="note">
+
+**Chip coloring needs a visible field.** The chip effect colors the field the rule matches on, so that field has to be shown on the card — add it to the card in [Display fields](/betterboard/shape-the-board/display-fields/). The summary, people, parent, flag, and long-text fields can't be chip-colored.
+
+</NeutralCallout>
+
+<a id="combining"></a>
+
+## How rules combine
+
+BetterBoard walks your rules from top to bottom. The key principle is simple:
+
+-   **Each effect is claimed once.** The first matching rule that wants a given effect wins it; later rules asking for the same effect are skipped. So if two rules both set the *Background*, the higher one in the list takes effect.
+-   **Different effects stack.** A single card can carry a background from one rule, a side line from another, and a tinted chip from a third — they layer together.
+
+Because order is priority, drag your most important rule to the top. Chip effects are tracked per field, so two rules can color two different chips at once.
+
+<a id="themes"></a>
+
+## Light and dark themes
+
+Every palette color ships with a matching dark variant, so a card you color in Jira's light theme stays legible when a teammate views the same board in dark mode — the colors shift to their darker counterparts automatically. Chip text picks white or near-black based on the fill's brightness so labels never wash out.
+
+<a id="notes"></a>
+
+## Notes & limitations
+
+-   Up to **10 rules** per board.
+-   A single-color rule supports up to **two conditions**, combined with AND.
+-   Color scales need a **numeric field**; empty or non-numeric values aren't colored.
+-   Chip coloring needs the matched field **shown on the card**.
+-   Colors are part of the board configuration — on a shared board, everyone sees the same colors.
+-   A rule can be toggled off without deleting it, so you can keep a formatting recipe around and switch it on when you need it.
+
+### Related
+
+-   [Filters & Refinement](/betterboard/work-faster/filters-refinement/)
+-   [Display Fields](/betterboard/shape-the-board/display-fields/)
+-   [Columns & Grouping](/betterboard/shape-the-board/columns-grouping/)

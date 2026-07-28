@@ -39,6 +39,10 @@
   --released-ink-muted: #5d6065;
   --released-line: #e8e8e5;
   --released-line-strong: #d6d6d2;
+  --released-callout-note: #2563eb;
+  --released-callout-tip: #18864b;
+  --released-callout-caution: #b15b00;
+  --released-callout-danger: #c63c3c;
   --released-radius-sm: 8px;
   --released-radius-md: 12px;
   --released-radius-lg: 20px;
@@ -94,4 +98,8 @@
   --released-ink-muted: #9298a3;
   --released-line: #292e37;
   --released-line-strong: #3a414d;
+  --released-callout-note: #70a5ff;
+  --released-callout-tip: #5fd08a;
+  --released-callout-caution: #f0ad4e;
+  --released-callout-danger: #f07878;
 }

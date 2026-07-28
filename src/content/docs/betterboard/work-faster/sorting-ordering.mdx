@@ -1,0 +1,55 @@
+---
+title: Sorting and ordering
+description: >-
+  Control how issues are ordered within each column. Sort by any field in any
+  direction, layer multiple sort criteria, or switch to manual rank.
+space: betterboard
+sidebar:
+  order: 3
+---
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+Control how work items are ordered on the board. Sort by any field in ascending or descending order, or switch to manual rank to drag work items into the exact position you want.
+
+## Default order
+
+Without sorting configured, BetterBoard orders work items by their Jira rank — the default order Jira uses across the backlog and board views. This order is shared with Jira's native boards.
+
+## Configuring sort
+
+1.  Open **Display** settings
+2.  Go to the **Order by** section
+3.  Select a sort field from the dropdown
+4.  Use the direction icon to the left of the dropdown to toggle between ascending and descending order
+5.  Click the blue **Save** button in the toolbar to apply
+
+<a id="sort-fields"></a>
+
+## What fields can be sorted?
+
+Any field with a comparable value works as a sort field:
+
+-   **Priority**: sorts by the defined priority order (Highest → Lowest)
+-   **Assignee**: alphabetical by display name
+-   **Due Date**, **Created**, **Updated**: chronological
+-   **Story Points**, number fields: numeric ascending/descending
+-   **Status**: by workflow order as defined in Jira
+-   **Labels**, text fields: alphabetical
+
+## Manual rank
+
+Manual rank lets you drag work items into a precise order within each column. Unlike sort-based ordering, manual rank positions are saved per-board and persist across sessions.
+
+To enable manual rank:
+
+1.  Open Settings → **Sorting**
+2.  Toggle **Manual rank** on
+3.  Sort criteria are disabled while manual rank is active
+4.  Drag work items to reorder them — the new order saves automatically
+
+<NeutralCallout type="note">
+
+Ranking is global — BetterBoard uses Jira's native ranking field, so ranking an work item in BetterBoard also updates its rank in Jira's backlog.
+
+</NeutralCallout>

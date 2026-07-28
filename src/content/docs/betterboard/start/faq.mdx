@@ -1,0 +1,101 @@
+---
+title: FAQ
+description: >-
+  Common questions about BetterBoard — how it works, what it stores, and what to
+  do when something isn't behaving as expected.
+space: betterboard
+sidebar:
+  order: 4
+---
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+Common questions about BetterBoard — how it works, what it stores, and what to do when something isn't behaving as expected.
+
+## General
+
+<a id="which-jira"></a>
+
+### Which Jira products does BetterBoard support?
+
+BetterBoard supports **Jira Cloud** only. Jira Server and Jira Data Center are not supported. All Jira Cloud space types are supported: Scrum, Kanban, service management (JSM), and product discovery (JPD).
+
+<a id="data-storage"></a>
+
+### Does BetterBoard store my Jira data?
+
+No. BetterBoard only stores board configuration — column layout, display field preferences, saved filters, and board names — using Atlassian Forge's encrypted key-value storage. Work item data (titles, assignees, status, custom fields) is fetched from Jira on demand and never stored outside your Jira tenant.
+
+<a id="permissions-required"></a>
+
+### What permissions does BetterBoard need?
+
+To **install** BetterBoard: Jira administrator (global "Administer Jira" permission).
+
+To **use** BetterBoard on a space: any space access level (Viewer, Member, or above). Read-only users can view boards. Editing work items requires whatever Jira permissions the user has for that space.
+
+<a id="free-or-paid"></a>
+
+### Is BetterBoard free?
+
+BetterBoard is free for up to 10 users and includes a free 30-day trial. Check the [Atlassian Marketplace listing](https://marketplace.atlassian.com/apps/4162439467) for current pricing.
+
+<a id="boards-and-configuration"></a>
+
+## Boards & Configuration
+
+<a id="how-many-boards"></a>
+
+### How many boards can I create?
+
+There's no hard limit. Create as many boards as your workflows require.
+
+<a id="custom-fields-support"></a>
+
+### Can I use custom fields?
+
+Yes — all custom field types are available for display on cards and as filter criteria. Most enumerable custom fields (single-select, multi-select) also work as grouping fields for columns.
+
+<a id="board-not-showing"></a>
+
+### Why isn't a shared board showing for my colleague?
+
+They need to have access to the Jira space. Check Space Settings → Access to confirm they're a space member. If they've just been added, they may need to refresh BetterBoard.
+
+<a id="troubleshooting-faq"></a>
+
+## Troubleshooting
+
+<a id="board-slow"></a>
+
+### The board is loading slowly
+
+Board load time depends on the number of work items in scope. For spaces with thousands of work items, applying a Sprint or Date filter before loading helps significantly. Multi-space boards with many spaces also load more slowly. Reducing the number of completed work items in view — for example, leaving Done status unassigned so those work items are hidden — often helps as well.
+
+<a id="status-not-updating"></a>
+
+### I dragged an work item to a new column but the status didn't change
+
+This usually means a workflow restriction. Jira workflows can block status transitions unless certain conditions are met (e.g. all sub-tasks must be resolved before closing a parent). Open the work item in Jira to see what transition is available.
+
+<a id="missing-fields"></a>
+
+### A field I expect isn't showing in the field list
+
+If a field isn't visible in BetterBoard's field configuration:
+
+-   The field may not be added to the space's field configuration scheme in Jira
+-   The field may be a context-only field that Jira doesn't expose via API in that space
+-   Check Jira's Space Settings → Fields to confirm the field is configured for the space
+
+<NeutralCallout type="note">
+
+If a field exists in some spaces but not others in a multi-space board, it will only be available for filtering on spaces where it's configured.
+
+</NeutralCallout>
+
+<a id="unsupported-field"></a>
+
+### A field I want to add isn't available
+
+Some fields are added by third-party apps and aren't yet supported in BetterBoard. If a field you need doesn't appear, it's likely provided by another Jira app rather than being a native Jira field. [Raise a feature request on the Marketplace listing](https://marketplace.atlassian.com/apps/4162439467) and we'll explore adding support for it.
