@@ -1,0 +1,28 @@
+---
+description: Select which channels will display Jira issue links in posts.
+title: Jira issue links
+space: hub
+sidebar:
+  order: 44
+---
+import NeutralCallout from '../../../../../../components/content/NeutralCallout.astro';
+
+## **Overview**
+
+This feature automatically embeds links to related Jira tickets within your release notes, allowing you to:
+
+* **Identify the specific issues addressed in each release.**
+* **Control which channels display these links.**
+
+Most commonly, Jira issue links are shown in internal announcements, offering transparency to team members. 
+
+## Basics
+
+**Disabling Links in Specific Channels** 
+
+1. Navigate to Settings > Jira issue links
+2. **Disable** the channels where you **don't** want Jira issue links to appear.
+
+<NeutralCallout type="caution">
+This setting only affects **newly published** posts. Previously published posts with embedded links won't be automatically updated. To remove them, simply republish the post.
+</NeutralCallout>

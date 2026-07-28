@@ -1,0 +1,51 @@
+---
+description: Close the loop by connecting customer feedback to the work being done in Jira.
+title: Feedback
+space: hub
+sidebar:
+  order: 27
+---
+import ResponsiveEmbed from '../../../../../components/content/ResponsiveEmbed.astro';
+import { Steps } from '@astrojs/starlight/components';
+import NeutralCallout from '../../../../../components/content/NeutralCallout.astro';
+
+<ResponsiveEmbed src="https://www.loom.com/share/1ba4a732b57e4f4c81696144db8af840?sid=d50e0ed2-a8e4-444a-803c-54216d5452bd" title="Loom video" provider="loom" />
+
+Released makes it easy to collect, manage, and act on customer and stakeholder feedback across your roadmaps. Once enabled, all feedback lands in a centralized inbox where it can be triaged, responded to, and linked to your Jira work.
+
+## Enabling feedback
+
+To enable feedback:
+
+<Steps>
+<ol>
+<li>
+**Open the feedback settings**
+
+Navigate to _Workspace > Settings > Feedback_
+</li>
+
+<li>
+**Turn on feedback**
+
+Toggle the feedback switch to enable feedback for the workspace.
+</li>
+</ol>
+</Steps>
+
+Once enabled:
+
+* Users can comment directly on roadmap items via your portal.
+* A _Give feedback_ button will appear in the top right of your portal, allowing users to submit general feedback, not tied to a specific roadmap item.
+
+<NeutralCallout type="caution">
+Feedback is currently available only in the Product Hub. The option to leave feedback in embedded views will be available soon. You can [track the feature here.](https://hub.released.so/released/roadmap/ad0e75c1/issue/12258)
+</NeutralCallout>
+
+## Where Feedback Goes
+
+All feedback in the Feedback [Inbox](/guide/product/feedback/inbox/). Replies to existing threads do not create new entries but are displayed inline within the original thread.
+
+## Linking Feedback to Jira
+
+Feedback left on roadmap items is automatically linked to the corresponding Jira work item. For other feedback, you can manually link threads from the inbox to any Jira work item. This keeps your team close to customer needs and makes it easy to follow up when work ships.

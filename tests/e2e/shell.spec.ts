@@ -188,6 +188,85 @@ test('migrated Hub pages render the page title exactly once', async ({ page }) =
   await expect(page.getByRole('heading', { level: 2, name: 'Overview' })).toBeVisible();
 });
 
+test('Hub articles use the narrow content column and measured vertical rhythm', async ({ page }) => {
+  await page.setViewportSize({ width: 1908, height: 1200 });
+  await page.goto('/guide/resources/troubleshooting/ensuring-jira-permissions/');
+
+  const layout = await page.evaluate(() => {
+    const main = document.querySelector<HTMLElement>('main[data-pagefind-body]');
+    const title = main?.querySelector<HTMLElement>('h1#_top');
+    const contentPanels = main?.querySelectorAll<HTMLElement>(':scope > .content-panel');
+    const containers = main?.querySelectorAll<HTMLElement>(':scope > .content-panel > .sl-container');
+    const markdown = main?.querySelector<HTMLElement>('.sl-markdown-content');
+    const overview = markdown?.querySelector<HTMLElement>('h2');
+    const bodyCopy = markdown?.querySelector<HTMLElement>('p');
+    const overviewWrapper = overview?.closest<HTMLElement>('.sl-heading-wrapper');
+    const overviewCopy = overviewWrapper?.nextElementSibling as HTMLElement | null;
+    const callout = overviewCopy?.nextElementSibling as HTMLElement | null;
+    const firstSection = markdown
+      ?.querySelector<HTMLElement>('h3')
+      ?.closest<HTMLElement>('.sl-heading-wrapper');
+
+    if (
+      !main ||
+      !title ||
+      !contentPanels ||
+      contentPanels.length < 2 ||
+      !containers ||
+      containers.length < 2 ||
+      !overview ||
+      !bodyCopy ||
+      !overviewCopy ||
+      !callout ||
+      !firstSection
+    ) {
+      throw new Error('Missing article layout landmarks');
+    }
+
+    const mainBox = main.getBoundingClientRect();
+    const titleBox = title.getBoundingClientRect();
+
+    return {
+      containerWidths: Array.from(containers).map((container) =>
+        Math.round(container.getBoundingClientRect().width)
+      ),
+      containerCenterOffsets: Array.from(containers).map((container) => {
+        const containerBox = container.getBoundingClientRect();
+        return Math.round(
+          containerBox.left +
+            containerBox.width / 2 -
+            (mainBox.left + mainBox.width / 2)
+        );
+      }),
+      dividerWidth: getComputedStyle(contentPanels[1]).borderTopWidth,
+      contentPaddingTop: getComputedStyle(contentPanels[1]).paddingTop,
+      titleTopSpace: Math.round(titleBox.top - mainBox.top),
+      titleLetterSpacing: getComputedStyle(title).letterSpacing,
+      bodyLetterSpacing: getComputedStyle(bodyCopy).letterSpacing,
+      overviewToCopy: getComputedStyle(overviewCopy).marginTop,
+      copyToCallout: getComputedStyle(callout).marginTop,
+      firstSectionMargin: getComputedStyle(firstSection).marginTop
+    };
+  });
+
+  expect(layout).toEqual({
+    containerWidths: [650, 650],
+    containerCenterOffsets: [0, 0],
+    dividerWidth: '0px',
+    contentPaddingTop: '24px',
+    titleTopSpace: 48,
+    titleLetterSpacing: '-0.704px',
+    bodyLetterSpacing: '-0.165px',
+    overviewToCopy: '12px',
+    copyToCallout: '16px',
+    firstSectionMargin: '40px'
+  });
+
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
+  const laterSection = page.getByRole('heading', { level: 2, name: 'Open/Closing the dialog' });
+  await expect(laterSection.locator('..')).toHaveCSS('margin-top', '56px');
+});
+
 test('landing and documentation headings keep their distinct typography roles', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('main .hero h1')).toHaveCSS('font-weight', '600');
@@ -198,7 +277,7 @@ test('landing and documentation headings keep their distinct typography roles', 
 
   await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
   await expect(page.locator('main h1#_top')).toHaveCSS('font-size', '32px');
-  await expect(page.locator('main h1#_top')).toHaveCSS('font-weight', '700');
+  await expect(page.locator('main h1#_top')).toHaveCSS('font-weight', '600');
 });
 
 test('the documentation shell uses the compact Switzer type scale', async ({ page }) => {
@@ -245,10 +324,10 @@ test('the documentation shell uses the compact Switzer type scale', async ({ pag
   });
 
   expect(styles).toEqual({
-    h1: { fontSize: '32px', fontWeight: '700', lineHeight: '36.8px' },
-    h2: { fontSize: '22px', fontWeight: '700', lineHeight: '27.5px' },
-    h3: { fontSize: '18px', fontWeight: '600', lineHeight: '24.3px' },
-    body: { fontSize: '16px', fontWeight: '400', lineHeight: '27.2px' },
+    h1: { fontSize: '32px', fontWeight: '600', lineHeight: '36px' },
+    h2: { fontSize: '24px', fontWeight: '600', lineHeight: '32px' },
+    h3: { fontSize: '18px', fontWeight: '600', lineHeight: '24px' },
+    body: { fontSize: '15px', fontWeight: '400', lineHeight: '24px' },
     collapsedCategory: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
     openCategory: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
     overviewLink: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
@@ -262,7 +341,8 @@ test('the documentation shell uses the compact Switzer type scale', async ({ pag
   });
 
   await page.goto('/guide/getting-started/setup-guide/');
-  await expect(page.locator('.sl-markdown-content h4')).toHaveCSS('font-size', '16px');
+  await expect(page.locator('.sl-markdown-content h4')).toHaveCSS('font-size', '15px');
+  await expect(page.locator('.sl-markdown-content h4')).toHaveCSS('line-height', '22px');
   await expect(page.locator('[data-link-row] .link-row__title').first()).toHaveCSS('font-size', '16px');
 
   await page.goto('/guide/getting-started/setup-guide/embedding-the-widget/');
@@ -295,4 +375,21 @@ test('the space switcher and Starlight mobile menu remain operable at 390px', as
   await expect(
     mobileSidebar.locator('details[open] > summary').getByText('How-tos', { exact: true })
   ).toBeVisible();
+
+  await page.goto('/guide/resources/troubleshooting/ensuring-jira-permissions/');
+  const mobileArticle = await page.evaluate(() => {
+    const container = document.querySelector<HTMLElement>(
+      'main[data-pagefind-body] > .content-panel > .sl-container'
+    );
+    if (!container) throw new Error('Missing article container');
+
+    return {
+      containerWidth: Math.ceil(container.getBoundingClientRect().width),
+      viewportWidth: document.documentElement.clientWidth,
+      pageScrollWidth: document.documentElement.scrollWidth
+    };
+  });
+
+  expect(mobileArticle.containerWidth).toBeLessThan(mobileArticle.viewportWidth);
+  expect(mobileArticle.pageScrollWidth).toBe(mobileArticle.viewportWidth);
 });

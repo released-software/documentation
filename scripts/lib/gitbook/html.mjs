@@ -179,7 +179,7 @@ export function convertHtml(source, context) {
     });
     converted = converted.replace(/\bhref="([^"]+)"/gi, (fullMatch, target) => {
       if (/^(?:[a-z][a-z\d+.-]*:|\/\/|\/|#)/i.test(target)) {
-        return fullMatch;
+        if (!target.startsWith('https://docs.released.so/')) return fullMatch;
       }
       if (target.includes('.gitbook/assets/')) {
         const mapped = mapAsset(target, context.sourcePath);
@@ -189,7 +189,8 @@ export function convertHtml(source, context) {
       return `href="${escapeAttribute(mapGitBookLink(target, context.sourcePath))}"`;
     });
     converted = transformOutsideInlineCode(converted, (text) => {
-      let rewritten = text.replace(
+      let rewritten = text.replaceAll('&#x20;', ' ');
+      rewritten = rewritten.replace(
         /!\[([^\]]*)\]\(([^)]+)\)/g,
         (fullMatch, alt, sourceUrl) => {
           if (/^(?:[a-z][a-z\d+.-]*:|\/\/|\/|#)/i.test(sourceUrl.trim())) {
@@ -206,7 +207,9 @@ export function convertHtml(source, context) {
         (fullMatch, label, target) => {
           const { destination, suffix } = splitMarkdownDestination(target);
           if (/^(?:[a-z][a-z\d+.-]*:|\/\/|\/|#)/i.test(destination)) {
-            return fullMatch;
+            if (!destination.startsWith('https://docs.released.so/')) {
+              return fullMatch;
+            }
           }
           return `[${label}](${mapGitBookLink(destination, context.sourcePath)}${suffix})`;
         }

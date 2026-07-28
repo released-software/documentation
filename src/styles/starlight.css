@@ -48,6 +48,111 @@ main[data-pagefind-body] h1#_top,
   line-height: 1.4;
 }
 
+html[data-has-sidebar]
+  main[data-pagefind-body]:has(.sl-markdown-content[data-documentation-page='article']) {
+  --sl-content-width: 40.625rem;
+  --sl-content-margin-inline: auto;
+}
+
+html[data-has-sidebar]
+  main[data-pagefind-body]:has(.sl-markdown-content[data-documentation-page='article'])
+  > .content-panel:first-of-type {
+  padding-block-start: 2rem;
+  padding-block-end: 0;
+}
+
+html[data-has-sidebar]
+  main[data-pagefind-body]:has(.sl-markdown-content[data-documentation-page='article'])
+  > .content-panel
+  + .content-panel {
+  border-block-start: 0;
+  padding-block-start: 1.5rem;
+}
+
+html[data-has-sidebar]
+  main[data-pagefind-body]:has(.sl-markdown-content[data-documentation-page='article'])
+  h1#_top {
+  margin-top: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 2.25rem;
+  letter-spacing: -0.022em;
+}
+
+html[data-has-sidebar]
+  main[data-pagefind-body]
+  .sl-markdown-content[data-documentation-page='article'] {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  letter-spacing: -0.011em;
+}
+
+html[data-has-sidebar]
+  main[data-pagefind-body]
+  .sl-markdown-content[data-documentation-page='article']
+  h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 2rem;
+  letter-spacing: -0.012em;
+}
+
+html[data-has-sidebar]
+  main[data-pagefind-body]
+  .sl-markdown-content[data-documentation-page='article']
+  h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  letter-spacing: -0.006em;
+}
+
+html[data-has-sidebar]
+  main[data-pagefind-body]
+  .sl-markdown-content[data-documentation-page='article']
+  h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.375rem;
+}
+
+html[data-has-sidebar]
+  main[data-pagefind-body]
+  .sl-markdown-content[data-documentation-page='article']
+  > *
+  + * {
+  margin-top: 1rem;
+}
+
+html[data-has-sidebar]
+  main[data-pagefind-body]
+  .sl-markdown-content[data-documentation-page='article']
+  > .sl-heading-wrapper.level-h2:not(:first-child) {
+  margin-top: 3.5rem;
+}
+
+html[data-has-sidebar]
+  main[data-pagefind-body]
+  .sl-markdown-content[data-documentation-page='article']
+  > .sl-heading-wrapper.level-h3:not(:first-child) {
+  margin-top: 2.5rem;
+}
+
+html[data-has-sidebar]
+  main[data-pagefind-body]
+  .sl-markdown-content[data-documentation-page='article']
+  > .sl-heading-wrapper.level-h4:not(:first-child) {
+  margin-top: 2rem;
+}
+
+html[data-has-sidebar]
+  main[data-pagefind-body]
+  .sl-markdown-content[data-documentation-page='article']
+  > .sl-heading-wrapper
+  + * {
+  margin-top: 0.75rem;
+}
+
 .sidebar-pane {
   interpolate-size: allow-keywords;
 }
@@ -157,6 +262,14 @@ header [data-open-search] {
     align-self: stretch;
     border-inline-end: 1px solid var(--released-line);
     background: var(--released-bg);
+  }
+}
+
+@media (min-width: 72rem) {
+  html[data-has-sidebar]
+    main[data-pagefind-body]:has(.sl-markdown-content[data-documentation-page='article'])
+    > .content-panel:first-of-type {
+    padding-block-start: 3rem;
   }
 }
 

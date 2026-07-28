@@ -68,13 +68,19 @@ test('splash destinations are absent from searchable pages', async () => {
   assert.ok(!urls.includes('/partners/'));
 });
 
-test('the empty-Hub title fallback does not duplicate substantive article titles', async () => {
+test('substantive Hub content creates its Pagefind record without a title fallback', async () => {
   const response = await pagefind.search(null);
   const pages = await Promise.all(response.results.map((result) => result.data()));
   const hub = pages.find((page) => page.raw_url === '/guide/');
   const betterboard = pages.find((page) => page.raw_url === '/betterboard/');
 
-  assert.equal(hub?.raw_content, 'Hub documentation.');
+  assert.equal(hub?.meta.title, 'Overview');
+  assert.match(hub?.raw_content ?? '', /Getting started/);
+  const hubHtml = await readFile(
+    new URL('../../dist/guide/index.html', import.meta.url),
+    'utf8'
+  );
+  assert.doesNotMatch(hubHtml, /temporary-empty-hub-pagefind-title/);
   assert.equal(
     betterboard?.raw_content.match(/BetterBoard documentation/g)?.length,
     1,

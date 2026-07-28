@@ -1,16 +1,13 @@
 ---
 import '@astrojs/starlight/style/markdown.css';
-import { getSpaceFromPath, type SpaceId } from '../../data/spaces';
+import { getSpace, getSpaceFromPath, type SpaceId } from '../../data/spaces';
 
 const { starlightRoute } = Astro.locals;
 const pathSpace = getSpaceFromPath(Astro.url.pathname);
 const pagefindEnabled = starlightRoute.entry.data.pagefind !== false;
 const entrySpace = starlightRoute.entry.data.space as SpaceId | undefined;
-
-// Temporary Task 5 scaffold fallback: `/guide/` has no Markdown body yet, so Pagefind
-// needs its title inside the filtered body. Remove this in Task 8 after Hub content arrives.
-const needsTemporaryEmptyHubTitleFallback =
-  pagefindEnabled && Astro.url.pathname === '/guide/';
+const documentationPage =
+  pathSpace !== 'all' && Astro.url.pathname === getSpace(pathSpace).href ? 'overview' : 'article';
 
 if (pagefindEnabled && pathSpace === 'all') {
   throw new Error(`Cannot assign documentation space to article route: ${Astro.url.pathname}`);
@@ -31,27 +28,6 @@ const pagefindAttributes = pagefindEnabled
   : {};
 ---
 
-<div class="sl-markdown-content" {...pagefindAttributes}>
-  {
-    needsTemporaryEmptyHubTitleFallback && (
-      <span aria-hidden="true" class="temporary-empty-hub-pagefind-title">
-        {starlightRoute.entry.data.title}
-      </span>
-    )
-  }
+<div class="sl-markdown-content" data-documentation-page={documentationPage} {...pagefindAttributes}>
   <slot />
 </div>
-
-<style>
-  .temporary-empty-hub-pagefind-title {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-</style>

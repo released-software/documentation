@@ -1,0 +1,1682 @@
+[
+  {
+    "sourceFile": "README.md",
+    "line": 3,
+    "column": 22,
+    "sentence": "Get an overview of Released's features and integrations, and learn how to use",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "README.md",
+    "line": 11,
+    "column": 226,
+    "sentence": "<table data-view=\"cards\"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type=\"image\">Cover image</th><th data-hidden data-card-target data-type=\"content-ref\"></th></tr></thead><tbody><tr><td><strong>Set-up Released</strong></td><td>Learn how to install and setup Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "README.md",
+    "line": 11,
+    "column": 283,
+    "sentence": "<table data-view=\"cards\"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type=\"image\">Cover image</th><th data-hidden data-card-target data-type=\"content-ref\"></th></tr></thead><tbody><tr><td><strong>Set-up Released</strong></td><td>Learn how to install and setup Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "README.md",
+    "line": 11,
+    "column": 453,
+    "sentence": "</td><td></td><td><a href=\"getting-started/setup-guide/\">setup-guide</a></td></tr><tr><td><strong>Core concepts</strong></td><td>Understand the core concepts in Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "README.md",
+    "line": 15,
+    "column": 289,
+    "sentence": "<table data-view=\"cards\"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type=\"image\">Cover image</th><th data-hidden data-card-target data-type=\"content-ref\"></th></tr></thead><tbody><tr><td><strong>Roadmaps &#x26; ideas</strong></td><td>Create and share Roadmaps with Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "README.md",
+    "line": 19,
+    "column": 624,
+    "sentence": "</td><td></td><td></td><td></td></tr><tr><td><strong>Integrations</strong></td><td>Integrate Released with Slack, Framer, Webflow and more.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/concepts.md",
+    "line": 2,
+    "column": 44,
+    "sentence": "description: Gain a basic understanding of Released and the basic concepts.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/concepts.md",
+    "line": 19,
+    "column": 41,
+    "sentence": "Portals are the external-facing side of Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/concepts.md",
+    "line": 47,
+    "column": 82,
+    "sentence": "Unlike the Timeline view or Plans (formerly known as Advanced Roadmaps) in Jira, Released Roadmap views are specifically designed for effectively communicating plans to stakeholders and customers.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/concepts.md",
+    "line": 49,
+    "column": 18,
+    "sentence": "Roadmap views in Released can span multiple Jira Spaces.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/README.md",
+    "line": 9,
+    "column": 13,
+    "sentence": "### Install Released",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/README.md",
+    "line": 11,
+    "column": 22,
+    "sentence": "Learn how to install Released from the Atlassian marketplace.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/README.md",
+    "line": 41,
+    "column": 41,
+    "sentence": "Portals are the external-facing side of Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/README.md",
+    "line": 75,
+    "column": 11,
+    "sentence": "Integrate Released with the apps you're already using.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/installing-the-app.md",
+    "line": 2,
+    "column": 14,
+    "sentence": "description: Released is available for Jira Cloud via the Atlassian Marketplace.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/installing-the-app.md",
+    "line": 6,
+    "column": 14,
+    "sentence": "# Installing Released",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/installing-the-app.md",
+    "line": 9,
+    "column": 63,
+    "sentence": "You must have **Administer Jira** global permission to enable Released in your Jira site.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/installing-the-app.md",
+    "line": 16,
+    "column": 14,
+    "sentence": "To install **Released** via the Atlassian Marketplace, follow these steps:",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/installing-the-app.md",
+    "line": 23,
+    "column": 14,
+    "sentence": "To install **Released** on your Jira Cloud site, follow these steps:",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/installing-the-app.md",
+    "line": 28,
+    "column": 17,
+    "sentence": "Search for **Released** and click on the app item in the results list.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/installing-the-app.md",
+    "line": 32,
+    "column": 66,
+    "sentence": "The global **Administer Jira** permission is required to install Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/installing-the-app.md",
+    "line": 35,
+    "column": 14,
+    "sentence": "## Accessing Released",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/installing-the-app.md",
+    "line": 37,
+    "column": 17,
+    "sentence": "Once installed, Released can be accessed via the global **Apps** menu in the Jira navigation.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/installing-the-app.md",
+    "line": 39,
+    "column": 89,
+    "sentence": "png\" alt=\"\"><figcaption><p>Access Released via the Apps menu</p></figcaption></figure>",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/installing-the-app.md",
+    "line": 49,
+    "column": 154,
+    "sentence": "It's important to note that even though the Released trial, as well as your Jira trial or plan, may be free, Atlassian requires a valid payment method on file to initiate trials of third-party apps.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/setting-up-your-product-hub.md",
+    "line": 11,
+    "column": 22,
+    "sentence": "In Jira, navigate to Released via the sidebar Apps menu.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/embedding-the-feedback-form.md",
+    "line": 62,
+    "column": 50,
+    "sentence": "You can open the form programmatically using the Released API:",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/implementing-user-verification.md",
+    "line": 41,
+    "column": 85,
+    "sentence": "Open the global settings by clicking **Settings** in the top-right corner of the Released overview page.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/implementing-user-verification.md",
+    "line": 55,
+    "column": 32,
+    "sentence": "Send a **POST** request to the Released token API endpoint:",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/implementing-user-verification.md",
+    "line": 59,
+    "column": 60,
+    "sentence": "The `CURRENT_USER_ID` will be used to identify the user in Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/implementing-user-verification.md",
+    "line": 59,
+    "column": 160,
+    "sentence": "User profiles in Released will use this identifier to match users.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/implementing-user-verification.md",
+    "line": 63,
+    "column": 99,
+    "sentence": "You can provide optional profile information in the request body to customize the user profile in Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/implementing-user-verification.md",
+    "line": 109,
+    "column": 99,
+    "sentence": "You can find the `SHARED_SECRET` and `ACCOUNT_ID` values in the **User verification** settings in Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/implementing-user-verification.md",
+    "line": 135,
+    "column": 39,
+    "sentence": "<summary>What is user verification in Released?",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/implementing-user-verification.md",
+    "line": 148,
+    "column": 106,
+    "sentence": "* Active session (3 days): Once the token is successfully used — meaning the portal verifies it with the Released API — the user gets a session that lasts up to three days.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/implementing-user-verification.md",
+    "line": 150,
+    "column": 116,
+    "sentence": "In practice, this means you should generate a token on demand each time a user navigates to a page containing your Released embed, rather than pre-generating and caching tokens.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/best-practices/customer-communication.md",
+    "line": 4,
+    "column": 68,
+    "sentence": "Released",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/general.md",
+    "line": 8,
+    "column": 41,
+    "sentence": "gitbook/assets/Released Settings - General.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/custom-domain.md",
+    "line": 39,
+    "column": 105,
+    "sentence": "This is done _outside_ Released, in the provider you are using for your domain.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/custom-domain.md",
+    "line": 51,
+    "column": 1,
+    "sentence": "Released will automatically configure the SSL certificate for your domain.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/design.md",
+    "line": 7,
+    "column": 41,
+    "sentence": "gitbook/assets/Released Settings - Design.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/design.md",
+    "line": 17,
+    "column": 1,
+    "sentence": "Released offers two distinct themes for your Product Hub and portals.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/trusted-domains.md",
+    "line": 11,
+    "column": 35,
+    "sentence": "These settings is restricted to **Released administrators.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/trusted-domains.md",
+    "line": 16,
+    "column": 166,
+    "sentence": "Instead of manually adding company domains to each portal, Released administrators can define a global list of approved domains.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 2,
+    "column": 73,
+    "sentence": "description: Capture feedback from Slack and manage the conversation in Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 10,
+    "column": 91,
+    "sentence": "The Slack integration lets you turn Slack messages into feedback items and reply from the Released inbox.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 10,
+    "column": 127,
+    "sentence": "When you respond in Released, your message is posted back to the original Slack thread so the conversation stays in sync.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 18,
+    "column": 58,
+    "sentence": "Turn any Slack message or thread into a feedback item in Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 22,
+    "column": 32,
+    "sentence": "Slack feedback appears in your Released inbox alongside feedback from other sources.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 24,
+    "column": 17,
+    "sentence": "#### Reply from Released",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 30,
+    "column": 70,
+    "sentence": "Link multiple Slack workspaces and route feedback to the appropriate Released workspace.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 58,
+    "column": 10,
+    "sentence": "**Select Released workspace**",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 60,
+    "column": 12,
+    "sentence": "Select the Released workspace to which you want to send feedback from Slack",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 71,
+    "column": 52,
+    "sentence": "* New replies from Slack threads are not send into Released",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 74,
+    "column": 74,
+    "sentence": "* Existing feedback and previously captured messages remain unchanged in Released",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 92,
+    "column": 20,
+    "sentence": "Select **Create Released Feedback**",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 94,
+    "column": 45,
+    "sentence": "The message will immediately appear in your Released inbox.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 106,
+    "column": 35,
+    "sentence": "When a Slack message is captured, Released records:",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 117,
+    "column": 30,
+    "sentence": "## Viewing Slack feedback in Released",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 130,
+    "column": 51,
+    "sentence": "You can reply to Slack feedback directly from the Released inbox.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 138,
+    "column": 13,
+    "sentence": "* Appear in Released",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 142,
+    "column": 48,
+    "sentence": "Replies appear in Slack as messages from the **Released bot**, attributed to you.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 149,
+    "column": 70,
+    "sentence": "* **Non-Slack participants** — Collaborators on the feedback item in Released (excluding the original author) receive email notifications for new replies and updates.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 154,
+    "column": 29,
+    "sentence": "* For private channels, the Released bot must be invited first",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 161,
+    "column": 53,
+    "sentence": "<summary><strong>Do edits to Slack messages sync to Released?",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 171,
+    "column": 30,
+    "sentence": "The feedback item remains in Released, but the link back to Slack may no longer work.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 179,
+    "column": 14,
+    "sentence": "Yes, but the Released bot must first be invited to the channel using /invite @Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 179,
+    "column": 79,
+    "sentence": "Yes, but the Released bot must first be invited to the channel using /invite @Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 195,
+    "column": 28,
+    "sentence": "Messages are posted by the Released bot and attributed to the person who replied in Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 195,
+    "column": 85,
+    "sentence": "Messages are posted by the Released bot and attributed to the person who replied in Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 201,
+    "column": 49,
+    "sentence": "<summary><strong>Can I edit Slack messages from Released?",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 211,
+    "column": 70,
+    "sentence": "Each Slack workspace can be connected and mapped to one or more Released workspaces.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 219,
+    "column": 28,
+    "sentence": "Existing feedback stays in Released, but new messages can no longer be captured and replies will stop syncing.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 219,
+    "column": 177,
+    "sentence": "All Slack users tied to that connection become “Deleted User” in Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 225,
+    "column": 38,
+    "sentence": "<summary><strong>What happens if the Released app is uninstalled from Slack?",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 227,
+    "column": 46,
+    "sentence": "The connection is automatically removed from Released settings, with the same effect as disconnecting from the Released side.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/slack.md",
+    "line": 227,
+    "column": 112,
+    "sentence": "The connection is automatically removed from Released settings, with the same effect as disconnecting from the Released side.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/user-verification.md",
+    "line": 18,
+    "column": 185,
+    "sentence": "To access your account credentials, navigate to global **Settings** **> User verification** in Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/permissions.md",
+    "line": 9,
+    "column": 1,
+    "sentence": "Released integrates tightly with your project permission in Jira, removing the burden of setting up additional roles or access controls to draft and publish release notes.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/permissions.md",
+    "line": 20,
+    "column": 5,
+    "sentence": "### Released administrator&#x20;",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/permissions.md",
+    "line": 22,
+    "column": 1,
+    "sentence": "Released administrators are able to configure and adjust global settings in Released, such as [Product Hub details](general.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/permissions.md",
+    "line": 22,
+    "column": 77,
+    "sentence": "Released administrators are able to configure and adjust global settings in Released, such as [Product Hub details](general.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/administration/permissions.md",
+    "line": 25,
+    "column": 46,
+    "sentence": "By default, all Jira users are granted the **Released: Administrator** permission.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/portals/README.md",
+    "line": 9,
+    "column": 41,
+    "sentence": "Portals are the external-facing side of Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/portals/README.md",
+    "line": 53,
+    "column": 1,
+    "sentence": "Released admins can restore or permanently delete a workspace from the trash via the global settings in Released:&#x20;",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/portals/README.md",
+    "line": 53,
+    "column": 105,
+    "sentence": "Released admins can restore or permanently delete a workspace from the trash via the global settings in Released:&#x20;",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/portals/README.md",
+    "line": 65,
+    "column": 16,
+    "sentence": "A workspace in Released can be linked to one or multiple Jira projects.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/portals/access.md",
+    "line": 53,
+    "column": 442,
+    "sentence": "Internal domains can be configured by Released administrators in the <a href=\".",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/portals/portal/README.md",
+    "line": 22,
+    "column": 1,
+    "sentence": "Released offers two distinct themes for your Product Hub and portals.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/feedback/README.md",
+    "line": 9,
+    "column": 1,
+    "sentence": "Released makes it easy to collect, manage, and act on customer and stakeholder feedback across your roadmaps.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/feedback/wishlists.md",
+    "line": 24,
+    "column": 5,
+    "sentence": "### Released roadmaps",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/feedback/wishlists.md",
+    "line": 26,
+    "column": 4,
+    "sentence": "On Released roadmaps, each card displays the total number of wishes it has received.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/feedback/settings.md",
+    "line": 63,
+    "column": 1,
+    "sentence": "Released will ask for permission to view and update content in Jira Product Discovery on your behalf.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/roadmaps-and-ideas/README.md",
+    "line": 17,
+    "column": 70,
+    "sentence": "Released roadmaps are highly flexible and can work across projects, enabling you to consolidate work from various teams as needed.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/roadmaps-and-ideas/README.md",
+    "line": 19,
+    "column": 1,
+    "sentence": "Released roadmaps are perfect for:",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/roadmaps-and-ideas/roadmap.md",
+    "line": 31,
+    "column": 1,
+    "sentence": "Released roadmaps support a variety of custom field types that can be displayed on the card or in the detail view.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/roadmaps-and-ideas/roadmap.md",
+    "line": 37,
+    "column": 7,
+    "sentence": "### **Released system fields**",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/roadmaps-and-ideas/roadmap.md",
+    "line": 47,
+    "column": 37,
+    "sentence": "The Public Description is a special Released system field that can only be edited within a Released board.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/roadmaps-and-ideas/roadmap.md",
+    "line": 47,
+    "column": 92,
+    "sentence": "The Public Description is a special Released system field that can only be edited within a Released board.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/roadmaps-and-ideas/roadmap.md",
+    "line": 51,
+    "column": 53,
+    "sentence": "To edit the public description, click any card in a Released roadmap.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/roadmaps-and-ideas/views.md",
+    "line": 13,
+    "column": 21,
+    "sentence": "Because Roadmaps in Released are highly flexible — allowing you to include work items from multiple projects — each view type requires a bit of setup.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/roadmaps-and-ideas/views.md",
+    "line": 69,
+    "column": 116,
+    "sentence": "Released will make an initial best guess based on your project data, but you can update these fields at any time.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/README.md",
+    "line": 15,
+    "column": 1,
+    "sentence": "Released Changelogs make it easy to craft updates.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/writing-a-post.md",
+    "line": 7,
+    "column": 134,
+    "sentence": "Creating a post is easy and fast with Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/publishing.md",
+    "line": 53,
+    "column": 133,
+    "sentence": "Like with other channels, you can update the post in Released and the page in Confluence will automatically be updated once it's published again.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/templates.md",
+    "line": 105,
+    "column": 122,
+    "sentence": "md \"mention\"): Released will use that description in the template and not generate a new description.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/templates.md",
+    "line": 107,
+    "column": 73,
+    "sentence": "**If the description is stored in the issue properties (the default)**: Released will overwrite the description only if a **custom prompt** was used in the template.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/settings/artificial-intelligence.md",
+    "line": 2,
+    "column": 24,
+    "sentence": "description: Customise Released's language model",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/settings/artificial-intelligence.md",
+    "line": 11,
+    "column": 28,
+    "sentence": "The advanced AI prompts of Released have undergone meticulous fine-tuning to produce release notes from an array of Jira issue descriptions.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/settings/artificial-intelligence.md",
+    "line": 17,
+    "column": 159,
+    "sentence": "Your personalized prompts serve as navigational tools for guiding Released's content creation in the desired direction, leading to reduced editing efforts.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/settings/artificial-intelligence.md",
+    "line": 39,
+    "column": 1,
+    "sentence": "Released lets you select a single AI input field, but you can include additional issue fields by copying them into that field using Jira automation.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/settings/confluence.md",
+    "line": 23,
+    "column": 5,
+    "sentence": "Released will ask for permission to view and update content in Confluence on your behalf.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/settings/released-description-field.md",
+    "line": 9,
+    "column": 1,
+    "sentence": "Released AI-generates descriptions for your Jira tickets based on their title and internal description.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/editor/README.md",
+    "line": 3,
+    "column": 7,
+    "sentence": "The Released editor supports rich text, diverse content blocks, and convenient",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/editor/README.md",
+    "line": 10,
+    "column": 87,
+    "sentence": "png\" alt=\"\"><figcaption><p>Released Post Editor</p></figcaption></figure>",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/editor/videos.md",
+    "line": 17,
+    "column": 1,
+    "sentence": "Released currently supports videos from:",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/editor/videos.md",
+    "line": 33,
+    "column": 35,
+    "sentence": "* Once you paste the video URL, Released will automatically detect the supported video platform and embed the video directly into your post.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/editor/versions.md",
+    "line": 11,
+    "column": 222,
+    "sentence": "To help communicate what changes made it into which version, Released allows you to specify a version when writing a post.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/publishing-to-slack.md",
+    "line": 12,
+    "column": 15,
+    "sentence": "## Installing Released in Slack",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/publishing-to-slack.md",
+    "line": 14,
+    "column": 54,
+    "sentence": "To enable sharing to Slack, you will need to install Released in your Slack account.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/publishing-to-slack.md",
+    "line": 18,
+    "column": 29,
+    "sentence": "Click **Allow** to grant Released permission to access Slack&#x20;",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/publishing-to-slack.md",
+    "line": 46,
+    "column": 108,
+    "sentence": "Content posted to Slack can not be unpublished or updated from within Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/changelog/publishing-to-slack.md",
+    "line": 55,
+    "column": 57,
+    "sentence": "Please check the channel permission and ensure that the Released App is allows to post to the channel.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 3,
+    "column": 63,
+    "sentence": "This guide will walk you through installing and configuring Released Portals",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 10,
+    "column": 42,
+    "sentence": "This Confluence app works alongside the [Released](https://marketplace.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 10,
+    "column": 210,
+    "sentence": "To use it, Released must be installed in Jira.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 34,
+    "column": 27,
+    "sentence": "* You can start using the Released Embed macro immediately",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 46,
+    "column": 53,
+    "sentence": "* Navigate to the page where you want to embed your Released portal",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 51,
+    "column": 17,
+    "sentence": "#### Insert the Released Embed Macro",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 54,
+    "column": 9,
+    "sentence": "* Type \"Released\" and select **Released Embed** from the list",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 54,
+    "column": 32,
+    "sentence": "* Type \"Released\" and select **Released Embed** from the list",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 55,
+    "column": 49,
+    "sentence": "* Or use the toolbar: Click **+** → Search for \"Released Embed\"",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 62,
+    "column": 91,
+    "sentence": "md) within the Released app in Jira.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 67,
+    "column": 28,
+    "sentence": "| **Channel ID**    | Your Released channel identifier.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 86,
+    "column": 8,
+    "sentence": "* Your Released portal is now live on the Confluence page",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 98,
+    "column": 77,
+    "sentence": "To enable user verification for your Confluence macro you will require your Released **Account ID** and **Shared Secret** which can be found under [#credentials](.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 98,
+    "column": 238,
+    "sentence": "md#credentials \"mention\") within the **Released app in Jira.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 108,
+    "column": 11,
+    "sentence": "* Click **Released Portals**",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 120,
+    "column": 30,
+    "sentence": "* **Account ID**: Paste your Released account ID",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 131,
+    "column": 94,
+    "sentence": "md) in the Released app in Jira.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 142,
+    "column": 51,
+    "sentence": "* When a Confluence user views a page with the Released macro, they're automatically authenticated",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 145,
+    "column": 39,
+    "sentence": "* Users see content based on their Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 148,
+    "column": 62,
+    "sentence": "* User's Confluence display name and avatar are synced to Released",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 155,
+    "column": 37,
+    "sentence": "* Data is transmitted over HTTPS to Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 173,
+    "column": 30,
+    "sentence": "* Get the correct ID from Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 177,
+    "column": 55,
+    "sentence": "* Add your Confluence domain to Trusted Domains in Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 193,
+    "column": 12,
+    "sentence": "* Go to Released Portals global settings in Confluence",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/confluence-embed.md",
+    "line": 197,
+    "column": 42,
+    "sentence": "* Verify the Forge domain is added to Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/framer.md",
+    "line": 9,
+    "column": 8,
+    "sentence": "With **Released + Framer**, you can seamlessly embed a widget or announcement page into your website.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/framer.md",
+    "line": 54,
+    "column": 32,
+    "sentence": "Similar to the Page component, Released provides a Badge component that you can copy and paste into your Framer design view.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/webflow.md",
+    "line": 9,
+    "column": 8,
+    "sentence": "With **Released + Webflow**, you can seamlessly embed a widget or announcement page into your website.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/webflow.md",
+    "line": 15,
+    "column": 32,
+    "sentence": "Get the embed code from Released",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/webflow.md",
+    "line": 17,
+    "column": 125,
+    "sentence": "md#installation) to get the embed code within Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/slack.md",
+    "line": 3,
+    "column": 3,
+    "sentence": "Released integrates with Slack in two ways: sharing product updates to Slack",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/slack.md",
+    "line": 17,
+    "column": 61,
+    "sentence": "Turn Slack messages and threads into feedback items in your Released inbox.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/slack.md",
+    "line": 17,
+    "column": 88,
+    "sentence": "Reply from Released and your response is posted back to the original Slack thread, keeping the conversation in sync.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/aura-karma-for-confluence.md",
+    "line": 2,
+    "column": 18,
+    "sentence": "description: Add Released to your Confluence pages with Aura content formatting macros.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/aura-karma-for-confluence.md",
+    "line": 21,
+    "column": 15,
+    "sentence": "Select Released",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/aura-karma-for-confluence.md",
+    "line": 23,
+    "column": 36,
+    "sentence": "* In the \"Type\" dropdown, select **Released** within the \"Collaboration\" section.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/aura-karma-for-confluence.md",
+    "line": 25,
+    "column": 92,
+    "sentence": "png\" alt=\"\"><figcaption><p>Select Released in the Type Dropdown</p></figcaption></figure>",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/aura-karma-for-confluence.md",
+    "line": 29,
+    "column": 87,
+    "sentence": "md) into the \"Released URL\" field - your release notes should render in the preview on the right once entered.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/aura-karma-for-confluence.md",
+    "line": 39,
+    "column": 105,
+    "sentence": "md#announcement-page) in Released will now automatically appear in Confluence.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/cosmos.md",
+    "line": 2,
+    "column": 24,
+    "sentence": "description: Integrate Released with Cosmos.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/cosmos.md",
+    "line": 24,
+    "column": 11,
+    "sentence": "* Select \"Released from the list of available integrations.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/cosmos.md",
+    "line": 45,
+    "column": 105,
+    "sentence": "md#announcement-page) in Released will now automatically appear on your Comos Dashboard.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/karma.md",
+    "line": 2,
+    "column": 24,
+    "sentence": "description: Integrate Released with the Confluence page builder Karma.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/karma.md",
+    "line": 20,
+    "column": 60,
+    "sentence": "* Find the \"Embed\" section in the left sidebar and select \"Released\" from the available embed options.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/karma.md",
+    "line": 36,
+    "column": 105,
+    "sentence": "md#announcement-page) in Released will now automatically appear in Confluence.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/scroll-sites-for-confluence.md",
+    "line": 11,
+    "column": 1,
+    "sentence": "Released integrates with Scroll Sites through a native integration.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/scroll-sites-for-confluence.md",
+    "line": 25,
+    "column": 4,
+    "sentence": "* [Released](https://marketplace.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/scroll-sites-for-confluence.md",
+    "line": 30,
+    "column": 11,
+    "sentence": "**Get the Released Channel ID**",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/scroll-sites-for-confluence.md",
+    "line": 43,
+    "column": 14,
+    "sentence": "**Enable the Released integration**",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/scroll-sites-for-confluence.md",
+    "line": 53,
+    "column": 76,
+    "sentence": "Enter the channel ID noted down in step 1 into the Channel ID field in the Released integration",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/scroll-sites-for-confluence.md",
+    "line": 77,
+    "column": 35,
+    "sentence": "Roadmaps and posts published with Released will now automatically appear in your Scroll Sites help centre.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/scroll-sites-for-confluence.md",
+    "line": 84,
+    "column": 3,
+    "sentence": "A Released form ID (`FORM_ID`).",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/scroll-sites-for-confluence.md",
+    "line": 112,
+    "column": 32,
+    "sentence": "* `FORM_ID` with your actual Released form ID.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "product/integrations/scroll-sites-for-confluence.md",
+    "line": 170,
+    "column": 11,
+    "sentence": "**Get the Released Channel ID**",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/embeds.md",
+    "line": 11,
+    "column": 31,
+    "sentence": "This error indicates that the Released embed can’t establish a secure connection.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/embeds.md",
+    "line": 59,
+    "column": 8,
+    "sentence": "If the Released embed is placed inside an iframe, the iframe must allow certain capabilities.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/embeds.md",
+    "line": 73,
+    "column": 34,
+    "sentence": "Your website may be blocking the Released embed.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/embeds.md",
+    "line": 75,
+    "column": 191,
+    "sentence": "If it is too restrictive, it can prevent the Released Product Hub from loading inside the page, which results in the Communication error.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/embeds.md",
+    "line": 77,
+    "column": 1,
+    "sentence": "Released is loaded using an iframe, so your CSP must explicitly allow your Released Product Hub to be embedded.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/embeds.md",
+    "line": 77,
+    "column": 76,
+    "sentence": "Released is loaded using an iframe, so your CSP must explicitly allow your Released Product Hub to be embedded.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/embeds.md",
+    "line": 91,
+    "column": 54,
+    "sentence": "**If your CSP includes frame-src** you must add your Released Product Hub origin to it.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/embeds.md",
+    "line": 99,
+    "column": 77,
+    "sentence": "**If your CSP does not include frame-src, but includes child-src** add your Released Product Hub origin to child-src.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/embeds.md",
+    "line": 131,
+    "column": 29,
+    "sentence": "This makes it explicit that Released is allowed to load as an iframe.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/embeds.md",
+    "line": 150,
+    "column": 9,
+    "sentence": "* Check Released Status for any ongoing outages.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/embeds.md",
+    "line": 159,
+    "column": 50,
+    "sentence": "* Add the embedding domain to Trusted Domains in Released Global Settings.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/ensuring-jira-permissions.md",
+    "line": 9,
+    "column": 1,
+    "sentence": "Released adheres to Jira permissions for viewing and editing issues.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/ensuring-jira-permissions.md",
+    "line": 9,
+    "column": 154,
+    "sentence": "Therefore, your Jira Space permission settings determine what you can do and see in Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/ensuring-jira-permissions.md",
+    "line": 16,
+    "column": 27,
+    "sentence": "If a Space is hidden from Released using App Access rules, you won't be able to interact with it in Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/ensuring-jira-permissions.md",
+    "line": 16,
+    "column": 101,
+    "sentence": "If a Space is hidden from Released using App Access rules, you won't be able to interact with it in Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/ensuring-jira-permissions.md",
+    "line": 16,
+    "column": 115,
+    "sentence": "Add Released to your allowlist or remove it from your blocklist to use Released with your protected Jira Spaces.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/ensuring-jira-permissions.md",
+    "line": 16,
+    "column": 182,
+    "sentence": "Add Released to your allowlist or remove it from your blocklist to use Released with your protected Jira Spaces.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/ensuring-jira-permissions.md",
+    "line": 27,
+    "column": 12,
+    "sentence": "To install Released and setup the Changelog description custom field, certain administrator permissions are required.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/ensuring-jira-permissions.md",
+    "line": 29,
+    "column": 287,
+    "sentence": "</td></tr><tr><td><strong>Jira administrators</strong></td><td>Installing the Released App.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/ensuring-jira-permissions.md",
+    "line": 33,
+    "column": 6,
+    "sentence": "When Released generates a description for you, that description is saved in one of two places:",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/accessing-custom-fields.md",
+    "line": 5,
+    "column": 1,
+    "sentence": "Released lets you choose which description field to use for generating release notes.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/configuring-dark-mode.md",
+    "line": 11,
+    "column": 1,
+    "sentence": "Released embeds offer three color schemes: `\"light\"`, `\"dark\"`, and `\"system\"` (which is the default).",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/configuring-dark-mode.md",
+    "line": 13,
+    "column": 22,
+    "sentence": "## How to update the Released Color Scheme setting",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/configuring-dark-mode.md",
+    "line": 15,
+    "column": 48,
+    "sentence": "You can update the color scheme setting in the Released app in the [Page](.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/configuring-dark-mode.md",
+    "line": 25,
+    "column": 7,
+    "sentence": "Which Released Color Scheme you choose depends on how your page handles the native browser color-scheme values for your users.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/configuring-dark-mode.md",
+    "line": 42,
+    "column": 34,
+    "sentence": "* The page where you've embedded Released:",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/configuring-dark-mode.md",
+    "line": 52,
+    "column": 51,
+    "sentence": "When users choose my app's Dark color scheme, the Released Announcement Page header text looks black on a black background.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/configuring-dark-mode.md",
+    "line": 58,
+    "column": 34,
+    "sentence": "* The page where you've embedded Released:",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/configuring-content-security-policies-csp-for-released-embeds.md",
+    "line": 3,
+    "column": 12,
+    "sentence": "To embed Released into your app while maintaining a secure Content Security",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/configuring-content-security-policies-csp-for-released-embeds.md",
+    "line": 5,
+    "column": 19,
+    "sentence": "domains used by Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/configuring-content-security-policies-csp-for-released-embeds.md",
+    "line": 8,
+    "column": 51,
+    "sentence": "# Configuring Content Security Policies (CSP) for Released Embeds",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/configuring-content-security-policies-csp-for-released-embeds.md",
+    "line": 18,
+    "column": 16,
+    "sentence": "When embedding Released into your website or app, you may have to add to add Released specific domains to your CSP policy.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/configuring-content-security-policies-csp-for-released-embeds.md",
+    "line": 18,
+    "column": 78,
+    "sentence": "When embedding Released into your website or app, you may have to add to add Released specific domains to your CSP policy.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/configuring-content-security-policies-csp-for-released-embeds.md",
+    "line": 24,
+    "column": 70,
+    "sentence": "At a minimum, the following CSP should work for most users embedding Released:",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/configuring-content-security-policies-csp-for-released-embeds.md",
+    "line": 56,
+    "column": 48,
+    "sentence": "This policy covers all potential subdomains of Released, making it easier to accommodate updates or changes in our infrastructure without further adjustments.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/configuring-content-security-policies-csp-for-released-embeds.md",
+    "line": 64,
+    "column": 126,
+    "sentence": "For maximum flexibility and security, adopting the wildcard strategy (`*.released.so`) in your CSP will help avoid issues as Released evolves.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/finding-the-channel-id.md",
+    "line": 11,
+    "column": 100,
+    "sentence": "Use these IDs when embedding your Released portals or forms in other apps.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/finding-the-channel-id.md",
+    "line": 17,
+    "column": 11,
+    "sentence": "#### Open Released",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/finding-the-channel-id.md",
+    "line": 19,
+    "column": 26,
+    "sentence": "Open **Jira** and find **Released** in the Apps section of the left-hand navigation.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/finding-the-channel-id.md",
+    "line": 25,
+    "column": 4,
+    "sentence": "In Released, select the workspace containing the roadmaps, changelogs or forms you want to embed.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/embed-the-portal-in-a-forge-app.md",
+    "line": 3,
+    "column": 59,
+    "sentence": "This guide explains how to properly configure and embed Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/embed-the-portal-in-a-forge-app.md",
+    "line": 11,
+    "column": 1,
+    "sentence": "Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/embed-the-portal-in-a-forge-app.md",
+    "line": 11,
+    "column": 185,
+    "sentence": "This documentation covers the complete setup process for integrating Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/embed-the-portal-in-a-forge-app.md",
+    "line": 16,
+    "column": 5,
+    "sentence": "* A Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/embed-the-portal-in-a-forge-app.md",
+    "line": 17,
+    "column": 18,
+    "sentence": "* Access to your Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/embed-the-portal-in-a-forge-app.md",
+    "line": 23,
+    "column": 5,
+    "sentence": "The Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/embed-the-portal-in-a-forge-app.md",
+    "line": 33,
+    "column": 77,
+    "sentence": "Add the necessary external permissions to your `manifest.yml` file to allow Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/embed-the-portal-in-a-forge-app.md",
+    "line": 176,
+    "column": 86,
+    "sentence": "**Use Specific Domains**: We use `*.released.so` to allow subdomains but limit to Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/embed-the-portal-in-a-forge-app.md",
+    "line": 177,
+    "column": 72,
+    "sentence": "**Avoid Wildcards**: Don't use `*` for all domains - be specific to Released.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/how-to-implement-user-verification.md",
+    "line": 24,
+    "column": 9,
+    "sentence": "Your Released credentials (found in Settings → User Verification):",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/how-to-implement-user-verification.md",
+    "line": 169,
+    "column": 59,
+    "sentence": "Important: Add this URL to your Allowed Domains in the Released dashboard if you have domain restrictions enabled.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/how-tos/how-to-implement-user-verification.md",
+    "line": 186,
+    "column": 128,
+    "sentence": "If you see CORS errors, ensure your ngrok URL is added to the \"Allowed Domains\" list in your Released settings.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/released-description-field.md",
+    "line": 9,
+    "column": 1,
+    "sentence": "Released AI-generates descriptions for your Jira tickets based on their title and internal description.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/widget/using-released-with-framer.md",
+    "line": 5,
+    "column": 9,
+    "sentence": "# Using Released with Framer",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "getting-started/setup-guide/widget/using-released-with-framer.md",
+    "line": 7,
+    "column": 6,
+    "sentence": "With Released and Framer, you can seamlessly embed a widget or announcement page into your website.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/dark-mode-issues.md",
+    "line": 5,
+    "column": 20,
+    "sentence": "# Dark Mode in the Released Page embed",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/dark-mode-issues.md",
+    "line": 9,
+    "column": 1,
+    "sentence": "Released embeds offer three color schemes: `\"light\"`, `\"dark\"`, and `\"system\"` (which is the default).",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/dark-mode-issues.md",
+    "line": 12,
+    "column": 23,
+    "sentence": "### How to update the Released Color Scheme setting",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/dark-mode-issues.md",
+    "line": 14,
+    "column": 48,
+    "sentence": "You can update the color scheme setting in the Released app in the [Page](.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/dark-mode-issues.md",
+    "line": 24,
+    "column": 7,
+    "sentence": "Which Released Color Scheme you choose depends on how your page handles the native browser color-scheme values for your users.",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/dark-mode-issues.md",
+    "line": 43,
+    "column": 34,
+    "sentence": "* The page where you've embedded Released:",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/dark-mode-issues.md",
+    "line": 51,
+    "column": 56,
+    "sentence": "#### When users choose my app's Dark color scheme, the Released Announcement Page header text looks black on a black background",
+    "classification": "review"
+  },
+  {
+    "sourceFile": "resources/troubleshooting/dark-mode-issues.md",
+    "line": 57,
+    "column": 34,
+    "sentence": "* The page where you've embedded Released:",
+    "classification": "review"
+  }
+]

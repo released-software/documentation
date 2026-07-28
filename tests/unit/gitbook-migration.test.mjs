@@ -10,7 +10,10 @@ import { compile } from '@mdx-js/mdx';
 import matter from 'gray-matter';
 
 import { convertGitBookPage } from '../../scripts/lib/gitbook/blocks.mjs';
-import { mapGitBookPath } from '../../scripts/lib/gitbook/paths.mjs';
+import {
+  mapGitBookLink,
+  mapGitBookPath
+} from '../../scripts/lib/gitbook/paths.mjs';
 import { parseSummary } from '../../scripts/lib/gitbook/summary.mjs';
 
 const testDirectory = path.dirname(fileURLToPath(import.meta.url));
@@ -59,6 +62,75 @@ test('maps an ordinary Markdown file to the same MDX slug', () => {
     outputPath: 'src/content/docs/guide/product/changelog/writing-a-post.mdx',
     route: '/guide/product/changelog/writing-a-post/'
   });
+});
+
+test('maps retired local documentation targets to their surviving routes and fragments', () => {
+  const cases = [
+    [
+      '../../../product-tour/settings/widget.md',
+      'getting-started/setup-guide/widget/README.md',
+      '/guide/product-tour/settings/widget-configuration/'
+    ],
+    [
+      '../../../product-tour/settings/announcement-page.md',
+      'getting-started/setup-guide/widget/using-released-with-framer.md',
+      '/guide/product/portals/portal/announcement-page/'
+    ],
+    [
+      '../portals/access.md#internal',
+      'product/administration/trusted-domains.md',
+      '/guide/product/portals/access/#unlock-internal'
+    ],
+    [
+      './#slash-command',
+      'product/changelog/editor/images.md',
+      '/guide/product/changelog/editor/#overview'
+    ],
+    [
+      'framer.md#adding-the-embed-code',
+      'product/integrations/framer.md',
+      '/guide/product/integrations/framer/#1-adding-the-embed-code'
+    ],
+    [
+      '../portals/portal/announcement-page.md#installation',
+      'product/integrations/webflow.md',
+      '/guide/product/portals/portal/announcement-page/#configuration'
+    ],
+    [
+      '../access.md#portal',
+      'product/portals/portal/README.md',
+      '/guide/product/portals/access/#portal-access'
+    ],
+    [
+      'widget.md#attributes',
+      'product/portals/portal/widget.md',
+      '/guide/product/portals/portal/widget/#data-attributes'
+    ],
+    [
+      '../../product/changelog/settings/artificial-intelligence.md#overview',
+      'resources/ai-tips/international-accents.md',
+      '/guide/product/changelog/settings/artificial-intelligence/#configuring-your-ai-settings'
+    ],
+    [
+      '../../workspace/settings/design/announcement-page.md',
+      'resources/troubleshooting/dark-mode-issues.md',
+      '/guide/product/portals/portal/announcement-page/'
+    ],
+    [
+      '../../workspace/settings/design/widget.md',
+      'resources/troubleshooting/dark-mode-issues.md',
+      '/guide/product/portals/portal/widget/'
+    ],
+    [
+      '../../workspace/settings/design/portal.md',
+      'resources/troubleshooting/dark-mode-issues.md',
+      '/guide/product/portals/portal/'
+    ]
+  ];
+
+  for (const [target, sourcePath, expected] of cases) {
+    assert.equal(mapGitBookLink(target, sourcePath), expected);
+  }
 });
 
 test('parses local SUMMARY links in document order and ignores external links', () => {
@@ -536,6 +608,23 @@ description: Link fixture
   assert.match(result.content, /\[External\]\(https:\/\/released\.so\)/);
 });
 
+test('normalizes same-site absolute documentation links to trailing-slash routes', () => {
+  const result = convertGitBookPage(
+    `---
+title: Absolute documentation links
+description: Absolute link fixture
+---
+[Trusted domains](https://docs.released.so/guide/product/administration/trusted-domains)
+`,
+    fixtureContext('product/integrations/confluence-embed.md')
+  );
+
+  assert.match(
+    result.content,
+    /\[Trusted domains\]\(\/guide\/product\/administration\/trusted-domains\/\)/
+  );
+});
+
 test('keeps GitBook details as semantic details and summary elements', () => {
   const result = convertGitBookPage(
     pageFixture('details.md'),
@@ -581,6 +670,24 @@ value
 
   assert.match(result.content, /First<br \/><br \/>Second/);
   assert.match(result.content, /```html\nExample:\n\nvalue\n```/);
+});
+
+test('normalizes GitBook space entities so heading fragments remain stable', () => {
+  const result = convertGitBookPage(
+    `---
+title: Stable heading
+description: Stable heading fixture
+---
+### Wish count field&#x20;
+
+\`literal&#x20;\`
+`,
+    fixtureContext('product/feedback/settings.md')
+  );
+
+  assert.match(result.content, /### Wish count field\s*\n/);
+  assert.doesNotMatch(result.content, /Wish count field&#x20;/);
+  assert.match(result.content, /`literal&#x20;`/);
 });
 
 test('preserves trailing code bytes when converting legacy pre blocks', () => {
@@ -657,6 +764,52 @@ const marker = "{% literal %}";
   assert.equal(packageJson.devDependencies['@mdx-js/mdx'], '3.1.1');
 });
 
+test('migration manifest reads only SUMMARY and preserves exact route strings', (t) => {
+  const sourceRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'gitbook-manifest-'));
+  t.after(() => fs.rmSync(sourceRoot, { recursive: true, force: true }));
+  fs.writeFileSync(
+    path.join(sourceRoot, 'SUMMARY.md'),
+    [
+      '* [Overview](README.md)',
+      '* [Nested overview](nested/README.md)',
+      '* [Encoded page](resources/check%20list.md)',
+      '* [External](https://example.com/docs)',
+      ''
+    ].join('\n')
+  );
+
+  const manifestPath = path.join(sourceRoot, 'legacy-routes.json');
+  const result = spawnSync(
+    process.execPath,
+    [
+      path.join(repositoryRoot, 'scripts', 'migrate-gitbook.mjs'),
+      '--source',
+      '.',
+      '--manifest',
+      'legacy-routes.json'
+    ],
+    { cwd: sourceRoot, encoding: 'utf8' }
+  );
+
+  assert.equal(result.status, 0, result.stderr);
+  assert.deepEqual(
+    JSON.parse(fs.readFileSync(manifestPath, 'utf8')),
+    [
+      '/guide/',
+      '/guide/nested/',
+      '/guide/resources/check%20list/'
+    ]
+  );
+  assert.equal(
+    fs.existsSync(path.join(sourceRoot, 'src/content/docs/guide')),
+    false
+  );
+  assert.equal(
+    fs.existsSync(path.join(sourceRoot, 'reports/hub-brand-review.json')),
+    false
+  );
+});
+
 test('migration CLI is deterministic, checkable, and emits a brand review', (t) => {
   const sourceRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'gitbook-migrate-'));
   t.after(() => fs.rmSync(sourceRoot, { recursive: true, force: true }));
@@ -676,7 +829,12 @@ Released helps teams publish updates.
   );
   fs.writeFileSync(
     path.join(sourceRoot, 'extra.md'),
-    '# Extra\n\nExtra fixture page.\n'
+    `# Extra
+
+{% hint style="info" %}
+Extra fixture page.
+{% endhint %}
+`
   );
 
   const run = (extraArguments = []) =>
@@ -713,14 +871,49 @@ Released helps teams publish updates.
     {
       sourceFile: 'README.md',
       line: 6,
+      column: 1,
       sentence: 'Released helps teams publish updates.',
       classification: 'review'
     }
   ]);
+  const migrationSummary = JSON.parse(
+    fs.readFileSync(
+      path.join(sourceRoot, 'reports/hub-migration-summary.json'),
+      'utf8'
+    )
+  );
+  assert.equal(migrationSummary.sourcePageCount, 2);
+  assert.equal(migrationSummary.outputPageCount, 2);
+  assert.equal(migrationSummary.referencedAssetCount, 0);
+  assert.equal(migrationSummary.convertedConstructCounts.neutralCallouts, 1);
+  assert.equal(migrationSummary.droppedConstructCount, 0);
+  assert.deepEqual(migrationSummary.genericEmbedReviewWarnings, []);
+  assert.deepEqual(migrationSummary.representativeContentReviews, []);
+
+  review[0].classification = 'change display copy to Hub';
+  review[0].replacement = 'Hub';
+  fs.writeFileSync(
+    path.join(sourceRoot, 'reports/hub-brand-review.json'),
+    `${JSON.stringify(review, null, 2)}\n`
+  );
+
+  const branded = run();
+  assert.equal(branded.status, 0, branded.stderr);
+  const brandedOutput = fs.readFileSync(outputPath, 'utf8');
+  assert.match(brandedOutput, /Hub helps teams/);
+  assert.deepEqual(
+    JSON.parse(
+      fs.readFileSync(
+        path.join(sourceRoot, 'reports/hub-brand-review.json'),
+        'utf8'
+      )
+    ),
+    review
+  );
 
   const second = run();
   assert.equal(second.status, 0, second.stderr);
-  assert.equal(fs.readFileSync(outputPath, 'utf8'), firstOutput);
+  assert.equal(fs.readFileSync(outputPath, 'utf8'), brandedOutput);
 
   const check = run(['--check']);
   assert.equal(check.status, 0, check.stderr);
@@ -736,6 +929,57 @@ Released helps teams publish updates.
     orphanCheck.stderr,
     /src\/content\/docs\/guide\/extra\.mdx:1 Unexpected generated GitBook output/
   );
+});
+
+test('brand decisions classify and replay individual occurrences in a mixed sentence', (t) => {
+  const sourceRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'gitbook-brand-'));
+  t.after(() => fs.rmSync(sourceRoot, { recursive: true, force: true }));
+  fs.writeFileSync(
+    path.join(sourceRoot, 'SUMMARY.md'),
+    '* [Overview](README.md)\n'
+  );
+  fs.writeFileSync(
+    path.join(sourceRoot, 'README.md'),
+    '# Overview\n\nMessages are posted by the Released bot and answered in Released.\n'
+  );
+
+  const run = () =>
+    spawnSync(
+      process.execPath,
+      [
+        path.join(repositoryRoot, 'scripts', 'migrate-gitbook.mjs'),
+        '--source',
+        '.',
+        '--output',
+        'src/content/docs/guide'
+      ],
+      { cwd: sourceRoot, encoding: 'utf8' }
+    );
+
+  const first = run();
+  assert.equal(first.status, 0, first.stderr);
+  const reportPath = path.join(sourceRoot, 'reports/hub-brand-review.json');
+  const review = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+  assert.deepEqual(
+    review.map(({ column, classification }) => ({ column, classification })),
+    [
+      { column: 28, classification: 'review' },
+      { column: 57, classification: 'review' }
+    ]
+  );
+
+  review[0].classification = 'retain product/marketplace name';
+  review[1].classification = 'change display copy to Hub';
+  review[1].replacement = 'Hub';
+  fs.writeFileSync(reportPath, `${JSON.stringify(review, null, 2)}\n`);
+
+  const second = run();
+  assert.equal(second.status, 0, second.stderr);
+  const output = fs.readFileSync(
+    path.join(sourceRoot, 'src/content/docs/guide/index.mdx'),
+    'utf8'
+  );
+  assert.match(output, /Messages are posted by the Released bot and answered in Hub\./);
 });
 
 test('migration check rejects orphaned Hub media inside a dot-directory', (t) => {
