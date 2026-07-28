@@ -68,6 +68,7 @@ test('an empty query has no suggestions, loading state, or result divider', asyn
   const state = page.locator('[data-search-state]');
   const results = page.locator('[data-search-results]');
   await expect(state).toBeEmpty();
+  await expect(state).toHaveCSS('display', 'none');
   await expect(results).toBeEmpty();
   await expect(results).toHaveCSS('display', 'none');
   await expect(page.getByText('Suggested sections in All documentation')).toHaveCount(0);
@@ -78,6 +79,56 @@ test('an empty query has no suggestions, loading state, or result divider', asyn
   await input.fill('');
   await expect(results).toBeEmpty();
   await expect(results).toHaveAttribute('aria-busy', 'false');
+});
+
+test('an initially empty busy owner stays exposed without changing layout', async ({
+  page
+}) => {
+  await page.goto('/');
+  await openSearch(page);
+  await page.clock.install();
+
+  const dialog = page.getByRole('dialog', { name: 'Search documentation' });
+  const input = page.getByRole('searchbox', { name: 'Search documentation' });
+  const results = page.locator('[data-search-results]');
+  const emptyDialogHeight = await dialog.evaluate(
+    (element) => element.getBoundingClientRect().height
+  );
+
+  const initialBusyState = await input.evaluate((element) => {
+    if (!(element instanceof HTMLInputElement)) {
+      throw new Error('Search input is missing');
+    }
+    element.value = 'Jira';
+    element.dispatchEvent(new Event('input', { bubbles: true }));
+
+    const dialog = document.querySelector<HTMLDialogElement>('dialog');
+    const results = document.querySelector<HTMLElement>('[data-search-results]');
+    if (!dialog || !results) throw new Error('Search dialog is missing');
+
+    const styles = getComputedStyle(results);
+    const bounds = results.getBoundingClientRect();
+    return {
+      ariaBusy: results.getAttribute('aria-busy'),
+      childCount: results.childElementCount,
+      display: styles.display,
+      borderTopWidth: styles.borderTopWidth,
+      height: bounds.height,
+      width: bounds.width,
+      dialogHeight: dialog.getBoundingClientRect().height
+    };
+  });
+
+  expect(initialBusyState.ariaBusy).toBe('true');
+  expect(initialBusyState.childCount).toBe(0);
+  expect(initialBusyState.display).not.toBe('none');
+  expect(initialBusyState.borderTopWidth).toBe('0px');
+  expect(initialBusyState.height).toBeLessThanOrEqual(1);
+  expect(initialBusyState.width).toBeLessThanOrEqual(1);
+  expect(initialBusyState.dialogHeight).toBe(emptyDialogHeight);
+
+  await page.clock.fastForward(150);
+  await expect(results.locator('a').first()).toBeVisible();
 });
 
 test('typing keeps completed results visible until the latest search replaces them', async ({
@@ -99,6 +150,7 @@ test('typing keeps completed results visible until the latest search replaces th
   await expect(page.getByText('Loading search…')).toHaveCount(0);
   await expect(results).toHaveAttribute('aria-busy', 'false');
   await expect(results.locator('a').first()).toBeVisible();
+  expect(await results.locator('a').first().innerText()).not.toBe(previousFirstResult);
 });
 
 test('closing synchronously cancels a pending debounced search', async ({ page }) => {

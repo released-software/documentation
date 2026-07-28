@@ -292,6 +292,10 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
       color: var(--released-ink-muted);
     }
 
+    [data-search-state]:empty {
+      display: none;
+    }
+
     [data-search-state] :global(p) {
       margin: 0;
     }
@@ -311,6 +315,19 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
 
     [data-search-results]:empty {
       display: none;
+    }
+
+    [data-search-results]:empty[aria-busy='true'] {
+      position: absolute;
+      display: block;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     [data-search-results] :global(li) {
