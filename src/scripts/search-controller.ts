@@ -5,6 +5,8 @@ export type SearchScope = SpaceId | 'all';
 export interface SearchControllerOptions {
   initialScope: SearchScope;
   pagefindBaseUrl?: string;
+  searchAvailable?: boolean;
+  searchUnavailableMessage?: string;
 }
 
 export interface SearchResult {
@@ -56,6 +58,8 @@ export class SearchController {
   private readonly state: HTMLElement;
   private readonly results: HTMLElement;
   private readonly pagefindBaseUrl: string;
+  private readonly searchAvailable: boolean;
+  private readonly searchUnavailableMessage: string;
   private scope: SearchScope;
   private pagefind?: PagefindApi;
   private pagefindPromise?: Promise<PagefindApi>;
@@ -75,6 +79,9 @@ export class SearchController {
     this.state = this.required('[data-search-state]');
     this.results = this.required('[data-search-results]');
     this.pagefindBaseUrl = options.pagefindBaseUrl ?? '/pagefind/';
+    this.searchAvailable = options.searchAvailable ?? true;
+    this.searchUnavailableMessage =
+      options.searchUnavailableMessage ?? 'Search is unavailable.';
     this.scope = options.initialScope;
 
     this.scopeSelect.value = this.scope;
@@ -186,6 +193,11 @@ export class SearchController {
   private async runSearch() {
     const currentRequest = ++this.requestId;
     this.results.replaceChildren();
+
+    if (!this.searchAvailable) {
+      this.setStateText(this.searchUnavailableMessage);
+      return;
+    }
 
     if (!this.scopeIsSearchable()) {
       this.renderUnavailable();

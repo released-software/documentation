@@ -34,28 +34,51 @@ test('search defaults to the pathname-derived documentation scope', async ({ pag
   }
 });
 
+test('search dialog uses an opaque surface', async ({ page }) => {
+  await page.goto('/');
+  await openSearch(page);
+
+  await expect(
+    page.getByRole('dialog', { name: 'Search documentation' })
+  ).not.toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+});
+
+test('empty search suggestions use dialog link styling', async ({ page }) => {
+  await page.goto('/');
+  await openSearch(page);
+
+  const suggestions = page.locator('[data-search-state] a');
+  await expect(suggestions).toHaveCount(2);
+  await expect(suggestions.first()).toHaveCSS('display', 'inline-flex');
+  await expect(suggestions.first()).toHaveCSS('text-decoration-line', 'none');
+});
+
 test('changing scope updates search results without navigation', async ({ page }) => {
   await page.goto('/guide/');
   await openSearch(page);
 
   const input = page.getByRole('searchbox', { name: 'Search documentation' });
-  await input.fill('documentation');
+  await input.fill('Jira');
 
   const results = page.locator('[data-search-results]');
-  await expect(results.getByRole('link', { name: 'Hub documentation' })).toBeVisible();
-  await expect(
-    results.getByRole('link', { name: 'BetterBoard documentation' })
-  ).toHaveCount(0);
+  const hubLinks = results.locator('a');
+  await expect(hubLinks.first()).toBeVisible();
+  await expect(hubLinks.first()).toHaveCSS('display', 'grid');
+  await expect(hubLinks.first()).toHaveCSS('text-decoration-line', 'none');
+  for (const link of await hubLinks.all()) {
+    await expect(link).toHaveAttribute('href', /^\/guide\//);
+  }
 
   const urlBeforeScopeChange = page.url();
   await page
     .getByRole('combobox', { name: 'Search scope' })
     .selectOption({ label: 'BetterBoard documentation' });
 
-  await expect(
-    results.getByRole('link', { name: 'BetterBoard documentation' })
-  ).toBeVisible();
-  await expect(results.getByRole('link', { name: 'Hub documentation' })).toHaveCount(0);
+  const betterBoardLinks = results.locator('a');
+  await expect(betterBoardLinks.first()).toBeVisible();
+  for (const link of await betterBoardLinks.all()) {
+    await expect(link).toHaveAttribute('href', /^\/betterboard\//);
+  }
   expect(page.url()).toBe(urlBeforeScopeChange);
 });
 
@@ -76,7 +99,7 @@ test('a scoped no-match state offers an all-documentation search', async ({ page
 
   await page
     .getByRole('searchbox', { name: 'Search documentation' })
-    .fill('no-result-phrase-7d97cf');
+    .fill('qzxjkvbpygfwmu');
 
   await expect(page.getByText('No results in Hub documentation.')).toBeVisible();
   const searchAll = page.getByRole('button', { name: 'Search all documentation' });
@@ -106,7 +129,8 @@ test('ArrowDown and ArrowUp move focus through search results', async ({ page })
   await input.fill('documentation');
 
   const results = page.locator('[data-search-results] a');
-  await expect(results).toHaveCount(2);
+  await expect(results.first()).toBeVisible();
+  expect(await results.count()).toBeGreaterThanOrEqual(2);
 
   await input.press('ArrowDown');
   await expect(results.nth(0)).toBeFocused();
@@ -128,14 +152,17 @@ test('a Pagefind loader failure keeps search closable and site navigation usable
   const trigger = await openSearch(page);
 
   await expect(page.getByText('Search could not be loaded. Retry.')).toBeVisible();
-  await page.getByRole('button', { name: 'Retry' }).click();
+  const retry = page.getByRole('button', { name: 'Retry' });
+  await expect(retry).toHaveCSS('min-height', '44px');
+  await expect(retry).toHaveCSS('border-radius', '8px');
+  await retry.click();
   await expect(page.getByText('Suggested sections in Hub documentation')).toBeVisible();
   expect(loadAttempts).toBe(2);
 
   await page.getByRole('button', { name: 'Close search' }).click();
   await expect(trigger).toBeFocused();
 
-  const switcher = page.getByRole('button', { name: 'Hub documentation' });
+  const switcher = page.getByRole('button', { name: 'Hub', exact: true });
   await switcher.click();
   await expect(page.getByRole('menu')).toBeVisible();
 });

@@ -4,7 +4,13 @@ import { getSpaceFromPath, spaces } from '../../data/spaces';
 const initialScope = getSpaceFromPath(Astro.url.pathname);
 ---
 
-<site-search class={Astro.props.class} data-scoped-search data-initial-scope={initialScope}>
+<site-search
+  class={Astro.props.class}
+  data-scoped-search
+  data-initial-scope={initialScope}
+  data-search-available={String(!import.meta.env.DEV)}
+  data-search-unavailable-message={Astro.locals.t('search.devWarning')}
+>
   <button
     aria-keyshortcuts="Control+K"
     aria-label="Search documentation"
@@ -79,7 +85,9 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
 
   for (const root of document.querySelectorAll<HTMLElement>('[data-scoped-search]')) {
     new SearchController(root, {
-      initialScope: root.dataset.initialScope as SearchScope
+      initialScope: root.dataset.initialScope as SearchScope,
+      searchAvailable: root.dataset.searchAvailable !== 'false',
+      searchUnavailableMessage: root.dataset.searchUnavailableMessage
     });
   }
 </script>
@@ -150,7 +158,7 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
       padding: 0;
       border: 1px solid var(--released-line);
       color: var(--released-ink);
-      background: var(--released-surface);
+      background: var(--released-bg);
       box-shadow: var(--sl-shadow-lg);
     }
 
@@ -192,12 +200,12 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
     select,
     input,
     button[data-close-search],
-    [data-search-state] button {
+    [data-search-state] :global(button) {
       min-height: 2.75rem;
       border: 1px solid var(--released-line);
       border-radius: var(--released-radius-sm);
       color: var(--released-ink);
-      background: var(--released-surface);
+      background: var(--released-bg);
       font: inherit;
     }
 
@@ -208,7 +216,7 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
     }
 
     button[data-close-search],
-    [data-search-state] button {
+    [data-search-state] :global(button) {
       padding-inline: 0.875rem;
       cursor: pointer;
     }
@@ -235,8 +243,10 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
     select:focus-visible,
     input:focus-visible,
     button:focus-visible,
-    [data-search-results] a:focus-visible {
-      outline: 2px solid var(--released-focus);
+    [data-search-state] :global(button:focus-visible),
+    [data-search-state] :global(a:focus-visible),
+    [data-search-results] :global(a:focus-visible) {
+      outline: 2px solid var(--released-ink);
       outline-offset: 2px;
     }
 
@@ -244,18 +254,37 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
       color: var(--released-ink-muted);
     }
 
-    [data-search-state] p {
+    [data-search-state] :global(p) {
       margin: 0;
     }
 
-    [data-search-state] ul {
+    [data-search-state] :global(ul) {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
       padding: 0;
       list-style: none;
     }
 
-    [data-search-state] button {
+    [data-search-state] :global(a) {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.5rem;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--released-line);
+      border-radius: var(--released-radius-sm);
+      color: var(--released-ink);
+      background: var(--released-bg-raised);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    [data-search-state] :global(a:hover) {
+      border-color: var(--released-line-strong);
+      background: var(--released-bg-card);
+    }
+
+    [data-search-state] :global(button) {
       margin-block-start: 0.75rem;
     }
 
@@ -268,11 +297,11 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
       list-style: none;
     }
 
-    [data-search-results] li {
+    [data-search-results] :global(li) {
       border-bottom: 1px solid var(--released-line);
     }
 
-    [data-search-results] a {
+    [data-search-results] :global(a) {
       display: grid;
       gap: 0.35rem;
       padding: 1rem 0.25rem;
@@ -280,16 +309,16 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
       text-decoration: none;
     }
 
-    [data-search-results] a:hover span {
+    [data-search-results] :global(a:hover span) {
       text-decoration: underline;
       text-underline-offset: 0.2em;
     }
 
-    [data-search-results] span {
+    [data-search-results] :global(span) {
       font-weight: 600;
     }
 
-    [data-search-results] p {
+    [data-search-results] :global(p) {
       margin: 0;
       color: var(--released-ink-muted);
       font-size: var(--sl-text-sm);
