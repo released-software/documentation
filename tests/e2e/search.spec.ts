@@ -43,14 +43,41 @@ test('search dialog uses an opaque surface', async ({ page }) => {
   ).not.toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
 });
 
-test('empty search suggestions use dialog link styling', async ({ page }) => {
+test('search scope uses the custom chevron and restrained keyboard focus', async ({
+  page
+}) => {
   await page.goto('/');
   await openSearch(page);
 
-  const suggestions = page.locator('[data-search-state] a');
-  await expect(suggestions).toHaveCount(2);
-  await expect(suggestions.first()).toHaveCSS('display', 'inline-flex');
-  await expect(suggestions.first()).toHaveCSS('text-decoration-line', 'none');
+  const scope = page.getByRole('combobox', { name: 'Search scope' });
+  await expect(scope).toHaveCSS('appearance', 'none');
+  await expect(page.locator('[data-search-scope-chevron]')).toBeVisible();
+
+  await scope.focus();
+  await expect(scope).toHaveCSS('outline-style', 'none');
+  await expect(scope).not.toHaveCSS('box-shadow', 'none');
+});
+
+test('an empty query has no suggestions, loading state, or result divider', async ({
+  page
+}) => {
+  await page.goto('/');
+  await openSearch(page);
+
+  const input = page.getByRole('searchbox', { name: 'Search documentation' });
+  const state = page.locator('[data-search-state]');
+  const results = page.locator('[data-search-results]');
+  await expect(state).toBeEmpty();
+  await expect(results).toBeEmpty();
+  await expect(results).toHaveCSS('display', 'none');
+  await expect(page.getByText('Suggested sections in All documentation')).toHaveCount(0);
+  await expect(page.getByText('Loading search…')).toHaveCount(0);
+
+  await input.fill('Jira');
+  await expect(results.locator('a').first()).toBeVisible();
+  await input.fill('');
+  await expect(results).toBeEmpty();
+  await expect(results).toHaveAttribute('aria-busy', 'false');
 });
 
 test('changing scope updates search results without navigation', async ({ page }) => {
@@ -151,12 +178,14 @@ test('a Pagefind loader failure keeps search closable and site navigation usable
   await page.goto('/guide/');
   const trigger = await openSearch(page);
 
+  const input = page.getByRole('searchbox', { name: 'Search documentation' });
+  await input.fill('Jira');
   await expect(page.getByText('Search could not be loaded. Retry.')).toBeVisible();
   const retry = page.getByRole('button', { name: 'Retry' });
   await expect(retry).toHaveCSS('min-height', '44px');
   await expect(retry).toHaveCSS('border-radius', '8px');
   await retry.click();
-  await expect(page.getByText('Suggested sections in Hub documentation')).toBeVisible();
+  await expect(page.locator('[data-search-results] a').first()).toBeVisible();
   expect(loadAttempts).toBe(2);
 
   await page.getByRole('button', { name: 'Close search' }).click();

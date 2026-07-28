@@ -204,6 +204,12 @@ export class SearchController {
       return;
     }
 
+    const query = this.input.value.trim();
+    if (!query) {
+      this.renderEmpty();
+      return;
+    }
+
     this.renderLoading();
 
     let pagefind: PagefindApi;
@@ -215,12 +221,6 @@ export class SearchController {
     }
 
     if (currentRequest !== this.requestId) return;
-
-    const query = this.input.value.trim();
-    if (!query) {
-      this.renderSuggestions();
-      return;
-    }
 
     try {
       const filters = this.scope === 'all' ? undefined : { space: this.scope };
@@ -259,35 +259,10 @@ export class SearchController {
     this.setStateText('Loading search…');
   }
 
-  private renderSuggestions() {
+  private renderEmpty() {
     this.state.replaceChildren();
-    const heading = document.createElement('p');
-    heading.textContent = `Suggested sections in ${this.scopeLabel()}`;
-    const list = document.createElement('ul');
-
-    const suggestions =
-      this.scope === 'all'
-        ? [
-            { href: '/guide/', label: 'Hub documentation' },
-            { href: '/betterboard/', label: 'BetterBoard documentation' }
-          ]
-        : [
-            {
-              href: this.scope === 'betterboard' ? '/betterboard/' : '/guide/',
-              label: this.scopeLabel()
-            }
-          ];
-
-    for (const suggestion of suggestions) {
-      const item = document.createElement('li');
-      const link = document.createElement('a');
-      link.href = suggestion.href;
-      link.textContent = suggestion.label;
-      item.append(link);
-      list.append(item);
-    }
-
-    this.state.append(heading, list);
+    this.results.replaceChildren();
+    this.results.setAttribute('aria-busy', 'false');
   }
 
   private renderUnavailable() {

@@ -36,16 +36,28 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
       <div class="search-toolbar">
         <label>
           <span>Search scope</span>
-          <select data-search-scope>
-            <option value="all">All documentation</option>
-            {
-              spaces.map((space) => (
-                <option disabled={!space.searchIndexed} value={space.id}>
-                  {space.name}
-                </option>
-              ))
-            }
-          </select>
+          <span class="search-scope-select">
+            <select data-search-scope>
+              <option value="all">All documentation</option>
+              {
+                spaces.map((space) => (
+                  <option disabled={!space.searchIndexed} value={space.id}>
+                    {space.name}
+                  </option>
+                ))
+              }
+            </select>
+            <svg aria-hidden="true" data-search-scope-chevron viewBox="0 0 16 16">
+              <path
+                d="m4 6 4 4 4-4"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              ></path>
+            </svg>
+          </span>
         </label>
         <button aria-label="Close search" data-close-search type="button">Close</button>
       </div>
@@ -215,6 +227,33 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
       padding-inline: 0.75rem;
     }
 
+    .search-scope-select {
+      position: relative;
+      display: block;
+    }
+
+    .search-scope-select select {
+      appearance: none;
+      padding-inline: 0.75rem 2.5rem;
+    }
+
+    .search-scope-select svg {
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-end: 0.875rem;
+      width: 1rem;
+      transform: translateY(-50%);
+      color: var(--released-ink-muted);
+      pointer-events: none;
+    }
+
+    select:focus,
+    select:focus-visible {
+      outline: none !important;
+      border-color: var(--released-line-strong);
+      box-shadow: 0 0 0 3px var(--released-bg-card);
+    }
+
     button[data-close-search],
     [data-search-state] :global(button) {
       padding-inline: 0.875rem;
@@ -240,7 +279,6 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
       font-size: var(--sl-text-lg);
     }
 
-    select:focus-visible,
     input:focus-visible,
     button:focus-visible,
     [data-search-state] :global(button:focus-visible),
@@ -258,32 +296,6 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
       margin: 0;
     }
 
-    [data-search-state] :global(ul) {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      padding: 0;
-      list-style: none;
-    }
-
-    [data-search-state] :global(a) {
-      display: inline-flex;
-      align-items: center;
-      min-height: 2.5rem;
-      padding: 0.5rem 0.75rem;
-      border: 1px solid var(--released-line);
-      border-radius: var(--released-radius-sm);
-      color: var(--released-ink);
-      background: var(--released-bg-raised);
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    [data-search-state] :global(a:hover) {
-      border-color: var(--released-line-strong);
-      background: var(--released-bg-card);
-    }
-
     [data-search-state] :global(button) {
       margin-block-start: 0.75rem;
     }
@@ -295,6 +307,10 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
       padding: 0;
       border-top: 1px solid var(--released-line);
       list-style: none;
+    }
+
+    [data-search-results]:empty {
+      display: none;
     }
 
     [data-search-results] :global(li) {
@@ -369,7 +385,6 @@ const initialScope = getSpaceFromPath(Astro.url.pathname);
         width: 90%;
         max-width: 42rem;
         height: max-content;
-        min-height: 18rem;
         max-height: calc(100% - 8rem);
         margin: 4rem auto auto;
         border-radius: var(--released-radius-md);
