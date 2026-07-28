@@ -80,6 +80,27 @@ test('an empty query has no suggestions, loading state, or result divider', asyn
   await expect(results).toHaveAttribute('aria-busy', 'false');
 });
 
+test('typing keeps completed results visible until the latest search replaces them', async ({
+  page
+}) => {
+  await page.goto('/');
+  await openSearch(page);
+
+  const input = page.getByRole('searchbox', { name: 'Search documentation' });
+  const results = page.locator('[data-search-results]');
+  await input.fill('Jira');
+  await expect(results.locator('a').first()).toBeVisible();
+  const previousFirstResult = await results.locator('a').first().innerText();
+
+  await input.fill('Board');
+
+  expect(await results.locator('a').first().innerText()).toBe(previousFirstResult);
+  await expect(results).toHaveAttribute('aria-busy', 'true');
+  await expect(page.getByText('Loading search…')).toHaveCount(0);
+  await expect(results).toHaveAttribute('aria-busy', 'false');
+  await expect(results.locator('a').first()).toBeVisible();
+});
+
 test('changing scope updates search results without navigation', async ({ page }) => {
   await page.goto('/guide/');
   await openSearch(page);
@@ -101,6 +122,7 @@ test('changing scope updates search results without navigation', async ({ page }
     .getByRole('combobox', { name: 'Search scope' })
     .selectOption({ label: 'BetterBoard documentation' });
 
+  await expect(results).toHaveAttribute('aria-busy', 'false');
   const betterBoardLinks = results.locator('a');
   await expect(betterBoardLinks.first()).toBeVisible();
   for (const link of await betterBoardLinks.all()) {

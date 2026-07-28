@@ -36,6 +36,7 @@ interface PagefindApi {
   ): Promise<PagefindResponse>;
 }
 
+const SEARCH_DEBOUNCE_MS = 150;
 const knownSpaces = new Set<SpaceId>(['hub', 'betterboard', 'partners']);
 
 function isSpaceId(value: string | undefined): value is SpaceId {
@@ -65,6 +66,7 @@ export class SearchController {
   private pagefindPromise?: Promise<PagefindApi>;
   private loadAttempt = 0;
   private requestId = 0;
+  private searchTimer?: number;
 
   constructor(
     private readonly root: HTMLElement,
@@ -99,6 +101,9 @@ export class SearchController {
     this.trigger.addEventListener('click', () => this.open());
     this.closeButton.addEventListener('click', () => this.close());
     this.dialog.addEventListener('close', () => {
+      this.cancelPendingSearch();
+      this.requestId += 1;
+      this.setSearchBusy(false);
       document.body.toggleAttribute('data-search-modal-open', false);
       this.scopeAnnouncement.textContent = '';
       this.trigger.focus();
@@ -106,7 +111,7 @@ export class SearchController {
     this.dialog.addEventListener('click', (event) => {
       if (event.target === this.dialog) this.close();
     });
-    this.input.addEventListener('input', () => void this.runSearch());
+    this.input.addEventListener('input', () => this.scheduleSearch(true));
     this.input.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
         const links = this.resultLinks();
@@ -121,7 +126,7 @@ export class SearchController {
     this.scopeSelect.addEventListener('change', () => {
       this.scope = this.scopeSelect.value as SearchScope;
       this.announceScope();
-      void this.runSearch();
+      this.scheduleSearch(false);
     });
     this.state.addEventListener('click', (event) => {
       const target = event.target;
@@ -131,12 +136,12 @@ export class SearchController {
         this.scope = 'all';
         this.scopeSelect.value = 'all';
         this.announceScope();
-        void this.runSearch();
+        this.scheduleSearch(false);
       } else if (target.matches('[data-retry-search]')) {
         this.pagefind = undefined;
         this.pagefindPromise = undefined;
         this.loadAttempt += 1;
-        void this.runSearch();
+        this.scheduleSearch(false);
       }
     });
     window.addEventListener('keydown', (event) => {
@@ -152,7 +157,7 @@ export class SearchController {
     document.body.toggleAttribute('data-search-modal-open', true);
     this.announceScope();
     this.input.focus();
-    void this.runSearch();
+    this.scheduleSearch(false);
   }
 
   private close() {
@@ -190,33 +195,63 @@ export class SearchController {
     return this.pagefind;
   }
 
-  private async runSearch() {
+  private scheduleSearch(debounce: boolean) {
+    this.cancelPendingSearch();
     const currentRequest = ++this.requestId;
-    this.results.replaceChildren();
+    const query = this.input.value.trim();
 
     if (!this.searchAvailable) {
+      this.results.replaceChildren();
+      this.setSearchBusy(false);
       this.setStateText(this.searchUnavailableMessage);
       return;
     }
 
-    if (!this.scopeIsSearchable()) {
-      this.renderUnavailable();
-      return;
-    }
-
-    const query = this.input.value.trim();
     if (!query) {
       this.renderEmpty();
       return;
     }
 
-    this.renderLoading();
+    this.setSearchBusy(true);
+    const run = () => {
+      this.searchTimer = undefined;
+      void this.runSearch(currentRequest, query);
+    };
+
+    if (debounce) {
+      this.searchTimer = window.setTimeout(run, SEARCH_DEBOUNCE_MS);
+    } else {
+      run();
+    }
+  }
+
+  private cancelPendingSearch() {
+    if (this.searchTimer === undefined) return;
+    window.clearTimeout(this.searchTimer);
+    this.searchTimer = undefined;
+  }
+
+  private setSearchBusy(busy: boolean) {
+    this.results.setAttribute('aria-busy', String(busy));
+  }
+
+  private async runSearch(currentRequest: number, query: string) {
+    if (currentRequest !== this.requestId) return;
+
+    if (!this.scopeIsSearchable()) {
+      this.renderUnavailable();
+      this.setSearchBusy(false);
+      return;
+    }
 
     let pagefind: PagefindApi;
     try {
       pagefind = await this.loadPagefind();
     } catch {
-      if (currentRequest === this.requestId) this.renderFailure();
+      if (currentRequest === this.requestId) {
+        this.renderFailure();
+        this.setSearchBusy(false);
+      }
       return;
     }
 
@@ -234,12 +269,17 @@ export class SearchController {
       if (currentRequest !== this.requestId) return;
       if (results.length === 0) {
         this.renderNoResults();
+        this.setSearchBusy(false);
         return;
       }
 
       this.renderResults(results);
+      this.setSearchBusy(false);
     } catch {
-      if (currentRequest === this.requestId) this.renderFailure();
+      if (currentRequest === this.requestId) {
+        this.renderFailure();
+        this.setSearchBusy(false);
+      }
     }
   }
 
@@ -255,18 +295,15 @@ export class SearchController {
     };
   }
 
-  private renderLoading() {
-    this.setStateText('Loading search…');
-  }
-
   private renderEmpty() {
     this.state.replaceChildren();
     this.results.replaceChildren();
-    this.results.setAttribute('aria-busy', 'false');
+    this.setSearchBusy(false);
   }
 
   private renderUnavailable() {
     this.state.replaceChildren();
+    this.results.replaceChildren();
     const message = document.createElement('p');
     message.textContent = `${this.scopeLabel()} search is coming soon.`;
     const button = this.createButton('Search all documentation', 'data-search-all');
@@ -275,6 +312,7 @@ export class SearchController {
 
   private renderNoResults() {
     this.state.replaceChildren();
+    this.results.replaceChildren();
     const message = document.createElement('p');
     message.textContent = `No results in ${this.scopeLabel()}.`;
     this.state.append(message);
@@ -287,6 +325,7 @@ export class SearchController {
 
   private renderFailure() {
     this.state.replaceChildren();
+    this.results.replaceChildren();
     const message = document.createElement('p');
     message.append('Search could not be loaded. ');
     message.append(this.createButton('Retry', 'data-retry-search'));
@@ -296,7 +335,7 @@ export class SearchController {
 
   private renderResults(results: SearchResult[]) {
     this.state.replaceChildren();
-    this.results.replaceChildren();
+    const nextResults = document.createDocumentFragment();
 
     for (const result of results) {
       const item = document.createElement('li');
@@ -310,8 +349,10 @@ export class SearchController {
       excerpt.textContent = result.excerpt;
       link.append(title, excerpt);
       item.append(link);
-      this.results.append(item);
+      nextResults.append(item);
     }
+
+    this.results.replaceChildren(nextResults);
   }
 
   private createButton(label: string, attribute: string) {
