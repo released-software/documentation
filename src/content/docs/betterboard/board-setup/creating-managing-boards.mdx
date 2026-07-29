@@ -1,0 +1,84 @@
+---
+title: Creating and managing boards
+description: >-
+  Create, rename, duplicate, and delete BetterBoard boards within a Jira space.
+  Each space supports multiple boards for different workflows and team members.
+space: betterboard
+sidebar:
+  order: 1
+---
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+Each Jira space can have multiple BetterBoard boards. You might have one for daily standups, one for sprint planning, and a private one for your personal view — all within the same space.
+
+## Creating a board
+
+1.  Open BetterBoard in any Jira space
+2.  Click the board name in the top-left switcher to open the board list
+3.  Click **New board**
+4.  Enter a name and choose visibility (Shared or Private)
+5.  Click **Create** — the board opens immediately with default settings
+
+The new board inherits no settings from existing boards. Start fresh or jump to Settings to configure columns, display fields, and filters.
+
+## The board switcher
+
+The board switcher (top left) lists all boards available to you in the current space — both your private boards and all shared boards.
+
+-   Shared boards are visible to everyone with space access
+-   Private boards show only to you
+-   Drag boards in the switcher to reorder them
+
+Click any board in the switcher to navigate to it instantly.
+
+## Renaming a board
+
+1.  Open the board switcher
+2.  Hover over the board you want to rename
+3.  Click the **Edit** (pencil) icon that appears to the right
+4.  Type the new name and press **Enter**
+
+Board names are visible to everyone who can see the board. Choose names that clearly describe the board's purpose — for example, "Sprint board (current)" or "Triage queue — unassigned".
+
+<NeutralCallout type="note">
+
+You can also rename a board from anywhere using the command palette — press **⌘K** (or **Ctrl+K**) and search for "Rename board". See [Keyboard Shortcuts](/betterboard/work-faster/keyboard-shortcuts/) for more.
+
+</NeutralCallout>
+
+## Duplicating a board
+
+BetterBoard doesn't have a dedicated duplicate button, but you can create a copy by saving your current board's configuration as a new board:
+
+1.  Open the board you want to copy
+2.  Make any configuration changes in **Display** settings (or leave them as-is to get an exact copy)
+3.  Click the dropdown arrow on the right side of the **Save** button
+4.  Choose **Save as a new board**
+5.  Enter a name and choose visibility for the new board
+
+The new board is fully independent — changes to it don't affect the original.
+
+## Deleting a board
+
+1.  Open the board switcher
+2.  Hover over the board you want to delete
+3.  Click the **Delete** (trash) icon that appears to the right
+4.  Confirm deletion
+
+<NeutralCallout type="caution">
+
+Deleting a board is permanent. The board configuration (columns, fields, filters) is removed. Jira work items themselves are not affected.
+
+</NeutralCallout>
+
+## Board limits
+
+There is no hard limit on the number of boards per space. Boards work great with up to 1,000 work items — after that you may notice longer loading times. In practice, teams find that 3–5 boards per space covers most workflows without creating confusion.
+
+Common board setups that work well:
+
+-   **Team standup** — shared, grouped by assignee, filtered to current sprint
+-   **Sprint planning** — shared, grouped by status, no filter (shows the full backlog)
+-   **My work** — private, filtered to "Assignee is Me", grouped by priority
+-   **Triage queue** — shared, filtered to unassigned work items, sorted by creation date

@@ -33,7 +33,7 @@ Choose whether to embed the Changelog, the Roadmap, or both by selecting which m
 
 Add the following code snippet to the `<head>` section of your site.
 
-```markup
+```html
 <script src="https://embed.released.so/1/embed.js" defer></script>
 ```
 {% endstep %}
@@ -43,7 +43,7 @@ Add the following code snippet to the `<head>` section of your site.
 
 Add the following code snippet to the `<body>` section of your site. Unlike the widget, the page content renders where you position the element. Ensure you replace the `CHANNEL_ID` attribute.
 
-```markup
+```html
 <released-page channel-id="CHANNEL_ID"></released-page>
 ```
 
@@ -65,7 +65,7 @@ To notify users about the availability of a new post, you can enhance the user e
 
 Add the following code snippet to the `<body>` section of your site where you want the badge to render.
 
-```markup
+```html
 <released-badge channel-id="CHANNEL_ID"></released-badge>
 ```
 {% endstep %}

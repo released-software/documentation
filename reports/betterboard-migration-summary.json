@@ -1,0 +1,187 @@
+{
+  "sourceRoot": "/Users/jschumacher/Development/Released/betterboard-website",
+  "sourcePages": 21,
+  "generatedPages": 21,
+  "articles": [
+    {
+      "sourceSlug": "overview",
+      "sourcePath": "src/pages/docs/overview/index.astro",
+      "destinationRoute": "/betterboard/start/overview/",
+      "title": "Overview",
+      "imageCount": 0,
+      "internalLinkCount": 3,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "installation",
+      "sourcePath": "src/pages/docs/installation/index.astro",
+      "destinationRoute": "/betterboard/start/installation/",
+      "title": "Installation",
+      "imageCount": 0,
+      "internalLinkCount": 0,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "quick-start",
+      "sourcePath": "src/pages/docs/quick-start/index.astro",
+      "destinationRoute": "/betterboard/start/quick-start/",
+      "title": "Quick start",
+      "imageCount": 0,
+      "internalLinkCount": 4,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "faq",
+      "sourcePath": "src/pages/docs/faq/index.astro",
+      "destinationRoute": "/betterboard/start/faq/",
+      "title": "FAQ",
+      "imageCount": 0,
+      "internalLinkCount": 0,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "creating-managing-boards",
+      "sourcePath": "src/pages/docs/creating-managing-boards/index.astro",
+      "destinationRoute": "/betterboard/board-setup/creating-managing-boards/",
+      "title": "Creating and managing boards",
+      "imageCount": 0,
+      "internalLinkCount": 1,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "multi-space-boards",
+      "sourcePath": "src/pages/docs/multi-space-boards/index.astro",
+      "destinationRoute": "/betterboard/board-setup/multi-space-boards/",
+      "title": "Multi-space boards",
+      "imageCount": 0,
+      "internalLinkCount": 1,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "global-board-directory",
+      "sourcePath": "src/pages/docs/global-board-directory/index.astro",
+      "destinationRoute": "/betterboard/board-setup/global-board-directory/",
+      "title": "Global board directory",
+      "imageCount": 0,
+      "internalLinkCount": 0,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "board-visibility",
+      "sourcePath": "src/pages/docs/board-visibility/index.astro",
+      "destinationRoute": "/betterboard/board-setup/board-visibility/",
+      "title": "Board visibility",
+      "imageCount": 0,
+      "internalLinkCount": 1,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "columns-grouping",
+      "sourcePath": "src/pages/docs/columns-grouping/index.astro",
+      "destinationRoute": "/betterboard/shape-the-board/columns-grouping/",
+      "title": "Columns and grouping",
+      "imageCount": 0,
+      "internalLinkCount": 0,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "status-mapping",
+      "sourcePath": "src/pages/docs/status-mapping/index.astro",
+      "destinationRoute": "/betterboard/shape-the-board/status-mapping/",
+      "title": "Status mapping",
+      "imageCount": 0,
+      "internalLinkCount": 2,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "display-fields",
+      "sourcePath": "src/pages/docs/display-fields/index.astro",
+      "destinationRoute": "/betterboard/shape-the-board/display-fields/",
+      "title": "Display fields",
+      "imageCount": 0,
+      "internalLinkCount": 1,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "field-types",
+      "sourcePath": "src/pages/docs/field-types/index.astro",
+      "destinationRoute": "/betterboard/shape-the-board/field-types/",
+      "title": "Field types",
+      "imageCount": 0,
+      "internalLinkCount": 0,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "card-colors",
+      "sourcePath": "src/pages/docs/card-colors/index.astro",
+      "destinationRoute": "/betterboard/shape-the-board/card-colors/",
+      "title": "Card colors",
+      "imageCount": 1,
+      "internalLinkCount": 6,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "filters-refinement",
+      "sourcePath": "src/pages/docs/filters-refinement/index.astro",
+      "destinationRoute": "/betterboard/work-faster/filters-refinement/",
+      "title": "Filters and refinement",
+      "imageCount": 0,
+      "internalLinkCount": 0,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "filter-operators",
+      "sourcePath": "src/pages/docs/filter-operators/index.astro",
+      "destinationRoute": "/betterboard/work-faster/filter-operators/",
+      "title": "Filter operators",
+      "imageCount": 0,
+      "internalLinkCount": 0,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "sorting-ordering",
+      "sourcePath": "src/pages/docs/sorting-ordering/index.astro",
+      "destinationRoute": "/betterboard/work-faster/sorting-ordering/",
+      "title": "Sorting and ordering",
+      "imageCount": 0,
+      "internalLinkCount": 0,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "drag-and-drop",
+      "sourcePath": "src/pages/docs/drag-and-drop/index.astro",
+      "destinationRoute": "/betterboard/work-faster/drag-and-drop/",
+      "title": "Drag and drop",
+      "imageCount": 0,
+      "internalLinkCount": 0,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "inline-editing",
+      "sourcePath": "src/pages/docs/inline-editing/index.astro",
+      "destinationRoute": "/betterboard/work-faster/inline-editing/",
+      "title": "Inline editing",
+      "imageCount": 0,
+      "internalLinkCount": 1,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "sprint-management",
+      "sourcePath": "src/pages/docs/sprint-management/index.astro",
+      "destinationRoute": "/betterboard/work-faster/sprint-management/",
+      "title": "Sprint management",
+      "imageCount": 0,
+      "internalLinkCount": 0,
+      "reviewStatus": "migrated"
+    },
+    {
+      "sourceSlug": "keyboard-shortcuts",
+      "sourcePath": "src/pages/docs/keyboard-shortcuts/index.astro",
+      "destinationRoute": "/betterboard/work-faster/keyboard-shortcuts/",
+      "title": "Keyboard shortcuts",
+      "imageCount": 0,
+      "internalLinkCount": 2,
+      "reviewStatus": "migrated"
+    }
+  ]
+}

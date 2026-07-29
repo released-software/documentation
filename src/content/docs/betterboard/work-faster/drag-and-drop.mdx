@@ -1,0 +1,64 @@
+---
+title: Drag and drop
+description: >-
+  Move issues between columns to update their grouping field, or reorder them
+  within a column to set their rank. All changes sync to Jira in real time.
+space: betterboard
+sidebar:
+  order: 4
+---
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+Move work items between columns to update their grouping field, or reorder them within a column to set their rank. All changes sync to Jira in real time.
+
+## Moving between columns
+
+Drag an work item card horizontally to move it to a different column. When you drop the card:
+
+-   BetterBoard updates the grouping field in Jira (e.g. Status changes if grouped by status, Assignee changes if grouped by assignee)
+-   The card animates to its new position
+-   If the update fails (permissions, workflow restrictions), the card returns to its original position and an error message is shown
+
+<NeutralCallout type="note">
+
+When a column has more than one field option mapped to it, dropping an work item into that column assigns the **first option in the list**. You can reorder the field options in Display settings → Columns to change which option is applied by default.
+
+</NeutralCallout>
+
+<a id="reordering-in-column"></a>
+
+## Reordering within a column
+
+Drag an work item card vertically within a column to change its rank position. This is manual rank mode:
+
+1.  Enable manual rank in **Display** settings → **Order by** → **Manual rank**
+2.  Drag cards up or down within a column
+3.  Positions are saved automatically
+
+<NeutralCallout type="note">
+
+Manual rank positions sync to Jira's native ranking field. Reranking in BetterBoard also reranks the work item in Jira's backlog and other board views that respect rank.
+
+</NeutralCallout>
+
+## Drag affordance
+
+Cards show a grab cursor on hover. On touch devices, long-press an work item card to activate drag mode, then drag to the target position.
+
+## Column drop zones
+
+When dragging, each column highlights as a valid drop target. Drop zones:
+
+-   At the top of a column: places the work item first
+-   At the bottom: places it last
+-   Between two work items: inserts between them
+
+<a id="drag-limitations"></a>
+
+## Limitations
+
+-   **Workflow restrictions**: Moving an work item to a status that requires a specific transition condition will fail if the condition isn't met
+-   **Permission restrictions**: You must have edit permission on the work item to move it
+-   **Epic work items**: Some field updates aren't available for Epic work item types in team-managed spaces
+-   **Read-only fields**: Fields configured as read-only in Jira's field configuration can't be updated via drag

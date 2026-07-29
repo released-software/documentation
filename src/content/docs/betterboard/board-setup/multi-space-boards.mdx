@@ -1,0 +1,54 @@
+---
+title: Multi-space boards
+description: >-
+  Pull issues from multiple Jira spaces onto a single board. Cross-functional
+  teams see their Scrum space, service desk, and product backlog at once.
+space: betterboard
+sidebar:
+  order: 2
+---
+
+A multi-space board pulls work items from multiple Jira spaces onto a single board. Cross-functional teams can see their Scrum space, service desk, and product backlog side by side without switching between spaces.
+
+<a id="what-is-multi-space"></a>
+
+## What is a multi-space board?
+
+By default, a board shows work items from one Jira space. Multi-space mode lets you add more spaces to the same board. Work items from all configured spaces appear together, organized by your chosen column grouping.
+
+A typical use case: a platform team that owns a Scrum space (`PLAT`) for engineering work and a JSM space (`PLAT-SD`) for incident tracking. A multi-space board combines both, giving the team lead a single view across all work.
+
+<a id="adding-spaces"></a>
+
+## Adding spaces to a board
+
+1.  In the toolbar, click the **space icon** next to the board name and privacy icon
+2.  Search for and select the Jira space to add
+3.  Once added, map the space's field options to your columns — see [Columns & Grouping](/betterboard/shape-the-board/columns-grouping/) for details
+
+You can add as many spaces as needed. There is no enforced limit, though boards with many spaces and thousands of work items may load more slowly.
+
+## Column fields across spaces
+
+When grouping by **Status**, BetterBoard combines statuses across all spaces and displays them as columns. Each space has its own workflow, so you may see columns from multiple workflows merged.
+
+When grouping by a custom field, you can mix and match field options from each space. Each space's available values are mapped to columns independently, so you're not limited to fields that exist in every space.
+
+<a id="per-space-column-config"></a>
+
+## Per-space column configuration
+
+For status-based columns, you can configure which statuses map to which columns separately for each space:
+
+1.  In **Display** → **Columns**, select a space from the space dropdown
+2.  Configure the status-to-column mapping for that space
+3.  Repeat for each space
+
+This means "In Progress" in your Scrum space and "Work in progress" in your JSM space can both map to the same "In progress" column.
+
+## Removing a space
+
+1.  Click the **space icon** in the toolbar to open the space selector
+2.  Deselect the space you want to remove
+
+The space's work items disappear from the board immediately. Nothing is deleted from Jira.

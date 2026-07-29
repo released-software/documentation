@@ -1,0 +1,52 @@
+---
+description: Integrate Released with Cosmos.
+title: Cosmos
+space: hub
+sidebar:
+  order: 61
+---
+import Figure from '../../../../../components/content/Figure.astro';
+
+import { Steps } from '@astrojs/starlight/components';
+
+[Cosmos](https://marketplace.atlassian.com/apps/1230540/cosmos-intranet-for-confluence-free?tab=overview\&hosting=cloud) is a centralized, easy-to-search intranet platform for Confluence.
+
+## Prerequisite
+
+* [ ] You must have [Cosmos](https://marketplace.atlassian.com/apps/1230540/cosmos-intranet-for-confluence-free?tab=overview\&hosting=cloud) installed in your Confluence instance. 
+* [ ] [Find the channel ID](/guide/resources/how-tos/finding-the-channel-id/) for the announcement page and note it down. 
+
+## Installation
+
+<Steps>
+<ol>
+<li>
+**Edit the Cosmos dashboard**
+
+* In Confluence, click on Apps > Cosmos in the top navigation. 
+* Click on the edit ✐ button in the bottom right of the dashboard. 
+* Select "Main Content" from the available options.
+* Press the "Add new" button at the bottom of the list.  
+* Select "Released from the list of available integrations. 
+</li>
+
+<li>
+**Add the Channel ID**
+
+* Click on "Add Channel ID" in the newly added section on the dashboard.
+* Enter the [Channel ID](/guide/resources/how-tos/finding-the-channel-id/) into the "Channel ID" field in the section configuration. 
+
+<Figure src="/media/hub/image%20(3).png" alt="image (3)" />
+</li>
+
+<li>
+**Save the dashboard configuration**
+
+Click Save 💾 icon in the top-right to save the configuration
+</li>
+</ol>
+</Steps>
+
+**Congratulations, you're done 🎉**
+
+New posts published to the [Announcement Page channel](/guide/product/changelog/publishing/#announcement-page) in Released will now automatically appear on your Comos Dashboard. 

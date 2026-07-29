@@ -1,0 +1,289 @@
+---
+import ProductLogo from './ProductLogo.astro';
+import { getSpace, spaces, type SpaceId } from '../data/spaces';
+
+interface Props {
+  activeSpace: SpaceId | 'all';
+}
+
+const { activeSpace } = Astro.props;
+const active = activeSpace === 'all' ? undefined : getSpace(activeSpace);
+const activeShortName = active?.shortName ?? 'All';
+---
+
+<released-space-switcher data-space-switcher>
+  <button
+    aria-controls="documentation-space-menu"
+    aria-expanded="false"
+    aria-haspopup="menu"
+    aria-label={activeShortName}
+    class="space-trigger"
+    type="button"
+  >
+    <span aria-hidden="true" class="space-name">{activeShortName}</span>
+    <svg aria-hidden="true" class="chevron" fill="none" height="14" viewBox="0 0 14 14" width="14">
+      <path d="m3.5 5.25 3.5 3.5 3.5-3.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"></path>
+    </svg>
+  </button>
+
+  <div class="space-menu" hidden id="documentation-space-menu" role="menu">
+    {
+      spaces.map((space) => (
+        <a
+          aria-current={space.id === activeSpace ? 'page' : undefined}
+          class="space-option"
+          href={space.href}
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span aria-hidden="true" class="product-mark">
+            <ProductLogo decorative size={20} space={space.id} />
+          </span>
+          <span class="option-copy">
+            <span class="option-name">{space.shortName}</span>
+            <span class="option-description">
+              {space.available ? space.description : 'Coming soon'}
+            </span>
+          </span>
+          <svg aria-hidden="true" class="checkmark" fill="none" height="16" viewBox="0 0 16 16" width="16">
+            <path d="m3.5 8 3 3 6-6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+          </svg>
+        </a>
+      ))
+    }
+  </div>
+</released-space-switcher>
+
+<script>
+  class ReleasedSpaceSwitcher extends HTMLElement {
+    private trigger: HTMLButtonElement;
+    private menu: HTMLElement;
+    private items: HTMLAnchorElement[];
+
+    constructor() {
+      super();
+
+      this.trigger = this.querySelector<HTMLButtonElement>('.space-trigger')!;
+      this.menu = this.querySelector<HTMLElement>('.space-menu')!;
+      this.items = [...this.querySelectorAll<HTMLAnchorElement>('[role="menuitem"]')];
+
+      this.trigger.addEventListener('click', () => {
+        if (this.isOpen()) {
+          this.close();
+        } else {
+          this.open('active');
+        }
+      });
+      this.trigger.addEventListener('keydown', (event) => this.onTriggerKeydown(event));
+      this.menu.addEventListener('keydown', (event) => this.onMenuKeydown(event));
+      document.addEventListener('pointerdown', (event) => {
+        if (this.isOpen() && !this.contains(event.target as Node)) this.close();
+      });
+      window.addEventListener('resize', () => {
+        if (this.isOpen()) this.positionMenu();
+      });
+    }
+
+    private isOpen() {
+      return this.trigger.getAttribute('aria-expanded') === 'true';
+    }
+
+    private open(focus: 'active' | 'first' | 'last') {
+      this.menu.hidden = false;
+      this.trigger.setAttribute('aria-expanded', 'true');
+      this.positionMenu();
+
+      const target =
+        focus === 'last'
+          ? this.items.at(-1)
+          : focus === 'active'
+            ? this.items.find((item) => item.getAttribute('aria-current') === 'page') ?? this.items[0]
+            : this.items[0];
+      target?.focus();
+    }
+
+    private close(restoreFocus = false) {
+      this.menu.hidden = true;
+      this.trigger.setAttribute('aria-expanded', 'false');
+      if (restoreFocus) this.trigger.focus();
+    }
+
+    private positionMenu() {
+      const triggerRect = this.trigger.getBoundingClientRect();
+      const menuWidth = Math.min(320, window.innerWidth - 32);
+      const left = Math.max(16, Math.min(triggerRect.left, window.innerWidth - menuWidth - 16));
+
+      this.menu.style.setProperty('--space-menu-left', `${left}px`);
+      this.menu.style.setProperty('--space-menu-top', `${triggerRect.bottom + 8}px`);
+      this.menu.style.setProperty('--space-menu-width', `${menuWidth}px`);
+    }
+
+    private onTriggerKeydown(event: KeyboardEvent) {
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        this.open('first');
+      }
+      if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        this.open('last');
+      }
+      if (event.key === 'Escape' && this.isOpen()) {
+        event.preventDefault();
+        this.close(true);
+      }
+    }
+
+    private onMenuKeydown(event: KeyboardEvent) {
+      const currentIndex = this.items.indexOf(document.activeElement as HTMLAnchorElement);
+
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        this.items[(currentIndex + 1 + this.items.length) % this.items.length]?.focus();
+      }
+      if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        this.items[(currentIndex - 1 + this.items.length) % this.items.length]?.focus();
+      }
+      if (event.key === 'Home') {
+        event.preventDefault();
+        this.items[0]?.focus();
+      }
+      if (event.key === 'End') {
+        event.preventDefault();
+        this.items.at(-1)?.focus();
+      }
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        this.close(true);
+      }
+      if (event.key === 'Tab') this.close();
+    }
+  }
+
+  if (!customElements.get('released-space-switcher')) {
+    customElements.define('released-space-switcher', ReleasedSpaceSwitcher);
+  }
+</script>
+
+<style>
+  released-space-switcher {
+    position: relative;
+    display: block;
+    min-width: 0;
+    margin-inline-start: -0.5rem;
+  }
+
+  .space-trigger {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    max-width: 17rem;
+    height: 2.25rem;
+    gap: 0.5rem;
+    padding: 0.375rem 0.5rem;
+    border: 0;
+    border-radius: var(--released-radius-sm);
+    color: var(--released-ink);
+    background: transparent;
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .space-trigger:hover,
+  .space-trigger[aria-expanded='true'] {
+    background: var(--released-bg-raised);
+  }
+
+  .space-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .chevron {
+    flex: none;
+    color: var(--released-ink-muted);
+  }
+
+  .space-trigger[aria-expanded='true'] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .space-menu {
+    position: fixed;
+    z-index: calc(var(--sl-z-index-navbar) + 1);
+    inset-block-start: var(--space-menu-top);
+    inset-inline-start: var(--space-menu-left);
+    width: var(--space-menu-width);
+    padding: 0.375rem;
+    border: 1px solid var(--released-line-strong);
+    border-radius: var(--released-radius-md);
+    color: var(--released-ink);
+    background: var(--released-bg);
+    box-shadow: 0 16px 48px rgb(13 13 13 / 12%);
+  }
+
+  .space-menu[hidden] {
+    display: none;
+  }
+
+  .space-option {
+    display: grid;
+    grid-template-columns: 1.25rem minmax(0, 1fr) 1rem;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: var(--released-radius-sm);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .space-option:hover,
+  .space-option:focus-visible {
+    background: var(--released-bg-raised);
+  }
+
+  .product-mark {
+    display: flex;
+    color: var(--released-ink-soft);
+  }
+
+  .option-copy {
+    display: grid;
+    min-width: 0;
+    gap: 0.125rem;
+  }
+
+  .option-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+
+  .option-description {
+    color: var(--released-ink-muted);
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .checkmark {
+    visibility: hidden;
+  }
+
+  [aria-current='page'] .checkmark {
+    visibility: visible;
+  }
+
+  @media (max-width: 35rem) {
+    released-space-switcher {
+      margin-inline-start: -0.375rem;
+    }
+
+    .space-trigger {
+      gap: 0.375rem;
+      padding-inline: 0.375rem;
+    }
+  }
+</style>

@@ -1,0 +1,85 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pagefind?: boolean;
+}
+
+const { title, description, pagefind = true } = Astro.props;
+const space = Astro.url.pathname.startsWith('/partners') ? 'partners' : 'hub';
+---
+
+<StarlightPage
+  hasSidebar={false}
+  sidebar={[]}
+  frontmatter={{
+    title,
+    description,
+    template: 'splash',
+    hero: {
+      title,
+      tagline: description
+    },
+    editUrl: false,
+    pagefind,
+    prev: false,
+    next: false,
+    tableOfContents: false,
+    space
+  }}
+>
+  <div class="documentation-landing-content">
+    <slot />
+  </div>
+</StarlightPage>
+
+<style>
+  .documentation-landing-content {
+    width: 100%;
+  }
+
+  :global(main .content-panel) {
+    padding-inline: var(--released-gutter);
+  }
+
+  :global(main .hero) {
+    display: block;
+    width: min(100%, var(--released-content));
+    margin-inline: auto;
+    padding-block: clamp(3.5rem, 9vw, 7.5rem) clamp(2.75rem, 6vw, 5rem);
+  }
+
+  :global(main .hero .stack),
+  :global(main .hero .copy) {
+    align-items: flex-start;
+    gap: 1.25rem;
+    text-align: start;
+  }
+
+  :global(main .hero h1) {
+    max-width: 18ch;
+    font-size: clamp(2.5rem, 6vw, 4.75rem);
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+  }
+
+  :global(main .hero .tagline) {
+    max-width: 56ch;
+    font-size: clamp(1rem, 0.925rem + 0.35vw, 1.25rem);
+    line-height: 1.55;
+    color: var(--released-ink-muted);
+  }
+
+  @media (max-width: 35rem) {
+    :global(main .hero) {
+      padding-block: 3.5rem 2.75rem;
+    }
+
+    :global(main .hero h1) {
+      max-width: 16ch;
+      font-size: clamp(2.35rem, 12vw, 3.25rem);
+    }
+  }
+</style>

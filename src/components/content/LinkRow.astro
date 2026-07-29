@@ -1,0 +1,76 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description?: string;
+}
+
+const { href, title, description } = Astro.props;
+---
+
+<a class="link-row" data-link-row href={href}>
+  <span class="link-row__copy">
+    <span class="link-row__title">{title}</span>
+    {description && <span class="link-row__description">{description}</span>}
+  </span>
+  <span aria-hidden="true" class="link-row__arrow" data-link-row-arrow>→</span>
+</a>
+
+<style>
+  .link-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: 1rem;
+    border-block-end: 1px solid var(--released-line);
+    color: var(--released-ink);
+    background: transparent;
+    text-decoration: none;
+    transition: border-color 160ms ease;
+  }
+
+  .link-row:hover {
+    border-block-end-color: var(--released-line-strong);
+  }
+
+  .link-row__copy {
+    display: grid;
+    gap: 0.2rem;
+    min-width: 0;
+  }
+
+  .link-row__title {
+    font-size: var(--sl-text-body);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .link-row__description {
+    color: var(--released-ink-muted);
+    font-size: var(--sl-text-sm);
+    line-height: 1.5;
+  }
+
+  .link-row__arrow {
+    flex: none;
+    color: var(--released-ink-muted);
+    font-size: var(--sl-text-lg);
+    transition: transform 160ms ease;
+  }
+
+  .link-row:hover .link-row__arrow {
+    transform: translateX(0.2rem);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .link-row,
+    .link-row__arrow {
+      transition-duration: 0s;
+    }
+
+    .link-row:hover .link-row__arrow {
+      transform: none;
+    }
+  }
+</style>

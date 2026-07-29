@@ -1,0 +1,45 @@
+---
+title: Field types
+description: >-
+  BetterBoard supports every Jira field type. See how each displays on cards,
+  which filter operators it supports, and any special behavior.
+space: betterboard
+sidebar:
+  order: 4
+---
+
+BetterBoard supports every Jira field type. This reference describes how each type displays on cards, which filter operators it supports, and any special behavior.
+
+## System fields
+
+These fields exist in every Jira space:
+
+<table><thead><tr><th>Field</th><th>Display on card</th><th>Filter operators</th></tr></thead><tbody><tr><td>Summary</td><td>Work item title (always shown, not configurable)</td><td>contains, does not contain</td></tr><tr><td>Work item Type</td><td>Icon (Bug, Story, Task, Epic…)</td><td>is, is any of, is not, is none of</td></tr><tr><td>Status</td><td>Colored lozenge</td><td>is, is any of, is not, is none of, is empty</td></tr><tr><td>Assignee</td><td>Avatar + name on hover</td><td>is, is any of, is not, is current user, is empty</td></tr><tr><td>Reporter</td><td>Avatar + name on hover</td><td>is, is any of, is not, is current user, is empty</td></tr><tr><td>Priority</td><td>Colored icon</td><td>is, is any of, is not, is none of, is empty</td></tr><tr><td>Labels</td><td>Tag chips</td><td>is any of, is none of, contains all, is empty</td></tr><tr><td>Sprint</td><td>Sprint chip (active/future/closed state)</td><td>is active sprint, is, is any of, is backlog</td></tr><tr><td>Story Points</td><td>Number</td><td>=, ≠, &gt;, ≥, &lt;, ≤, is empty</td></tr><tr><td>Due Date</td><td>Relative time ("Due tomorrow")</td><td>is before, is after, is on, is within, is empty</td></tr><tr><td>Created</td><td>Relative time</td><td>is before, is after, is on, is within</td></tr><tr><td>Updated</td><td>Relative time</td><td>is before, is after, is on, is within</td></tr></tbody></table>
+
+## Custom fields
+
+Custom fields are any fields your Jira admin has added to spaces:
+
+<table><thead><tr><th>Field type</th><th>Example</th><th>Display on card</th><th>Filter operators</th></tr></thead><tbody><tr><td>Single select</td><td>Environment, Team</td><td>Colored chip</td><td>is, is any of, is not, is none of, is empty</td></tr><tr><td>Multi select</td><td>Affected versions, Platforms</td><td>Tag chips (up to 3)</td><td>is any of, is none of, contains all, is empty</td></tr><tr><td>User picker</td><td>Technical lead</td><td>Avatar</td><td>is, is any of, is not, is current user, is empty</td></tr><tr><td>Number</td><td>Story points, Weight</td><td>Number</td><td>=, ≠, &gt;, ≥, &lt;, ≤, is empty</td></tr><tr><td>Date</td><td>Target date, Review date</td><td>Relative time</td><td>is before, is after, is on, is within, is empty</td></tr><tr><td>Text (short)</td><td>Environment details</td><td>Truncated text</td><td>contains, does not contain, is empty</td></tr><tr><td>URL</td><td>Design link</td><td>Link icon</td><td>is empty, is not empty</td></tr><tr><td>Rating</td><td>Confidence (1–5)</td><td>Stars</td><td>=, ≠, &gt;, ≥, &lt;, ≤</td></tr><tr><td>Checkbox</td><td>Blocked, Reviewed</td><td>Checkmark</td><td>is true, is false, is empty</td></tr><tr><td>Version</td><td>Fix Version, Affects Version</td><td>Version chip</td><td>is, is any of, is not, is none of, is empty</td></tr></tbody></table>
+
+## Synthetic fields
+
+Synthetic fields are computed by BetterBoard and not stored as native Jira fields:
+
+### Time in Status
+
+Shows how long an work item has been in its current status. Displayed as a small insight chip on the card (e.g. "3d", "2w").
+
+Filter operators: `>`, `>=`, `<`, `<=` (in hours, days, or weeks)
+
+Use this to identify stale work items: filter by **Time in Status > 7 days** to find work that hasn't moved in over a week.
+
+<a id="blockers-field"></a>
+
+### Blockers
+
+A synthetic field derived from Jira work item links. BetterBoard inspects "is blocked by" and "blocks" link types.
+
+Values: `has blockers` (at least one "is blocked by" link), `is blocking` (blocks at least one other work item)
+
+Displayed as a small red blocking indicator icon on the card when present.

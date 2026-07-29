@@ -1,0 +1,78 @@
+---
+title: Include a Documentation Link in the Output
+description: >-
+  Adding links to in depth articles or documentation is a great way to keep the
+  product update short while giving readers the opportunity to dive into the
+  details.
+space: hub
+sidebar:
+  order: 66
+---
+import Figure from '../../../../../components/content/Figure.astro';
+
+import NeutralCallout from '../../../../../components/content/NeutralCallout.astro';
+
+## Overview
+
+Adding links to in depth articles or documentation is a great way to keep the product update short while giving readers the opportunity to dive into the details. 
+
+Using a custom prompts, you can easily incorporate links to other resources and create a consistent structure for your output. 
+
+## How to
+
+### Issue description
+
+Let's assume we have a ticket with the following description:
+
+```
+## Overview
+It would be great if changes to a task would be recorded. 
+
+Information that would be useful to know is: 
+
+* Assignee
+* Due date
+* Status changes
+
+## Documentation
+https://docs.released.so
+```
+
+We want to generate a description from the overview section and add the documentation link to the bottom of the description with a pre-fix of "Learn more:" 
+
+### Prompt
+
+Switch the **Base prompt** setting from Default to Custom. 
+
+In your custom prompt, keep the first part as is. 
+
+Then, add additional instructions to format the description, followed by an example: 
+
+```
+Remove details not relevant for a release announcement such as mentions of a workaround or steps to reproduce. Remove internal language, like use-cases and requirements. Describe bugs and problems as resolved. 
+
+Use the following structure for the description. Consider text in angular brackets as placeholders. Output in HTML format:
+START
+[Title]
+[Description]
+
+Learn more: [Documentation url]
+END
+```
+
+That's it. 
+
+### Preview
+
+Preview the prompt in the **Issue specific prompts** section.  
+
+* Pick an issue type
+* Select an issue in the top right of the issue type box
+
+Once an issue has been selected, the preview, using the above prompt, will start to load. 
+
+<NeutralCallout type="note">
+The above prompt will apply to all issue types. If you would like to only apply the instructions to certain issue types, simply move the prompt into the custom prompt setting for the  specific issue types. 
+</NeutralCallout>
+
+<Figure src="/media/hub/Howto%20-%20Prompt%20Preview.png" alt="Prompt Preview" caption="Prompt Preview" />

@@ -1,0 +1,139 @@
+---
+interface OverviewItem {
+  href: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title: string;
+  items: OverviewItem[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<section class="overview-section" data-overview-section>
+  <h2>{title}</h2>
+
+  <div class="overview-section__grid" data-overview-grid>
+    {items.map((item) => (
+      <a class="overview-section__link" data-overview-link href={item.href}>
+        <span class="overview-section__title">{item.title}</span>
+        <span class="overview-section__description">{item.description}</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .overview-section {
+    display: grid;
+    grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
+    gap: 2rem;
+    margin-block-start: 3.5rem;
+  }
+
+  .overview-section h2 {
+    margin: 0;
+    padding-block-start: 1.5rem;
+    color: var(--released-ink);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  .overview-section__grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-block-start: 0;
+  }
+
+  .overview-section__grid::before {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 50%;
+    width: 1px;
+    background: var(--released-line);
+    content: '';
+  }
+
+  .overview-section__link {
+    display: grid;
+    align-content: start;
+    gap: 0.45rem;
+    min-width: 0;
+    padding: 1.5rem 2rem;
+    color: var(--released-ink);
+    text-decoration: none;
+  }
+
+  .overview-section__link:nth-child(odd) {
+    padding-inline-start: 0;
+  }
+
+  .overview-section__link:nth-child(even) {
+    padding-inline-end: 0;
+  }
+
+  .overview-section__link:nth-child(n + 3) {
+    border-block-start: 1px solid var(--released-line);
+  }
+
+  .overview-section__title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  .overview-section__description {
+    color: var(--released-ink-muted);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    letter-spacing: -0.006em;
+  }
+
+  .overview-section__link:hover .overview-section__title {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .overview-section__link:focus-visible {
+    outline: 1px solid var(--released-ink);
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 52rem) {
+    .overview-section {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.75rem;
+      margin-block-start: 3rem;
+    }
+
+    .overview-section__grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .overview-section h2 {
+      padding-block-start: 0;
+    }
+
+    .overview-section__grid::before {
+      display: none;
+    }
+
+    .overview-section__link,
+    .overview-section__link:nth-child(odd),
+    .overview-section__link:nth-child(even) {
+      padding: 1rem 0;
+    }
+
+    .overview-section__link:nth-child(n + 2) {
+      border-block-start: 1px solid var(--released-line);
+    }
+  }
+</style>

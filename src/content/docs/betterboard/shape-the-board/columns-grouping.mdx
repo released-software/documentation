@@ -1,0 +1,88 @@
+---
+title: Columns and grouping
+description: >-
+  Group BetterBoard columns by status, assignee, priority, sprint, or any custom
+  field to organize your board exactly the way your team works.
+space: betterboard
+sidebar:
+  order: 1
+---
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+BetterBoard gives you two ways to organise work items visually: **Columns** and **Grouping** (swimlanes). They work differently and are configured independently.
+
+## Columns vs. Grouping
+
+**Columns** are manually created and labelled. You define the column names yourself and then map field option values to each column. Multiple field options can map to the same column — for example, "In Development", "In Code Review", and "In QA" can all map to a single "In Progress" column. This decouples your board layout from Jira's underlying field values.
+
+**Grouping** (swimlanes) creates horizontal rows where each row maps directly to a unique field value. The row label is always the field value itself and cannot be renamed. Only one grouping field can be active at a time.
+
+## Columns
+
+<a id="column-field"></a>
+
+### Choosing a column field
+
+1.  Open **Display** settings
+2.  Click the **Column field** selector
+3.  Choose any enumerable field from the list — Status, Priority, Assignee, Sprint, Labels, single-select or checkbox custom fields
+
+Free-text and number fields are not available as column fields.
+
+<a id="mapping-field-options"></a>
+
+### Mapping field options to columns
+
+After choosing a column field, field options appear in the **Unassigned values** section. Drag each value into the column where you want it to appear. You can:
+
+-   Map multiple field options to the same column (e.g. several statuses into one "In Progress" column)
+-   Create new columns by typing a name and pressing Enter
+-   Leave values unassigned — work items with that value will not appear on the board at all (e.g. leaving "Done" unassigned hides all completed work items)
+
+This mapping is especially useful for multi-space boards where different spaces have different field values that represent the same concept. For example, your Scrum space's "In Review" and your JSM space's "Waiting for customer" can both map to a single "In Progress" column.
+
+<NeutralCallout type="note">
+
+In multi-space boards, each space can have its own field mapping configured independently. Select a space from the space dropdown in Display → Columns to configure its mapping separately.
+
+</NeutralCallout>
+
+### Column ordering
+
+Column order is fully manual — it is not tied to any default order in Jira. Drag columns to reorder them in the configuration panel, then click the blue **Save** button in the toolbar to apply.
+
+### Empty columns
+
+Columns with no work items remain visible on the board. Hiding empty columns is not yet supported.
+
+<a id="grouping"></a>
+
+## Grouping (Swimlanes)
+
+Grouping adds a second dimension to your board by splitting work items into horizontal swimlanes. Each unique value of the grouping field becomes its own row. Swimlane labels always match the field value — they cannot be renamed.
+
+Only one grouping field can be active at a time.
+
+### Supported grouping fields
+
+These fields can be used for grouping:
+
+-   **Status** — one swimlane per workflow status
+-   **Priority** — Highest, High, Medium, Low, Lowest + No Priority
+-   **Assignee** — one swimlane per team member + Unassigned
+-   **Work item Type** — Bug, Story, Task, Epic, Sub-task
+-   **Sprint** — active, future, and recent closed sprints
+-   **Labels** — one swimlane per label
+-   **Fix Version** / **Component** — if configured in the space
+-   **Single-select and checkbox custom fields**
+
+### Reordering swimlanes
+
+Click the **list icon** to the left of the grouping field selector to enter reorder mode. Drag swimlanes into the order you prefer, then save.
+
+<NeutralCallout type="note">
+
+Dragging an work item into a swimlane updates the grouping field value on that work item to match — the Jira work item is updated immediately.
+
+</NeutralCallout>

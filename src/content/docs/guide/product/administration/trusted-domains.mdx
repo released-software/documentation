@@ -1,0 +1,68 @@
+---
+description: >-
+  Use trusted domains to simplify access management and control where embedded
+  portals can be displayed.
+icon: lock
+title: Trusted Domains
+space: hub
+sidebar:
+  order: 16
+---
+import { Steps } from '@astrojs/starlight/components';
+import NeutralCallout from '../../../../../components/content/NeutralCallout.astro';
+
+<NeutralCallout type="caution">
+These settings is restricted to **Released administrators.**
+</NeutralCallout>
+
+## Internal email domains
+
+Internal email domains simplify access management and for your organization’s portals in the Product Hub. Instead of manually adding company domains to each portal, Released administrators can define a global list of approved domains. 
+
+<NeutralCallout type="note">
+Internal email domains will get access to a portal when the internal domains option is enabled within the [portal access settings](/guide/product/portals/access/#unlock-internal). 
+</NeutralCallout>
+
+### Adding an internal email domain
+
+<Steps>
+<ol>
+<li>
+Navigate to the global **Settings > Trusted domains** via the overview page or the workspace dropdown within a workspace. 
+</li>
+
+<li>
+Click the **Add domain** button in the _internal email domains_ section
+</li>
+
+<li>
+Add your internal email domains. For example: **example.com**
+</li>
+</ol>
+</Steps>
+
+## Trusted domains for embedded content
+
+To protect your users, Verified User Tokens and manual sign‑in are only supported for embeds served from domains on your configured allowlist and only when the hosting page uses HTTPS. In other words, the embed’s origin must be explicitly permitted in your application’s domain settings, and the page that hosts the embed must be delivered securely (https://) with a valid TLS certificate.
+
+### Adding a trusted domain
+
+<Steps>
+<ol>
+<li>
+Navigate to the global **Settings > Trusted domains** via the overview page or the workspace dropdown within a workspace. 
+</li>
+
+<li>
+Click the **Add domain** button in the _trusted domains for embedded content_ section
+</li>
+
+<li>
+Add your trusted domains. For example: **example.com**
+</li>
+</ol>
+</Steps>
+
+<NeutralCallout type="note">
+If you run into issues embedding your portal, see the [Embeds Troubleshooting Guide](/guide/resources/troubleshooting/embeds/).
+</NeutralCallout>

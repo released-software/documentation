@@ -1,0 +1,70 @@
+---
+description: Add a widget to your app or website to share updates with your customers.
+title: Widget
+space: hub
+sidebar:
+  order: 86
+---
+import Figure from '../../../../../../components/content/Figure.astro';
+
+import LinkRow from '../../../../../../components/content/LinkRow.astro';
+import NeutralCallout from '../../../../../../components/content/NeutralCallout.astro';
+
+
+
+<Figure src="/media/hub/widget.png" alt="See a live demo of the widget on Codepen." caption="See a live demo of the widget on Codepen." width={375} />
+
+## Installation
+
+To add the widget to your site or app, copy the following code snippet into the `<head>` element. This script needs to be present on every page where you might want to show the widget. 
+
+```html
+<script src="https://embed.released.so/1/embed.js"></script>
+```
+
+Next, add the `released-widget` custom element to the `<body>` of the page. The widget will not be rendered inline, so it does not matter where in the body you position the element. Ensure you replace "_CHANNEL\_ID_" with the id of your release channel. 
+
+```html
+<released-widget channel-id="CHANNEL_ID"></released-widget>
+```
+
+<NeutralCallout type="note">
+You can locate a version of the code snippet in the **Widget** section of the **Settings**, where the _CHANNEL\_ID_ field is already populated for your convenience.
+</NeutralCallout>
+
+To add the widget to your website or app, copy the following code snippet into the `<head>` element. Replace the `[PROJECT_ID]` placeholder with the ID found in your widget configuration. 
+
+<NeutralCallout type="note">
+You can find a complete version of the snippet in the app, with all details pre-filled.
+</NeutralCallout>
+
+```
+<script type="application/json" id="released-widget-props">
+  {
+    "chid": "[CHANNEL_ID]",
+    "title": "Changelog",
+    "subTitle": "New updates and improvements.",
+  }
+</script>
+<script src="https://embed.released.so/1/widget.js"></script>
+```
+
+The above code snippet contains two `script` tags. The first tag contains the configuration properties for the widget, and the second tag loads the widget. 
+
+The available configuration options are described in the following section.
+
+## Configuration options
+
+Customize your widget to match your brand and app design using the widget properties. Adjust the title, description, colors, positioning, and trigger settings according to your preferences.
+
+The properties are expressed in JSON format and contained in a script tag with the `id="released-widget-props"`. 
+
+```
+<script type="application/json" id="released-widget-props">
+```
+
+<LinkRow href="/guide/product-tour/settings/widget-configuration/" title="widget.md" />
+
+## Demo
+
+Experience a demo of the widget on [CodePen](https://codepen.io/released/pen/WNaaMNx).

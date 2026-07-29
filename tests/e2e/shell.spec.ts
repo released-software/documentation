@@ -1,0 +1,672 @@
+import { expect, test } from '@playwright/test';
+
+test('the Released documentation identity precedes a product-only space switcher', async ({ page }) => {
+  await page.goto('/guide/');
+
+  const header = page.locator('header');
+  const documentationIdentity = header.locator('[data-documentation-identity]');
+  const identity = header
+    .locator('[data-released-identity]')
+    .getByRole('link', { name: 'Released', exact: true });
+  const switcher = header.getByRole('button', { name: 'Hub', exact: true });
+
+  await expect(identity).toBeVisible();
+  await expect(documentationIdentity.getByText('Documentation', { exact: true })).toBeVisible();
+  await expect(switcher).toBeVisible();
+  await expect(switcher).toHaveText('Hub');
+  await expect(switcher.locator('img')).toHaveCount(0);
+  await expect(
+    identity.evaluate((element) => {
+      const switcherElement = element
+        .closest('[data-documentation-identity]')
+        ?.querySelector('[data-space-switcher]');
+
+      return switcherElement ? Boolean(element.compareDocumentPosition(switcherElement) & Node.DOCUMENT_POSITION_FOLLOWING) : false;
+    })
+  ).resolves.toBe(true);
+});
+
+test('the documentation label and current product balance their spacing around the divider', async ({
+  page
+}) => {
+  await page.goto('/guide/');
+
+  const gaps = await page.locator('[data-documentation-identity]').evaluate((identity) => {
+    const label = identity.querySelector<HTMLElement>('.documentation-label');
+    const divider = identity.querySelector<HTMLElement>('.identity-divider');
+    const spaceName = identity.querySelector<HTMLElement>('.space-name');
+    if (!label || !divider || !spaceName) throw new Error('Missing documentation identity parts');
+
+    const labelBox = label.getBoundingClientRect();
+    const dividerBox = divider.getBoundingClientRect();
+    const spaceNameBox = spaceName.getBoundingClientRect();
+
+    return {
+      beforeDivider: Math.round(dividerBox.left - labelBox.right),
+      afterDivider: Math.round(spaceNameBox.left - dividerBox.right)
+    };
+  });
+
+  expect(gaps).toEqual({
+    beforeDivider: 12,
+    afterDivider: 12
+  });
+});
+
+test('the product switcher trigger keeps balanced horizontal insets', async ({ page }) => {
+  for (const width of [1440, 390]) {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto('/guide/');
+
+    const insets = await page
+      .getByRole('button', { name: 'Hub', exact: true })
+      .evaluate((trigger) => {
+        const name = trigger.querySelector<HTMLElement>('.space-name');
+        const chevron = trigger.querySelector<SVGElement>('.chevron');
+        if (!name || !chevron) throw new Error('Missing product switcher content');
+
+        const triggerBox = trigger.getBoundingClientRect();
+        const nameBox = name.getBoundingClientRect();
+        const chevronBox = chevron.getBoundingClientRect();
+        return {
+          left: Math.round(nameBox.left - triggerBox.left),
+          right: Math.round(triggerBox.right - chevronBox.right)
+        };
+      });
+
+    expect(insets.left).toBeGreaterThan(0);
+    expect(Math.abs(insets.left - insets.right)).toBeLessThanOrEqual(1);
+  }
+});
+
+test('the Released wordmark is optically raised to share the navigation text baseline', async ({
+  page
+}) => {
+  await page.goto('/guide/');
+
+  const baselineOffset = await page
+    .locator('[data-documentation-identity]')
+    .evaluate((identity) => {
+      const wordmark = identity.querySelector<HTMLImageElement>('[data-released-identity] img');
+      const label = identity.querySelector<HTMLElement>('.documentation-label');
+      if (!wordmark || !label) throw new Error('Missing documentation identity artwork');
+
+      return Math.round(label.getBoundingClientRect().bottom - wordmark.getBoundingClientRect().bottom);
+    });
+
+  expect(baselineOffset).toBe(3);
+});
+
+test('desktop utilities keep search at the right beside the theme control', async ({ page }) => {
+  await page.setViewportSize({ width: 1908, height: 1200 });
+  await page.goto('/guide/resources/troubleshooting/ensuring-jira-permissions/');
+
+  const alignment = await page.locator('header.header > .header').evaluate((header) => {
+    const searchGroup = header.children[1] as HTMLElement;
+    const search = header.querySelector<HTMLElement>('[data-open-search]');
+    const theme = header.querySelector<HTMLElement>('[data-theme-trigger]');
+    if (!search || !theme) throw new Error('Missing header utility controls');
+
+    const groupBox = searchGroup.getBoundingClientRect();
+    const searchBox = search.getBoundingClientRect();
+    const themeBox = theme.getBoundingClientRect();
+    return {
+      searchToGroupEnd: Math.round(groupBox.right - searchBox.right),
+      searchBeforeTheme: searchBox.right < themeBox.left
+    };
+  });
+
+  expect(alignment).toEqual({
+    searchToGroupEnd: 0,
+    searchBeforeTheme: true
+  });
+});
+
+test('the custom theme menu is keyboard operable and uses restrained focus rings', async ({
+  page
+}) => {
+  await page.goto('/guide/');
+
+  const themePicker = page.locator('header starlight-theme-select');
+  const trigger = themePicker.getByRole('button', { name: /Select theme/ });
+  const menu = themePicker.getByRole('menu');
+
+  await expect(themePicker.locator('select')).toHaveCount(0);
+  await expect(trigger).toContainText('Auto');
+
+  await trigger.focus();
+  await expect(trigger).toHaveCSS('outline-width', '1px');
+  await trigger.press('Enter');
+  await expect(menu).toBeVisible();
+
+  const options = menu.getByRole('menuitemradio');
+  await expect(options).toHaveCount(3);
+  await expect(options.filter({ hasText: 'Auto' })).toHaveAttribute('aria-checked', 'true');
+  await expect(menu.locator('[data-theme-check]:visible')).toHaveCount(1);
+  await expect(options.filter({ hasText: 'Auto' })).toBeFocused();
+
+  await page.keyboard.press('ArrowUp');
+  const lightOption = options.filter({ hasText: 'Light' });
+  await expect(lightOption).toBeFocused();
+  await expect(lightOption).toHaveCSS('outline-width', '1px');
+  await lightOption.press('Enter');
+
+  await expect(menu).toBeHidden();
+  await expect(trigger).toBeFocused();
+  await expect(trigger).toContainText('Light');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+
+  await page.reload();
+  await expect(trigger).toContainText('Light');
+
+  await trigger.press('Enter');
+  await options.filter({ hasText: 'Auto' }).focus();
+  await options.filter({ hasText: 'Auto' }).press('Enter');
+});
+
+test('article pagination uses quiet divider links with subtle interaction feedback', async ({
+  page
+}) => {
+  await page.goto('/guide/resources/troubleshooting/ensuring-jira-permissions/');
+
+  const pagination = page.locator('.pagination-links');
+  const previous = pagination.getByRole('link', { name: /Previous Embeds/ });
+  const next = pagination.getByRole('link', { name: /Next Roadmap Publishing/ });
+
+  await expect(previous).toBeVisible();
+  await expect(next).toBeVisible();
+  await expect(pagination).toHaveCSS('border-top-width', '1px');
+
+  for (const link of [previous, next]) {
+    await expect(link).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+    await expect(link).toHaveCSS('box-shadow', 'none');
+    await expect(link).toHaveCSS('border-top-width', '0px');
+    await expect(link).toHaveCSS('border-right-width', '0px');
+    await expect(link).toHaveCSS('border-bottom-width', '0px');
+    await expect(link).toHaveCSS('border-left-width', '0px');
+  }
+
+  await previous.hover();
+  await expect(previous).toHaveCSS('background-color', 'rgb(247, 247, 249)');
+  await expect(previous).toHaveCSS('box-shadow', 'none');
+
+  await next.focus();
+  await expect(next).toHaveCSS('background-color', 'rgb(247, 247, 249)');
+  await expect(next).toHaveCSS('box-shadow', 'none');
+
+  await previous.focus();
+  await expect(previous).toHaveCSS('outline-width', '1px');
+});
+
+test('the space switcher supports keyboard navigation and restores trigger focus', async ({ page }) => {
+  await page.goto('/guide/');
+
+  const trigger = page.getByRole('button', { name: 'Hub', exact: true });
+  const betterBoardLink = page.getByRole('menuitem', { name: /BetterBoard/ });
+
+  await trigger.focus();
+  await trigger.press('Enter');
+  await expect(page.getByRole('menu')).toBeVisible();
+  await page.keyboard.press('ArrowDown');
+  await expect(betterBoardLink).toBeFocused();
+
+  await betterBoardLink.press('Escape');
+  await expect(page.getByRole('menu')).toBeHidden();
+  await expect(trigger).toBeFocused();
+
+  await trigger.press('Enter');
+  await page.keyboard.press('ArrowDown');
+  await betterBoardLink.press('Enter');
+  await expect(page).toHaveURL(/\/betterboard\/$/);
+});
+
+test('space entries use product marks and descriptive availability text, never status dots', async ({ page }) => {
+  await page.goto('/guide/');
+  const trigger = page.getByRole('button', { name: 'Hub', exact: true });
+  await expect(trigger.locator('img')).toHaveCount(0);
+  await trigger.click();
+
+  await expect(page.locator('.status-dot, [data-status-dot]')).toHaveCount(0);
+
+  const menuItems = page.getByRole('menuitem');
+  await expect(menuItems).toHaveCount(3);
+  for (const menuItem of await menuItems.all()) {
+    await expect(menuItem).not.toHaveText(/^\s*[•·●∙◦]/);
+  }
+
+  await expect(
+    page.getByRole('menuitem', { name: /Hub/ }).locator('img')
+  ).toHaveAttribute('src', '/brand/released-favicon.svg');
+  await expect(
+    page.getByRole('menuitem', { name: /BetterBoard/ }).locator('img')
+  ).toHaveAttribute('src', '/brand/betterboard-favicon.svg');
+
+  const partnerLink = page.getByRole('menuitem', { name: /Partners/ });
+  await expect(partnerLink).toHaveAttribute('href', '/partners/');
+  await expect(partnerLink).toContainText('Coming soon');
+});
+
+test('the Hub sidebar is shallow and opens only the active category on initial load', async ({ page }) => {
+  await page.goto('/guide/');
+  const sidebar = page.locator('#starlight__sidebar');
+
+  await expect(sidebar.locator('details')).toHaveCount(12);
+  await expect(sidebar.locator('details[open]')).toHaveCount(0);
+
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
+
+  await expect(page.locator('header').getByRole('button', { name: 'Hub', exact: true })).toBeVisible();
+  await expect(sidebar.getByText('Hub documentation', { exact: true })).toHaveCount(0);
+
+  const maximumDepth = await sidebar.locator('details').evaluateAll((details) =>
+    Math.max(0, ...details.map((detail) => {
+      let depth = 1;
+      let parent = detail.parentElement?.parentElement?.closest('details');
+      while (parent) {
+        depth += 1;
+        parent = parent.parentElement?.parentElement?.closest('details');
+      }
+      return depth;
+    }))
+  );
+
+  expect(maximumDepth).toBe(1);
+  await expect(sidebar.locator('details[open]')).toHaveCount(1);
+  await expect(
+    sidebar.locator('details[open] > summary').getByText('Getting started', { exact: true })
+  ).toBeVisible();
+  await expect(sidebar.getByText('Setup guide', { exact: true })).toHaveCount(0);
+  await expect(sidebar.getByText('Resources', { exact: true })).toHaveCount(0);
+  await expect(
+    sidebar.locator('summary .large').getByText('Settings', { exact: true })
+  ).toHaveCount(0);
+  await expect(sidebar.getByText('Product', { exact: true })).toHaveCount(0);
+  await expect(
+    sidebar
+      .locator('.top-level > li > details > summary .large')
+      .getByText('Best practices', { exact: true })
+  ).toBeVisible();
+  await expect(
+    sidebar
+      .locator('.top-level > li > details > summary .large')
+      .getByText('AI tips', { exact: true })
+  ).toBeVisible();
+  await expect(sidebar.getByRole('link', { name: 'Administration', exact: true })).toHaveCount(0);
+});
+
+test('Hub categories can be opened independently after the active branch initializes', async ({ page }) => {
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
+
+  const sidebar = page.locator('#starlight__sidebar');
+  const administration = sidebar.locator('summary').filter({ hasText: 'Administration' });
+
+  await administration.focus();
+  await administration.press('Enter');
+
+  await expect(sidebar.locator('details[open]')).toHaveCount(2);
+  await expect(administration.locator('..')).toHaveAttribute('open', '');
+  await expect(
+    sidebar.locator('details[open] > summary').getByText('Getting started', { exact: true })
+  ).toBeVisible();
+});
+
+test('the Hub sidebar keeps nested navigation clear of connector lines', async ({ page }) => {
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
+
+  const nestedItems = page.locator('#starlight__sidebar .top-level ul li');
+  await expect(nestedItems.first()).toBeVisible();
+
+  const borderWidths = await nestedItems.evaluateAll((items) =>
+    items.map((item) => getComputedStyle(item).borderInlineStartWidth)
+  );
+
+  expect(new Set(borderWidths)).toEqual(new Set(['0px']));
+});
+
+test('sidebar groups animate without overriding reduced-motion preferences', async ({ page }) => {
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
+
+  const gettingStarted = page
+    .locator('#starlight__sidebar summary')
+    .filter({ hasText: 'Getting started' })
+    .first()
+    .locator('..');
+
+  const motionStyles = await gettingStarted.evaluate((details) => {
+    const style = getComputedStyle(details, '::details-content');
+    return {
+      duration: style.transitionDuration,
+      property: style.transitionProperty
+    };
+  });
+
+  expect(motionStyles.duration).not.toBe('0s');
+  expect(motionStyles.property).toContain('block-size');
+
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect
+    .poll(() =>
+      gettingStarted.evaluate(
+        (details) => getComputedStyle(details, '::details-content').transitionDuration
+      )
+    )
+    .toBe('0s');
+});
+
+test('the active Hub sidebar entry stays transparent without a decorative line', async ({ page }) => {
+  await page.goto('/guide/product/changelog/settings/artificial-intelligence/');
+
+  const activeSidebarLink = page.locator('#starlight__sidebar a[aria-current="page"]');
+
+  await expect(activeSidebarLink).toHaveAttribute('aria-current', 'page');
+  await expect(activeSidebarLink).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+  await expect(activeSidebarLink).toHaveCSS('box-shadow', 'none');
+});
+
+test('migrated Hub pages render the page title exactly once', async ({ page }) => {
+  await page.goto('/guide/resources/troubleshooting/ensuring-jira-permissions/');
+
+  await expect(page.locator('main h1')).toHaveCount(1);
+  await expect(page.locator('main h1')).toHaveText('Permissions Issues');
+  await expect(page.locator('.sl-markdown-content h1')).toHaveCount(0);
+  await expect(page.getByRole('heading', { level: 2, name: 'Overview' })).toBeVisible();
+});
+
+test('Hub articles use the narrow content column and measured vertical rhythm', async ({ page }) => {
+  await page.setViewportSize({ width: 1908, height: 1200 });
+  await page.goto('/guide/resources/troubleshooting/ensuring-jira-permissions/');
+
+  const layout = await page.evaluate(() => {
+    const main = document.querySelector<HTMLElement>('main[data-pagefind-body]');
+    const title = main?.querySelector<HTMLElement>('h1#_top');
+    const contentPanels = main?.querySelectorAll<HTMLElement>(':scope > .content-panel');
+    const containers = main?.querySelectorAll<HTMLElement>(':scope > .content-panel > .sl-container');
+    const markdown = main?.querySelector<HTMLElement>('.sl-markdown-content');
+    const overview = markdown?.querySelector<HTMLElement>('h2');
+    const bodyCopy = markdown?.querySelector<HTMLElement>('p');
+    const overviewWrapper = overview?.closest<HTMLElement>('.sl-heading-wrapper');
+    const overviewCopy = overviewWrapper?.nextElementSibling as HTMLElement | null;
+    const callout = overviewCopy?.nextElementSibling as HTMLElement | null;
+    const firstSection = markdown
+      ?.querySelector<HTMLElement>('h3')
+      ?.closest<HTMLElement>('.sl-heading-wrapper');
+
+    if (
+      !main ||
+      !title ||
+      !contentPanels ||
+      contentPanels.length < 2 ||
+      !containers ||
+      containers.length < 2 ||
+      !overview ||
+      !bodyCopy ||
+      !overviewCopy ||
+      !callout ||
+      !firstSection
+    ) {
+      throw new Error('Missing article layout landmarks');
+    }
+
+    const mainBox = main.getBoundingClientRect();
+    const titleBox = title.getBoundingClientRect();
+
+    return {
+      containerWidths: Array.from(containers).map((container) =>
+        Math.round(container.getBoundingClientRect().width)
+      ),
+      containerCenterOffsets: Array.from(containers).map((container) => {
+        const containerBox = container.getBoundingClientRect();
+        return Math.round(
+          containerBox.left +
+            containerBox.width / 2 -
+            (mainBox.left + mainBox.width / 2)
+        );
+      }),
+      dividerWidth: getComputedStyle(contentPanels[1]).borderTopWidth,
+      contentPaddingTop: getComputedStyle(contentPanels[1]).paddingTop,
+      titleTopSpace: Math.round(titleBox.top - mainBox.top),
+      titleLetterSpacing: getComputedStyle(title).letterSpacing,
+      bodyLetterSpacing: getComputedStyle(bodyCopy).letterSpacing,
+      overviewToCopy: getComputedStyle(overviewCopy).marginTop,
+      copyToCallout: getComputedStyle(callout).marginTop,
+      firstSectionMargin: getComputedStyle(firstSection).marginTop
+    };
+  });
+
+  expect(layout).toEqual({
+    containerWidths: [650, 650],
+    containerCenterOffsets: [0, 0],
+    dividerWidth: '0px',
+    contentPaddingTop: '24px',
+    titleTopSpace: 48,
+    titleLetterSpacing: '-0.704px',
+    bodyLetterSpacing: '-0.165px',
+    overviewToCopy: '12px',
+    copyToCallout: '16px',
+    firstSectionMargin: '40px'
+  });
+
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
+  const laterSection = page.getByRole('heading', { level: 2, name: 'Open/Closing the dialog' });
+  await expect(laterSection.locator('..')).toHaveCSS('margin-top', '56px');
+});
+
+test('landing and documentation headings keep their distinct typography roles', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('main .hero h1')).toHaveCSS('font-weight', '600');
+
+  await page.goto('/betterboard/');
+  await expect(page.locator('main h1#_top')).toHaveCSS('font-size', '32px');
+  await expect(page.locator('main h1#_top')).toHaveCSS('font-weight', '700');
+
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
+  await expect(page.locator('main h1#_top')).toHaveCSS('font-size', '32px');
+  await expect(page.locator('main h1#_top')).toHaveCSS('font-weight', '600');
+});
+
+test('the documentation shell uses the compact Switzer type scale', async ({ page }) => {
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-feedback-form/');
+
+  await expect(page.locator('.right-sidebar-panel nav a[aria-current="true"]')).toBeVisible();
+
+  const styles = await page.evaluate(() => {
+    const read = (selector: string) => {
+      const element = document.querySelector(selector);
+      if (!element) throw new Error(`Missing ${selector}`);
+      const style = getComputedStyle(element);
+      return {
+        fontSize: style.fontSize,
+        fontWeight: style.fontWeight,
+        lineHeight: style.lineHeight
+      };
+    };
+
+    return {
+      h1: read('main h1#_top'),
+      h2: read('.sl-markdown-content h2'),
+      h3: read('.sl-markdown-content h3'),
+      body: read('.sl-markdown-content p'),
+      collapsedCategory: read(
+        '#starlight__sidebar .top-level > li > details:not([open]) > summary .large'
+      ),
+      openCategory: read(
+        '#starlight__sidebar .top-level > li > details[open] > summary .large'
+      ),
+      overviewLink: read('#starlight__sidebar .top-level > li > a'),
+      articleLink: read(
+        '#starlight__sidebar .top-level > li > details[open] > ul a:not([aria-current="page"])'
+      ),
+      currentArticle: read(
+        '#starlight__sidebar .top-level > li > details[open] > ul a[aria-current="page"]'
+      ),
+      tocLink: read('.right-sidebar-panel nav a:not([aria-current="true"])'),
+      activeTocLink: read('.right-sidebar-panel nav a[aria-current="true"]'),
+      headerControl: read('header [data-space-switcher] button'),
+      searchTrigger: read('header [data-open-search]')
+    };
+  });
+
+  expect(styles).toEqual({
+    h1: { fontSize: '32px', fontWeight: '600', lineHeight: '36px' },
+    h2: { fontSize: '24px', fontWeight: '600', lineHeight: '32px' },
+    h3: { fontSize: '18px', fontWeight: '600', lineHeight: '24px' },
+    body: { fontSize: '15px', fontWeight: '400', lineHeight: '24px' },
+    collapsedCategory: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
+    openCategory: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
+    overviewLink: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
+    articleLink: { fontSize: '12.5px', fontWeight: '400', lineHeight: '17.5px' },
+    currentArticle: { fontSize: '12.5px', fontWeight: '600', lineHeight: '17.5px' },
+    tocLink: { fontSize: '13px', fontWeight: '400', lineHeight: '18.2px' },
+    activeTocLink: { fontSize: '13px', fontWeight: '600', lineHeight: '18.2px' },
+    headerControl: { fontSize: '14px', fontWeight: '500', lineHeight: '19.6px' },
+    searchTrigger: { fontSize: '14px', fontWeight: '400', lineHeight: '19.6px' }
+  });
+
+  await page.goto('/guide/resources/troubleshooting/ensuring-jira-permissions/');
+  await expect(page.locator('[data-callout-title]')).toHaveCSS('font-size', '14px');
+  await expect(page.locator('[data-callout-title]')).toHaveCSS('font-weight', '500');
+  await expect(page.locator('[data-callout-title]')).toHaveCSS('line-height', '19.6px');
+
+  await page.goto('/guide/product/roadmaps-and-ideas/roadmap/');
+  await expect(page.locator('.sl-markdown-content h4').first()).toHaveCSS('font-size', '15px');
+  await expect(page.locator('.sl-markdown-content h4').first()).toHaveCSS('line-height', '22px');
+
+  await page.goto('/guide/getting-started/setup-guide/');
+  await expect(page.locator('[data-link-row] .link-row__title').first()).toHaveCSS('font-size', '16px');
+
+  await page.goto('/guide/getting-started/setup-guide/embedding-the-widget/');
+  await expect(page.locator('figcaption').first()).toHaveCSS('font-size', '12px');
+});
+
+test('the space switcher and Starlight mobile menu remain operable at 390px', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/guide/');
+
+  const trigger = page.getByRole('button', { name: 'Hub', exact: true });
+  await expect(trigger).toBeVisible();
+  await trigger.focus();
+  await trigger.press('Enter');
+  await expect(page.getByRole('menu')).toBeVisible();
+  await trigger.press('Escape');
+  await expect(trigger).toBeFocused();
+
+  const mobileMenu = page.locator('starlight-menu-button button');
+  await expect(mobileMenu).toBeVisible();
+  await mobileMenu.click();
+  await expect(page.locator('body')).toHaveAttribute('data-mobile-menu-expanded', '');
+  const mobileSidebar = page.locator('#starlight__sidebar');
+  await expect(mobileSidebar).toBeVisible();
+  await expect(mobileSidebar.locator('details[open]')).toHaveCount(0);
+
+  await page.goto('/guide/resources/how-tos/embed-the-portal-in-a-forge-app/');
+  await page.locator('starlight-menu-button button').click();
+  await expect(mobileSidebar.locator('details[open]')).toHaveCount(1);
+  await expect(
+    mobileSidebar.locator('details[open] > summary').getByText('How-tos', { exact: true })
+  ).toBeVisible();
+
+  await page.goto('/guide/resources/troubleshooting/ensuring-jira-permissions/');
+  const mobileArticle = await page.evaluate(() => {
+    const container = document.querySelector<HTMLElement>(
+      'main[data-pagefind-body] > .content-panel > .sl-container'
+    );
+    if (!container) throw new Error('Missing article container');
+
+    return {
+      containerWidth: Math.ceil(container.getBoundingClientRect().width),
+      viewportWidth: document.documentElement.clientWidth,
+      pageScrollWidth: document.documentElement.scrollWidth
+    };
+  });
+
+  expect(mobileArticle.containerWidth).toBeLessThan(mobileArticle.viewportWidth);
+  expect(mobileArticle.pageScrollWidth).toBe(mobileArticle.viewportWidth);
+});
+
+test('page Markdown actions copy clean content and expose the raw view', async ({
+  context,
+  page
+}) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.goto('/guide/getting-started/concepts/');
+
+  const copy = page.getByRole('button', { name: 'Copy page as Markdown' });
+  const view = page.getByRole('link', { name: 'View page as Markdown' });
+
+  await expect(copy).toBeVisible();
+  await expect(view).toBeVisible();
+  await expect(page.getByRole('button', { name: 'More page actions' })).toHaveCount(0);
+
+  await copy.focus();
+  await expect
+    .poll(() =>
+      copy.evaluate((element) => {
+        const tooltip = getComputedStyle(element, '::after');
+        return {
+          content: tooltip.content,
+          opacity: tooltip.opacity
+        };
+      })
+    )
+    .toEqual({
+      content: '"Copy page as Markdown"',
+      opacity: '1'
+    });
+
+  await copy.click();
+  await expect(copy).toHaveAttribute('data-tooltip', 'Copied as Markdown');
+
+  const clipboard = await page.evaluate(() => navigator.clipboard.readText());
+  expect(clipboard).toMatch(/^# Concepts$/m);
+  expect(clipboard).not.toMatch(/^import /m);
+  expect(clipboard).not.toContain('<Figure');
+
+  await view.focus();
+  await expect(view).toBeVisible();
+  await expect(view).toBeFocused();
+  await expect(view).toHaveAttribute('href', '/guide/getting-started/concepts.md');
+  await expect(view).toHaveAttribute('target', '_blank');
+  await expect
+    .poll(() =>
+      view.evaluate((element) => {
+        const tooltip = getComputedStyle(element, '::after');
+        return {
+          content: tooltip.content,
+          opacity: tooltip.opacity
+        };
+      })
+    )
+    .toEqual({
+      content: '"View page as Markdown"',
+      opacity: '1'
+    });
+
+  const response = await page.request.get('/guide/getting-started/concepts.md');
+  expect(response.ok()).toBe(true);
+  expect(response.headers()['content-type']).toMatch(/^text\/markdown(?:;|$)/);
+});
+
+test('page Markdown actions stack below the title without mobile overflow', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/betterboard/start/quick-start/');
+
+  const layout = await page.locator('[data-page-title-row]').evaluate((row) => {
+    const title = row.querySelector<HTMLElement>('h1');
+    const actions = row.querySelector<HTMLElement>('[data-page-actions]');
+    if (!title || !actions) throw new Error('Missing page title actions');
+
+    const titleBox = title.getBoundingClientRect();
+    const actionsBox = actions.getBoundingClientRect();
+    return {
+      actionsBelowTitle: actionsBox.top >= titleBox.bottom,
+      pageScrollWidth: document.documentElement.scrollWidth,
+      viewportWidth: document.documentElement.clientWidth
+    };
+  });
+
+  expect(layout).toEqual({
+    actionsBelowTitle: true,
+    pageScrollWidth: 390,
+    viewportWidth: 390
+  });
+});

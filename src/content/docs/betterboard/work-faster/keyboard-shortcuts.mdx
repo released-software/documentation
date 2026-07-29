@@ -1,0 +1,57 @@
+---
+title: Keyboard shortcuts
+description: >-
+  BetterBoard is built for keyboard-first use. The command palette gives you
+  access to every action without touching the mouse.
+space: betterboard
+sidebar:
+  order: 7
+---
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+BetterBoard is built for keyboard-first use. The command palette gives you access to every action without touching the mouse. Individual shortcuts cover navigation, work item editing, and board controls.
+
+## Command palette
+
+Press `⌘K` (Mac) or `Ctrl+K` (Windows/Linux) from anywhere on the board to open the command palette. You can also press `.` (period) as an alternative.
+
+The palette gives you instant access to board actions, work item actions on the selected work item, and navigation. Type to filter available commands. Press `Enter` to execute, `Escape` to close, and `Backspace` on an empty query to go back to the root.
+
+<a id="navigation-shortcuts"></a>
+
+## Navigation
+
+Use arrow keys to move focus between cards on the board.
+
+<table><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody><tr><td><code>↑</code> <code>↓</code> <code>←</code> <code>→</code></td><td>Move focus to the nearest card in that direction</td></tr><tr><td><code>Shift+↑</code> <code>Shift+↓</code> <code>Shift+←</code> <code>Shift+→</code></td><td>Move focus and extend selection (range select)</td></tr><tr><td><code>Enter</code></td><td>Open focused work item in Jira</td></tr><tr><td><code>Escape</code></td><td>Close open editor → close palette → clear selection (cascading)</td></tr></tbody></table>
+
+<a id="work item-shortcuts"></a>
+
+## Work item shortcuts
+
+These shortcuts act on the focused or hovered card. If work items are selected, the action applies to all selected work items.
+
+<table><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody><tr><td><code>A</code></td><td>Open assignee picker</td></tr><tr><td><code>S</code></td><td>Open status picker</td></tr><tr><td><code>P</code></td><td>Open priority picker</td></tr><tr><td><code>L</code></td><td>Open labels picker</td></tr><tr><td><code>D</code></td><td>Open due date picker (if due date field is shown)</td></tr><tr><td><code>T</code></td><td>Open start date picker (if start date field is shown)</td></tr><tr><td><code>I</code></td><td>Assign to me (no picker — updates immediately)</td></tr><tr><td><code>O</code></td><td>Open work item in Jira</td></tr><tr><td><code>Space</code></td><td>Toggle selection (for bulk actions)</td></tr></tbody></table>
+
+## Board shortcuts
+
+These shortcuts work at any time without requiring a card to be focused.
+
+<table><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody><tr><td><code>⌘K</code> / <code>Ctrl+K</code></td><td>Open command palette</td></tr><tr><td><code>⌘F</code> / <code>Ctrl+F</code></td><td>Open quick search</td></tr><tr><td><code>⌘⌫</code> / <code>Ctrl+Delete</code></td><td>Delete selected work items (opens confirmation)</td></tr><tr><td><code>F</code></td><td>Open filter picker</td></tr><tr><td><code>C</code></td><td>Create new work item</td></tr><tr><td><code>Shift+C</code></td><td>Open card color options</td></tr><tr><td><code>N</code> then <code>V</code></td><td>Create new view (two-key chord)</td></tr><tr><td><code>G</code> then <code>A</code></td><td>Open the <a href="/docs/global-board-directory/">global board directory</a> (two-key chord)</td></tr><tr><td><code>.</code></td><td>Open command palette (alternative to ⌘K)</td></tr></tbody></table>
+
+## Bulk selection
+
+Select multiple work items to act on them together. There are three ways to build a selection:
+
+-   `Space` — toggles selection on the focused card
+-   `⌘+click` (Mac) / `Ctrl+click` (Windows/Linux) — adds or removes a card from the selection
+-   `Shift+click` or `Shift+arrow` — selects a contiguous range
+
+With multiple work items selected, the bulk action bar appears at the bottom of the board. You can also use `⌘K` to run actions on all selected work items at once. See [Bulk editing](/betterboard/work-faster/inline-editing/#bulk-editing) for details.
+
+<NeutralCallout type="note">
+
+Shortcuts are suppressed when focus is inside a text input, dropdown, or inline editor. `⌘K` and `Escape` always work regardless.
+
+</NeutralCallout>

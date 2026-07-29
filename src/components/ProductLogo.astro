@@ -1,0 +1,43 @@
+---
+import { getSpace, type SpaceId } from '../data/spaces';
+
+interface Props {
+  space: SpaceId;
+  size?: 16 | 20 | 24 | 32;
+  decorative?: boolean;
+}
+
+const { space, size = 20, decorative = false } = Astro.props;
+const label = getSpace(space).shortName;
+const logoSource =
+  space === 'hub'
+    ? '/brand/released-favicon.svg'
+    : space === 'betterboard'
+      ? '/brand/betterboard-favicon.svg'
+      : undefined;
+---
+
+{
+  logoSource ? (
+    <img
+      alt={decorative ? '' : label}
+      aria-hidden={decorative ? 'true' : undefined}
+      height={size}
+      src={logoSource}
+      width={size}
+    />
+  ) : (
+    <svg
+      aria-hidden={decorative ? 'true' : undefined}
+      aria-label={decorative ? undefined : label}
+      fill="none"
+      height={size}
+      role={decorative ? undefined : 'img'}
+      viewBox="0 0 24 24"
+      width={size}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="m9.4 14.6-1.7 1.7a3 3 0 0 1-4.2-4.2l3.4-3.4a3 3 0 0 1 4.2 0m2.9.7 1.7-1.7a3 3 0 0 1 4.2 4.2l-3.4 3.4a3 3 0 0 1-4.2 0M8.5 15.5l7-7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+    </svg>
+  )
+}

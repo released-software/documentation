@@ -1,0 +1,95 @@
+---
+icon: messages
+title: Setting up your Product Hub
+description: >-
+  Setting up the basic elements right ensures your Product Hub feels
+  professional, trustworthy, and clearly connected to your brand.
+space: hub
+sidebar:
+  order: 5
+---
+import { Steps } from '@astrojs/starlight/components';
+import NeutralCallout from '../../../../../components/content/NeutralCallout.astro';
+
+## The Basics
+
+Setting up the basic elements right ensures your Product Hub feels professional, trustworthy, and clearly connected to your brand.
+
+In Jira, navigate to Released via the sidebar Apps menu. Then click on [Settings](/guide/product/administration/). From here, you can set up your Product Hub to represent your brand. 
+
+<Steps>
+<ol>
+<li>
+### Upload your logo
+
+Your logo appears on the Hub overview and links back to your website. This reinforces your brand and gives users a familiar point of reference.
+</li>
+
+<li>
+### Name your Product hub
+
+Choosing a clear, recognizable name — usually your company name — helps users immediately understand whose updates they are viewing.
+</li>
+
+<li>
+### Add your website URL
+
+Setting the correct URL ensures users who click your logo are taken to your main site, maintaining a seamless experience and reinforcing trust.
+</li>
+</ol>
+</Steps>
+
+## Style your Product Hub
+
+The Product Hub and each portal can be customized and themed individually. This lets you align the Hub with your overall company brand, while tailoring specific portals to match the branding of individual products or customer groups.
+
+<Steps>
+<ol>
+<li>
+### Customize the primary and secondary color
+
+The primary and secondary colors control your background and accent colors. When you choose two different colors, they combine to create a beautiful gradient background.
+</li>
+
+<li>
+### Give it a title and subtitle
+
+Explain the purpose of your Product Hub. Whether it’s for internal stakeholders, public customers, or individual clients, make it clear to visitors what the Hub is for and how it helps them stay up to date on projects.
+</li>
+</ol>
+</Steps>
+
+Learn how to [customize your product hub](/guide/product/administration/design/).
+
+## Custom domain
+
+<NeutralCallout type="note">
+This step requires help from your webmaster or IT team.
+</NeutralCallout>
+
+Setting up a custom domain makes your Product Hub feel fully branded and trustworthy for customers. You can configure this at the bottom of the General settings page. This step typically requires help from your webmaster or IT team.
+
+By default, your Product Hub is available at  `your_jira_subdomain.releasedhub.com.` 
+
+When setting up a custom domain, you can use www or choose your own subdomain. Common examples include:
+
+* **`hub`**`.yourcompany.com` 
+* **`feedback`**`.yourcompany.com` 
+* **`updates`**`.yourcompany.com`
+* **`roadmaps`**`.yourcompany.com`
+
+Learn how to [setup your custom domain](/guide/product/administration/custom-domain/). 
+
+## User verification
+
+<NeutralCallout type="note">
+This step requires help from your developers.
+</NeutralCallout>
+
+To create a seamless experience when you embed portals, you can verify a user’s identity automatically. This removes the need for them to log in to view private portals or leave feedback.
+
+### Do I have to implement user verification?
+
+User verification is optional. Users can still log into embedded portals using any of the supported login flows. However, for a truly seamless experience, it’s worth investing a little extra effort upfront.
+
+Share the implementation guide with your developers. 

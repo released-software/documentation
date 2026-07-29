@@ -1,0 +1,94 @@
+---
+title: Accessing Custom Fields
+description: >-
+  Released lets you choose which description field to use for generating release
+  notes. But every so often, you might want to include information from other
+  fields in your release notes as well.
+space: hub
+sidebar:
+  order: 75
+---
+import Figure from '../../../../../components/content/Figure.astro';
+
+import ResponsiveEmbed from '../../../../../components/content/ResponsiveEmbed.astro';
+import NeutralCallout from '../../../../../components/content/NeutralCallout.astro';
+
+## Overview
+
+Released lets you choose which description field to use for generating release notes. But every so often, you might want to include information from other fields in your release notes as well. 
+
+Common examples are: 
+
+* Documentation links
+* Product area
+* Theme
+* Customer
+
+This guide outlines a simple workaround to include additional fields in your release notes until native support is available.
+
+Here’s how it works:
+
+1. **Copy field values** into the description field using automation.
+2. **Adjust your AI prompt** to reference those fields.
+
+<ResponsiveEmbed src="https://www.loom.com/share/9b5399472c50409d9ba4edadeb3ed6aa?sid=90e8286b-d0d0-4538-923c-c0ca28b257d5" title="Loom video" provider="loom" />
+
+## How to
+
+With Jira Automation, you can easily copy values from other fields into the description field used for generating release notes.
+
+You can trigger this automation manually or automatically when an issue’s status changes.
+
+Follow the step-by-step guide below to set it up. 
+
+<NeutralCallout type="note">
+If you are not familar with Jira automations, we recommend that you read the [Getting Started Guide for Jira Automations ](https://www.atlassian.com/software/jira/guides/automation/overview)first. 
+</NeutralCallout>
+
+### 1. Setting up the automation
+
+#### Adding a trigger
+
+<Figure src="/media/hub/Jira%20Automation%20-%20Trigger.png" alt="Jira Automation   Trigger" />
+
+First, decide how you want to trigger the automation. The most common options are:
+
+* Manual trigger (shown above) – Run the automation on demand.
+* Workflow transition trigger – Automatically trigger the automation when an issue’s status changes.
+
+#### Adding an action
+
+Once the automation is triggered, the next step is to define an action. In this case, we want to edit the description field used to create the release notes. 
+
+In the below example, we’re updating the description field by:
+
+1. Keeping the original description at the top to preserve existing information.
+2. Adding a section labeled “Other Information” below, where we include values from various issue fields.
+3. Structuring the field data as key value pairs. This will allow for referencing the fields in the AI prompt. 
+
+<Figure src="/media/hub/Jira%20Automation%20-%20Edit%20Action.png" alt="Jira Automation   Edit Action" width={375} />
+
+<NeutralCallout type="note">
+Click on the curly brackets in the bottom right of the text editor to easily access the available fields for the issues. 
+</NeutralCallout>
+
+#### Example
+
+```
+{{issue.description}}
+
+h3. Other information
+
+Assignee: {{assignee.displayName}}
+Versions: {{issue.fixVersions.name}}
+Documentation: {{issue.customfield_10414}} // the custom field ID will differ.
+```
+
+### 2. Reference the data in your AI prompt
+
+Once the data is available in the description field, you can reference it directly in the AI prompt. Simply use the field name as specified in the structured format above to ensure consistent output.
+
+<NeutralCallout type="note">
+For more detail on how to write an AI prompt using custom fields read [creating-structured-output.md](/guide/resources/ai-tips/creating-structured-output/ "mention")
+</NeutralCallout>
+

@@ -1,0 +1,84 @@
+---
+title: Quick start
+description: >-
+  From installation to your first working BetterBoard board in five minutes.
+  Create a board, set up columns, choose card fields, and apply a filter.
+space: betterboard
+sidebar:
+  order: 3
+---
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+From installation to your first working board in five minutes. This guide walks through creating a board, setting up columns, choosing card fields, and applying a filter.
+
+## Open BetterBoard
+
+BetterBoard lives inside each Jira space. To open it:
+
+1.  Navigate to any Jira space in your instance
+2.  In the horizontal navigation bar, click the **+** button at the far right
+3.  Find and click **BetterBoard** in the list
+4.  BetterBoard opens with a welcome screen on your first visit
+
+If you don't see BetterBoard in the list, make sure it has been installed and that you have at least Space Member access. See the [Installation guide](/betterboard/start/installation/) for details.
+
+<a id="create-first-board"></a>
+
+## Create your first board
+
+1.  Click **New board** in the board switcher at the top left
+2.  Give the board a name — something descriptive like "Sprint board" or "All open work"
+3.  Choose **Shared** if your whole team should see it, or **Private** if it's just for you
+4.  Click **Create**
+
+The board opens immediately with default settings — work items grouped by status, using the space's standard columns.
+
+<NeutralCallout type="note">
+
+You can create as many boards as you need. Common setups include one board per team workflow (sprint planning, triage, review) and one shared board with saved filters for each team member.
+
+</NeutralCallout>
+
+## Configure columns
+
+Columns are controlled by a grouping field — by default, Status.
+
+1.  Click **Display** (settings icon) in the toolbar
+2.  Under **Columns**, choose the field to group by: Status, Priority, Assignee, Sprint, or any single-select custom field
+3.  Map the available field options to the columns you want visible on the board
+
+You can create new columns, rename existing ones, remove columns you don't need, and drag column headers to reorder them. Removing a column simply hides that value from the board — it doesn't delete any work items.
+
+<a id="choose-card-fields"></a>
+
+## Choose what appears on cards
+
+Cards show the fields you choose — nothing more, nothing less. To configure:
+
+1.  Click **Display** (settings icon) in the toolbar
+2.  Go to **Fields**
+3.  Add any field from the **Available fields** list to **Fields in view**
+4.  Click the blue **Save** button that appears in the toolbar to apply your changes
+
+Keep cards lean for a quick visual scan, or add more fields when your team needs richer context at a glance. You can always adjust later without losing any other board configuration.
+
+## Apply a filter
+
+Filters let you focus the board on specific work items:
+
+1.  Click the **Filter** button in the toolbar to open the filter bar
+2.  Choose a field (e.g. Assignee), pick an operator (e.g. is), and select a value — the board updates live
+3.  Click the blue **Save** button in the toolbar to save the filter with the board
+
+You can stack multiple filters — for example, Assignee is "Me" AND Sprint is "Current sprint" AND Priority is not "Low". All active filters are shown in the filter bar. Remove a filter by clearing its value.
+
+<a id="next-steps-qs"></a>
+
+## Next steps
+
+You now have a working board. From here, explore the features that make BetterBoard most useful for your team's workflow.
+
+-   [Multi-Space Boards](/betterboard/board-setup/multi-space-boards/)
+-   [Status Mapping](/betterboard/shape-the-board/status-mapping/)
+-   [Keyboard Shortcuts](/betterboard/work-faster/keyboard-shortcuts/)

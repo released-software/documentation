@@ -1,0 +1,39 @@
+---
+description: Integrate Released with the Confluence page builder Karma.
+title: Karma
+space: hub
+sidebar:
+  order: 62
+---
+import Figure from '../../../../../components/content/Figure.astro';
+
+[Karma](https://marketplace.atlassian.com/apps/1228839/karma-confluence-page-builder-content-formatting-free?hosting=cloud\&tab=overview) is an easy to use WYSIWYG page builder that enables users to quickly create engaging Confluence pages. 
+
+## Prerequisite
+
+* [ ] You must have Karma installed in your Confluence instance. 
+* [ ] [Find the channel ID](/guide/resources/how-tos/finding-the-channel-id/) for the announcement page and note it down. 
+
+## 1. Add the Karma macro to a Confluence Page
+
+* You can find detailed instructions on how to use Karma in the [Karma documentation](https://appanvil.atlassian.net/wiki/spaces/KARMA/pages/2821685249/Quick+Start).
+
+## 2. Add an Embed section to the page
+
+* Find the "Embed" section in the left sidebar and select "Released" from the available embed options. 
+* Drag the embed onto the page.
+
+## 3. Add the channel ID in the embed settings
+
+* Enter the [Channel ID](/guide/resources/how-tos/finding-the-channel-id/) into the "Embed" text field of the embed settings - your release notes should render in the background if done correctly. 
+
+<Figure src="/media/hub/Integrations%20-%20Karma%20Embed%20Settings.png" alt="Karma embed settings" caption="Karma embed settings" width={375} />
+
+## 4. Publish the page
+
+* Click "Publish" in the top-right to publish the Confluence page. 
+
+\
+**Congratulations, you're done 🎉**
+
+New posts published to the [Announcement Page channel](/guide/product/changelog/publishing/#announcement-page) in Released will now automatically appear in Confluence. 

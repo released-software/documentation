@@ -1,0 +1,74 @@
+---
+title: Inline editing
+description: >-
+  Edit issue fields directly on the card without opening the full Jira issue.
+  Click any field chip to edit in place — changes sync to Jira instantly.
+space: betterboard
+sidebar:
+  order: 5
+---
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+Edit work item fields directly on the card without opening the full Jira work item view. Click any field chip on a card to edit it in place — changes sync to Jira immediately.
+
+<a id="how-to-inline-edit"></a>
+
+## How to edit a field
+
+1.  Hover over a card — the field chips become interactive
+2.  Click the field you want to edit (Assignee avatar, Priority badge, Status lozenge, etc.)
+3.  A picker or input appears inline on the card
+4.  Make your selection or type a new value
+5.  Click outside the card or press Escape to confirm and close
+
+Changes are saved to Jira immediately — there's no draft state or save button.
+
+<a id="supported-fields"></a>
+
+## Supported field types
+
+Almost all displayed fields support inline editing:
+
+-   **Assignee**: user picker with search
+-   **Priority**: dropdown of priority levels
+-   **Status**: status picker (transitions available based on workflow permissions)
+-   **Labels**: multi-select with search and create-new
+-   **Sprint**: sprint picker for moving the work item between sprints
+-   **Single-select custom fields**: option picker
+-   **Multi-select custom fields**: multi-option picker
+-   **Number fields**: inline number input
+-   **Date fields**: date picker calendar
+
+## Status transitions
+
+Editing Status respects Jira's workflow transitions. If your workflow requires an approval to move from "In Review" to "Done", BetterBoard will either:
+
+-   Show only the transitions available from the current status, or
+-   Prompt for any required transition fields (e.g. a resolution field)
+
+If a transition is blocked by a permission or condition, BetterBoard shows an error message inline.
+
+## Bulk editing
+
+Select multiple work items to edit them together. There are three ways to trigger a bulk edit:
+
+-   **Bulk action bar** — select work items with `Space`, `⌘+click`, or `Shift+click`, then use the bar that appears at the bottom of the board
+-   **Command palette (`⌘K`)** — with work items selected, open `⌘K` and choose a field action to apply across all selected work items
+-   **Click a field on the card** — with multiple work items selected, clicking a field chip on any selected card opens the editor for that field and applies the change to all selected work items
+
+<NeutralCallout type="caution">
+
+If a transition fails or a field update isn't available for a particular work item, that card is highlighted with an error indicator. The remaining work items in the selection are updated normally.
+
+</NeutralCallout>
+
+<NeutralCallout type="note">
+
+**Bulk editing across spaces:** When work items from multiple spaces share a merged field (same name and type), only options present in all selected work items' spaces are shown. For example, selecting work items from a Scrum space (Priority: Highest, High, Medium, Low, Lowest) and a JSM space (Priority: Critical, High, Medium, Low) shows only "High", "Medium", and "Low". See [Field merging](/betterboard/shape-the-board/display-fields/#field-merging) for more details.
+
+</NeutralCallout>
+
+## Optimistic updates
+
+BetterBoard updates the card immediately on screen when you make an edit, before Jira confirms the change. If Jira rejects the update (permissions error, validation failure), the card reverts to its previous value and shows an error toast.

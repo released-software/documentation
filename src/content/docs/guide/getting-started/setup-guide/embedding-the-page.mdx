@@ -1,0 +1,94 @@
+---
+description: Embed your roadmaps and released notes inside your app or website.
+icon: square-code
+title: Embedding the Page
+space: hub
+sidebar:
+  order: 7
+---
+import Figure from '../../../../../components/content/Figure.astro';
+
+import { Steps } from '@astrojs/starlight/components';
+import NeutralCallout from '../../../../../components/content/NeutralCallout.astro';
+
+The page embed enables you to integrate your portal seamlessly into your website or documentation. You can maintain your existing website header and footer, ensuring a consistent user experience across your site.
+
+<NeutralCallout type="caution">
+To enable users to log in, you must add the domain's URL to the list of [trusted domains](/guide/product/administration/trusted-domains/). The URL must include the subdomain. For example `feedback.example.com`.
+</NeutralCallout>
+
+## Installation instructions
+
+<Steps>
+<ol>
+<li>
+### Copy the channel ID
+
+[Copy the channel ID](/guide/resources/how-tos/finding-the-channel-id/) for the embed widget.
+</li>
+
+<li>
+### **Select which modules to include**
+
+Choose whether to embed the Changelog, the Roadmap, or both by selecting which modules to include in the embed.
+
+<Figure src="/media/hub/Settings%20-%20Install%20instructions.png" alt="Select which modules to include" caption="Select which modules to include" />
+</li>
+
+<li>
+### **Add the embed script**
+
+Add the following code snippet to the `<head>` section of your site.
+
+```html
+<script src="https://embed.released.so/1/embed.js" defer></script>
+```
+</li>
+
+<li>
+### **Add the released-page element to your page**
+
+Add the following code snippet to the `<body>` section of your site. Unlike the widget, the page content renders where you position the element. Ensure you replace the `CHANNEL_ID` attribute.
+
+```html
+<released-page channel-id="CHANNEL_ID"></released-page>
+```
+
+To automatically authenticate users, you can [implement user verification](/guide/getting-started/setup-guide/implementing-user-verification/) and pass in the `auth-token` attribute.
+
+```
+<released-page channel-id="CHANNEL_ID" auth-token="AUTH_TOKEN"></released-page>
+```
+</li>
+</ol>
+</Steps>
+
+## Optional steps
+
+<Steps>
+<ol>
+<li>
+### **Add a notification badge**
+
+To notify users about the availability of a new post, you can enhance the user experience by incorporating a notification badge on the link or button leading to the embedded page. This badge functions similarly to the notification badge found in the widget.
+
+Add the following code snippet to the `<body>` section of your site where you want the badge to render.
+
+```html
+<released-badge channel-id="CHANNEL_ID"></released-badge>
+```
+</li>
+
+<li>
+### **Customize the page**
+
+Customize the page to match your brand and app design using the page properties. Adjust the title and description, or change the colors according to your preferences.
+
+Please see the documentation for a full list of [configuration options](/guide/product/portals/portal/announcement-page/).
+</li>
+</ol>
+</Steps>
+
+## Example
+
+View an example of how to embed the page on [CodePen](https://codepen.io/released/pen/WNaaMNx).

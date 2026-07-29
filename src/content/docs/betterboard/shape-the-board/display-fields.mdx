@@ -1,0 +1,85 @@
+---
+title: Display fields
+description: >-
+  Control what information appears on each card. Choose exactly which Jira
+  fields to show — assignee, priority, labels, story points, custom fields, and
+  more.
+space: betterboard
+sidebar:
+  order: 3
+---
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+Display fields control what information appears on each card. You choose exactly which Jira fields to show — assignee, priority, labels, story points, custom fields, and more.
+
+## Configuring display fields
+
+1.  Open the board and click **Display** (settings icon)
+2.  Go to the **Fields** section
+3.  Add fields from **Available fields** to **Fields in view**, or remove them
+4.  Click the blue **Save** button in the toolbar to apply changes
+
+## Field order
+
+The order in which you arrange fields in the configuration panel determines how they appear on the card, from left to right. There are a few exceptions where position is always fixed regardless of order:
+
+-   **Summary** — always displayed prominently as the card title
+-   **Parent** — always shown above the title
+-   **Assignee & Reporter** — always rendered in the top-left corner of the card
+-   **Flagged** — always shown as a colored corner indicator in the top left
+
+All other fields follow the order you set. Drag fields in the configuration panel to reorder them.
+
+<a id="available-fields"></a>
+
+## What fields are available?
+
+BetterBoard surfaces every field available in the Jira space:
+
+-   **System fields**: Assignee, Reporter, Priority, Status, Work item Type, Labels, Fix Version, Component, Sprint, Story Points, Due Date, Created, Updated
+-   **Custom fields**: Any field created in your Jira configuration — single select, multi-select, date, number, text, rating, URL, and more
+-   **Synthetic fields**: Time in Status, Blockers (see Reference → Field Types)
+
+Fields that don't have values on a given work item are hidden on that card — empty fields never take up space.
+
+## How fields render
+
+Each field type has a specific visual representation designed for scannability:
+
+-   **User fields** (Assignee, Reporter): Avatar with tooltip showing the full name
+-   **Priority**: Colored icon (red for Highest, orange for High, etc.)
+-   **Status**: Colored lozenge matching Jira's status categories (blue = In Progress, green = Done, etc.)
+-   **Labels**: Small tag chips, up to 3 visible with overflow indicator
+-   **Date fields**: Short date format (e.g. "Aug 29")
+-   **Number fields**: Raw number with optional unit
+-   **Option fields**: Colored chip using the option's configured color
+
+<NeutralCallout type="note">
+
+Colors for option fields and priorities match what you see in Jira — BetterBoard reads the color configuration from your Jira instance.
+
+</NeutralCallout>
+
+## Sprint field
+
+The Sprint field displays the active sprint name for the work item. If an work item is in multiple sprints (possible in team-managed spaces), the most recent sprint is shown.
+
+<a id="per-space-field-config"></a>
+
+## Field configuration in multi-space boards
+
+In multi-space mode, field configuration applies across all spaces. If a field only exists in some spaces, it will show only on cards from those spaces and be hidden on cards from spaces where the field doesn't exist.
+
+<a id="field-merging"></a>
+
+## Field merging in multi-space boards
+
+When two spaces have a field with the same name and type, BetterBoard merges them into a single field for ease of use. This means you see one "Priority" field in the configuration even if both spaces have their own Priority field.
+
+Merging affects how options are presented during editing:
+
+-   **Single-work item edit**: only field options relevant to that work item's space are shown
+-   **Bulk edit across spaces**: only options that share the same name across all selected work items' spaces are available for selection
+
+For example, if your Scrum space has Priority options "Highest, High, Medium, Low, Lowest" and your JSM space has "Critical, High, Medium, Low", only "High", "Medium", and "Low" — the shared names — will be available when bulk-editing work items from both spaces. See [Bulk editing](/betterboard/work-faster/inline-editing/#bulk-editing) for more details.

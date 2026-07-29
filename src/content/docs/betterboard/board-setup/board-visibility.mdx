@@ -1,0 +1,59 @@
+---
+title: Board visibility
+description: >-
+  Learn the difference between shared and private BetterBoard boards, who can
+  see each type, and how to change visibility at any time.
+space: betterboard
+sidebar:
+  order: 4
+---
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+Every BetterBoard board is either shared or private. Visibility controls who can see and use the board within a Jira space.
+
+## Shared boards
+
+A shared board is visible to everyone who has access to the Jira space. Anyone on the team can:
+
+-   See the board in the board switcher
+-   View all work items on the board
+-   View and edit the board configuration (columns, fields, filters)
+
+Shared boards are ideal for team standups, sprint reviews, triage queues, and any workflow where the whole team needs the same view. Only the board owner can make a shared board private.
+
+## Private boards
+
+A private board is visible only to you. It doesn't appear in the board switcher for other team members.
+
+Private boards are useful for:
+
+-   Personal filters (e.g. "My open work this sprint")
+-   Experimental configurations you're still testing
+-   Views combining data from multiple spaces that only make sense in your context
+
+<NeutralCallout type="note">
+
+Admins cannot see private boards. If an admin needs access to a private board, the owner should temporarily make it shared, grant access, then switch it back to private.
+
+</NeutralCallout>
+
+## Changing visibility
+
+Toggle visibility using the privacy icon next to the board name in the toolbar. The change takes effect immediately.
+
+When you make a private board shared, it immediately appears in the board switcher for all space members. When you make a shared board private, it disappears from the switcher for everyone else instantly. Only the board owner can change visibility.
+
+<NeutralCallout type="note">
+
+You can also toggle visibility from anywhere using the command palette — press **⌘K** (or **Ctrl+K**) and search for "Make board private" or "Make board shared". See [Keyboard Shortcuts](/betterboard/work-faster/keyboard-shortcuts/) for more.
+
+</NeutralCallout>
+
+<a id="who-can-edit"></a>
+
+## Who can edit board configuration
+
+Anyone with access to the space can edit a shared board's configuration — columns, display fields, and saved filters. There is no per-user permission lock on board edits.
+
+More detailed permission controls are planned for a future release. For now, if a team member needs their own view without affecting the shared board, they can save it as a new board using the **Save as a new board** option.

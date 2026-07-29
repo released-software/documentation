@@ -31,7 +31,7 @@ Copy the following code snippet into the `<head>` element of your page.
 
 We have created a announcement page component that you can copy and paste into your Framer design view. Simply select the layer where you want to insert the announcement page and paste the URL below into the layer.
 
-```url
+```txt
 https://framer.com/m/Announcement-page-eOYM.js@Z0mbpA8Z50VzS62QH9dz
 ```
 
@@ -53,7 +53,7 @@ To notify users about the availability of a new post, you can enhance the user e
 
 Similar to the Page component, Released provides a Badge component that you can copy and paste into your Framer design view.
 
-```url
+```txt
 https://framer.com/m/Released-badge-UvAC.js@DtpmL9J2ZjCuvy77OuXw
 ```
 

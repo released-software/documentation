@@ -1,0 +1,61 @@
+---
+description: >-
+  Keep your teams and customers up to date with product updates via the Slack
+  integration.
+icon: slack
+title: Publishing to Slack
+space: hub
+sidebar:
+  order: 54
+---
+import Figure from '../../../../../components/content/Figure.astro';
+
+import NeutralCallout from '../../../../../components/content/NeutralCallout.astro';
+
+Once published, you can share posts with team members and customers via Slack. 
+
+## Installing Released in Slack
+
+To enable sharing to Slack, you will need to install Released in your Slack account. 
+
+1. Click on the **Share** button when hovering over any post
+2. Click the **Install** button in the popup
+3. Click **Allow** to grant Released permission to access Slack 
+
+<Figure src="/media/hub/Slack%20Auth.png" alt="Slack permission dialog" caption="Slack permission dialog" />
+
+<NeutralCallout type="note">
+If the workspace you wish to connect to is not displayed in the dialog, you have the option to switch your workspace using a dropdown located in the top-right corner of the screen.
+</NeutralCallout>
+
+## Sharing a post to Slack
+
+Sharing a post to Slack will post the entire content, not just a link, to the selected Slack channels. Allowing users to read the update right within Slack. 
+
+Sharing a post to Slack only takes a couple of clicks. 
+
+1. Click on the **Share** button when hovering over any post
+2. Select the workspace where you want to share the post
+3. Select the Slack channel(s) to share to
+4. Click **Post** to share 
+
+The workspace and channel settings will be remembered. If you are frequently sharing updates to the same workspace and channels, all you need to do next time is hit **Post**.
+
+<Figure src="/media/hub/Slack%20Share.png" alt="Slack Share dialog" caption="Slack Share dialog" width={344} />
+
+<NeutralCallout type="note" title="What is the difference between publishing and sharing?">
+
+When publishing posts to the widget, page or Confluence, you can continue to edit and update the same post by publishing it again. \
+\
+Sharing a post is a one time action. Content posted to Slack can not be unpublished or updated from within Released. 
+</NeutralCallout>
+
+## Troubleshooting
+
+### Couldn't share to Slack
+
+Sharing to Slack can happen for multiple reasons. The most common one is a lack of permission to post to the chosen channel. 
+
+Please check the channel permission and ensure that the Released App is allows to post to the channel. For more details, please refer to the Slack documentation on how to [manage channel posting permissions](https://slack.com/intl/en-gb/help/articles/360004635551-Manage-channel-posting-permissions-).
+
+###

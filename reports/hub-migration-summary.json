@@ -1,0 +1,39 @@
+{
+  "sourcePageCount": 90,
+  "outputPageCount": 90,
+  "referencedAssetCount": 70,
+  "convertedConstructCounts": {
+    "neutralCallouts": 87,
+    "steps": 35,
+    "tabs": 3,
+    "tabItems": 6,
+    "linkRows": 19,
+    "responsiveEmbeds": 9,
+    "figures": 69,
+    "tables": 33,
+    "details": 30,
+    "codeBlocks": 62
+  },
+  "droppedConstructCount": 0,
+  "brandClassificationCounts": {
+    "review": 240,
+    "change display copy to Hub": 0,
+    "retain product/marketplace name": 0,
+    "retain code/config/API/asset identifier": 0,
+    "retain historical usage": 0
+  },
+  "genericEmbedReviewWarnings": [
+    {
+      "file": "product/changelog/staging-area.md",
+      "line": 54,
+      "construct": "embed"
+    },
+    {
+      "file": "product/changelog/staging-area.md",
+      "line": 56,
+      "construct": "embed"
+    }
+  ],
+  "deliberateTransformations": [],
+  "representativeContentReviews": []
+}

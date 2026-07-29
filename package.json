@@ -1,0 +1,51 @@
+{
+  "name": "released-documentation",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0",
+    "npm": ">=9.6.5"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "prebuild": "npm run check:redirects",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "generate:redirects": "node scripts/generate-cloudflare-redirects.mjs",
+    "check:redirects": "node scripts/generate-cloudflare-redirects.mjs --check",
+    "generate:content-fixture": "node scripts/generate-content-component-fixture.mjs",
+    "check:content-fixture": "node scripts/generate-content-component-fixture.mjs --check",
+    "migrate:hub": "node scripts/migrate-gitbook.mjs --source . --output src/content/docs/guide",
+    "migrate:betterboard": "node scripts/migrate-betterboard.mjs --source /Users/jschumacher/Development/Released/betterboard-website --output src/content/docs/betterboard --public public --report reports/betterboard-migration-summary.json",
+    "validate:content": "node scripts/validate-content.mjs",
+    "test:unit": "node --test tests/unit/*.test.mjs",
+    "test:build": "npm run build && node --test tests/build/*.test.mjs",
+    "test:e2e": "playwright test && npm run test:e2e:dev",
+    "test:e2e:dev": "playwright test --config playwright.dev.config.ts",
+    "test": "npm run check && npm run test:unit && npm run test:build && npm run test:e2e"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.7.3",
+    "@astrojs/starlight": "0.41.4",
+    "acorn": "^8.18.0",
+    "astro": "7.1.3",
+    "remark-gfm": "^4.0.1",
+    "remark-mdx": "^3.1.1",
+    "remark-parse": "^11.0.0",
+    "remark-stringify": "^11.0.0",
+    "unified": "^11.0.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.9",
+    "@mdx-js/mdx": "3.1.1",
+    "@playwright/test": "1.62.0",
+    "@types/turndown": "5.0.6",
+    "cheerio": "1.2.0",
+    "fast-glob": "3.3.3",
+    "gray-matter": "4.0.3",
+    "pagefind": "1.5.2",
+    "turndown": "7.2.4",
+    "typescript": "6.0.3"
+  }
+}

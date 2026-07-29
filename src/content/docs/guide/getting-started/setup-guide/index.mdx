@@ -1,0 +1,71 @@
+---
+description: It just takes a couple of steps to get you up and running
+title: Setup Guide
+space: hub
+sidebar:
+  order: 3
+---
+import LinkRow from '../../../../../components/content/LinkRow.astro';
+import { Steps } from '@astrojs/starlight/components';
+
+<Steps>
+<ol>
+<li>
+## Install Released
+
+Learn how to install Released from the Atlassian marketplace.
+
+<LinkRow href="/guide/getting-started/setup-guide/installing-the-app/" title="installing-the-app.md" />
+</li>
+
+<li>
+## Setup your Hub
+
+The Product Hub serves as a central hub for accessing your portals. Customize the branding, terminology and domain where your Hub can be reached. 
+
+<LinkRow href="/guide/product/administration/general/" title="general.md" />
+</li>
+
+<li>
+## Create a workspace
+
+Workspaces are your internal control center. This is where your team creates roadmap views, writes release notes, and manages feedback.
+
+<LinkRow href="/guide/product/portals/" title="portals" />
+</li>
+
+<li>
+## Customize your portal
+
+Portals are the external-facing side of Released. They’re where you share the content created in a workspace with a specific audience.
+
+Manage [access](/guide/product/portals/access/) and customize the look and feel of your portal.  
+
+<LinkRow href="/guide/product/portals/portal/" title="portal" />
+
+### Embedding a portal
+
+Embed a portal into your website or app, 
+
+<LinkRow href="/guide/product/portals/portal/announcement-page/" title="announcement-page.md" />
+
+<LinkRow href="/guide/product/portals/portal/widget/" title="widget.md" />
+</li>
+
+<li>
+## Verify your users <mark style="color:$info;">(optional)</mark>
+
+To create a seamless experience when you embed portals, you can verify a user’s identity automatically. This removes the need for them to log in to view private portals or leave feedback.
+
+<LinkRow href="/guide/getting-started/setup-guide/implementing-user-verification/" title="implementing-user-verification.md" />
+</li>
+
+<li>
+## Integrations <mark style="color:$info;">(optional)</mark>
+
+Integrate Released with the apps you're already using. 
+
+<LinkRow href="/guide/product/integrations/" title="integrations" />
+</li>
+</ol>
+</Steps>

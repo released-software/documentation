@@ -1,0 +1,83 @@
+---
+title: Overview
+description: >-
+  An introduction to BetterBoard — the flexible Jira board for every space type.
+  Learn the key concepts and how it fits into your Jira setup.
+space: betterboard
+sidebar:
+  order: 1
+---
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+BetterBoard is a Jira board app for teams who find the default boards too rigid. One board that works across every space type — Scrum, Kanban, service management, product discovery — with full control over columns, cards, fields, and filters.
+
+## What is BetterBoard?
+
+BetterBoard replaces the per-space Jira board with a single, configurable view. Instead of switching between a Scrum board in one space and a Kanban board in another, your team gets one board that adapts to whatever you're working on.
+
+It's not a new work item tracker or a reporting layer. BetterBoard reads from and writes to your existing Jira data. The work items, statuses, fields, and workflows you've already set up continue to work exactly as before — BetterBoard just gives you a better way to see and interact with them.
+
+## Key concepts
+
+BetterBoard is built around four concepts that control what you see on a board and how work items are organized.
+
+### Boards
+
+A board is a saved view configuration — which fields to show on cards, how columns are structured, which filters are active. Each Jira space can have multiple BetterBoard boards. One board might show all open work by assignee; another might filter for a specific sprint and group by priority.
+
+Boards can be shared with everyone who has access to the space, or kept private to you. Private boards are ideal for personal filters or in-progress experiments.
+
+### Spaces
+
+A space in BetterBoard corresponds to a Jira space — the container for your work items, workflows, and team members. By default, a board shows work items from a single space. With multi-space boards, you can pull work items from multiple spaces into one unified view — useful for cross-functional teams who work across a Scrum space, a service desk, and a product discovery backlog at the same time.
+
+### Fields
+
+Every Jira field is available in BetterBoard — system fields like Assignee, Priority, Status, and Sprint, plus any custom fields your team has configured. Fields serve two roles on a board:
+
+-   **Display fields** — shown as chips on each card (assignee avatar, priority badge, label tags, etc.)
+-   **Structural fields** — control how work items are grouped into columns, sorted within columns, or organized into swimlanes
+
+### Filters
+
+Filters refine which work items appear on the board. BetterBoard supports 25+ filter operators — from simple equality checks to date ranges to Jira-specific conditions like sprint membership and work item link relationships. Filters are composable and saved per board, so your team always sees the right scope without re-applying them on every visit.
+
+<a id="built-on-forge"></a>
+
+## Built on Atlassian Forge
+
+BetterBoard runs on Atlassian Forge — Atlassian's serverless hosting platform built into the Jira infrastructure. There are no third-party servers, no external OAuth tokens, and no data leaving your Jira tenant.
+
+You install it directly from the Atlassian Marketplace, the same way you would install any other Jira app. Permissions are scoped to exactly what BetterBoard needs to function — read access to work items and write access for the field updates you perform on the board.
+
+<NeutralCallout type="note">
+
+BetterBoard only stores board configuration — column layouts, filter presets, display preferences — using Forge's encrypted key-value storage. Work item data is never copied or stored outside Jira.
+
+</NeutralCallout>
+
+<a id="what-it-doesnt-do"></a>
+
+## What BetterBoard doesn't do
+
+BetterBoard is a board view. It's deliberately scoped to that. A few things it intentionally doesn't do:
+
+-   It doesn't replace Jira's backlog, roadmap, or timeline views
+-   It doesn't add new Jira fields or modify your workflow configuration
+-   It doesn't sync with external tools or export work item data
+-   It's not a reporting or analytics tool — it shows live board state, not historical trends
+
+<NeutralCallout type="note">
+
+If you're looking for a Jira board that works the way you think, BetterBoard is built for that. If you need advanced reporting, portfolio management, or timeline planning, those are different tools in the Atlassian ecosystem.
+
+</NeutralCallout>
+
+## Next steps
+
+Ready to get started? Installation takes less than two minutes from the Atlassian Marketplace.
+
+-   [Installation](/betterboard/start/installation/)
+-   [Quick Start](/betterboard/start/quick-start/)
+-   [Creating Boards](/betterboard/board-setup/creating-managing-boards/)
