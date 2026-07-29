@@ -40,6 +40,8 @@ export const spaces = [
   }
 ] as const satisfies readonly DocumentationSpace[];
 
+export const publicSpaces = spaces.filter((space) => space.available);
+
 function pathStartsWith(pathname: string, prefix: string) {
   return pathname === prefix.slice(0, -1) || pathname.startsWith(prefix);
 }

@@ -220,7 +220,7 @@ test('the space switcher supports keyboard navigation and restores trigger focus
   await expect(page).toHaveURL(/\/betterboard\/$/);
 });
 
-test('space entries use product marks and descriptive availability text, never status dots', async ({ page }) => {
+test('public space entries use product marks and never status dots', async ({ page }) => {
   await page.goto('/guide/');
   const trigger = page.getByRole('button', { name: 'Hub', exact: true });
   await expect(trigger.locator('img')).toHaveCount(0);
@@ -229,7 +229,7 @@ test('space entries use product marks and descriptive availability text, never s
   await expect(page.locator('.status-dot, [data-status-dot]')).toHaveCount(0);
 
   const menuItems = page.getByRole('menuitem');
-  await expect(menuItems).toHaveCount(3);
+  await expect(menuItems).toHaveCount(2);
   for (const menuItem of await menuItems.all()) {
     await expect(menuItem).not.toHaveText(/^\s*[•·●∙◦]/);
   }
@@ -241,9 +241,7 @@ test('space entries use product marks and descriptive availability text, never s
     page.getByRole('menuitem', { name: /BetterBoard/ }).locator('img')
   ).toHaveAttribute('src', '/brand/betterboard-favicon.svg');
 
-  const partnerLink = page.getByRole('menuitem', { name: /Partners/ });
-  await expect(partnerLink).toHaveAttribute('href', '/partners/');
-  await expect(partnerLink).toContainText('Coming soon');
+  await expect(page.getByRole('menuitem', { name: /Partners/ })).toHaveCount(0);
 });
 
 test('the Hub sidebar is shallow and opens only the active category on initial load', async ({ page }) => {

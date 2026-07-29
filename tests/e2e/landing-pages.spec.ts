@@ -45,15 +45,10 @@ test('the documentation overview is a content-width editorial destination list',
     await expect(row.locator('[data-row-arrow]')).toHaveCount(1);
   }
 
-  const partnerRow = overview.locator('[data-documentation-space="partners"]');
-  await expect(partnerRow).not.toHaveRole('link');
-  await expect(partnerRow).toContainText('Partner documentation');
-  await expect(partnerRow).toContainText('Coming soon');
-  await expect(partnerRow.locator('.product-mark svg')).toHaveCount(1);
-  await expect(partnerRow.locator('[data-row-arrow]')).toHaveCount(0);
+  await expect(overview.locator('[data-documentation-space="partners"]')).toHaveCount(0);
 
   const rows = overview.locator('.documentation-row');
-  await expect(rows).toHaveCount(3);
+  await expect(rows).toHaveCount(2);
   for (const row of await rows.all()) {
     await expect(row).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
     await expect(row).toHaveCSS('border-bottom-style', 'solid');

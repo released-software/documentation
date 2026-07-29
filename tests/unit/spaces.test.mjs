@@ -4,6 +4,12 @@ import test from 'node:test';
 import { getSpace, getSpaceFromPath } from '../../src/data/spaces.ts';
 import { filterSidebarForPath } from '../../src/data/sidebar.ts';
 
+test('exposes only available spaces for public discovery', async () => {
+  const { publicSpaces } = await import('../../src/data/spaces.ts');
+
+  assert.deepEqual(publicSpaces?.map((space) => space.id), ['hub', 'betterboard']);
+});
+
 test('assigns paths to their documentation spaces', () => {
   assert.equal(getSpaceFromPath('/'), 'all');
   assert.equal(getSpaceFromPath('/guide/'), 'hub');

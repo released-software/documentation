@@ -1,6 +1,6 @@
 ---
 import ProductLogo from './ProductLogo.astro';
-import { getSpace, spaces, type SpaceId } from '../data/spaces';
+import { getSpace, publicSpaces, type SpaceId } from '../data/spaces';
 
 interface Props {
   activeSpace: SpaceId | 'all';
@@ -28,7 +28,7 @@ const activeShortName = active?.shortName ?? 'All';
 
   <div class="space-menu" hidden id="documentation-space-menu" role="menu">
     {
-      spaces.map((space) => (
+      publicSpaces.map((space) => (
         <a
           aria-current={space.id === activeSpace ? 'page' : undefined}
           class="space-option"

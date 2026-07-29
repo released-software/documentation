@@ -45,8 +45,7 @@ export default defineConfig({
       social: [{ icon: 'external', label: 'Released', href: 'https://released.so' }],
       sidebar: [
         { label: 'Hub documentation', items: [{ autogenerate: { directory: 'guide' } }] },
-        { label: 'BetterBoard documentation', items: [{ autogenerate: { directory: 'betterboard' } }] },
-        { label: 'Partner documentation', items: [{ autogenerate: { directory: 'partners' } }] }
+        { label: 'BetterBoard documentation', items: [{ autogenerate: { directory: 'betterboard' } }] }
       ]
     }),
     sitemap({

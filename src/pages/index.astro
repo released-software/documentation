@@ -1,7 +1,7 @@
 ---
 import DocumentationOverview from '../components/DocumentationOverview.astro';
 import DocumentationLanding from '../layouts/DocumentationLanding.astro';
-import { spaces } from '../data/spaces';
+import { publicSpaces } from '../data/spaces';
 ---
 
 <DocumentationLanding
@@ -9,5 +9,5 @@ import { spaces } from '../data/spaces';
   pagefind={false}
   title="Find the right documentation for your product."
 >
-  <DocumentationOverview {spaces} />
+  <DocumentationOverview spaces={publicSpaces} />
 </DocumentationLanding>
