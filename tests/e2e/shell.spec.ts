@@ -53,6 +53,32 @@ test('the documentation label and current product balance their spacing around t
   });
 });
 
+test('the product switcher trigger keeps balanced horizontal insets', async ({ page }) => {
+  for (const width of [1440, 390]) {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto('/guide/');
+
+    const insets = await page
+      .getByRole('button', { name: 'Hub', exact: true })
+      .evaluate((trigger) => {
+        const name = trigger.querySelector<HTMLElement>('.space-name');
+        const chevron = trigger.querySelector<SVGElement>('.chevron');
+        if (!name || !chevron) throw new Error('Missing product switcher content');
+
+        const triggerBox = trigger.getBoundingClientRect();
+        const nameBox = name.getBoundingClientRect();
+        const chevronBox = chevron.getBoundingClientRect();
+        return {
+          left: Math.round(nameBox.left - triggerBox.left),
+          right: Math.round(triggerBox.right - chevronBox.right)
+        };
+      });
+
+    expect(insets.left).toBeGreaterThan(0);
+    expect(Math.abs(insets.left - insets.right)).toBeLessThanOrEqual(1);
+  }
+});
+
 test('the Released wordmark is optically raised to share the navigation text baseline', async ({
   page
 }) => {
@@ -555,4 +581,92 @@ test('the space switcher and Starlight mobile menu remain operable at 390px', as
 
   expect(mobileArticle.containerWidth).toBeLessThan(mobileArticle.viewportWidth);
   expect(mobileArticle.pageScrollWidth).toBe(mobileArticle.viewportWidth);
+});
+
+test('page Markdown actions copy clean content and expose the raw view', async ({
+  context,
+  page
+}) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.goto('/guide/getting-started/concepts/');
+
+  const copy = page.getByRole('button', { name: 'Copy page as Markdown' });
+  const view = page.getByRole('link', { name: 'View page as Markdown' });
+
+  await expect(copy).toBeVisible();
+  await expect(view).toBeVisible();
+  await expect(page.getByRole('button', { name: 'More page actions' })).toHaveCount(0);
+
+  await copy.focus();
+  await expect
+    .poll(() =>
+      copy.evaluate((element) => {
+        const tooltip = getComputedStyle(element, '::after');
+        return {
+          content: tooltip.content,
+          opacity: tooltip.opacity
+        };
+      })
+    )
+    .toEqual({
+      content: '"Copy page as Markdown"',
+      opacity: '1'
+    });
+
+  await copy.click();
+  await expect(copy).toHaveAttribute('data-tooltip', 'Copied as Markdown');
+
+  const clipboard = await page.evaluate(() => navigator.clipboard.readText());
+  expect(clipboard).toMatch(/^# Concepts$/m);
+  expect(clipboard).not.toMatch(/^import /m);
+  expect(clipboard).not.toContain('<Figure');
+
+  await view.focus();
+  await expect(view).toBeVisible();
+  await expect(view).toBeFocused();
+  await expect(view).toHaveAttribute('href', '/guide/getting-started/concepts.md');
+  await expect(view).toHaveAttribute('target', '_blank');
+  await expect
+    .poll(() =>
+      view.evaluate((element) => {
+        const tooltip = getComputedStyle(element, '::after');
+        return {
+          content: tooltip.content,
+          opacity: tooltip.opacity
+        };
+      })
+    )
+    .toEqual({
+      content: '"View page as Markdown"',
+      opacity: '1'
+    });
+
+  const response = await page.request.get('/guide/getting-started/concepts.md');
+  expect(response.ok()).toBe(true);
+  expect(response.headers()['content-type']).toMatch(/^text\/markdown(?:;|$)/);
+});
+
+test('page Markdown actions stack below the title without mobile overflow', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/betterboard/start/quick-start/');
+
+  const layout = await page.locator('[data-page-title-row]').evaluate((row) => {
+    const title = row.querySelector<HTMLElement>('h1');
+    const actions = row.querySelector<HTMLElement>('[data-page-actions]');
+    if (!title || !actions) throw new Error('Missing page title actions');
+
+    const titleBox = title.getBoundingClientRect();
+    const actionsBox = actions.getBoundingClientRect();
+    return {
+      actionsBelowTitle: actionsBox.top >= titleBox.bottom,
+      pageScrollWidth: document.documentElement.scrollWidth,
+      viewportWidth: document.documentElement.clientWidth
+    };
+  });
+
+  expect(layout).toEqual({
+    actionsBelowTitle: true,
+    pageScrollWidth: 390,
+    viewportWidth: 390
+  });
 });

@@ -170,6 +170,7 @@ const activeShortName = active?.shortName ?? 'All';
     position: relative;
     display: block;
     min-width: 0;
+    margin-inline-start: -0.5rem;
   }
 
   .space-trigger {
@@ -179,7 +180,7 @@ const activeShortName = active?.shortName ?? 'All';
     max-width: 17rem;
     height: 2.25rem;
     gap: 0.5rem;
-    padding: 0.375rem 0.5rem 0.375rem 0;
+    padding: 0.375rem 0.5rem;
     border: 0;
     border-radius: var(--released-radius-sm);
     color: var(--released-ink);
@@ -276,9 +277,13 @@ const activeShortName = active?.shortName ?? 'All';
   }
 
   @media (max-width: 35rem) {
+    released-space-switcher {
+      margin-inline-start: -0.375rem;
+    }
+
     .space-trigger {
       gap: 0.375rem;
-      padding-inline: 0 0.375rem;
+      padding-inline: 0.375rem;
     }
   }
 </style>

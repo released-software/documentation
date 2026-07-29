@@ -80,7 +80,8 @@ test('built documentation links, fragments, and Hub media references resolve', a
       if (target.origin !== siteOrigin) continue;
 
       if (isDocumentationPath(target.pathname)) {
-        if (!target.pathname.endsWith('/')) {
+        const isMarkdownDocument = target.pathname.endsWith('.md');
+        if (!isMarkdownDocument && !target.pathname.endsWith('/')) {
           failures.push(`${pageRoute} links to non-trailing-slash URL ${href}`);
         }
         if (!(await exists(builtPathForUrl(target)))) {

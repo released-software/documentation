@@ -2,6 +2,15 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import starlight from '@astrojs/starlight';
 
+import { legacyRedirects } from './src/data/legacy-redirects.mjs';
+
+const astroRedirects = Object.fromEntries(
+  legacyRedirects.map(({ source, destination }) => [source, destination])
+);
+const legacyRedirectPaths = new Set(
+  legacyRedirects.map(({ source }) => `${source}/`)
+);
+
 const contentComponentHarness = {
   name: 'released-content-component-harness',
   hooks: {
@@ -18,6 +27,7 @@ const contentComponentHarness = {
 export default defineConfig({
   site: 'https://docs.released.so',
   trailingSlash: 'always',
+  redirects: astroRedirects,
   integrations: [
     contentComponentHarness,
     starlight({
@@ -27,6 +37,7 @@ export default defineConfig({
       routeMiddleware: './src/route-data.ts',
       components: {
         MarkdownContent: './src/components/starlight/MarkdownContent.astro',
+        PageTitle: './src/components/starlight/PageTitle.astro',
         Search: './src/components/starlight/Search.astro',
         SiteTitle: './src/components/starlight/SiteTitle.astro',
         ThemeSelect: './src/components/starlight/ThemeSelect.astro'
@@ -41,7 +52,7 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const pathname = new URL(page).pathname;
-        return ![
+        return !legacyRedirectPaths.has(pathname) && ![
           '/__tests__/content-components/',
           '/component-tests/generated-content-components/'
         ].includes(pathname);
