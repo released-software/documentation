@@ -5,3 +5,6 @@ dist/
 .superpowers/
 playwright-report/
 test-results/
+.wrangler/
+.dev.vars*
+!.dev.vars.example
