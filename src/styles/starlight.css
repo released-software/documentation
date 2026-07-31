@@ -270,7 +270,7 @@ header [data-open-search] {
 .pagination-links > a {
   min-width: 0;
   gap: 0.5rem;
-  padding: 0.75rem 0;
+  padding: 0.75rem 1rem;
   border: 0;
   border-radius: var(--released-radius-sm);
   color: var(--released-ink-muted);

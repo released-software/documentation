@@ -184,6 +184,8 @@ test('article pagination uses quiet divider links with subtle interaction feedba
     await expect(link).toHaveCSS('border-right-width', '0px');
     await expect(link).toHaveCSS('border-bottom-width', '0px');
     await expect(link).toHaveCSS('border-left-width', '0px');
+    await expect(link).toHaveCSS('padding-left', '16px');
+    await expect(link).toHaveCSS('padding-right', '16px');
   }
 
   await previous.hover();
