@@ -74,9 +74,15 @@ test('BetterBoard articles use ordered sentence-case navigation without a wrappe
       exact: true
     })
   ).toBeVisible();
-    await expect(
+  await expect(
       sidebar.getByRole('link', { name: 'Overview', exact: true })
     ).toHaveCount(1);
+  await expect(
+    sidebar
+      .locator('.top-level > li')
+      .first()
+      .getByRole('link', { name: 'Overview', exact: true })
+  ).toHaveAttribute('href', '/betterboard/');
 
   const categoryLabels = await sidebar
     .locator('.top-level > li > details > summary .large')

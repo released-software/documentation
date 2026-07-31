@@ -43,6 +43,7 @@ const protectedTerms = new Map([
 const rootWrappersToPromote = new Set(['Product', 'Resources']);
 const childCategoriesToPromote = new Set(['Best practices']);
 const betterBoardCategoryOrder = new Map([
+  ['Overview', 0],
   ['BetterBoard documentation', 0],
   ['Start', 1],
   ['Board setup', 2],
