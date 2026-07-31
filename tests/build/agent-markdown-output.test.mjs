@@ -11,9 +11,9 @@ test('the production build publishes clean Markdown for documentation entries', 
     new URL('../../dist/guide/getting-started/concepts.md', import.meta.url),
     'utf8'
   );
-  const assets = await readFile(
+  const fieldTypes = await readFile(
     new URL(
-      '../../dist/betterboard/shape-the-board/jira-assets.md',
+      '../../dist/betterboard/shape-the-board/field-types.md',
       import.meta.url
     ),
     'utf8'
@@ -22,7 +22,8 @@ test('the production build publishes clean Markdown for documentation entries', 
   assert.match(overview, /^# Overview$/m);
   assert.match(overview, /^## Getting started$/m);
   assert.match(concepts, /^# Concepts$/m);
-  assert.match(assets, /^# Jira Assets$/m);
+  assert.match(fieldTypes, /^# Field types$/m);
+  assert.match(fieldTypes, /^## Assets$/m);
   assert.match(
     concepts,
     /!\[Untitled whiteboard 2025 11 24\]\(\/media\/hub\/Untitled%20whiteboard%202025-11-24\.png\)/
@@ -65,6 +66,10 @@ test('the production build publishes an absolute Markdown documentation index', 
     /https:\/\/docs\.released\.so\/betterboard\/start\/quick-start\.md/
   );
   assert.match(
+    index,
+    /https:\/\/docs\.released\.so\/betterboard\/shape-the-board\/field-types\.md/
+  );
+  assert.doesNotMatch(
     index,
     /https:\/\/docs\.released\.so\/betterboard\/shape-the-board\/jira-assets\.md/
   );

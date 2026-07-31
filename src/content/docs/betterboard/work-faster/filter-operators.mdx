@@ -12,9 +12,10 @@ import NeutralCallout from '../../../../components/content/NeutralCallout.astro'
 
 A reference for every filter operator in BetterBoard — what it does, which field types support it, and how it behaves.
 
-## Selection operators
+## Single-value selection fields
 
-Available on enumerable fields: Status, Priority, Work item Type, Assignee, Reporter, Labels, Fix Version, Component, Sprint, and single- or multi-select custom fields.
+Available on single-value fields such as Status, Priority, Work item Type,
+Assignee, Reporter, Fix Version, Component, and single-select custom fields.
 
 <table><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td><code>is</code></td><td>Matches exactly one selected value</td></tr><tr><td><code>is any of</code></td><td>Matches any of the selected values (OR)</td></tr><tr><td><code>is not</code></td><td>Excludes one selected value</td></tr><tr><td><code>is none of</code></td><td>Excludes all of the selected values</td></tr><tr><td><code>includes all of</code></td><td>Work item must have every selected value (AND — for multi-value fields like Labels, Sprint, and multi-select custom fields)</td></tr><tr><td><code>is empty</code></td><td>Field has no value</td></tr><tr><td><code>is not empty</code></td><td>Field has any value</td></tr></tbody></table>
 
@@ -24,12 +25,13 @@ For Assignee and Reporter, you can select **Current user** as a value. This reso
 
 </NeutralCallout>
 
-## Assets operators
+## Multi-value selection fields
 
-Assets fields use `is any of`, `is none of`, `contains all`, `is empty`, and
-`is not empty`. The selected values are linked Jira Assets objects, so these
-conditions compare object identity rather than attributes on the object. See
-[Jira Assets](/betterboard/shape-the-board/jira-assets/) for the complete scope.
+Labels, Sprint, multi-select custom fields, and Assets fields use `is any of`,
+`is none of`, `contains all`, `is empty`, and `is not empty`. The selected
+values for Assets are linked Jira objects, so those conditions compare object
+identity rather than attributes. See [Assets fields](/betterboard/shape-the-board/field-types/#assets)
+for the complete Assets scope.
 
 ## Text operators
 

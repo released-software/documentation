@@ -62,46 +62,36 @@ test('the production build contains the BetterBoard landing and all 20 mapped ar
   assert.deepEqual(failures, [], failures.join('\n'));
 });
 
-test('the production build contains the authored Jira Assets guide', async () => {
-  const route = '/betterboard/shape-the-board/jira-assets/';
-  const fileUrl = new URL(
+test('the production build makes Field types the Jira Assets reference', async () => {
+  const assetsRoute = '/betterboard/shape-the-board/jira-assets/';
+  const assetsFile = new URL(
     'betterboard/shape-the-board/jira-assets/index.html',
     distRoot
   );
-
-  assert.equal(await exists(fileUrl), true, `missing ${route}`);
-
+  const fieldTypes = load(
+    await readFile(
+      new URL('betterboard/shape-the-board/field-types/index.html', distRoot),
+      'utf8'
+    )
+  );
   const landing = load(
     await readFile(new URL('betterboard/index.html', distRoot), 'utf8')
   );
-  assert.equal(landing(`main a[href="${route}"]`).length, 1);
 
-  const page = load(await readFile(fileUrl, 'utf8'));
-  assert.equal(page('main h1').first().text().trim(), 'Jira Assets');
-  assert.equal(page('[data-pagefind-filter="space:betterboard"]').length, 1);
-
-  const shapeTheBoardLinks = page(
-    'details[open] a[href^="/betterboard/shape-the-board/"]'
-  )
-    .toArray()
-    .map((element) => page(element).attr('href'));
-  assert.ok(
-    shapeTheBoardLinks.indexOf('/betterboard/shape-the-board/field-types/') <
-      shapeTheBoardLinks.indexOf(route)
+  assert.equal(fieldTypes('main #assets').length, 1);
+  assert.match(
+    fieldTypes('main').text(),
+    /Field type\s+Display\s+Filter\s+Grouping\s+Columns\s+Edit/
   );
-  assert.ok(
-    shapeTheBoardLinks.indexOf(route) <
-      shapeTheBoardLinks.indexOf('/betterboard/shape-the-board/card-colors/')
-  );
+  assert.equal(landing(`main a[href="${assetsRoute}"]`).length, 0);
+  assert.equal(await exists(assetsFile), false);
 });
 
 test('related BetterBoard guides link to the Jira Assets guide', async () => {
-  const assetsRoute = '/betterboard/shape-the-board/jira-assets/';
+  const assetsRoute = '/betterboard/shape-the-board/field-types/#assets';
   const relatedRoutes = [
     'betterboard/shape-the-board/display-fields/index.html',
-    'betterboard/shape-the-board/field-types/index.html',
     'betterboard/shape-the-board/columns-grouping/index.html',
-    'betterboard/shape-the-board/card-colors/index.html',
     'betterboard/work-faster/filters-refinement/index.html',
     'betterboard/work-faster/filter-operators/index.html',
     'betterboard/work-faster/drag-and-drop/index.html'

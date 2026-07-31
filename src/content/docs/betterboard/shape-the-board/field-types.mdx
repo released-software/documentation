@@ -1,53 +1,78 @@
 ---
 title: Field types
 description: >-
-  BetterBoard supports every Jira field type. See how each displays on cards,
-  which filter operators it supports, and any special behavior.
+  See which Jira field types BetterBoard can display, filter, group, use as
+  columns, and edit directly on a card.
 space: betterboard
 sidebar:
   order: 4
 ---
 
-BetterBoard supports every Jira field type. This reference describes how each type displays on cards, which filter operators it supports, and any special behavior.
+BetterBoard supports Jira system fields, custom fields, and selected synthetic
+fields. This table shows where each field type can be used.
 
-## System fields
+| Field type | Display | Filter | Grouping | Columns | Edit |
+| --- | --- | --- | --- | --- | --- |
+| Summary | Always shown | Yes | — | — | — |
+| Work item Type | Yes | Yes | Yes | Yes | — |
+| Status | Yes | Yes | Yes | Yes | Yes |
+| Assignee | Yes | Yes | Yes | Yes | Yes |
+| Reporter | Yes | Yes | — | — | — |
+| Priority | Yes | Yes | Yes | Yes | Yes |
+| Labels | Yes | Yes | Yes | Yes | Yes |
+| Sprint | Yes | Yes | Yes | Yes | Yes |
+| Fix Version / Component | Yes | Yes | Yes | Yes | — |
+| Story Points / Number | Yes | Yes | — | — | Yes |
+| Date | Yes | Yes | — | — | Yes |
+| Text | Yes | Yes | — | — | — |
+| URL | Yes | Yes | — | — | — |
+| Rating | Yes | Yes | — | — | — |
+| Checkbox | Yes | Yes | Yes | Yes | — |
+| Single select | Yes | Yes | Yes | Yes | Yes |
+| Multi select | Yes | Yes | — | Yes | Yes |
+| User picker | Yes | Yes | — | — | — |
+| Version | Yes | Yes | Yes | Yes | — |
+| Assets | Yes | Yes | Yes | — | — |
+| Time in Status | Yes | Yes | — | — | — |
+| Blockers | Yes | Yes | — | — | — |
 
-These fields exist in every Jira space:
+**Edit** means direct inline editing from a card. Group dragging follows the
+normal update behaviour for every field that supports grouping.
 
-<table><thead><tr><th>Field</th><th>Display on card</th><th>Filter operators</th></tr></thead><tbody><tr><td>Summary</td><td>Work item title (always shown, not configurable)</td><td>contains, does not contain</td></tr><tr><td>Work item Type</td><td>Icon (Bug, Story, Task, Epic…)</td><td>is, is any of, is not, is none of</td></tr><tr><td>Status</td><td>Colored lozenge</td><td>is, is any of, is not, is none of, is empty</td></tr><tr><td>Assignee</td><td>Avatar + name on hover</td><td>is, is any of, is not, is current user, is empty</td></tr><tr><td>Reporter</td><td>Avatar + name on hover</td><td>is, is any of, is not, is current user, is empty</td></tr><tr><td>Priority</td><td>Colored icon</td><td>is, is any of, is not, is none of, is empty</td></tr><tr><td>Labels</td><td>Tag chips</td><td>is any of, is none of, contains all, is empty</td></tr><tr><td>Sprint</td><td>Sprint chip (active/future/closed state)</td><td>is active sprint, is, is any of, is backlog</td></tr><tr><td>Story Points</td><td>Number</td><td>=, ≠, &gt;, ≥, &lt;, ≤, is empty</td></tr><tr><td>Due Date</td><td>Relative time ("Due tomorrow")</td><td>is before, is after, is on, is within, is empty</td></tr><tr><td>Created</td><td>Relative time</td><td>is before, is after, is on, is within</td></tr><tr><td>Updated</td><td>Relative time</td><td>is before, is after, is on, is within</td></tr></tbody></table>
+Every field that can be filtered is also available in single-color
+[card-color conditions](/betterboard/shape-the-board/card-colors/). See
+[Filter operators](/betterboard/work-faster/filter-operators/) for the
+operators available to each field behaviour.
 
-## Custom fields
+## Assets
 
-Custom fields are any fields your Jira admin has added to spaces:
+Assets fields show linked Jira Assets objects as compact icon-and-label chips.
+BetterBoard shows the first two objects on the card, with remaining values in a
+keyboard-accessible `+N` overflow. Empty fields do not take up space on a card.
 
-<table><thead><tr><th>Field type</th><th>Example</th><th>Display on card</th><th>Filter operators</th></tr></thead><tbody><tr><td>Single select</td><td>Environment, Team</td><td>Colored chip</td><td>is, is any of, is not, is none of, is empty</td></tr><tr><td>Multi select</td><td>Affected versions, Platforms</td><td>Tag chips (up to 3)</td><td>is any of, is none of, contains all, is empty</td></tr><tr><td>User picker</td><td>Technical lead</td><td>Avatar</td><td>is, is any of, is not, is current user, is empty</td></tr><tr><td>Number</td><td>Story points, Weight</td><td>Number</td><td>=, ≠, &gt;, ≥, &lt;, ≤, is empty</td></tr><tr><td>Date</td><td>Target date, Review date</td><td>Relative time</td><td>is before, is after, is on, is within, is empty</td></tr><tr><td>Text (short)</td><td>Environment details</td><td>Truncated text</td><td>contains, does not contain, is empty</td></tr><tr><td>URL</td><td>Design link</td><td>Link icon</td><td>is empty, is not empty</td></tr><tr><td>Rating</td><td>Confidence (1–5)</td><td>Stars</td><td>=, ≠, &gt;, ≥, &lt;, ≤</td></tr><tr><td>Checkbox</td><td>Blocked, Reviewed</td><td>Checkmark</td><td>is true, is false, is empty</td></tr><tr><td>Version</td><td>Fix Version, Affects Version</td><td>Version chip</td><td>is, is any of, is not, is none of, is empty</td></tr></tbody></table>
+Assets filters compare object identity, not individual attributes such as
+service tier, criticality, status, or warranty date. Assets fields can be used
+for grouping, with one group per linked object present on the board and a
+**No value** group for work items without an object.
 
-## Assets fields
+Assets chips are read-only: objects cannot be searched, linked, unlinked, or
+opened directly from a card or Command K. When grouped by an Assets field,
+dragging between groups is the supported way to assign or remove an object. A
+single-object field is replaced or cleared; a multiple-object field preserves
+unrelated objects and removes only the source object when moved to **No value**.
 
-Assets fields show linked objects as chips, with the first two visible and any
-remaining values in a `+N` overflow. They support `is any of`, `is none of`,
-`contains all`, `is empty`, and `is not empty` filters, and can be used for
-grouping and card colors. The chips are read-only; see [Jira Assets](/betterboard/shape-the-board/jira-assets/)
-for scope and the supported group-drag updates.
+## Sprint
 
-## Synthetic fields
+Sprint displays its active, future, or closed state on cards. Its filter has
+dedicated **active sprint** and **backlog** choices in addition to selecting a
+named sprint.
 
-Synthetic fields are computed by BetterBoard and not stored as native Jira fields:
+## Time in Status
 
-### Time in Status
+Time in Status is a synthetic BetterBoard field, not a Jira field. It shows how
+long a work item has been in its current status, for example `3d` or `2w`.
 
-Shows how long an work item has been in its current status. Displayed as a small insight chip on the card (e.g. "3d", "2w").
+## Blockers
 
-Filter operators: `>`, `>=`, `<`, `<=` (in hours, days, or weeks)
-
-Use this to identify stale work items: filter by **Time in Status > 7 days** to find work that hasn't moved in over a week.
-
-<a id="blockers-field"></a>
-
-### Blockers
-
-A synthetic field derived from Jira work item links. BetterBoard inspects "is blocked by" and "blocks" link types.
-
-Values: `has blockers` (at least one "is blocked by" link), `is blocking` (blocks at least one other work item)
-
-Displayed as a small red blocking indicator icon on the card when present.
+Blockers is a synthetic field derived from Jira work item links. It shows a
+small indicator on cards with blocking relationships.

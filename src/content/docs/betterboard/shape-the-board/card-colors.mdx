@@ -5,7 +5,7 @@ description: >-
   border fades, corner badges, or tinted chips based on field values.
 space: betterboard
 sidebar:
-  order: 6
+  order: 5
 ---
 
 import Figure from '../../../../components/content/Figure.astro';
@@ -52,7 +52,7 @@ A single-color rule colors any card that matches its conditions.
 
 ### Conditions
 
-Conditions use the same field, operator, and value pickers as [board filters](/betterboard/work-faster/filters-refinement/) — pick a field (Priority, Status, Assignee, a label, a number, and so on), an operator (`is`, `is not`, `contains`, `is empty`…), and the values to match. A rule can hold up to two conditions; when you set both, a card must satisfy **both** of them to be colored. Assets fields match linked object identity; see [Jira Assets](/betterboard/shape-the-board/jira-assets/) for their supported conditions and limits.
+Conditions use the same field, operator, and value pickers as [board filters](/betterboard/work-faster/filters-refinement/) — pick a field (Priority, Status, Assignee, a label, a number, and so on), an operator (`is`, `is not`, `contains`, `is empty`…), and the values to match. Any field available for filtering is also available in a single-color condition and uses the same matching semantics. A rule can hold up to two conditions; when you set both, a card must satisfy **both** of them to be colored. See [Field types](/betterboard/shape-the-board/field-types/) for the capability overview and [Filter operators](/betterboard/work-faster/filter-operators/) for operator behaviour.
 
 ### Color
 
