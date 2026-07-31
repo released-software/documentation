@@ -11,32 +11,44 @@ sidebar:
 import { Icon } from '@astrojs/starlight/components';
 
 BetterBoard supports Jira system fields, custom fields, and selected synthetic
-fields. This table shows where each field type can be used.
+fields. These tables show where each field type can be used.
+
+## System fields
 
 | Field type | Display | Filter | Grouping | Columns | Edit |
 | --- | --- | --- | --- | --- | --- |
+| Assignee | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
+| Fix Version / Component | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — |
+| Labels | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
+| Priority | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
+| Reporter | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
+| Sprint | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
+| Status | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
 | Summary | Always shown | <Icon name="approve-check" label="Supported" /> | — | — | — |
 | Work item Type | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — |
-| Status | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
-| Assignee | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
-| Reporter | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
-| Priority | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
-| Labels | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
-| Sprint | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
-| Fix Version / Component | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — |
-| Story Points / Number | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | <Icon name="approve-check" label="Supported" /> |
+
+## Custom fields
+
+| Field type | Display | Filter | Grouping | Columns | Edit |
+| --- | --- | --- | --- | --- | --- |
+| Assets | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — |
+| Checkbox | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — |
 | Date | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | <Icon name="approve-check" label="Supported" /> |
+| Multi select | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
+| Rating | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
+| Single select | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
+| Story Points / Number | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | <Icon name="approve-check" label="Supported" /> |
 | Text | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
 | URL | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
-| Rating | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
-| Checkbox | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — |
-| Single select | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
-| Multi select | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
 | User picker | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
 | Version | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — |
-| Assets | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — |
-| Time in Status | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
+
+## Synthetic fields
+
+| Field type | Display | Filter | Grouping | Columns | Edit |
+| --- | --- | --- | --- | --- | --- |
 | Blockers | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
+| Time in Status | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
 
 **Edit** means direct inline editing from a card. Group dragging follows the
 normal update behaviour for every field that supports grouping.

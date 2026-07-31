@@ -83,6 +83,50 @@ test('the production build makes Field types the Jira Assets reference', async (
     fieldTypes('main').text(),
     /Field type\s+Display\s+Filter\s+Grouping\s+Columns\s+Edit/
   );
+  assert.deepEqual(
+    fieldTypes('main h2')
+      .toArray()
+      .slice(0, 3)
+      .map((heading) => fieldTypes(heading).text().trim()),
+    ['System fields', 'Custom fields', 'Synthetic fields']
+  );
+  const capabilityTables = fieldTypes('main table').toArray();
+  assert.equal(capabilityTables.length, 3);
+  assert.deepEqual(
+    capabilityTables.map((table) =>
+      fieldTypes(table)
+        .find('tbody tr')
+        .toArray()
+        .map((row) => fieldTypes(row).find('td').first().text().trim())
+    ),
+    [
+      [
+        'Assignee',
+        'Fix Version / Component',
+        'Labels',
+        'Priority',
+        'Reporter',
+        'Sprint',
+        'Status',
+        'Summary',
+        'Work item Type'
+      ],
+      [
+        'Assets',
+        'Checkbox',
+        'Date',
+        'Multi select',
+        'Rating',
+        'Single select',
+        'Story Points / Number',
+        'Text',
+        'URL',
+        'User picker',
+        'Version'
+      ],
+      ['Blockers', 'Time in Status']
+    ]
+  );
   assert.equal(
     fieldTypes('main table svg[aria-label="Supported"]').length,
     74,
