@@ -1,6 +1,6 @@
 ---
 description: >-
-  This guide will walk you through installing and configuring Released Portals
+  This guide will walk you through installing and configuring Hub Portals
   for Confluence.
 title: Confluence Embed Macro
 space: hub
@@ -11,7 +11,7 @@ import { Steps } from '@astrojs/starlight/components';
 import NeutralCallout from '../../../../../components/content/NeutralCallout.astro';
 
 <NeutralCallout type="note">
-This Confluence app works alongside the [Released](https://marketplace.atlassian.com/apps/1230872/released-feedback-portal-public-roadmap-ai-release-notes?hosting=cloud\&tab=overview) app for Jira. To use it, Released must be installed in Jira. The credentials below are generated and managed within the Jira app.
+This Confluence app works alongside the [Hub](https://marketplace.atlassian.com/apps/1230872/released-feedback-portal-public-roadmap-ai-release-notes?hosting=cloud\&tab=overview) app for Jira. To use it, Hub must be installed in Jira. The credentials below are generated and managed within the Jira app.
 </NeutralCallout>
 
 ## Installation
@@ -36,7 +36,7 @@ This Confluence app works alongside the [Released](https://marketplace.atlassian
 ### Verify Installation
 
 * The app is now available in all Confluence pages
-* You can start using the Released Embed macro immediately
+* You can start using the Hub Embed macro immediately
 </li>
 </ol>
 </Steps>
@@ -50,28 +50,28 @@ This Confluence app works alongside the [Released](https://marketplace.atlassian
 <li>
 ### Edit a Confluence Page
 
-* Navigate to the page where you want to embed your Released portal
+* Navigate to the page where you want to embed your Hub portal
 * Click **Edit** in the top right
 </li>
 
 <li>
-### Insert the Released Embed Macro
+### Insert the Hub Embed Macro
 
 * Type `/` to open the quick insert menu
-* Type "Released" and select **Released Embed** from the list
-* Or use the toolbar: Click **+** → Search for "Released Embed"
+* Type "Hub" and select **Hub Embed** from the list
+* Or use the toolbar: Click **+** → Search for "Hub Embed"
 </li>
 
 <li>
 ### Configure the Macro
 
 * A configuration dialog will appear
-* Find the [**Channel ID**](/guide/resources/how-tos/finding-the-channel-id/) within the Released app in Jira. You can find the channel ID on the [**Page** Embed](/guide/product/portals/portal/announcement-page/) settings in your workspace
+* Find the [**Channel ID**](/guide/resources/how-tos/finding-the-channel-id/) within the Hub app in Jira. You can find the channel ID on the [**Page** Embed](/guide/product/portals/portal/announcement-page/) settings in your workspace
 * Optionally configure additional settings
 
 | Setting           | Description                                                                                       | Required          |
 | ----------------- | ------------------------------------------------------------------------------------------------- | ----------------- |
-| **Channel ID**    | Your Released channel identifier. [Learn more](/guide/resources/how-tos/finding-the-channel-id/) | ✅ Yes             |
+| **Channel ID**    | Your Hub channel identifier. [Learn more](/guide/resources/how-tos/finding-the-channel-id/) | ✅ Yes             |
 | **Module**        | Choose what to display: `Changelog`, `Roadmap`, or `All`                                          | No (default: All) |
 | **Show Header**   | Toggle header visibility                                                                          | No (default: Off) |
 | **Primary Color** | Custom hex color code (e.g., `#6514DD`)                                                           | No                |
@@ -90,7 +90,7 @@ This Confluence app works alongside the [Released](https://marketplace.atlassian
 ### Save and Publish
 
 * Click **Publish** in the top right
-* Your Released portal is now live on the Confluence page
+* Your Hub portal is now live on the Confluence page
 </li>
 </ol>
 </Steps>
@@ -103,7 +103,7 @@ User verification enables personalized portal experiences for your Confluence us
 
 ### Prerequisites
 
-To enable user verification for your Confluence macro you will require your Released **Account ID** and **Shared Secret** which can be found under [#credentials](/guide/product/administration/user-verification/#credentials "mention") within the **Released app in Jira.** 
+To enable user verification for your Confluence macro you will require your Hub **Account ID** and **Shared Secret** which can be found under [#credentials](/guide/product/administration/user-verification/#credentials "mention") within the **Hub app in Jira.**
 
 ### Configure in Confluence
 
@@ -114,7 +114,7 @@ To enable user verification for your Confluence macro you will require your Rele
 
 * Click the **Settings** icon (⚙️) in Confluence
 * Scroll down to **Atlassian Marketplace** section
-* Click **Released Portals**
+* Click **Hub Portals**
 </li>
 
 <li>
@@ -126,7 +126,7 @@ Toggle **Enable User Verification** to ON
 <li>
 ### Enter Your Credentials
 
-* **Account ID**: Paste your Released account ID
+* **Account ID**: Paste your Hub account ID
 * **Shared Secret**: Paste your shared secret
 
 The system will automatically save and test the connection. If the connection fails, double-check your credentials
@@ -137,7 +137,7 @@ The system will automatically save and test the connection. If the connection fa
 
 * After successful authentication, you'll see a **Trusted Domain Required** section
 * Copy the displayed Forge domain (e.g., `https://xxxxxxxx.confluence-connect.com`)
-* Add this domain to your [**Trusted Domains**](/guide/product/administration/trusted-domains/) in the Released app in Jira. 
+* Add this domain to your [**Trusted Domains**](/guide/product/administration/trusted-domains/) in the Hub app in Jira.
 
 📖 **Learn more:** [Trusted Domains Configuration](/guide/product/administration/trusted-domains/)
 </li>
@@ -149,13 +149,13 @@ The system will automatically save and test the connection. If the connection fa
 Once configured:
 
 1. **Automatic Authentication**
-   * When a Confluence user views a page with the Released macro, they're automatically authenticated
+   * When a Confluence user views a page with the Hub macro, they're automatically authenticated
    * No additional login required
 2. **Personalized Content**
    * Users see content based on their Released.so permissions
    * Feedback submissions, upvotes, and comments are tied to their identity
 3. **Profile Sync**
-   * User's Confluence display name and avatar are synced to Released
+   * User's Confluence display name and avatar are synced to Hub
    * Ensures consistent identity across platforms
 
 ### Security Notes
@@ -183,7 +183,7 @@ Once configured:
    * Get the correct ID from Released.so → Settings → Integrations
 2. **Check Trusted Domains**
    * Open your browser's developer console (F12)
-   * Look for the warning: `[Released] If the embed does not load...`
+   * Look for the warning: `[Hub] If the embed does not load...`
    * Add your Confluence domain to Trusted Domains in Released.so
 3. **Clear Browser Cache**
    * Hard refresh the page (Ctrl/Cmd + Shift + R)
@@ -200,7 +200,7 @@ Once configured:
 **Solutions:**
 
 1. **Verify Credentials**
-   * Go to Released Portals global settings in Confluence
+   * Go to Hub Portals global settings in Confluence
    * Re-enter your Account ID and Shared Secret
    * Ensure the connection status shows "Authentication successful"
 2. **Check Trusted Domains**

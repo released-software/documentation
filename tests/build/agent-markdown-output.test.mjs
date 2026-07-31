@@ -23,7 +23,7 @@ test('the production build publishes clean Markdown for documentation entries', 
   assert.match(overview, /^## Getting started$/m);
   assert.match(concepts, /^# Concepts$/m);
   assert.match(fieldTypes, /^# Field types$/m);
-  assert.match(fieldTypes, /^## Assets$/m);
+  assert.match(fieldTypes, /^## Field notes$/m);
   assert.match(
     concepts,
     /!\[Untitled whiteboard 2025 11 24\]\(\/media\/hub\/Untitled%20whiteboard%202025-11-24\.png\)/
@@ -54,7 +54,7 @@ test('the production build publishes an absolute Markdown documentation index', 
     'utf8'
   );
 
-  assert.match(index, /^# Released documentation$/m);
+  assert.match(index, /^# Hub documentation$/m);
   assert.match(index, /^## Hub$/m);
   assert.match(index, /^## BetterBoard$/m);
   assert.match(

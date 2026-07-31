@@ -14,7 +14,7 @@ User verification ensures that only authorized users can access your private roa
 
 ## NextJS demo
 
-You can find an examxple implementation of the user verfiication flow in NextJS on Github. 
+You can find an examxple implementation of the user verfiication flow in NextJS on Github.
 
 <a href="https://github.com/released-software/released-embed-demo" class="button secondary" data-icon="github">View on Github</a>
 
@@ -25,7 +25,7 @@ You can find an examxple implementation of the user verfiication flow in NextJS 
 Before running the example, ensure you have the following:
 
 1. Node.js installed (v18 or newer recommended).
-2. Your Released credentials (found in Settings → User Verification):
+2. Your Hub credentials (found in Settings → User Verification):
    * `ACCOUNT_ID`
    * `SHARED_SECRET`
 3. The Channel ID for the portal you want to embed [finding-the-channel-id.md](/guide/resources/how-tos/finding-the-channel-id/ "mention")
@@ -66,9 +66,9 @@ const app = express();
 const port = 3000;
 
 // --- CONFIGURATION ---
-// TODO: Replace with your actual values from Released Settings
+// TODO: Replace with your actual values from Hub Settings
 const CONFIG = {
-  SHARED_SECRET: 'YOUR_SHARED_SECRET', 
+  SHARED_SECRET: 'YOUR_SHARED_SECRET',
   ACCOUNT_ID: 'YOUR_ACCOUNT_ID',
   CHANNEL_ID: 'YOUR_CHANNEL_ID'
 };
@@ -76,8 +76,8 @@ const CONFIG = {
 // --- MOCK USER DATA ---
 // In your real app, this comes from your database or session
 const currentUser = {
-  id: "user_12345", 
-  email: "john.doe@example.com", 
+  id: "user_12345",
+  email: "john.doe@example.com",
   name: "John Doe",
   avatar: "https://ui-avatars.com/api/?name=John+Doe"
 };
@@ -86,7 +86,7 @@ const currentUser = {
 app.get('/', async (req, res) => {
   try {
     // 1. Generate the Auth Token server-side
-    // We send the current user's details to Released to get a temporary token
+    // We send the current user's details to Hub to get a temporary token
     const response = await fetch("https://accounts.releasedhub.com/auth/api/impersonation/token", {
       method: "POST",
       headers: {
@@ -114,16 +114,16 @@ app.get('/', async (req, res) => {
       <!DOCTYPE html>
       <html>
         <head>
-          <title>Released Verification Example</title>
+          <title>Hub Verification Example</title>
           <script type="module" src="https://embed.released.so/released-embed.js"></script>
         </head>
         <body style="font-family: sans-serif; padding: 40px;">
           <h1>Hello, ${currentUser.name}</h1>
           <p>This roadmap is authenticated specifically for you.</p>
           <hr />
-          
-          <released-page 
-            channel-id="${CONFIG.CHANNEL_ID}" 
+
+          <released-page
+            channel-id="${CONFIG.CHANNEL_ID}"
             auth-token="${token}">
           </released-page>
         </body>
@@ -170,14 +170,14 @@ Most browsers restrict embedded widgets or cookies when running on `localhost`. 
     ngrok http 3000
     ```
 3. Copy the Forwarding URL provided by ngrok (e.g., `https://a1b2-c3d4.ngrok-free.dev`).
-4. Important: Add this URL to your Allowed Domains in the Released dashboard if you have domain restrictions enabled.
+4. Important: Add this URL to your Allowed Domains in the Hub dashboard if you have domain restrictions enabled.
 5. Open the URL in your browser to see your authenticated roadmap.
 </li>
 
 <li>
 #### Whitelist the ngrok domain
 
-Add the ngrok domain to your list of [trusted domains for embedded content](/guide/product/administration/trusted-domains/). 
+Add the ngrok domain to your list of [trusted domains for embedded content](/guide/product/administration/trusted-domains/).
 </li>
 </ol>
 </Steps>
@@ -188,7 +188,7 @@ Add the ngrok domain to your list of [trusted domains for embedded content](/gui
 
 <summary>Widget not loading?</summary>
 
- Check your browser console. If you see CORS errors, ensure your ngrok URL is added to the "Allowed Domains" list in your Released settings.
+ Check your browser console. If you see CORS errors, ensure your ngrok URL is added to the "Allowed Domains" list in your Hub settings.
 
 </details>
 
@@ -205,6 +205,6 @@ Add the ngrok domain to your list of [trusted domains for embedded content](/gui
 <summary>401 Unauthorized?</summary>
 
 * Double-check that your SHARED\_SECRET was copied correctly and contains no extra spaces.
-* Check the html source and ensure the token property in the embed html element was successfully populated. 
+* Check the html source and ensure the token property in the embed html element was successfully populated.
 
 </details>
