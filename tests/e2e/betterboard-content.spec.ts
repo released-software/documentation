@@ -49,6 +49,16 @@ test('the Field types section tables share aligned columns', async ({ page }) =>
     .locator('thead th')
     .evaluateAll((headers) => headers.map((header) => getComputedStyle(header).whiteSpace));
   expect(headerWhiteSpace).toEqual(Array(18).fill('nowrap'));
+
+  const fieldNoteLinks = tables.locator('tbody td:first-child a');
+  await expect(fieldNoteLinks).toHaveCount(4);
+  await expect(
+    fieldNoteLinks.evaluateAll((links) =>
+      links.map((link) => getComputedStyle(link).textDecorationLine)
+    )
+  ).resolves.toEqual(Array(4).fill('none'));
+  await fieldNoteLinks.first().hover();
+  await expect(fieldNoteLinks.first()).toHaveCSS('text-decoration-line', 'underline');
 });
 
 test('BetterBoard articles use ordered sentence-case navigation without a wrapper group', async ({

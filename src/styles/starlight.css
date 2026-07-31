@@ -66,6 +66,19 @@ main[data-pagefind-body]:has(#system-fields) .sl-markdown-content > table thead 
   white-space: nowrap;
 }
 
+main[data-pagefind-body]:has(#system-fields) .sl-markdown-content > table tbody td:first-child a {
+  text-decoration: none;
+}
+
+main[data-pagefind-body]:has(#system-fields)
+  .sl-markdown-content
+  > table
+  tbody
+  td:first-child
+  a:is(:hover, :focus-visible) {
+  text-decoration: underline;
+}
+
 html[data-has-sidebar]
   main[data-pagefind-body]:has(.sl-markdown-content[data-documentation-page='article']) {
   --sl-content-width: 40.625rem;
