@@ -120,6 +120,7 @@ test('the production build makes Field types the Jira Assets reference', async (
         'Checkbox',
         'Date',
         'Multi select',
+        'People',
         'Rating',
         'Single select',
         'Story Points / Number',
@@ -133,7 +134,7 @@ test('the production build makes Field types the Jira Assets reference', async (
   );
   assert.equal(
     fieldTypes('main table svg[aria-label="Supported"]').length,
-    75,
+    80,
     'every supported field capability uses an accessible tick'
   );
   assert.doesNotMatch(fieldTypes('main table').text(), /\bYes\b/);
