@@ -83,6 +83,12 @@ test('the production build makes Field types the Jira Assets reference', async (
     fieldTypes('main').text(),
     /Field type\s+Display\s+Filter\s+Grouping\s+Columns\s+Edit/
   );
+  assert.equal(
+    fieldTypes('main table svg[aria-label="Supported"]').length,
+    74,
+    'every supported field capability uses an accessible tick'
+  );
+  assert.doesNotMatch(fieldTypes('main table').text(), /\bYes\b/);
   assert.equal(landing(`main a[href="${assetsRoute}"]`).length, 0);
   assert.equal(await exists(assetsFile), false);
 });
