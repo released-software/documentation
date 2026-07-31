@@ -1,0 +1,102 @@
+---
+title: Jira Assets
+description: >-
+  Display linked Jira Assets objects on cards, filter and color work by object,
+  and organise the board with Assets groups.
+space: betterboard
+sidebar:
+  order: 5
+---
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+BetterBoard supports Jira Assets object fields across card display, filters,
+card colors, and grouping. Jira's Assets field configuration remains the source
+of truth; BetterBoard does not add a separate schema or AQL configuration.
+
+Common examples include affected services on incidents, computers on hardware
+requests, people or locations on service requests, and affected hosts on
+changes.
+
+## Display linked objects on cards
+
+Add an Assets field under **Display → Fields** to show its linked objects on
+each card. BetterBoard renders each object as a compact icon-and-label chip.
+BetterBoard shows the first two objects on the card. When the field contains
+more values, the remaining labels are available from the `+N` overflow.
+
+Empty Assets fields follow the same behavior as other empty fields and do not
+take up space on the card.
+
+<NeutralCallout type="note">
+
+Assets chips are read-only. They show linked-object details but do not open an
+editor or the native Assets object.
+
+</NeutralCallout>
+
+## Filter by linked objects
+
+Assets fields use discrete-value filters:
+
+- **is any of** — match a work item linked to at least one selected object
+- **is none of** — exclude work items linked to any selected object
+- **contains all** — for multiple-object fields, require every selected object
+- **is empty** / **is not empty** — match whether the field has a value
+
+Filter conditions compare object identity. Attributes such as service tier,
+criticality, status, or warranty date cannot be filtered independently.
+
+## Use Assets in card-color rules
+
+Assets fields are available in single-color card conditions because card colors
+reuse BetterBoard's filter conditions. Select an Assets field, operator, and
+object value, then choose any eligible color effect.
+
+Card-color conditions match linked object identity only. BetterBoard does not
+offer Assets-specific color settings or attribute-based rules.
+
+## Group by an Assets field
+
+Choose an Assets field under **Display → Grouping** to create one group for each
+linked object present on the board. Work items without a linked object appear
+under **No value**.
+
+A work item linked to multiple objects appears in every matching group.
+BetterBoard does not load every object allowed by the Jira field just to create
+empty groups.
+
+## Assign objects by dragging between groups
+
+When the board is grouped by an Assets field, dragging a card between groups
+updates that field in Jira:
+
+- For a single-object field, dropping in another object group replaces the
+  current value.
+- For a multiple-object field, the destination object is added, the source
+  object is removed, and unrelated linked objects are preserved.
+- Dropping in **No value** clears a single-object field or removes only the
+  source object from a multiple-object field.
+
+If Jira rejects the update, BetterBoard restores the previous group placement
+and shows an error.
+
+<NeutralCallout type="caution">
+
+Direct Assets editing from a card or Command K is unavailable. Group dragging
+is the supported way to change an Assets field in BetterBoard.
+
+</NeutralCallout>
+
+## Limitations
+
+Assets fields cannot be:
+
+- used as a column field or sort field
+- set through BetterBoard's inline work item creation
+- searched, linked, or unlinked directly from a card or Command K
+- used to create, edit, delete, import, or administer Assets objects
+- filtered, grouped, or colored by individual object attributes
+
+Configure schemas, object scopes, searchable attributes, and permissions in
+Jira Assets.

@@ -62,6 +62,39 @@ test('the production build contains the BetterBoard landing and all 20 mapped ar
   assert.deepEqual(failures, [], failures.join('\n'));
 });
 
+test('the production build contains the authored Jira Assets guide', async () => {
+  const route = '/betterboard/shape-the-board/jira-assets/';
+  const fileUrl = new URL(
+    'betterboard/shape-the-board/jira-assets/index.html',
+    distRoot
+  );
+
+  assert.equal(await exists(fileUrl), true, `missing ${route}`);
+
+  const landing = load(
+    await readFile(new URL('betterboard/index.html', distRoot), 'utf8')
+  );
+  assert.equal(landing(`main a[href="${route}"]`).length, 1);
+
+  const page = load(await readFile(fileUrl, 'utf8'));
+  assert.equal(page('main h1').first().text().trim(), 'Jira Assets');
+  assert.equal(page('[data-pagefind-filter="space:betterboard"]').length, 1);
+
+  const shapeTheBoardLinks = page(
+    'details[open] a[href^="/betterboard/shape-the-board/"]'
+  )
+    .toArray()
+    .map((element) => page(element).attr('href'));
+  assert.ok(
+    shapeTheBoardLinks.indexOf('/betterboard/shape-the-board/field-types/') <
+      shapeTheBoardLinks.indexOf(route)
+  );
+  assert.ok(
+    shapeTheBoardLinks.indexOf(route) <
+      shapeTheBoardLinks.indexOf('/betterboard/shape-the-board/card-colors/')
+  );
+});
+
 test('the committed BetterBoard migration report accounts for every mapped source', async () => {
   const report = JSON.parse(
     await readFile(
