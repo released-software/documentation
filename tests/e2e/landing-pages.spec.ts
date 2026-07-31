@@ -6,7 +6,7 @@ const viewports = [
   { name: 'mobile', width: 390, height: 844 }
 ] as const;
 
-test('the documentation overview is a content-width editorial destination list', async ({ page }) => {
+test('the documentation overview presents two homepage-inspired product cards', async ({ page }) => {
   await page.setViewportSize(viewports[0]);
   await page.goto('/');
 
@@ -27,54 +27,58 @@ test('the documentation overview is a content-width editorial destination list',
   expect(overviewWidth).toBeLessThanOrEqual(960);
 
   const activeSpaces = [
-    { id: 'hub', name: /Hub documentation/ },
-    { id: 'betterboard', name: /BetterBoard documentation/ }
+    {
+      id: 'hub',
+      audience: 'For teams communicating beyond Jira',
+      name: 'Hub',
+      href: '/guide/'
+    },
+    {
+      id: 'betterboard',
+      audience: 'For Jira power users',
+      name: 'BetterBoard',
+      href: '/betterboard/'
+    }
   ] as const;
 
   for (const space of activeSpaces) {
-    const row = overview.locator(`[data-documentation-space="${space.id}"]`);
-    await expect(row).toHaveRole('link');
-    await expect(row).toHaveAttribute('href', space.id === 'hub' ? '/guide/' : '/betterboard/');
-    await expect(row.getByText(space.name)).toBeVisible();
-    await expect(row.locator('.product-mark img')).toHaveAttribute(
-      'src',
-      space.id === 'hub'
-        ? '/brand/released-favicon.svg'
-        : '/brand/betterboard-favicon.svg'
-    );
-    await expect(row.locator('[data-row-arrow]')).toHaveCount(1);
+    const card = overview.locator(`[data-documentation-space="${space.id}"]`);
+    await expect(card).toHaveRole('link');
+    await expect(card).toHaveAttribute('href', space.href);
+    await expect(card).toHaveClass(/documentation-card/);
+    await expect(card.getByText(space.audience)).toBeVisible();
+    await expect(card.getByText(space.name, { exact: true })).toBeVisible();
+    await expect(card.locator('[data-card-arrow]')).toHaveCount(1);
   }
 
   await expect(overview.locator('[data-documentation-space="partners"]')).toHaveCount(0);
 
-  const rows = overview.locator('.documentation-row');
-  await expect(rows).toHaveCount(2);
-  for (const row of await rows.all()) {
-    await expect(row).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
-    await expect(row).toHaveCSS('border-bottom-style', 'solid');
-    await expect(row).toHaveCSS('border-bottom-width', '1px');
-    await expect(row).toHaveCSS('box-shadow', 'none');
+  const cards = overview.locator('.documentation-card');
+  await expect(cards).toHaveCount(2);
+  for (const card of await cards.all()) {
+    await expect(card).toHaveCSS('border-top-style', 'solid');
+    await expect(card).toHaveCSS('border-top-width', '1px');
+    await expect(card).toHaveCSS('border-top-left-radius', '20px');
   }
   await expect(overview.locator('.status-dot, [data-status-dot]')).toHaveCount(0);
 });
 
-test('active overview rows move only their arrow and preserve visible reduced-motion focus', async ({
+test('overview cards move only their arrow and preserve visible reduced-motion focus', async ({
   page
 }) => {
   await page.goto('/');
 
-  const hubRow = page.locator('[data-documentation-space="hub"]');
-  const arrow = hubRow.locator('[data-row-arrow]');
+  const hubCard = page.locator('[data-documentation-space="hub"]');
+  const arrow = hubCard.locator('[data-card-arrow]');
 
-  await hubRow.focus();
-  await expect(hubRow).toHaveCSS('outline-style', 'solid');
-  await expect(hubRow).toHaveCSS('outline-width', '2px');
+  await hubCard.focus();
+  await expect(hubCard).toHaveCSS('outline-style', 'solid');
+  await expect(hubCard).toHaveCSS('outline-width', '2px');
 
   await page.mouse.move(0, 0);
   await expect(arrow).toHaveCSS('transform', 'none');
-  await hubRow.hover();
+  await hubCard.hover();
   await expect(arrow).toHaveCSS('transform', 'matrix(1, 0, 0, 1, 4, 0)');
-  await expect(hubRow).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
 
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await expect(arrow).toHaveCSS('transform', 'none');
