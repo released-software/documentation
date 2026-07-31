@@ -86,9 +86,9 @@ test('the production build makes Field types the Jira Assets reference', async (
   assert.deepEqual(
     fieldTypes('main h2')
       .toArray()
-      .slice(0, 3)
+      .slice(0, 4)
       .map((heading) => fieldTypes(heading).text().trim()),
-    ['System fields', 'Custom fields', 'Synthetic fields']
+    ['System fields', 'Custom fields', 'Synthetic fields', 'Field notes']
   );
   const capabilityTables = fieldTypes('main table').toArray();
   assert.equal(capabilityTables.length, 3);
@@ -97,7 +97,11 @@ test('the production build makes Field types the Jira Assets reference', async (
       fieldTypes(table)
         .find('tbody tr')
         .toArray()
-        .map((row) => fieldTypes(row).find('td').first().text().trim())
+        .map((row) => {
+          const fieldCell = fieldTypes(row).find('td').first().clone();
+          fieldCell.find('sup').remove();
+          return fieldCell.text().trim();
+        })
     ),
     [
       [
@@ -134,6 +138,26 @@ test('the production build makes Field types the Jira Assets reference', async (
   );
   assert.doesNotMatch(fieldTypes('main table').text(), /\bYes\b/);
   assert.doesNotMatch(fieldTypes('main table').text(), /Always shown/);
+  assert.deepEqual(
+    fieldTypes('main table a[href^="#"]')
+      .toArray()
+      .map((link) => ({
+        href: fieldTypes(link).attr('href'),
+        text: fieldTypes(link).text().trim()
+      })),
+    [
+      { href: '#sprint', text: '1' },
+      { href: '#assets', text: '2' },
+      { href: '#blockers', text: '3' },
+      { href: '#time-in-status', text: '4' }
+    ]
+  );
+  assert.deepEqual(
+    fieldTypes('main h3')
+      .toArray()
+      .map((heading) => fieldTypes(heading).text().trim()),
+    ['Sprint', 'Assets', 'Blockers', 'Time in Status']
+  );
   assert.equal(landing(`main a[href="${assetsRoute}"]`).length, 0);
   assert.equal(await exists(assetsFile), false);
 });

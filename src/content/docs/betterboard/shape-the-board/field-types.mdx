@@ -22,7 +22,7 @@ fields. These tables show where each field type can be used.
 | Labels | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
 | Priority | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
 | Reporter | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
-| Sprint | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
+| Sprint <sup><a href="#sprint" aria-label="Read the Sprint note">1</a></sup> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
 | Status | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
 | Summary | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
 | Work item Type | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — |
@@ -31,7 +31,7 @@ fields. These tables show where each field type can be used.
 
 | Field type | Display | Filter | Grouping | Columns | Edit |
 | --- | --- | --- | --- | --- | --- |
-| Assets | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — |
+| Assets <sup><a href="#assets" aria-label="Read the Assets note">2</a></sup> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — |
 | Checkbox | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — |
 | Date | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | <Icon name="approve-check" label="Supported" /> |
 | Multi select | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
@@ -47,8 +47,8 @@ fields. These tables show where each field type can be used.
 
 | Field type | Display | Filter | Grouping | Columns | Edit |
 | --- | --- | --- | --- | --- | --- |
-| Blockers | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
-| Time in Status | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
+| Blockers <sup><a href="#blockers" aria-label="Read the Blockers note">3</a></sup> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
+| Time in Status <sup><a href="#time-in-status" aria-label="Read the Time in Status note">4</a></sup> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
 
 **Edit** means direct inline editing from a card. Group dragging follows the
 normal update behaviour for every field that supports grouping.
@@ -58,7 +58,15 @@ Every field that can be filtered is also available in single-color
 [Filter operators](/betterboard/work-faster/filter-operators/) for the
 operators available to each field behaviour.
 
-## Assets
+## Field notes
+
+### Sprint
+
+Sprint displays its active, future, or closed state on cards. Its filter has
+dedicated **active sprint** and **backlog** choices in addition to selecting a
+named sprint.
+
+### Assets
 
 Assets fields show linked Jira Assets objects as compact icon-and-label chips.
 BetterBoard shows the first two objects on the card, with remaining values in a
@@ -75,18 +83,12 @@ dragging between groups is the supported way to assign or remove an object. A
 single-object field is replaced or cleared; a multiple-object field preserves
 unrelated objects and removes only the source object when moved to **No value**.
 
-## Sprint
-
-Sprint displays its active, future, or closed state on cards. Its filter has
-dedicated **active sprint** and **backlog** choices in addition to selecting a
-named sprint.
-
-## Time in Status
-
-Time in Status is a synthetic BetterBoard field, not a Jira field. It shows how
-long a work item has been in its current status, for example `3d` or `2w`.
-
-## Blockers
+### Blockers
 
 Blockers is a synthetic field derived from Jira work item links. It shows a
 small indicator on cards with blocking relationships.
+
+### Time in Status
+
+Time in Status is a synthetic BetterBoard field, not a Jira field. It shows how
+long a work item has been in its current status, for example `3d` or `2w`.
