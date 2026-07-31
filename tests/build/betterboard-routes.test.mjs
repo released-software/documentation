@@ -146,11 +146,17 @@ test('the production build makes Field types the Jira Assets reference', async (
         text: fieldTypes(link).text().trim()
       })),
     [
-      { href: '#sprint', text: '1' },
-      { href: '#assets', text: '2' },
-      { href: '#blockers', text: '3' },
-      { href: '#time-in-status', text: '4' }
+      { href: '#sprint', text: 'Sprint' },
+      { href: '#assets', text: 'Assets' },
+      { href: '#blockers', text: 'Blockers' },
+      { href: '#time-in-status', text: 'Time in Status' }
     ]
+  );
+  assert.deepEqual(
+    fieldTypes('main table sup')
+      .toArray()
+      .map((reference) => fieldTypes(reference).text().trim()),
+    ['1', '2', '3', '4']
   );
   assert.deepEqual(
     fieldTypes('main h3')
