@@ -48,6 +48,20 @@ main[data-pagefind-body] h1#_top,
   line-height: 1.4;
 }
 
+main[data-pagefind-body]:has(#system-fields) .sl-markdown-content > table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+main[data-pagefind-body]:has(#system-fields) .sl-markdown-content > table :is(th, td):first-child {
+  width: 32%;
+}
+
+main[data-pagefind-body]:has(#system-fields) .sl-markdown-content > table :is(th, td):nth-child(n + 2) {
+  width: 13.6%;
+  overflow-wrap: anywhere;
+}
+
 html[data-has-sidebar]
   main[data-pagefind-body]:has(.sl-markdown-content[data-documentation-page='article']) {
   --sl-content-width: 40.625rem;

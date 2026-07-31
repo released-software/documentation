@@ -24,6 +24,28 @@ test('the BetterBoard landing links all 20 articles across the four approved gro
   );
 });
 
+test('the Field types section tables share aligned columns', async ({ page }) => {
+  await page.goto('/betterboard/shape-the-board/field-types/');
+
+  const tables = page.locator('main .sl-markdown-content > table');
+  await expect(tables).toHaveCount(3);
+
+  const layouts = await tables.evaluateAll((elements) =>
+    elements.map((element) => {
+      const headerCells = [...element.querySelectorAll('thead th')];
+      return {
+        tableLayout: getComputedStyle(element).tableLayout,
+        width: Math.round(element.getBoundingClientRect().width),
+        columnWidths: headerCells.map((cell) => Math.round(cell.getBoundingClientRect().width))
+      };
+    })
+  );
+
+  expect(layouts.map((layout) => layout.tableLayout)).toEqual(['fixed', 'fixed', 'fixed']);
+  expect(new Set(layouts.map((layout) => layout.width)).size).toBe(1);
+  expect(new Set(layouts.map((layout) => layout.columnWidths.join(','))).size, JSON.stringify(layouts)).toBe(1);
+});
+
 test('BetterBoard articles use ordered sentence-case navigation without a wrapper group', async ({
   page
 }) => {
