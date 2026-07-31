@@ -95,6 +95,29 @@ test('the production build contains the authored Jira Assets guide', async () =>
   );
 });
 
+test('related BetterBoard guides link to the Jira Assets guide', async () => {
+  const assetsRoute = '/betterboard/shape-the-board/jira-assets/';
+  const relatedRoutes = [
+    'betterboard/shape-the-board/display-fields/index.html',
+    'betterboard/shape-the-board/field-types/index.html',
+    'betterboard/shape-the-board/columns-grouping/index.html',
+    'betterboard/shape-the-board/card-colors/index.html',
+    'betterboard/work-faster/filters-refinement/index.html',
+    'betterboard/work-faster/filter-operators/index.html',
+    'betterboard/work-faster/drag-and-drop/index.html'
+  ];
+
+  for (const relatedRoute of relatedRoutes) {
+    const relatedPage = load(
+      await readFile(new URL(relatedRoute, distRoot), 'utf8')
+    );
+    assert.ok(
+      relatedPage(`main a[href="${assetsRoute}"]`).length > 0,
+      `${relatedRoute} does not link to ${assetsRoute}`
+    );
+  }
+});
+
 test('the committed BetterBoard migration report accounts for every mapped source', async () => {
   const report = JSON.parse(
     await readFile(

@@ -26,6 +26,18 @@ When a column has more than one field option mapped to it, dropping an work item
 
 </NeutralCallout>
 
+## Moving between Assets groups
+
+When the board is grouped by an Assets field, dragging to another object group
+updates that field in Jira. A single-object field is replaced; for a
+multiple-object field, BetterBoard adds the destination and removes the source
+while preserving unrelated objects. Dropping in **No value** clears a
+single-object field or removes only the source object from a multiple-object
+field. If Jira rejects the update, the card returns to its previous placement.
+
+See [Jira Assets](/betterboard/shape-the-board/jira-assets/) for the full
+behavior and limitations.
+
 <a id="reordering-in-column"></a>
 
 ## Reordering within a column

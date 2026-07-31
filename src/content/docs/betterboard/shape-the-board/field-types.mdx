@@ -22,6 +22,14 @@ Custom fields are any fields your Jira admin has added to spaces:
 
 <table><thead><tr><th>Field type</th><th>Example</th><th>Display on card</th><th>Filter operators</th></tr></thead><tbody><tr><td>Single select</td><td>Environment, Team</td><td>Colored chip</td><td>is, is any of, is not, is none of, is empty</td></tr><tr><td>Multi select</td><td>Affected versions, Platforms</td><td>Tag chips (up to 3)</td><td>is any of, is none of, contains all, is empty</td></tr><tr><td>User picker</td><td>Technical lead</td><td>Avatar</td><td>is, is any of, is not, is current user, is empty</td></tr><tr><td>Number</td><td>Story points, Weight</td><td>Number</td><td>=, ≠, &gt;, ≥, &lt;, ≤, is empty</td></tr><tr><td>Date</td><td>Target date, Review date</td><td>Relative time</td><td>is before, is after, is on, is within, is empty</td></tr><tr><td>Text (short)</td><td>Environment details</td><td>Truncated text</td><td>contains, does not contain, is empty</td></tr><tr><td>URL</td><td>Design link</td><td>Link icon</td><td>is empty, is not empty</td></tr><tr><td>Rating</td><td>Confidence (1–5)</td><td>Stars</td><td>=, ≠, &gt;, ≥, &lt;, ≤</td></tr><tr><td>Checkbox</td><td>Blocked, Reviewed</td><td>Checkmark</td><td>is true, is false, is empty</td></tr><tr><td>Version</td><td>Fix Version, Affects Version</td><td>Version chip</td><td>is, is any of, is not, is none of, is empty</td></tr></tbody></table>
 
+## Assets fields
+
+Assets fields show linked objects as chips, with the first two visible and any
+remaining values in a `+N` overflow. They support `is any of`, `is none of`,
+`contains all`, `is empty`, and `is not empty` filters, and can be used for
+grouping and card colors. The chips are read-only; see [Jira Assets](/betterboard/shape-the-board/jira-assets/)
+for scope and the supported group-drag updates.
+
 ## Synthetic fields
 
 Synthetic fields are computed by BetterBoard and not stored as native Jira fields:

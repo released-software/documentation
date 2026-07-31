@@ -38,7 +38,7 @@ All other fields follow the order you set. Drag fields in the configuration pane
 BetterBoard surfaces every field available in the Jira space:
 
 -   **System fields**: Assignee, Reporter, Priority, Status, Work item Type, Labels, Fix Version, Component, Sprint, Story Points, Due Date, Created, Updated
--   **Custom fields**: Any field created in your Jira configuration — single select, multi-select, date, number, text, rating, URL, and more
+-   **Custom fields**: Any field created in your Jira configuration — single select, multi-select, Assets, date, number, text, rating, URL, and more
 -   **Synthetic fields**: Time in Status, Blockers (see Reference → Field Types)
 
 Fields that don't have values on a given work item are hidden on that card — empty fields never take up space.
@@ -54,6 +54,13 @@ Each field type has a specific visual representation designed for scannability:
 -   **Date fields**: Short date format (e.g. "Aug 29")
 -   **Number fields**: Raw number with optional unit
 -   **Option fields**: Colored chip using the option's configured color
+
+### Jira Assets fields
+
+Assets fields display linked objects as compact icon-and-label chips. The first
+two objects appear on the card, with any remaining objects available from the
+`+N` overflow. Assets chips are read-only; see [Jira Assets](/betterboard/shape-the-board/jira-assets/)
+for filtering, grouping, and the supported drag-to-assign workflow.
 
 <NeutralCallout type="note">
 
