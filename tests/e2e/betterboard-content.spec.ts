@@ -44,6 +44,11 @@ test('the Field types section tables share aligned columns', async ({ page }) =>
   expect(layouts.map((layout) => layout.tableLayout)).toEqual(['fixed', 'fixed', 'fixed']);
   expect(new Set(layouts.map((layout) => layout.width)).size).toBe(1);
   expect(new Set(layouts.map((layout) => layout.columnWidths.join(','))).size, JSON.stringify(layouts)).toBe(1);
+
+  const headerWhiteSpace = await tables
+    .locator('thead th')
+    .evaluateAll((headers) => headers.map((header) => getComputedStyle(header).whiteSpace));
+  expect(headerWhiteSpace).toEqual(Array(18).fill('nowrap'));
 });
 
 test('BetterBoard articles use ordered sentence-case navigation without a wrapper group', async ({

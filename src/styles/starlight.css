@@ -62,6 +62,10 @@ main[data-pagefind-body]:has(#system-fields) .sl-markdown-content > table :is(th
   overflow-wrap: anywhere;
 }
 
+main[data-pagefind-body]:has(#system-fields) .sl-markdown-content > table thead th {
+  white-space: nowrap;
+}
+
 html[data-has-sidebar]
   main[data-pagefind-body]:has(.sl-markdown-content[data-documentation-page='article']) {
   --sl-content-width: 40.625rem;
