@@ -67,10 +67,13 @@ test('the documentation overview matches the static product-panel design', async
   const cards = overview.locator('[data-documentation-space]');
   await expect(cards).toHaveCount(2);
   await expect(cards).toHaveText([/BetterBoard/, /Hub/]);
-  const cardHeights = await cards.evaluateAll((elements) =>
-    elements.map((element) => Math.round(element.getBoundingClientRect().height))
-  );
-  expect(new Set(cardHeights).size).toBe(1);
+  for (const viewport of viewports) {
+    await page.setViewportSize(viewport);
+    const cardHeights = await cards.evaluateAll((elements) =>
+      elements.map((element) => Math.round(element.getBoundingClientRect().height))
+    );
+    expect(new Set(cardHeights).size, `${viewport.name}: ${cardHeights.join(', ')}`).toBe(1);
+  }
   const descriptionFontSizes = await cards.evaluateAll((elements) =>
     elements.map((element) =>
       Number.parseFloat(getComputedStyle(element.querySelector('.documentation-card__description')!).fontSize)
