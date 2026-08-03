@@ -43,12 +43,14 @@ test('the documentation overview presents two homepage-inspired product cards', 
 
   for (const space of activeSpaces) {
     const card = overview.locator(`[data-documentation-space="${space.id}"]`);
-    await expect(card).toHaveRole('link');
-    await expect(card).toHaveAttribute('href', space.href);
-    await expect(card).toHaveClass(/documentation-card/);
+    await expect(card).toHaveRole('article');
+    await expect(card).toHaveClass(/pixel-card/);
+    await expect(card.getByRole('link')).toHaveAttribute('href', space.href);
     await expect(card.getByText(space.audience)).toBeVisible();
     await expect(card.getByText(space.name, { exact: true })).toBeVisible();
-    await expect(card.locator('[data-card-arrow]')).toHaveCount(1);
+    await expect(card.locator('[data-pixel-canvas]')).toHaveCount(1);
+    await expect(card.locator('[data-pixel-canvas]')).toHaveAttribute('aria-hidden', 'true');
+    await expect(card.locator('[data-pixel-canvas]')).toHaveCSS('pointer-events', 'none');
   }
 
   await expect(overview.locator('[data-documentation-space="partners"]')).toHaveCount(0);
@@ -63,25 +65,32 @@ test('the documentation overview presents two homepage-inspired product cards', 
   await expect(overview.locator('.status-dot, [data-status-dot]')).toHaveCount(0);
 });
 
-test('overview cards move only their arrow and preserve visible reduced-motion focus', async ({
+test('overview cards reveal pixels on hover and preserve visible reduced-motion focus', async ({
   page
 }) => {
   await page.goto('/');
 
   const hubCard = page.locator('[data-documentation-space="hub"]');
-  const arrow = hubCard.locator('[data-card-arrow]');
+  const documentationLink = hubCard.getByRole('link');
 
-  await hubCard.focus();
-  await expect(hubCard).toHaveCSS('outline-style', 'solid');
-  await expect(hubCard).toHaveCSS('outline-width', '2px');
+  expect(await hubCard.evaluate((element) => getComputedStyle(element, '::before').opacity)).toBe(
+    '0'
+  );
 
-  await page.mouse.move(0, 0);
-  await expect(arrow).toHaveCSS('transform', 'none');
   await hubCard.hover();
-  await expect(arrow).toHaveCSS('transform', 'matrix(1, 0, 0, 1, 4, 0)');
+  await expect
+    .poll(() => hubCard.evaluate((element) => getComputedStyle(element, '::before').opacity))
+    .toBe('1');
+
+  await documentationLink.focus();
+  expect(await hubCard.evaluate((element) => getComputedStyle(element, '::before').opacity)).toBe(
+    '1'
+  );
 
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await expect(arrow).toHaveCSS('transform', 'none');
+  expect(
+    await hubCard.evaluate((element) => getComputedStyle(element, '::before').transitionDuration)
+  ).toBe('0s');
 });
 
 test('the Partner coming-soon page keeps the documentation shell but is excluded from Pagefind', async ({

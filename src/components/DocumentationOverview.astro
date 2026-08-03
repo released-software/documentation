@@ -1,5 +1,6 @@
 ---
 import type { DocumentationSpace } from '../data/spaces';
+import PixelCard from './PixelCard.astro';
 
 interface Props {
   spaces: readonly DocumentationSpace[];
@@ -17,22 +18,20 @@ const audiences: Partial<Record<DocumentationSpace['id'], string>> = {
     spaces.map(
       (space) =>
         space.available && (
-          <a
-            class="documentation-card"
-            data-documentation-space={space.id}
-            href={space.href}
-          >
-            <span class="documentation-card__header">
-              <span class="documentation-card__identity">
-                <span class="documentation-card__audience">
-                  {audiences[space.id] ?? 'Product documentation'}
+          <PixelCard id={space.id}>
+            <a class="documentation-card" href={space.href}>
+              <span class="documentation-card__header">
+                <span class="documentation-card__identity">
+                  <span class="documentation-card__audience">
+                    {audiences[space.id] ?? 'Product documentation'}
+                  </span>
+                  <span class="documentation-card__title">{space.shortName}</span>
                 </span>
-                <span class="documentation-card__title">{space.shortName}</span>
+                <span aria-hidden="true" class="documentation-card__arrow" data-card-arrow>↗</span>
               </span>
-              <span aria-hidden="true" class="documentation-card__arrow" data-card-arrow>↗</span>
-            </span>
-            <span class="documentation-card__description">{space.description}</span>
-          </a>
+              <span class="documentation-card__description">{space.description}</span>
+            </a>
+          </PixelCard>
         )
     )
   }
