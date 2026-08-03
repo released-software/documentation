@@ -11,7 +11,7 @@ import { Steps } from '@astrojs/starlight/components';
 
 ## Communication errors
 
-This error indicates that the Released embed can’t establish a secure connection. It can be caused by issues on the website visitor  side or by how the embed is configured by the owner.
+This error indicates that the Hub embed can’t establish a secure connection. It can be caused by issues on the website visitor  side or by how the embed is configured by the owner.
 
 ### Network connectivity
 
@@ -61,7 +61,7 @@ This clears stored data for that domain and allows Safari to re-establish commun
 
 ### Iframe sandbox restrictions
 
-If the Released embed is placed inside an iframe, the iframe must allow certain capabilities.
+If the Hub embed is placed inside an iframe, the iframe must allow certain capabilities.
 
 #### How to fix it
 
@@ -75,11 +75,11 @@ sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-forms a
 
 ### Content Security Policy (CSP)
 
-Your website may be blocking the Released embed.
+Your website may be blocking the Hub embed.
 
-Some websites use a security setting called **Content Security Policy (CSP)**. CSP controls which external content is allowed to load on a page. If it is too restrictive, it can prevent the Released Product Hub from loading inside the page, which results in the Communication error.
+Some websites use a security setting called **Content Security Policy (CSP)**. CSP controls which external content is allowed to load on a page. If it is too restrictive, it can prevent the Hub Product Hub from loading inside the page, which results in the Communication error.
 
-Released is loaded using an iframe, so your CSP must explicitly allow your Released Product Hub to be embedded.
+Hub is loaded using an iframe, so your CSP must explicitly allow your Hub Product Hub to be embedded.
 
 #### What to check
 
@@ -93,7 +93,7 @@ Browsers evaluate CSP rules for iframes in this order:
 
 #### How to fix it
 
-**If your CSP includes frame-src** you must add your Released Product Hub origin to it.
+**If your CSP includes frame-src** you must add your Hub Product Hub origin to it.
 
 ```
 Content-Security-Policy: frame-src https://mysubdomain.releasedhub.com;
@@ -101,7 +101,7 @@ Content-Security-Policy: frame-src https://mysubdomain.releasedhub.com;
 
 If frame-src exists and your hub is not listed, the embed will be blocked, even if default-src allows it.
 
-**If your CSP does not include frame-src, but includes child-src** add your Released Product Hub origin to child-src.
+**If your CSP does not include frame-src, but includes child-src** add your Hub Product Hub origin to child-src.
 
 ```
 Content-Security-Policy: child-src https://mysubdomain.releasedhub.com;
@@ -124,7 +124,7 @@ Content-Security-Policy: default-src 'self' https://mysubdomain.releasedhub.com;
 </li>
 
 <li>
-**Option 2 (recommended)**: Define a dedicated frame-src 
+**Option 2 (recommended)**: Define a dedicated frame-src
 
 
 ```javascript
@@ -135,7 +135,7 @@ Content-Security-Policy: default-src 'self'; frame-src https://mysubdomain.relea
 </ol>
 </Steps>
 
-This makes it explicit that Released is allowed to load as an iframe.
+This makes it explicit that Hub is allowed to load as an iframe.
 
 #### How to confirm it’s working
 
@@ -154,7 +154,7 @@ This error can also appear if the Product Hub cannot be reached.
 #### How to fix it
 
 * Verify that you can open your Product Hub directly in the browser.
-* Check Released Status for any ongoing outages.
+* Check Hub Status for any ongoing outages.
 * If you use a custom hostname, confirm it is correctly configured.
 
 ## Invalid origin
@@ -163,5 +163,5 @@ This error means the current domain is not allowed to embed the Product Hub.
 
 ### How to fix it
 
-* Add the embedding domain to Trusted Domains in Released Global Settings.
+* Add the embedding domain to Trusted Domains in Hub Global Settings.
 * Note that internal and restricted embeds can only be used on trusted domains.

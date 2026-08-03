@@ -12,9 +12,9 @@ import Figure from '../../../../../components/content/Figure.astro';
 import { Steps } from '@astrojs/starlight/components';
 import NeutralCallout from '../../../../../components/content/NeutralCallout.astro';
 
-[Scroll Sites](https://marketplace.atlassian.com/apps/1211636/scroll-viewport-for-confluence?tab=overview\&hosting=cloud) is an Atlassian marketplace app by [K15t](https://www.k15t.com/) that allows you to transform Confluence pages into a public or restricted online help center for your users. 
+[Scroll Sites](https://marketplace.atlassian.com/apps/1211636/scroll-viewport-for-confluence?tab=overview\&hosting=cloud) is an Atlassian marketplace app by [K15t](https://www.k15t.com/) that allows you to transform Confluence pages into a public or restricted online help center for your users.
 
-Released integrates with Scroll Sites through a native integration. Setting up this integration is a breeze and requires just a few simple steps, taking less than 2 minutes to complete.
+Hub integrates with Scroll Sites through a native integration. Setting up this integration is a breeze and requires just a few simple steps, taking less than 2 minutes to complete.
 
 <NeutralCallout type="tip" title="See a demo">
 
@@ -25,16 +25,16 @@ Released integrates with Scroll Sites through a native integration. Setting up t
 
 <NeutralCallout type="note" title="Pre-requisites">
 
-* [Scroll Sites](https://marketplace.atlassian.com/apps/1211636/scroll-sites-for-confluence-help-centers-blogs-websites) in installed in Confluence. 
-* [Released](https://marketplace.atlassian.com/apps/1230872/released-feedback-portal-public-roadmap-ai-release-notes?hosting=cloud\&tab=overview) is installed in Jira.
+* [Scroll Sites](https://marketplace.atlassian.com/apps/1211636/scroll-sites-for-confluence-help-centers-blogs-websites) in installed in Confluence.
+* [Hub](https://marketplace.atlassian.com/apps/1230872/released-feedback-portal-public-roadmap-ai-release-notes?hosting=cloud\&tab=overview) is installed in Jira.
 </NeutralCallout>
 
 <Steps>
 <ol>
 <li>
-**Get the Released Channel ID**
+**Get the Hub Channel ID**
 
-[Find the Channel ID](/guide/resources/how-tos/finding-the-channel-id/) for the portal you want to embed and note it down. 
+[Find the Channel ID](/guide/resources/how-tos/finding-the-channel-id/) for the portal you want to embed and note it down.
 </li>
 
 <li>
@@ -45,7 +45,7 @@ Released integrates with Scroll Sites through a native integration. Setting up t
 </li>
 
 <li>
-**Enable the Released integration**
+**Enable the Hub integration**
 
 <div align="left"><Figure src="/media/hub/ScrollSites-Integration.png" alt="ScrollSites Integration" width={375} /></div>
 
@@ -55,13 +55,13 @@ Released integrates with Scroll Sites through a native integration. Setting up t
 <li>
 **Enter the Channel ID**
 
-Enter the channel ID noted down in step 1 into the Channel ID field in the Released integration
+Enter the channel ID noted down in step 1 into the Channel ID field in the Hub integration
 </li>
 
 <li>
 **Rename the header link (optional)**
 
-The Roadmaps and changelogs will be accessible via a link in the header. Change the link title to best match your use-case. 
+The Roadmaps and changelogs will be accessible via a link in the header. Change the link title to best match your use-case.
 </li>
 
 <li>
@@ -80,13 +80,13 @@ In the _Site settings_ screen, click **Save changes** or **Publish Changes.**
 
 **Congratulations, you're done 🎉**
 
-Roadmaps and posts published with Released will now automatically appear in your Scroll Sites help centre. <br />
+Roadmaps and posts published with Hub will now automatically appear in your Scroll Sites help centre. <br />
 
 ## Adding a feedback form
 
 <NeutralCallout type="note" title="Pre-requisites">
 
-A Released form ID (`FORM_ID`).
+A Hub form ID (`FORM_ID`).
 </NeutralCallout>
 
 <Steps>
@@ -115,7 +115,7 @@ Under the **Section** (header) configuration, create a **new link** in the heade
 * In **Look and feel**, go to the **Code** section.
 * Paste the following script into the custom JavaScript area.
 * Replace:
-  * `FORM_ID` with your actual Released form ID.
+  * `FORM_ID` with your actual Hub form ID.
   * `FEEDBACK_URL` with the exact URL you used for the header link in step 2.
 
 ```javascript
@@ -175,7 +175,7 @@ These instructions apply to **Scroll Viewport** and are not applicable to the ne
 <Steps>
 <ol>
 <li>
-**Get the Released Channel ID**
+**Get the Hub Channel ID**
 
 [Find the channel ID](/guide/resources/how-tos/finding-the-channel-id/) for the announcement page and note it down.
 </li>
@@ -200,7 +200,7 @@ Note down the Confluence **Page ID** from the URL (see screenshot below).
 **Add the custom JavaScript snippet to your Viewport theme**
 
 * Navigate to your Sites theme settings.
-* [Inject the following JavaScript](https://help.k15t.com/scroll-viewport/inject-custom-javascript). 
+* [Inject the following JavaScript](https://help.k15t.com/scroll-viewport/inject-custom-javascript).
 
 ```javascript
 if (vp.source.confluencePageId === "PAGE_ID") {
@@ -211,7 +211,7 @@ if (vp.source.confluencePageId === "PAGE_ID") {
 ```
 
 <NeutralCallout type="note">
-Ensure you replace the **Page\_ID** and **CHANNEL\_ID** placeholders with the IDs noted in the previous steps. 
+Ensure you replace the **Page\_ID** and **CHANNEL\_ID** placeholders with the IDs noted in the previous steps.
 </NeutralCallout>
 </li>
 </ol>

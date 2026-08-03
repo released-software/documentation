@@ -59,9 +59,9 @@ export function renderLlmsTxt(entries, site) {
     sections.push(`## ${spaceLabels.get(space)}\n\n${links.join('\n')}`);
   }
 
-  return `# Released documentation
+  return `# Hub documentation
 
-Documentation for Released Hub and BetterBoard.
+Documentation for Hub and BetterBoard.
 
 ${sections.join('\n\n')}
 `;
