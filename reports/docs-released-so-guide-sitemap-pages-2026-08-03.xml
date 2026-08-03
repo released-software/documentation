@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+			<url>
+				<loc>https://docs.released.so/guide</loc>
+				<priority>0.84</priority>
+				<lastmod>2026-03-05T06:38:37.169Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/getting-started/concepts</loc>
+				<priority>0.84</priority>
+				<lastmod>2025-11-24T04:59:27.611Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/getting-started/setup-guide</loc>
+				<priority>0.84</priority>
+				<lastmod>2025-12-11T04:52:22.212Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/getting-started/setup-guide/installing-the-app</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-04-22T22:46:23.128Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/getting-started/setup-guide/setting-up-your-product-hub</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-04T00:00:59.400Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/getting-started/setup-guide/embedding-the-widget</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-03T23:20:24.992Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/getting-started/setup-guide/embedding-the-page</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-03T23:20:24.992Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/getting-started/setup-guide/embedding-the-feedback-form</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-04T00:24:12.842Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/getting-started/setup-guide/implementing-user-verification</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-26T00:40:15.615Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/getting-started/best-practices</loc>
+				<priority>0.84</priority>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/getting-started/best-practices/customer-communication</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-11-25T01:58:40.207Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/administration</loc>
+				<priority>0.84</priority>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/administration/general</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-07-28T06:37:09.839Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/administration/custom-domain</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-05-15T05:53:27.619Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/administration/design</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-07-28T06:37:09.628Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/administration/trusted-domains</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-01-27T05:44:41.057Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/administration/slack</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-23T22:37:28.993Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/administration/user-verification</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-12T05:20:33.314Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/administration/permissions</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-07-28T06:37:09.785Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/portals</loc>
+				<priority>0.84</priority>
+				<lastmod>2026-03-12T05:09:19.640Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/portals/dashboard</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-07-28T06:37:09.806Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/portals/access</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-07-28T04:49:38.349Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/portals/portal</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-12-11T05:06:56.426Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/portals/portal/announcement-page</loc>
+				<priority>0.59</priority>
+				<lastmod>2026-05-11T15:57:06.759Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/portals/portal/widget</loc>
+				<priority>0.59</priority>
+				<lastmod>2026-05-11T15:57:06.759Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/portals/portal/feedback-form</loc>
+				<priority>0.59</priority>
+				<lastmod>2026-03-16T06:44:54.895Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/feedback</loc>
+				<priority>0.84</priority>
+				<lastmod>2026-03-05T06:38:37.169Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/feedback/inbox</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-04T00:00:59.091Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/feedback/wishlists</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-10-23T05:20:19.415Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/feedback/settings</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-10-21T03:25:30.271Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/roadmaps-and-ideas</loc>
+				<priority>0.84</priority>
+				<lastmod>2025-12-11T05:06:56.426Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/roadmaps-and-ideas/roadmap</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-26T22:54:20.914Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/roadmaps-and-ideas/views</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-08-07T05:29:51.147Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/roadmaps-and-ideas/publishing</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-07-28T06:38:27.080Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog</loc>
+				<priority>0.84</priority>
+				<lastmod>2025-07-28T03:03:23.219Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/writing-a-post</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-16T06:19:57.863Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/publishing</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-16T06:19:57.971Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/templates</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-04-23T07:23:39.880Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/staging-area</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-16T06:19:57.953Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/settings</loc>
+				<priority>0.7</priority>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/settings/artificial-intelligence</loc>
+				<priority>0.59</priority>
+				<lastmod>2025-07-28T06:42:58.911Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/settings/changelog-filter</loc>
+				<priority>0.59</priority>
+				<lastmod>2025-07-28T06:45:56.409Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/settings/email</loc>
+				<priority>0.59</priority>
+				<lastmod>2025-02-27T05:46:32.276Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/settings/jira-issue-links</loc>
+				<priority>0.59</priority>
+				<lastmod>2024-09-13T05:22:40.715Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/settings/confluence</loc>
+				<priority>0.59</priority>
+				<lastmod>2026-03-23T00:41:24.527Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/settings/released-description-field</loc>
+				<priority>0.59</priority>
+				<lastmod>2025-08-11T04:58:47.827Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/editor</loc>
+				<priority>0.7</priority>
+				<lastmod>2024-11-12T03:43:53.704Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/editor/images</loc>
+				<priority>0.59</priority>
+				<lastmod>2024-03-29T02:04:04.687Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/editor/videos</loc>
+				<priority>0.59</priority>
+				<lastmod>2024-03-29T02:05:10.631Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/editor/emojis</loc>
+				<priority>0.59</priority>
+				<lastmod>2024-03-29T02:05:10.631Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/editor/keyboard-shortcuts</loc>
+				<priority>0.59</priority>
+				<lastmod>2025-08-20T01:20:24.724Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/editor/categories</loc>
+				<priority>0.59</priority>
+				<lastmod>2025-02-28T05:41:23.679Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/editor/versions</loc>
+				<priority>0.59</priority>
+				<lastmod>2024-09-02T00:50:47.542Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/changelog/publishing-to-slack</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-23T00:43:13.394Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/integrations</loc>
+				<priority>0.84</priority>
+				<lastmod>2025-12-21T11:05:06.702Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/integrations/confluence-embed</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-17T08:05:58.465Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/integrations/framer</loc>
+				<priority>0.7</priority>
+				<lastmod>2024-09-24T08:43:17.697Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/integrations/webflow</loc>
+				<priority>0.7</priority>
+				<lastmod>2024-08-08T06:57:23.563Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/integrations/slack</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-23T00:45:22.472Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/integrations/aura-karma-for-confluence</loc>
+				<priority>0.7</priority>
+				<lastmod>2024-08-08T06:55:34.147Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/integrations/cosmos</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-05-14T10:41:40.348Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/integrations/karma</loc>
+				<priority>0.7</priority>
+				<lastmod>2024-08-08T06:55:34.533Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/product/integrations/scroll-sites-for-confluence</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-04-23T12:19:41.772Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/ai-tips</loc>
+				<priority>0.84</priority>
+				<lastmod>2024-06-12T02:47:34.101Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/ai-tips/create-output-in-other-languages</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-01-30T06:50:28.811Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/ai-tips/include-a-documentation-link-in-the-output</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-01-30T06:50:28.817Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/ai-tips/creating-structured-output</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-01-31T06:35:30.423Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/ai-tips/international-accents</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-04-01T05:16:39.391Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/troubleshooting</loc>
+				<priority>0.84</priority>
+				<lastmod>2025-12-24T01:31:44.122Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/troubleshooting/embeds</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-05-11T15:50:21.094Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/troubleshooting/ensuring-jira-permissions</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-11-25T02:48:58.929Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/troubleshooting/roadmap-publishing</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-02-04T10:15:59.217Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/how-tos</loc>
+				<priority>0.84</priority>
+				<lastmod>2026-01-30T01:27:47.769Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/how-tos/beta</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-08-04T23:19:58.518Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/how-tos/accessing-custom-fields</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-01-31T06:14:56.477Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/how-tos/configuring-dark-mode</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-01-28T04:09:29.809Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/how-tos/change-the-portal-url-slug</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-05-28T11:55:32.305Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/how-tos/configuring-content-security-policies-csp-for-released-embeds</loc>
+				<priority>0.7</priority>
+				<lastmod>2024-10-01T07:56:15.838Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/how-tos/finding-the-channel-id</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-19T06:40:33.783Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/how-tos/embed-the-portal-in-a-forge-app</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-12-10T02:39:24.369Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/how-tos/ensuring-javascript-resource-stability-for-pci-compliance</loc>
+				<priority>0.7</priority>
+				<lastmod>2024-06-12T02:50:51.743Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/how-tos/how-to-apply-atlassian-marketplace-app-promo-codes-for-cloud</loc>
+				<priority>0.7</priority>
+				<lastmod>2025-12-27T09:51:21.854Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/how-tos/how-to-open-the-developer-console-to-check-for-errors</loc>
+				<priority>0.7</priority>
+				<lastmod>2024-06-04T01:49:38.180Z</lastmod>
+</url>
+
+			<url>
+				<loc>https://docs.released.so/guide/resources/how-tos/how-to-implement-user-verification</loc>
+				<priority>0.7</priority>
+				<lastmod>2026-03-04T01:08:49.569Z</lastmod>
+</url>
+
+
+</urlset>
