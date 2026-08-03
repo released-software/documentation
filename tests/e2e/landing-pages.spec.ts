@@ -71,6 +71,12 @@ test('the documentation overview matches the static product-panel design', async
     elements.map((element) => Math.round(element.getBoundingClientRect().height))
   );
   expect(new Set(cardHeights).size).toBe(1);
+  const descriptionFontSizes = await cards.evaluateAll((elements) =>
+    elements.map((element) =>
+      Number.parseFloat(getComputedStyle(element.querySelector('.documentation-card__description')!).fontSize)
+    )
+  );
+  expect(Math.max(...descriptionFontSizes)).toBeLessThanOrEqual(18);
   for (const card of await cards.all()) {
     await expect(card).toHaveCSS('border-top-left-radius', '20px');
     await expect(card).toHaveCSS('font-family', /Switzer/);
