@@ -73,6 +73,12 @@ test('the documentation overview matches the static product-panel design', async
       elements.map((element) => Math.round(element.getBoundingClientRect().height))
     );
     expect(new Set(cardHeights).size, `${viewport.name}: ${cardHeights.join(', ')}`).toBe(1);
+    if (viewport.width > 560) {
+      const cardTops = await cards.evaluateAll((elements) =>
+        elements.map((element) => Math.round(element.getBoundingClientRect().top))
+      );
+      expect(new Set(cardTops).size, `${viewport.name}: ${cardTops.join(', ')}`).toBe(1);
+    }
   }
   const descriptionFontSizes = await cards.evaluateAll((elements) =>
     elements.map((element) =>
