@@ -6,7 +6,7 @@ const viewports = [
   { name: 'mobile', width: 390, height: 844 }
 ] as const;
 
-test('the documentation overview presents two homepage-inspired product cards', async ({ page }) => {
+test('the documentation overview matches the static product-panel design', async ({ page }) => {
   await page.setViewportSize(viewports[0]);
   await page.goto('/');
 
@@ -21,67 +21,114 @@ test('the documentation overview presents two homepage-inspired product cards', 
   await expect(
     page.getByText('Choose a space to get started, configure your product, or find an answer.')
   ).toBeVisible();
+  await expect(page.locator('main .hero .copy')).toHaveCSS('text-align', 'center');
 
   const overview = page.locator('.documentation-overview');
   const overviewWidth = await overview.evaluate((element) => element.getBoundingClientRect().width);
-  expect(overviewWidth).toBeLessThanOrEqual(960);
+  expect(overviewWidth).toBeLessThanOrEqual(1800);
 
   const activeSpaces = [
     {
-      id: 'hub',
-      audience: 'For teams communicating beyond Jira',
-      name: 'Hub',
-      href: '/guide/'
+      id: 'betterboard',
+      name: 'BetterBoard',
+      description: 'Set up a faster, more flexible Jira board and learn the workflows it improves.',
+      href: '/betterboard/',
+      whatsNewHref: 'https://released.so/betterboard/whats-new'
     },
     {
-      id: 'betterboard',
-      audience: 'For Jira power users',
-      name: 'BetterBoard',
-      href: '/betterboard/'
+      id: 'hub',
+      name: 'Hub',
+      description: 'Learn how to share Jira work through roadmaps, release notes, and customer feedback.',
+      href: '/guide/',
+      whatsNewHref: 'https://released.so/hub/whats-new'
     }
   ] as const;
 
   for (const space of activeSpaces) {
     const card = overview.locator(`[data-documentation-space="${space.id}"]`);
-    await expect(card).toHaveRole('link');
-    await expect(card).toHaveAttribute('href', space.href);
-    await expect(card).toHaveClass(/documentation-card/);
-    await expect(card.getByText(space.audience)).toBeVisible();
+    await expect(card).toHaveRole('article');
     await expect(card.getByText(space.name, { exact: true })).toBeVisible();
-    await expect(card.locator('[data-card-arrow]')).toHaveCount(1);
+    await expect(card.getByText(space.description, { exact: true })).toBeVisible();
+    await expect(card.locator('[data-pixel-canvas]')).toHaveCount(0);
+
+    const actions = card.getByRole('navigation', { name: `${space.name} actions` });
+    await expect(actions.getByRole('link', { name: 'Documentation' })).toHaveAttribute(
+      'href',
+      space.href
+    );
+    await expect(actions.getByRole('link', { name: 'What’s new' })).toHaveAttribute(
+      'href',
+      space.whatsNewHref
+    );
   }
 
   await expect(overview.locator('[data-documentation-space="partners"]')).toHaveCount(0);
 
-  const cards = overview.locator('.documentation-card');
+  const cards = overview.locator('[data-documentation-space]');
   await expect(cards).toHaveCount(2);
-  for (const card of await cards.all()) {
-    await expect(card).toHaveCSS('border-top-style', 'solid');
-    await expect(card).toHaveCSS('border-top-width', '1px');
-    await expect(card).toHaveCSS('border-top-left-radius', '20px');
+  await expect(cards).toHaveText([/BetterBoard/, /Hub/]);
+  for (const viewport of viewports) {
+    await page.setViewportSize(viewport);
+    const cardHeights = await cards.evaluateAll((elements) =>
+      elements.map((element) => Math.round(element.getBoundingClientRect().height))
+    );
+    expect(new Set(cardHeights).size, `${viewport.name}: ${cardHeights.join(', ')}`).toBe(1);
+    if (viewport.width > 560) {
+      const cardTops = await cards.evaluateAll((elements) =>
+        elements.map((element) => Math.round(element.getBoundingClientRect().top))
+      );
+      expect(new Set(cardTops).size, `${viewport.name}: ${cardTops.join(', ')}`).toBe(1);
+    }
   }
+  const descriptionFontSizes = await cards.evaluateAll((elements) =>
+    elements.map((element) =>
+      Number.parseFloat(getComputedStyle(element.querySelector('.documentation-card__description')!).fontSize)
+    )
+  );
+  expect(Math.max(...descriptionFontSizes)).toBeLessThanOrEqual(18);
+  for (const card of await cards.all()) {
+    await expect(card).toHaveCSS('border-top-left-radius', '20px');
+    await expect(card).toHaveCSS('font-family', /Switzer/);
+  }
+  await expect(cards.first().getByRole('heading')).toHaveCSS('font-weight', '400');
   await expect(overview.locator('.status-dot, [data-status-dot]')).toHaveCount(0);
 });
 
-test('overview cards move only their arrow and preserve visible reduced-motion focus', async ({
-  page
-}) => {
+test('overview cards omit the pixel effect', async ({ page }) => {
   await page.goto('/');
 
   const hubCard = page.locator('[data-documentation-space="hub"]');
-  const arrow = hubCard.locator('[data-card-arrow]');
-
-  await hubCard.focus();
-  await expect(hubCard).toHaveCSS('outline-style', 'solid');
-  await expect(hubCard).toHaveCSS('outline-width', '2px');
-
-  await page.mouse.move(0, 0);
-  await expect(arrow).toHaveCSS('transform', 'none');
   await hubCard.hover();
-  await expect(arrow).toHaveCSS('transform', 'matrix(1, 0, 0, 1, 4, 0)');
+  await expect(hubCard.locator('[data-pixel-canvas]')).toHaveCount(0);
+  expect(await hubCard.evaluate((element) => getComputedStyle(element, '::before').content)).toBe(
+    'none'
+  );
+});
 
-  await page.emulateMedia({ reducedMotion: 'reduce' });
-  await expect(arrow).toHaveCSS('transform', 'none');
+test('overview panels and actions respond to hover', async ({ page }) => {
+  await page.goto('/');
+
+  const hubCard = page.locator('[data-documentation-space="hub"]');
+  await hubCard.hover();
+  await page.waitForTimeout(250);
+  await expect
+    .poll(() => hubCard.evaluate((element) => getComputedStyle(element).transform))
+    .not.toBe('none');
+  await expect
+    .poll(() => hubCard.evaluate((element) => getComputedStyle(element).backgroundColor))
+    .toBe('rgb(247, 247, 249)');
+
+  const primaryAction = hubCard.getByRole('link', { name: 'Documentation' });
+  await primaryAction.hover();
+  await expect
+    .poll(() => primaryAction.evaluate((element) => getComputedStyle(element).transform))
+    .not.toBe('none');
+
+  const secondaryAction = hubCard.getByRole('link', { name: 'What’s new' });
+  await secondaryAction.hover();
+  await expect
+    .poll(() => secondaryAction.evaluate((element) => getComputedStyle(element).backgroundColor))
+    .toBe('rgb(255, 255, 255)');
 });
 
 test('the Partner coming-soon page keeps the documentation shell but is excluded from Pagefind', async ({
