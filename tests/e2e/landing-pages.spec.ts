@@ -6,7 +6,7 @@ const viewports = [
   { name: 'mobile', width: 390, height: 844 }
 ] as const;
 
-test('the documentation overview presents two static product cards', async ({ page }) => {
+test('the documentation overview matches the static product-panel design', async ({ page }) => {
   await page.setViewportSize(viewports[0]);
   await page.goto('/');
 
@@ -25,30 +25,30 @@ test('the documentation overview presents two static product cards', async ({ pa
 
   const overview = page.locator('.documentation-overview');
   const overviewWidth = await overview.evaluate((element) => element.getBoundingClientRect().width);
-  expect(overviewWidth).toBeLessThanOrEqual(960);
+  expect(overviewWidth).toBeLessThanOrEqual(1800);
 
   const activeSpaces = [
     {
-      id: 'hub',
-      audience: 'For teams communicating beyond Jira',
-      name: 'Hub',
-      href: '/guide/',
-      whatsNewHref: 'https://released.so/hub/whats-new'
-    },
-    {
       id: 'betterboard',
-      audience: 'For Jira power users',
       name: 'BetterBoard',
+      description: 'Set up a faster, more flexible Jira board and learn the workflows it improves.',
       href: '/betterboard/',
       whatsNewHref: 'https://released.so/betterboard/whats-new'
+    },
+    {
+      id: 'hub',
+      name: 'Hub',
+      description: 'Learn how to share Jira work through roadmaps, release notes, and customer feedback.',
+      href: '/guide/',
+      whatsNewHref: 'https://released.so/hub/whats-new'
     }
   ] as const;
 
   for (const space of activeSpaces) {
     const card = overview.locator(`[data-documentation-space="${space.id}"]`);
     await expect(card).toHaveRole('article');
-    await expect(card.getByText(space.audience)).toBeVisible();
     await expect(card.getByText(space.name, { exact: true })).toBeVisible();
+    await expect(card.getByText(space.description, { exact: true })).toBeVisible();
     await expect(card.locator('[data-pixel-canvas]')).toHaveCount(0);
 
     const actions = card.getByRole('navigation', { name: `${space.name} actions` });
@@ -66,11 +66,16 @@ test('the documentation overview presents two static product cards', async ({ pa
 
   const cards = overview.locator('[data-documentation-space]');
   await expect(cards).toHaveCount(2);
+  await expect(cards).toHaveText([/BetterBoard/, /Hub/]);
+  const cardHeights = await cards.evaluateAll((elements) =>
+    elements.map((element) => Math.round(element.getBoundingClientRect().height))
+  );
+  expect(new Set(cardHeights).size).toBe(1);
   for (const card of await cards.all()) {
     await expect(card).toHaveCSS('border-top-left-radius', '20px');
-    await expect(card).toHaveCSS('min-height', '330px');
-    await expect(card).toHaveCSS('padding-left', '42px');
+    await expect(card).toHaveCSS('font-family', /Switzer/);
   }
+  await expect(cards.first().getByRole('heading')).toHaveCSS('font-weight', '400');
   await expect(overview.locator('.status-dot, [data-status-dot]')).toHaveCount(0);
 });
 
