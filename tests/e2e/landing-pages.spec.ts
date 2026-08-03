@@ -94,7 +94,7 @@ test('the documentation overview matches the static product-panel design', async
   await expect(overview.locator('.status-dot, [data-status-dot]')).toHaveCount(0);
 });
 
-test('overview cards have no animated hover treatment', async ({ page }) => {
+test('overview cards omit the pixel effect', async ({ page }) => {
   await page.goto('/');
 
   const hubCard = page.locator('[data-documentation-space="hub"]');
@@ -103,6 +103,31 @@ test('overview cards have no animated hover treatment', async ({ page }) => {
   expect(await hubCard.evaluate((element) => getComputedStyle(element, '::before').content)).toBe(
     'none'
   );
+});
+
+test('overview panels and actions respond to hover', async ({ page }) => {
+  await page.goto('/');
+
+  const hubCard = page.locator('[data-documentation-space="hub"]');
+  await hubCard.hover();
+  await expect
+    .poll(() => hubCard.evaluate((element) => getComputedStyle(element).transform))
+    .not.toBe('none');
+  await expect
+    .poll(() => hubCard.evaluate((element) => getComputedStyle(element).backgroundColor))
+    .toBe('rgb(255, 255, 255)');
+
+  const primaryAction = hubCard.getByRole('link', { name: 'Documentation' });
+  await primaryAction.hover();
+  await expect
+    .poll(() => primaryAction.evaluate((element) => getComputedStyle(element).transform))
+    .not.toBe('none');
+
+  const secondaryAction = hubCard.getByRole('link', { name: 'What’s new' });
+  await secondaryAction.hover();
+  await expect
+    .poll(() => secondaryAction.evaluate((element) => getComputedStyle(element).backgroundColor))
+    .toBe('rgb(255, 255, 255)');
 });
 
 test('the Partner coming-soon page keeps the documentation shell but is excluded from Pagefind', async ({
