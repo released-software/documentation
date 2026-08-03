@@ -50,7 +50,7 @@ test('llms.txt groups Markdown links by documentation space', () => {
         id: 'guide/getting-started/concepts',
         data: {
           title: 'Concepts',
-          description: 'Understand the Released model.',
+          description: 'Understand the Hub model.',
           space: 'hub'
         }
       },
@@ -69,13 +69,13 @@ test('llms.txt groups Markdown links by documentation space', () => {
 
   assert.equal(
     index,
-    `# Released documentation
+    `# Hub documentation
 
-Documentation for Released Hub and BetterBoard.
+Documentation for Hub and BetterBoard.
 
 ## Hub
 
-- [Concepts](https://docs.released.so/guide/getting-started/concepts.md): Understand the Released model.
+- [Concepts](https://docs.released.so/guide/getting-started/concepts.md): Understand the Hub model.
 
 ## BetterBoard
 

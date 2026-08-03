@@ -31,7 +31,7 @@ export default defineConfig({
   integrations: [
     contentComponentHarness,
     starlight({
-      title: 'Released documentation',
+      title: 'Hub documentation',
       favicon: '/brand/released-favicon.svg',
       customCss: ['./src/styles/tokens.css', './src/styles/starlight.css'],
       routeMiddleware: './src/route-data.ts',

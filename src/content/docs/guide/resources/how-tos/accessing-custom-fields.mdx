@@ -1,7 +1,7 @@
 ---
 title: Accessing Custom Fields
 description: >-
-  Released lets you choose which description field to use for generating release
+  Hub lets you choose which description field to use for generating release
   notes. But every so often, you might want to include information from other
   fields in your release notes as well.
 space: hub
@@ -15,9 +15,9 @@ import NeutralCallout from '../../../../../components/content/NeutralCallout.ast
 
 ## Overview
 
-Released lets you choose which description field to use for generating release notes. But every so often, you might want to include information from other fields in your release notes as well. 
+Hub lets you choose which description field to use for generating release notes. But every so often, you might want to include information from other fields in your release notes as well.
 
-Common examples are: 
+Common examples are:
 
 * Documentation links
 * Product area
@@ -39,10 +39,10 @@ With Jira Automation, you can easily copy values from other fields into the desc
 
 You can trigger this automation manually or automatically when an issue’s status changes.
 
-Follow the step-by-step guide below to set it up. 
+Follow the step-by-step guide below to set it up.
 
 <NeutralCallout type="note">
-If you are not familar with Jira automations, we recommend that you read the [Getting Started Guide for Jira Automations ](https://www.atlassian.com/software/jira/guides/automation/overview)first. 
+If you are not familar with Jira automations, we recommend that you read the [Getting Started Guide for Jira Automations ](https://www.atlassian.com/software/jira/guides/automation/overview)first.
 </NeutralCallout>
 
 ### 1. Setting up the automation
@@ -58,18 +58,18 @@ First, decide how you want to trigger the automation. The most common options ar
 
 #### Adding an action
 
-Once the automation is triggered, the next step is to define an action. In this case, we want to edit the description field used to create the release notes. 
+Once the automation is triggered, the next step is to define an action. In this case, we want to edit the description field used to create the release notes.
 
 In the below example, we’re updating the description field by:
 
 1. Keeping the original description at the top to preserve existing information.
 2. Adding a section labeled “Other Information” below, where we include values from various issue fields.
-3. Structuring the field data as key value pairs. This will allow for referencing the fields in the AI prompt. 
+3. Structuring the field data as key value pairs. This will allow for referencing the fields in the AI prompt.
 
 <Figure src="/media/hub/Jira%20Automation%20-%20Edit%20Action.png" alt="Jira Automation   Edit Action" width={375} />
 
 <NeutralCallout type="note">
-Click on the curly brackets in the bottom right of the text editor to easily access the available fields for the issues. 
+Click on the curly brackets in the bottom right of the text editor to easily access the available fields for the issues.
 </NeutralCallout>
 
 #### Example
@@ -91,4 +91,3 @@ Once the data is available in the description field, you can reference it direct
 <NeutralCallout type="note">
 For more detail on how to write an AI prompt using custom fields read [creating-structured-output.md](/guide/resources/ai-tips/creating-structured-output/ "mention")
 </NeutralCallout>
-

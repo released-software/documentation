@@ -1,9 +1,9 @@
 ---
 description: >-
-  To embed Released into your app while maintaining a secure Content Security
+  To embed Hub into your app while maintaining a secure Content Security
   Policy (CSP), you may need to adjust your existing policy to allow certain
-  domains used by Released.
-title: Configuring Content Security Policies (CSP) for Released Embeds
+  domains used by Hub.
+title: Configuring Content Security Policies (CSP) for Hub Embeds
 space: hub
 sidebar:
   order: 78
@@ -18,22 +18,22 @@ CSP works by letting the site owner specify a set of rules through HTTP headers 
 
 By restricting which external resources can be loaded, CSP helps to mitigate vulnerabilities that hackers could exploit by injecting malicious code into a website.
 
-When embedding Released into your website or app, you may have to add to add Released specific domains to your CSP policy. 
+When embedding Hub into your website or app, you may have to add to add Hub specific domains to your CSP policy.
 
 ## **CSP Configuration** <a href="#csp-configuration" id="csp-configuration"></a>
 
 ### **Strictest CSP Policy** <a href="#strictest-csp-policy" id="strictest-csp-policy"></a>
 
-At a minimum, the following CSP should work for most users embedding Released:
+At a minimum, the following CSP should work for most users embedding Hub:
 
 **Copy the following URLs**
 
 ```
-Content-Security-Policy: 
-  connect-src https://api.released.so https://events.released.so; 
-  script-src https://embed.released.so; 
-  style-src 'unsafe-inline' https://cdn.released.so https://embed.released.so; 
-  img-src https://cdn.released.so https://dwamxgqy3aotj.cloudfront.net; 
+Content-Security-Policy:
+  connect-src https://api.released.so https://events.released.so;
+  script-src https://embed.released.so;
+  style-src 'unsafe-inline' https://cdn.released.so https://embed.released.so;
+  img-src https://cdn.released.so https://dwamxgqy3aotj.cloudfront.net;
   font-src https://embed.released.so
 ```
 
@@ -48,15 +48,15 @@ To simplify updates and future-proof your policy against changes we make, we rec
 **Copy**
 
 ```
-Content-Security-Policy: 
-  connect-src https://*.released.so; 
-  script-src https://*.released.so; 
-  style-src 'unsafe-inline' https://*.released.so; 
-  img-src https://*.released.so https://dwamxgqy3aotj.cloudfront.net; 
+Content-Security-Policy:
+  connect-src https://*.released.so;
+  script-src https://*.released.so;
+  style-src 'unsafe-inline' https://*.released.so;
+  img-src https://*.released.so https://dwamxgqy3aotj.cloudfront.net;
   font-src https://*.released.so
 ```
 
-This policy covers all potential subdomains of Released, making it easier to accommodate updates or changes in our infrastructure without further adjustments.
+This policy covers all potential subdomains of Hub, making it easier to accommodate updates or changes in our infrastructure without further adjustments.
 
 ### **Additional Media Domains** <a href="#additional-media-domains" id="additional-media-domains"></a>
 
@@ -64,4 +64,4 @@ If you are embedding video files or media content into your release notes and ro
 
 ### **Final Recommendations** <a href="#final-recommendations" id="final-recommendations"></a>
 
-For maximum flexibility and security, adopting the wildcard strategy (`*.released.so`) in your CSP will help avoid issues as Released evolves. If you encounter specific errors, [contact our support team ](https://released.so/support)for further assistance.
+For maximum flexibility and security, adopting the wildcard strategy (`*.released.so`) in your CSP will help avoid issues as Hub evolves. If you encounter specific errors, [contact our support team ](https://released.so/support)for further assistance.

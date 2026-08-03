@@ -12,11 +12,11 @@ import NeutralCallout from '../../../../../components/content/NeutralCallout.ast
 
 ## Enabling feedback
 
-Navigate to **Workspace >** **Settings > Feedback** to access the feedback settings. 
+Navigate to **Workspace >** **Settings > Feedback** to access the feedback settings.
 
 Feedback can be toggled on or off by workspace. Once enabled, users with portal access can submit feedback through the feedback form or comment directly on roadmap items.
 
-Feedback is accessible in the [Inbox](/guide/product/feedback/inbox/) and linked to its corresponding work item. 
+Feedback is accessible in the [Inbox](/guide/product/feedback/inbox/) and linked to its corresponding work item.
 
 After activation, the following feedback-related settings become available.
 
@@ -35,7 +35,7 @@ When a user posts a new comment (starting a thread), it gets a permanent "visibi
 * If the portal is Public when the comment is posted, the thread gets a permanent Public stamp.
 * If the portal is Private when the comment is posted, the thread gets a permanent Private stamp.
 
-This stamp never changes from private to public, even if you change the portal's visibility setting later. I private comment will always remain private. 
+This stamp never changes from private to public, even if you change the portal's visibility setting later. I private comment will always remain private.
 
 **The most private setting wins**
 
@@ -50,30 +50,30 @@ The most restrictive (most private) setting of the two is always applied.
 
 ## Showing feedback on Jira work items
 
-Feedback can be shown on related Jira items. How it's being displayed differs between Jira and JIra Product Discovery. 
+Feedback can be shown on related Jira items. How it's being displayed differs between Jira and JIra Product Discovery.
 
 ### Software projects
 
-Feedback is displayed in a “Feedback” panel, where individual feedback items can be reviewed. Additionally, a global “Feedback count” field tracks how many customers gave feedback. 
+Feedback is displayed in a “Feedback” panel, where individual feedback items can be reviewed. Additionally, a global “Feedback count” field tracks how many customers gave feedback.
 
 ### Discovery projects
 
 Feedback is stored as insights in discovery projects. Once connected, incoming feedback will be added using the connected account below.
 
-Before you can create insights in Jira Product Discovery, you will need to authenticate. 
+Before you can create insights in Jira Product Discovery, you will need to authenticate.
 
 <Steps>
 <ol>
 <li>
 #### Click the **Authenticate** button
 
-Released will ask for permission to view and update content in Jira Product Discovery on your behalf. 
+Hub will ask for permission to view and update content in Jira Product Discovery on your behalf.
 </li>
 
 <li>
 #### Select a site (optional)
 
-If you have multiple sites, select the site you want to connect to. 
+If you have multiple sites, select the site you want to connect to.
 </li>
 
 <li>
@@ -86,7 +86,7 @@ If you have multiple sites, select the site you want to connect to.
 
 ### Show count
 
-Configure whether the wish count is shown on roadmaps in the portal. 
+Configure whether the wish count is shown on roadmaps in the portal.
 
 Wishes are unique per user. If a user wishes for the same work item across multiple portals, it is counted only once.
 
@@ -115,18 +115,18 @@ You must have the administrator role to configure work item types in team-manage
 To add the field to your work item types:
 
 1. In the project sidebar, click **Project settings** > **Fields**.
-2. Search for **Wish count**. 
+2. Search for **Wish count**.
    1. If the field is not available, click the **Add field** button.
    2. Select the **Wish count** field from the list.
    3. Click the **Add 1 field** button.
 3. Use the **Work types** dropdown to select the work types where you want to add the field.
 4. Search for the **Wish count** field in the fields sidebar on the right.
-5. Drag the **Wish count** field into the context fields section. 
+5. Drag the **Wish count** field into the context fields section.
 6. Click **Save changes**.
 
-Repeat these steps for each work item type in your project. 
+Repeat these steps for each work item type in your project.
 
-For more detail see: [Customize a work item's fields in team-managed projects](https://support.atlassian.com/jira-software-cloud/docs/customize-an-issues-fields-in-team-managed-projects/). 
+For more detail see: [Customize a work item's fields in team-managed projects](https://support.atlassian.com/jira-software-cloud/docs/customize-an-issues-fields-in-team-managed-projects/).
 </TabItem>
 
 <TabItem label="Company-managed projects">
@@ -134,9 +134,9 @@ For more detail see: [Customize a work item's fields in team-managed projects](h
 You must have the Jira administrator [global permission](https://confluence.atlassian.com/adminjiracloud/managing-global-permissions-776636359.html) to configure work item screens in company-managed projects.
 </NeutralCallout>
 
-You can control which screens a custom field will appear on when a work item is created, edited, or transitioned through workflow. 
+You can control which screens a custom field will appear on when a work item is created, edited, or transitioned through workflow.
 
-To change which screens a custom field is associated with, refer to the Jira [configure work items documentation](https://support.atlassian.com/jira-cloud-administration/docs/configure-issues-to-track-individual-pieces-of-work/). 
+To change which screens a custom field is associated with, refer to the Jira [configure work items documentation](https://support.atlassian.com/jira-cloud-administration/docs/configure-issues-to-track-individual-pieces-of-work/).
 </TabItem>
 </Tabs>
 
@@ -149,13 +149,13 @@ Jira Product Discovery currently does not support custom fields. Because of this
 <li>
 #### Configure a number field in Jira Product Discovery
 
-We suggest to name the field _Wish count_ for consistency, but you can give it any name you want. 
+We suggest to name the field _Wish count_ for consistency, but you can give it any name you want.
 </li>
 
 <li>
 #### Select the field in the feedback settings
 
-Navigate to **Workspace >** **Settings > Feedback** and select the number field for your JPD project in the Wishlist section. 
+Navigate to **Workspace >** **Settings > Feedback** and select the number field for your JPD project in the Wishlist section.
 </li>
 </ol>
 </Steps>

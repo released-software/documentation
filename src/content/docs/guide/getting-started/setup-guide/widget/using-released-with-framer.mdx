@@ -1,13 +1,13 @@
 ---
 description: This guide explains how to add the announcement page to a Framer website
-title: Using Released with Framer
+title: Using Hub with Framer
 space: hub
 sidebar:
   order: 87
 ---
 import NeutralCallout from '../../../../../../components/content/NeutralCallout.astro';
 
-With Released and Framer, you can seamlessly embed a widget or announcement page into your website. This allows you to display news on your main domain and retain the standard layout with your website's header and footer. 
+With Hub and Framer, you can seamlessly embed a widget or announcement page into your website. This allows you to display news on your main domain and retain the standard layout with your website's header and footer.
 
 <NeutralCallout type="note">
 This section assumed you are familiar with Framer's code components. If you are new to code components, we recommend you read this page first: [https://www.framer.com/learn/code-components/](https://www.framer.com/learn/code-components/)
@@ -15,12 +15,12 @@ This section assumed you are familiar with Framer's code components. If you are 
 
 ## Adding the embed code
 
-Copy the following code snippet into the `<head>` element of your page. 
+Copy the following code snippet into the `<head>` element of your page.
 
-1. Click on the ⚙️ icon in the top right of the header in Framer. 
+1. Click on the ⚙️ icon in the top right of the header in Framer.
 2. Click on **General**.
-3. Scroll down to the **Custom Code** section. 
-4. Insert the following code in the **End of \<head> tag** panel. 
+3. Scroll down to the **Custom Code** section.
+4. Insert the following code in the **End of \<head> tag** panel.
 
 ```html
 <script src="https://embed.released.so/1/embed.js"></script>
@@ -30,7 +30,7 @@ Alternatively, you have the option to include the code in the section of the spe
 
 ## Creating a component
 
-1. To create a new code component go to **Assets → Code** and click the plus button. 
+1. To create a new code component go to **Assets → Code** and click the plus button.
 2. Delete the Framer example code and copy and paste the following code into the editor:
 
 ```tsx
@@ -65,6 +65,6 @@ export default function Released_page(props) {
 }
 ```
 
-3. Customize the properties of the `<released-page>`tag at the bottom with your preferred values. For further details on the available options, refer to the [announcement-page.md](/guide/product/portals/portal/announcement-page/ "mention") documentation. 
+3. Customize the properties of the `<released-page>`tag at the bottom with your preferred values. For further details on the available options, refer to the [announcement-page.md](/guide/product/portals/portal/announcement-page/ "mention") documentation.
 
-You can now use your component like other HTML components in Framer. Drag it onto the page where you want to display the announcements. 
+You can now use your component like other HTML components in Framer. Drag it onto the page where you want to display the announcements.

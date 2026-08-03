@@ -72,7 +72,7 @@ test('the Hub overview replaces imported card tables with documentation links', 
 
   await expect(page.locator('main table[data-view="cards"]')).toHaveCount(0);
   await expect(
-    page.getByRole('link', { name: /Set up Released/ })
+    page.getByRole('link', { name: /Set up Hub/ })
   ).toHaveAttribute('href', '/guide/getting-started/setup-guide/');
   await expect(page.getByRole('link', { name: /Using templates/ })).toHaveAttribute(
     'href',
