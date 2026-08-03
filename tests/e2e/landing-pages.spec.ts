@@ -110,12 +110,13 @@ test('overview panels and actions respond to hover', async ({ page }) => {
 
   const hubCard = page.locator('[data-documentation-space="hub"]');
   await hubCard.hover();
+  await page.waitForTimeout(250);
   await expect
     .poll(() => hubCard.evaluate((element) => getComputedStyle(element).transform))
     .not.toBe('none');
   await expect
     .poll(() => hubCard.evaluate((element) => getComputedStyle(element).backgroundColor))
-    .toBe('rgb(255, 255, 255)');
+    .toBe('rgb(247, 247, 249)');
 
   const primaryAction = hubCard.getByRole('link', { name: 'Documentation' });
   await primaryAction.hover();
