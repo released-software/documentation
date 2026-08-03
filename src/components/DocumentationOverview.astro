@@ -1,6 +1,5 @@
 ---
 import type { DocumentationSpace } from '../data/spaces';
-import PixelCard from './PixelCard.astro';
 
 interface Props {
   spaces: readonly DocumentationSpace[];
@@ -22,7 +21,7 @@ const whatsNewHrefs: Partial<Record<DocumentationSpace['id'], string>> = {
     spaces.map(
       (space) =>
         space.available && (
-          <PixelCard id={space.id}>
+          <article class="documentation-panel" data-documentation-space={space.id}>
             <div class="documentation-card">
               <div class="documentation-card__header">
                 <div class="documentation-card__identity">
@@ -46,7 +45,7 @@ const whatsNewHrefs: Partial<Record<DocumentationSpace['id'], string>> = {
                 }
               </nav>
             </div>
-          </PixelCard>
+          </article>
         )
     )
   }
@@ -61,11 +60,13 @@ const whatsNewHrefs: Partial<Record<DocumentationSpace['id'], string>> = {
     margin-inline: auto;
   }
 
-  .documentation-overview :global(.pixel-card) {
+  .documentation-panel {
     display: grid;
     min-height: 330px;
     padding: 42px;
     color: var(--released-ink);
+    border-radius: 20px;
+    background: var(--released-bg-raised);
   }
 
   .documentation-card {
@@ -141,7 +142,7 @@ const whatsNewHrefs: Partial<Record<DocumentationSpace['id'], string>> = {
       grid-template-columns: minmax(0, 1fr);
     }
 
-    .documentation-overview :global(.pixel-card) {
+    .documentation-panel {
       min-height: 260px;
       padding: 1.75rem;
     }

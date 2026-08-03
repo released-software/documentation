@@ -6,7 +6,7 @@ const viewports = [
   { name: 'mobile', width: 390, height: 844 }
 ] as const;
 
-test('the documentation overview presents two homepage-inspired product cards', async ({ page }) => {
+test('the documentation overview presents two static product cards', async ({ page }) => {
   await page.setViewportSize(viewports[0]);
   await page.goto('/');
 
@@ -47,12 +47,9 @@ test('the documentation overview presents two homepage-inspired product cards', 
   for (const space of activeSpaces) {
     const card = overview.locator(`[data-documentation-space="${space.id}"]`);
     await expect(card).toHaveRole('article');
-    await expect(card).toHaveClass(/pixel-card/);
     await expect(card.getByText(space.audience)).toBeVisible();
     await expect(card.getByText(space.name, { exact: true })).toBeVisible();
-    await expect(card.locator('[data-pixel-canvas]')).toHaveCount(1);
-    await expect(card.locator('[data-pixel-canvas]')).toHaveAttribute('aria-hidden', 'true');
-    await expect(card.locator('[data-pixel-canvas]')).toHaveCSS('pointer-events', 'none');
+    await expect(card.locator('[data-pixel-canvas]')).toHaveCount(0);
 
     const actions = card.getByRole('navigation', { name: `${space.name} actions` });
     await expect(actions.getByRole('link', { name: 'Documentation' })).toHaveAttribute(
@@ -67,7 +64,7 @@ test('the documentation overview presents two homepage-inspired product cards', 
 
   await expect(overview.locator('[data-documentation-space="partners"]')).toHaveCount(0);
 
-  const cards = overview.locator('[data-pixel-card]');
+  const cards = overview.locator('[data-documentation-space]');
   await expect(cards).toHaveCount(2);
   for (const card of await cards.all()) {
     await expect(card).toHaveCSS('border-top-left-radius', '20px');
@@ -77,32 +74,15 @@ test('the documentation overview presents two homepage-inspired product cards', 
   await expect(overview.locator('.status-dot, [data-status-dot]')).toHaveCount(0);
 });
 
-test('overview cards reveal pixels on hover and preserve visible reduced-motion focus', async ({
-  page
-}) => {
+test('overview cards have no animated hover treatment', async ({ page }) => {
   await page.goto('/');
 
   const hubCard = page.locator('[data-documentation-space="hub"]');
-  const documentationLink = hubCard.getByRole('link', { name: 'Documentation' });
-
-  expect(await hubCard.evaluate((element) => getComputedStyle(element, '::before').opacity)).toBe(
-    '0'
-  );
-
   await hubCard.hover();
-  await expect
-    .poll(() => hubCard.evaluate((element) => getComputedStyle(element, '::before').opacity))
-    .toBe('1');
-
-  await documentationLink.focus();
-  expect(await hubCard.evaluate((element) => getComputedStyle(element, '::before').opacity)).toBe(
-    '1'
+  await expect(hubCard.locator('[data-pixel-canvas]')).toHaveCount(0);
+  expect(await hubCard.evaluate((element) => getComputedStyle(element, '::before').content)).toBe(
+    'none'
   );
-
-  await page.emulateMedia({ reducedMotion: 'reduce' });
-  expect(
-    await hubCard.evaluate((element) => getComputedStyle(element, '::before').transitionDuration)
-  ).toBe('0s');
 });
 
 test('the Partner coming-soon page keeps the documentation shell but is excluded from Pagefind', async ({
