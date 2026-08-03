@@ -11,6 +11,10 @@ const audiences: Partial<Record<DocumentationSpace['id'], string>> = {
   betterboard: 'For Jira power users',
   hub: 'For teams communicating beyond Jira'
 };
+const whatsNewHrefs: Partial<Record<DocumentationSpace['id'], string>> = {
+  betterboard: 'https://released.so/betterboard/whats-new',
+  hub: 'https://released.so/hub/whats-new'
+};
 ---
 
 <section aria-label="Documentation spaces" class="documentation-overview">
@@ -19,18 +23,29 @@ const audiences: Partial<Record<DocumentationSpace['id'], string>> = {
       (space) =>
         space.available && (
           <PixelCard id={space.id}>
-            <a class="documentation-card" href={space.href}>
-              <span class="documentation-card__header">
-                <span class="documentation-card__identity">
+            <div class="documentation-card">
+              <div class="documentation-card__header">
+                <div class="documentation-card__identity">
                   <span class="documentation-card__audience">
                     {audiences[space.id] ?? 'Product documentation'}
                   </span>
-                  <span class="documentation-card__title">{space.shortName}</span>
-                </span>
-                <span aria-hidden="true" class="documentation-card__arrow" data-card-arrow>↗</span>
-              </span>
-              <span class="documentation-card__description">{space.description}</span>
-            </a>
+                  <h2 class="documentation-card__title">{space.shortName}</h2>
+                </div>
+              </div>
+              <p class="documentation-card__description">{space.description}</p>
+              <nav aria-label={`${space.shortName} actions`} class="documentation-card__actions">
+                <a class="documentation-card__action documentation-card__action--primary" href={space.href}>
+                  Documentation
+                </a>
+                {
+                  whatsNewHrefs[space.id] && (
+                    <a class="documentation-card__action" href={whatsNewHrefs[space.id]}>
+                      What’s new
+                    </a>
+                  )
+                }
+              </nav>
+            </div>
           </PixelCard>
         )
     )
@@ -46,24 +61,22 @@ const audiences: Partial<Record<DocumentationSpace['id'], string>> = {
     margin-inline: auto;
   }
 
+  .documentation-overview :global(.pixel-card) {
+    display: grid;
+    min-height: 330px;
+    padding: 42px;
+    color: var(--released-ink);
+  }
+
   .documentation-card {
     display: grid;
-    min-height: 280px;
-    align-content: space-between;
-    gap: 3rem;
-    padding: clamp(1.5rem, 4vw, 2.5rem);
-    border: 1px solid var(--released-line);
-    border-radius: var(--released-radius-lg);
-    color: var(--released-ink);
-    background: var(--released-bg-raised);
-    text-decoration: none;
+    grid-template-rows: auto 1fr auto;
+    gap: 2rem;
+    min-height: 100%;
   }
 
   .documentation-card__header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1.25rem;
+    display: block;
   }
 
   .documentation-card__identity {
@@ -80,49 +93,47 @@ const audiences: Partial<Record<DocumentationSpace['id'], string>> = {
   }
 
   .documentation-card__title {
+    margin: 0;
     font-size: clamp(2rem, 1.7rem + 1vw, 2.5rem);
     font-weight: 500;
     line-height: 1;
     letter-spacing: -0.045em;
   }
 
-  .documentation-card__arrow {
-    display: grid;
-    width: 3.25rem;
-    height: 3.25rem;
-    flex: 0 0 auto;
-    border: 1px solid var(--released-line);
-    border-radius: var(--released-radius-pill);
-    font-size: 1.75rem;
-    line-height: 1;
-    place-items: center;
-    transition: transform 160ms ease;
-  }
-
   .documentation-card__description {
+    margin: 0;
     max-width: 31ch;
     color: var(--released-ink-muted);
     font-size: 1rem;
     line-height: 1.55;
   }
 
-  .documentation-card:hover .documentation-card__arrow {
-    transform: translateX(4px);
+  .documentation-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
-  .documentation-card:focus-visible {
+  .documentation-card__action {
+    border: 1px solid var(--released-line);
+    border-radius: var(--released-radius-pill);
+    padding: 0.75rem 1.25rem;
+    color: var(--released-ink);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .documentation-card__action--primary {
+    border-color: var(--released-ink);
+    background: var(--released-ink);
+    color: var(--released-bg);
+  }
+
+  .documentation-card__action:focus-visible {
     outline: 2px solid var(--released-ink);
     outline-offset: 4px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .documentation-card__arrow {
-      transition: none;
-    }
-
-    .documentation-card:hover .documentation-card__arrow {
-      transform: none;
-    }
   }
 
   @media (max-width: 35rem) {
@@ -130,8 +141,12 @@ const audiences: Partial<Record<DocumentationSpace['id'], string>> = {
       grid-template-columns: minmax(0, 1fr);
     }
 
+    .documentation-overview :global(.pixel-card) {
+      min-height: 260px;
+      padding: 1.75rem;
+    }
+
     .documentation-card {
-      min-height: 220px;
       gap: 2rem;
     }
   }

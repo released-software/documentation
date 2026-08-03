@@ -21,6 +21,7 @@ test('the documentation overview presents two homepage-inspired product cards', 
   await expect(
     page.getByText('Choose a space to get started, configure your product, or find an answer.')
   ).toBeVisible();
+  await expect(page.locator('main .hero .copy')).toHaveCSS('text-align', 'center');
 
   const overview = page.locator('.documentation-overview');
   const overviewWidth = await overview.evaluate((element) => element.getBoundingClientRect().width);
@@ -31,13 +32,15 @@ test('the documentation overview presents two homepage-inspired product cards', 
       id: 'hub',
       audience: 'For teams communicating beyond Jira',
       name: 'Hub',
-      href: '/guide/'
+      href: '/guide/',
+      whatsNewHref: 'https://released.so/hub/whats-new'
     },
     {
       id: 'betterboard',
       audience: 'For Jira power users',
       name: 'BetterBoard',
-      href: '/betterboard/'
+      href: '/betterboard/',
+      whatsNewHref: 'https://released.so/betterboard/whats-new'
     }
   ] as const;
 
@@ -45,22 +48,31 @@ test('the documentation overview presents two homepage-inspired product cards', 
     const card = overview.locator(`[data-documentation-space="${space.id}"]`);
     await expect(card).toHaveRole('article');
     await expect(card).toHaveClass(/pixel-card/);
-    await expect(card.getByRole('link')).toHaveAttribute('href', space.href);
     await expect(card.getByText(space.audience)).toBeVisible();
     await expect(card.getByText(space.name, { exact: true })).toBeVisible();
     await expect(card.locator('[data-pixel-canvas]')).toHaveCount(1);
     await expect(card.locator('[data-pixel-canvas]')).toHaveAttribute('aria-hidden', 'true');
     await expect(card.locator('[data-pixel-canvas]')).toHaveCSS('pointer-events', 'none');
+
+    const actions = card.getByRole('navigation', { name: `${space.name} actions` });
+    await expect(actions.getByRole('link', { name: 'Documentation' })).toHaveAttribute(
+      'href',
+      space.href
+    );
+    await expect(actions.getByRole('link', { name: 'What’s new' })).toHaveAttribute(
+      'href',
+      space.whatsNewHref
+    );
   }
 
   await expect(overview.locator('[data-documentation-space="partners"]')).toHaveCount(0);
 
-  const cards = overview.locator('.documentation-card');
+  const cards = overview.locator('[data-pixel-card]');
   await expect(cards).toHaveCount(2);
   for (const card of await cards.all()) {
-    await expect(card).toHaveCSS('border-top-style', 'solid');
-    await expect(card).toHaveCSS('border-top-width', '1px');
     await expect(card).toHaveCSS('border-top-left-radius', '20px');
+    await expect(card).toHaveCSS('min-height', '330px');
+    await expect(card).toHaveCSS('padding-left', '42px');
   }
   await expect(overview.locator('.status-dot, [data-status-dot]')).toHaveCount(0);
 });
@@ -71,7 +83,7 @@ test('overview cards reveal pixels on hover and preserve visible reduced-motion 
   await page.goto('/');
 
   const hubCard = page.locator('[data-documentation-space="hub"]');
-  const documentationLink = hubCard.getByRole('link');
+  const documentationLink = hubCard.getByRole('link', { name: 'Documentation' });
 
   expect(await hubCard.evaluate((element) => getComputedStyle(element, '::before').opacity)).toBe(
     '0'
