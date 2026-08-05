@@ -91,6 +91,11 @@ test('the documentation overview matches the static product-panel design', async
     await expect(card).toHaveCSS('font-family', /Switzer/);
   }
   await expect(cards.first().getByRole('heading')).toHaveCSS('font-weight', '400');
+  const actions = cards.locator('.documentation-card__action');
+  for (const action of await actions.all()) {
+    await expect(action).toHaveCSS('min-height', '44px');
+    await expect(action).toHaveCSS('font-size', '16px');
+  }
   await expect(overview.locator('.status-dot, [data-status-dot]')).toHaveCount(0);
 });
 

@@ -6,14 +6,20 @@ sidebar:
   order: 4
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 BetterBoard's filter bar narrows the board through field, operator, and value pickers. No query language is required.
 
 ## How to filter without JQL
 
-1. Select **Filter** in the board toolbar.
-2. Select **Add filter**, then choose a field such as Assignee, Sprint, Priority, or Labels.
-3. Choose an operator such as **is**, **is not**, **is any of**, or **is empty**, then select a value.
-4. Add more filters as needed; BetterBoard combines them with AND logic.
+<Steps>
+<ol>
+<li>Select **Filter** in the board toolbar.</li>
+<li>Select **Add filter**, then choose a field such as Assignee, Sprint, Priority, or Labels.</li>
+<li>Choose an operator such as **is**, **is not**, **is any of**, or **is empty**, then select a value.</li>
+<li>Add more filters as needed; BetterBoard combines them with AND logic.</li>
+</ol>
+</Steps>
 
 import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
 
