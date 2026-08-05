@@ -2,7 +2,8 @@ export type BetterBoardSection =
   | 'start'
   | 'board-setup'
   | 'shape-the-board'
-  | 'work-faster';
+  | 'work-faster'
+  | 'how-to';
 
 export interface BetterBoardDoc {
   sourceSlug: string;
@@ -13,6 +14,14 @@ export interface BetterBoardDoc {
 }
 
 export declare const betterBoardDocs: readonly BetterBoardDoc[];
+
+export interface BetterBoardHowToDoc {
+  destinationSlug: string;
+  title: string;
+  order: number;
+}
+
+export declare const betterBoardHowToDocs: readonly BetterBoardHowToDoc[];
 
 export declare function assertUniqueDocMappings(
   docs: readonly BetterBoardDoc[]

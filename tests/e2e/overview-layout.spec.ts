@@ -8,8 +8,8 @@ const overviewPages = [
   },
   {
     path: '/betterboard/',
-    groups: ['Start', 'Board setup', 'Shape the board', 'Work faster'],
-    linkCount: 20
+    groups: ['Start', 'Board setup', 'Shape the board', 'Work faster', 'How-to'],
+    linkCount: 27
   }
 ] as const;
 
