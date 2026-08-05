@@ -120,6 +120,7 @@ test('BetterBoard how-tos keep native Jira instructions out of the documentation
   await expect(page.locator('main')).not.toContainText('Team-managed board');
   await expect(page.locator('main .sl-steps')).toHaveCount(1);
   await expect(page.locator('main .sl-steps li')).toHaveCount(3);
+  await expect(page.locator('main .sl-steps h3')).toHaveCount(3);
 
   await page.goto('/betterboard/how-to/create-a-personal-my-work-board-across-all-your-jira-spaces/');
   await expect(page.getByRole('link', { name: 'Multi-space boards' })).toHaveAttribute(
