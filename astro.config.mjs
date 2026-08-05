@@ -40,9 +40,9 @@ export default defineConfig({
         PageTitle: './src/components/starlight/PageTitle.astro',
         Search: './src/components/starlight/Search.astro',
         SiteTitle: './src/components/starlight/SiteTitle.astro',
+        SocialIcons: './src/components/starlight/SocialLinks.astro',
         ThemeSelect: './src/components/starlight/ThemeSelect.astro'
       },
-      social: [{ icon: 'external', label: 'Released', href: 'https://released.so' }],
       sidebar: [
         { label: 'Hub documentation', items: [{ autogenerate: { directory: 'guide' } }] },
         { label: 'BetterBoard documentation', items: [{ autogenerate: { directory: 'betterboard' } }] }

@@ -22,6 +22,14 @@ test('the documentation overview matches the static product-panel design', async
     page.getByText('Choose a space to get started, configure your product, or find an answer.')
   ).toBeVisible();
   await expect(page.locator('main .hero .copy')).toHaveCSS('text-align', 'center');
+  await expect(page.getByRole('banner').getByRole('link', { name: 'Marketplace' })).toHaveAttribute(
+    'href',
+    'https://marketplace.atlassian.com/apps/4162439467'
+  );
+  await expect(page.getByRole('banner').getByRole('link', { name: 'Website' })).toHaveAttribute(
+    'href',
+    'https://released.so'
+  );
 
   const overview = page.locator('.documentation-overview');
   const overviewWidth = await overview.evaluate((element) => element.getBoundingClientRect().width);
