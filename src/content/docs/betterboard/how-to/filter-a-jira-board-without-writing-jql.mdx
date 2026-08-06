@@ -1,0 +1,48 @@
+---
+title: Filter a Jira board without writing JQL
+description: Narrow the board by choosing fields, operators, and values.
+space: betterboard
+sidebar:
+  order: 4
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+BetterBoard's filter bar narrows the board through field, operator, and value pickers. No query language is required.
+
+## How to filter without JQL
+
+<Steps>
+<ol class="betterboard-how-to-steps">
+<li>
+### Open the filter bar
+
+Select **Filter** in the board toolbar.
+</li>
+<li>
+### Choose a field
+
+Select **Add filter**, then choose a field such as Assignee, Sprint, Priority, or Labels.
+</li>
+<li>
+### Set the condition
+
+Choose an operator such as **is**, **is not**, **is any of**, or **is empty**, then select a value.
+</li>
+<li>
+### Refine the view
+
+Add more filters as needed; BetterBoard combines them with AND logic.
+</li>
+</ol>
+</Steps>
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+<NeutralCallout type="note">
+
+**Tip:** Anyone using the board can apply these filters to focus their own view.
+
+</NeutralCallout>
+
+See [Filters and refinement](/betterboard/work-faster/filters-refinement/) for the full filtering model.

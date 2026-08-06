@@ -4,7 +4,10 @@ import test from 'node:test';
 
 import { load } from 'cheerio';
 
-import { betterBoardDocs } from '../../src/data/betterboard-docs.mjs';
+import {
+  betterBoardDocs,
+  betterBoardHowToDocs
+} from '../../src/data/betterboard-docs.mjs';
 
 const distRoot = new URL('../../dist/', import.meta.url);
 
@@ -17,9 +20,12 @@ async function exists(url) {
   }
 }
 
-test('the production build contains the BetterBoard landing and all 20 mapped articles', async () => {
+test('the production build contains the BetterBoard landing and all 27 mapped articles', async () => {
   const failures = [];
   const landingUrl = new URL('betterboard/index.html', distRoot);
+
+  const currentBetterBoardDocs = [...betterBoardDocs, ...betterBoardHowToDocs];
+  assert.equal(currentBetterBoardDocs.length, 27);
 
   if (!(await exists(landingUrl))) {
     failures.push('missing /betterboard/');
@@ -30,7 +36,7 @@ test('the production build contains the BetterBoard landing and all 20 mapped ar
         .toArray()
         .map((element) => $(element).attr('href'))
     );
-    for (const doc of betterBoardDocs) {
+    for (const doc of currentBetterBoardDocs) {
       const route = `/betterboard/${doc.destinationSlug}/`;
       if (!landingLinks.has(route)) {
         failures.push(`/betterboard/ does not link to ${route}`);
@@ -38,7 +44,7 @@ test('the production build contains the BetterBoard landing and all 20 mapped ar
     }
   }
 
-  for (const doc of betterBoardDocs) {
+  for (const doc of currentBetterBoardDocs) {
     const route = `/betterboard/${doc.destinationSlug}/`;
     const fileUrl = new URL(
       `betterboard/${doc.destinationSlug}/index.html`,
@@ -190,7 +196,7 @@ test('related BetterBoard guides link to the Jira Assets guide', async () => {
   }
 });
 
-test('the committed BetterBoard migration report accounts for every mapped source', async () => {
+test('the committed BetterBoard migration report accounts for the migrated sources', async () => {
   const report = JSON.parse(
     await readFile(
       new URL('../../reports/betterboard-migration-summary.json', import.meta.url),

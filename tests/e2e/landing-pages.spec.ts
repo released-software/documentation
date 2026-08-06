@@ -22,6 +22,14 @@ test('the documentation overview matches the static product-panel design', async
     page.getByText('Choose a space to get started, configure your product, or find an answer.')
   ).toBeVisible();
   await expect(page.locator('main .hero .copy')).toHaveCSS('text-align', 'center');
+  await expect(page.getByRole('banner').getByRole('link', { name: 'Marketplace' })).toHaveAttribute(
+    'href',
+    'https://marketplace.atlassian.com/apps/4162439467'
+  );
+  await expect(page.getByRole('banner').getByRole('link', { name: 'Website' })).toHaveAttribute(
+    'href',
+    'https://released.so'
+  );
 
   const overview = page.locator('.documentation-overview');
   const overviewWidth = await overview.evaluate((element) => element.getBoundingClientRect().width);
@@ -91,6 +99,11 @@ test('the documentation overview matches the static product-panel design', async
     await expect(card).toHaveCSS('font-family', /Switzer/);
   }
   await expect(cards.first().getByRole('heading')).toHaveCSS('font-weight', '400');
+  const actions = cards.locator('.documentation-card__action');
+  for (const action of await actions.all()) {
+    await expect(action).toHaveCSS('min-height', '44px');
+    await expect(action).toHaveCSS('font-size', '16px');
+  }
   await expect(overview.locator('.status-dot, [data-status-dot]')).toHaveCount(0);
 });
 

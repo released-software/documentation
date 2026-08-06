@@ -153,6 +153,17 @@ export const betterBoardDocs = [
   }
 ];
 
+/** @type {readonly {destinationSlug: string, title: string, order: number}[]} */
+export const betterBoardHowToDocs = [
+  { destinationSlug: 'how-to/bulk-edit-work-items-on-a-jira-board', title: 'Bulk edit work items on a Jira board', order: 1 },
+  { destinationSlug: 'how-to/move-multiple-tickets-to-the-next-sprint-in-jira', title: 'Move multiple tickets to the next sprint in Jira', order: 2 },
+  { destinationSlug: 'how-to/see-work-items-from-multiple-jira-spaces-on-one-board', title: 'See work items from multiple Jira spaces on one board', order: 3 },
+  { destinationSlug: 'how-to/filter-a-jira-board-without-writing-jql', title: 'Filter a Jira board without writing JQL', order: 4 },
+  { destinationSlug: 'how-to/group-a-jira-board-by-assignee-priority-or-any-field', title: 'Group a Jira board by assignee, priority, or any field', order: 5 },
+  { destinationSlug: 'how-to/show-custom-fields-on-jira-board-cards', title: 'Show custom fields on Jira board cards', order: 6 },
+  { destinationSlug: 'how-to/create-a-personal-my-work-board-across-all-your-jira-spaces', title: 'Create a personal My work board across all your Jira spaces', order: 7 }
+];
+
 /**
  * @param {readonly BetterBoardDoc[]} docs
  */

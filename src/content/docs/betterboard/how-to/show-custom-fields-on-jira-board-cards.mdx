@@ -1,0 +1,43 @@
+---
+title: Show custom fields on Jira board cards
+description: Choose the Jira fields that appear on each card.
+space: betterboard
+sidebar:
+  order: 6
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+In BetterBoard, choosing what shows on a card is a toggle. Turn fields on or off and see the cards update live.
+
+## How to show fields on cards
+
+<Steps>
+<ol class="betterboard-how-to-steps">
+<li>
+### Open card layout
+
+Open the card layout panel.
+</li>
+<li>
+### Turn on the fields
+
+Turn on the fields you need, such as story points, due date, components, or a custom field.
+</li>
+<li>
+### Review the cards
+
+Review the live card preview and keep the fields that help this board.
+</li>
+</ol>
+</Steps>
+
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+<NeutralCallout type="note">
+
+**Tip:** BetterBoard reads Jira fields directly, so a multi-space board can offer custom fields from its included spaces.
+
+</NeutralCallout>
+
+See [Display fields](/betterboard/shape-the-board/display-fields/) for field behaviour and compatibility.

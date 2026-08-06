@@ -15,6 +15,7 @@ const labelOverrides = new Map([
   ['roadmaps-and-ideas', 'Roadmaps & ideas'],
   ['ai-tips', 'AI tips'],
   ['how-tos', 'How-tos'],
+  ['how-to', 'How-to'],
   ['product-tour', 'Product tour']
 ]);
 
@@ -48,7 +49,8 @@ const betterBoardCategoryOrder = new Map([
   ['Start', 1],
   ['Board setup', 2],
   ['Shape the board', 3],
-  ['Work faster', 4]
+  ['Work faster', 4],
+  ['How-to', 5]
 ]);
 
 function sentenceCaseLabel(label = ''): string {

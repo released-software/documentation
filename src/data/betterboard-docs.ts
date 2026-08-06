@@ -1,9 +1,11 @@
 export type {
   BetterBoardDoc,
+  BetterBoardHowToDoc,
   BetterBoardSection
 } from './betterboard-docs.mjs';
 
 export {
   assertUniqueDocMappings,
-  betterBoardDocs
+  betterBoardDocs,
+  betterBoardHowToDocs
 } from './betterboard-docs.mjs';

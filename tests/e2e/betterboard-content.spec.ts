@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test('the BetterBoard landing links all 20 articles across the four approved groups', async ({
+test('the BetterBoard landing links all 27 articles across the five approved groups', async ({
   page
 }) => {
   await page.goto('/betterboard/');
@@ -8,8 +8,8 @@ test('the BetterBoard landing links all 20 articles across the four approved gro
   await expect(
     page.getByRole('heading', { level: 1, name: 'Overview' })
   ).toBeVisible();
-  await expect(page.locator('main [data-overview-link]')).toHaveCount(20);
-  for (const group of ['Start', 'Board setup', 'Shape the board', 'Work faster']) {
+  await expect(page.locator('main [data-overview-link]')).toHaveCount(27);
+  for (const group of ['Start', 'Board setup', 'Shape the board', 'Work faster', 'How-to']) {
     await expect(page.getByRole('heading', { level: 2, name: group })).toBeVisible();
   }
   await expect(
@@ -21,6 +21,14 @@ test('the BetterBoard landing links all 20 articles across the four approved gro
   await expect(page.getByRole('link', { name: /Card colors/ })).toHaveAttribute(
     'href',
     '/betterboard/shape-the-board/card-colors/'
+  );
+  await expect(page.getByRole('link', { name: /Bulk edit work items on a Jira board/ })).toHaveAttribute(
+    'href',
+    '/betterboard/how-to/bulk-edit-work-items-on-a-jira-board/'
+  );
+  await expect(page.getByRole('link', { name: /Create a personal My work board/ })).toHaveAttribute(
+    'href',
+    '/betterboard/how-to/create-a-personal-my-work-board-across-all-your-jira-spaces/'
   );
 });
 
@@ -67,7 +75,7 @@ test('BetterBoard articles use ordered sentence-case navigation without a wrappe
   await page.goto('/betterboard/shape-the-board/card-colors/');
 
   const sidebar = page.locator('#starlight__sidebar');
-  await expect(sidebar.locator('details')).toHaveCount(4);
+  await expect(sidebar.locator('details')).toHaveCount(5);
   await expect(sidebar.locator('details[open]')).toHaveCount(1);
   await expect(
     sidebar.locator('details[open] > summary').getByText('Shape the board', {
@@ -91,9 +99,40 @@ test('BetterBoard articles use ordered sentence-case navigation without a wrappe
     'Start',
     'Board setup',
     'Shape the board',
-    'Work faster'
+    'Work faster',
+    'How-to'
   ]);
   await expect(sidebar.getByText('shape-the-board', { exact: true })).toHaveCount(0);
+});
+
+test('BetterBoard how-tos keep native Jira instructions out of the documentation', async ({ page }) => {
+  await page.goto('/betterboard/how-to/bulk-edit-work-items-on-a-jira-board/');
+
+  await expect(page.locator('main h1')).toHaveText('Bulk edit work items on a Jira board');
+  await expect(
+    page.getByRole('heading', { level: 2, name: 'How to bulk edit work items' })
+  ).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Inline editing' })).toHaveAttribute(
+    'href',
+    '/betterboard/work-faster/inline-editing/'
+  );
+  await expect(page.locator('main')).not.toContainText('Company-managed board');
+  await expect(page.locator('main')).not.toContainText('Team-managed board');
+  await expect(page.locator('main .sl-steps')).toHaveCount(1);
+  await expect(page.locator('main .betterboard-how-to-steps')).toHaveCSS('margin-top', '24px');
+  await expect(page.locator('main .sl-steps li')).toHaveCount(3);
+  await expect(page.locator('main .sl-steps h3')).toHaveCount(3);
+
+  await page.goto('/betterboard/how-to/create-a-personal-my-work-board-across-all-your-jira-spaces/');
+  await expect(page.getByRole('link', { name: 'Multi-space boards' })).toHaveAttribute(
+    'href',
+    '/betterboard/board-setup/multi-space-boards/'
+  );
+  await expect(page.getByRole('link', { name: 'Filters and refinement' })).toHaveAttribute(
+    'href',
+    '/betterboard/work-faster/filters-refinement/'
+  );
+  await expect(page.locator('main .sl-steps')).toHaveCount(1);
 });
 
 test('representative migrated articles preserve figures, callouts, tables, and legacy anchors', async ({
