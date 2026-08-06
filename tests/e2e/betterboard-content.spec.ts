@@ -59,14 +59,50 @@ test('the Field types section tables share aligned columns', async ({ page }) =>
   expect(headerWhiteSpace).toEqual(Array(18).fill('nowrap'));
 
   const fieldNoteLinks = tables.locator('tbody td:first-child a');
-  await expect(fieldNoteLinks).toHaveCount(4);
+  await expect(fieldNoteLinks).toHaveCount(5);
   await expect(
     fieldNoteLinks.evaluateAll((links) =>
       links.map((link) => getComputedStyle(link).textDecorationLine)
     )
-  ).resolves.toEqual(Array(4).fill('none'));
+  ).resolves.toEqual(Array(5).fill('none'));
   await fieldNoteLinks.first().hover();
   await expect(fieldNoteLinks.first()).toHaveCSS('text-decoration-line', 'underline');
+});
+
+test('Elements Connect fields explain their limited inline editing', async ({ page }) => {
+  await page.goto('/betterboard/shape-the-board/field-types/');
+
+  const customFieldsTable = page.locator('main .sl-markdown-content > table').nth(1);
+  const elementsConnectRow = customFieldsTable
+    .getByRole('row')
+    .filter({ hasText: 'Elements Connect fields' });
+  await expect(elementsConnectRow).toHaveCount(1);
+  await expect(
+    elementsConnectRow.locator('span[aria-label="Limited support"]')
+  ).toHaveText('○');
+
+  await expect(
+    page.getByRole('heading', { level: 3, name: 'Elements Connect fields' })
+  ).toBeVisible();
+  await expect(page.locator('main')).toContainText(
+    'only values already assigned to a work item in Jira'
+  );
+  await expect(
+    page.getByRole('link', { name: 'Elements Connect documentation' })
+  ).toHaveAttribute(
+    'href',
+    'https://doc.elements-apps.com/elements-connect-cloud/connected-custom-fields-settings'
+  );
+
+  const syntheticFieldsTable = page.locator('main .sl-markdown-content > table').nth(2);
+  const legend = syntheticFieldsTable.locator('xpath=following-sibling::ul[1]');
+  await expect(legend.getByRole('listitem')).toHaveCount(3);
+  await expect(legend.getByRole('listitem').first()).toHaveText('✓ Supported');
+  await expect(legend).toContainText('Limited support');
+
+  const capabilities = syntheticFieldsTable.locator('xpath=following-sibling::ul[2]');
+  await expect(capabilities.getByRole('listitem')).toHaveCount(5);
+  await expect(capabilities).toContainText('Display adds a field to cards');
 });
 
 test('BetterBoard articles use ordered sentence-case navigation without a wrapper group', async ({

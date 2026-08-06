@@ -34,6 +34,7 @@ fields. These tables show where each field type can be used.
 | [Assets](#assets)<sup>2</sup> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — |
 | Checkbox | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — |
 | Date | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | <Icon name="approve-check" label="Supported" /> |
+| [Elements Connect fields](#elements-connect-fields)<sup>3</sup> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | <span aria-label="Limited support">○</span> |
 | Multi select | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
 | People | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> |
 | Rating | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
@@ -48,18 +49,32 @@ fields. These tables show where each field type can be used.
 
 | Field type | Display | Filter | Grouping | Columns | Edit |
 | --- | --- | --- | --- | --- | --- |
-| [Blockers](#blockers)<sup>3</sup> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
-| [Time in Status](#time-in-status)<sup>4</sup> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
+| [Blockers](#blockers)<sup>4</sup> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
+| [Time in Status](#time-in-status)<sup>5</sup> | <Icon name="approve-check" label="Supported" /> | <Icon name="approve-check" label="Supported" /> | — | — | — |
 
-**Edit** means direct inline editing from a card. Group dragging follows the
-normal update behaviour for every field that supports grouping.
+**Legend**
+
+- <span aria-label="Supported">✓</span> Supported
+- — Not supported
+- <span aria-label="Limited support">○</span> Limited support, as described in the relevant Field details
+
+**Field capabilities**
+
+- **Display** adds a field to cards.
+- **Filter** narrows work items by a field value.
+- **Grouping** arranges work items into groups by a field value.
+- **Columns** uses a field value for board columns.
+- **Edit** updates a field directly from a card.
+
+Group dragging follows the normal update behaviour for every field that
+supports grouping.
 
 Every field that can be filtered is also available in single-color
 [card-color conditions](/betterboard/shape-the-board/card-colors/). See
 [Filter operators](/betterboard/work-faster/filter-operators/) for the
 operators available to each field behaviour.
 
-## Field notes
+## Field details
 
 ### Sprint
 
@@ -83,6 +98,19 @@ opened directly from a card or Command K. When grouped by an Assets field,
 dragging between groups is the supported way to assign or remove an object. A
 single-object field is replaced or cleared; a multiple-object field preserves
 unrelated objects and removes only the source object when moved to **No value**.
+
+### Elements Connect fields
+
+Elements Connect connected custom fields bring data from external systems into
+Jira. BetterBoard supports all Elements Connect field types for display,
+filtering, and grouping, but they cannot be used as board columns.
+
+Inline editing is limited: BetterBoard can offer only values
+already assigned to a work item in Jira. To choose a value that has not yet
+been assigned, edit the field in Jira.
+
+See the [Elements Connect documentation](https://doc.elements-apps.com/elements-connect-cloud/connected-custom-fields-settings)
+for field types and configuration details.
 
 ### Blockers
 
