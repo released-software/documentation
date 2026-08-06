@@ -184,6 +184,13 @@ html[data-has-sidebar]
   margin-top: 0.75rem;
 }
 
+html[data-has-sidebar]
+  main[data-pagefind-body]
+  .sl-markdown-content[data-documentation-page='article']
+  > .betterboard-how-to-steps {
+  margin-top: 1.5rem;
+}
+
 .sidebar-pane {
   interpolate-size: allow-keywords;
 }

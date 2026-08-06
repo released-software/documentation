@@ -119,6 +119,7 @@ test('BetterBoard how-tos keep native Jira instructions out of the documentation
   await expect(page.locator('main')).not.toContainText('Company-managed board');
   await expect(page.locator('main')).not.toContainText('Team-managed board');
   await expect(page.locator('main .sl-steps')).toHaveCount(1);
+  await expect(page.locator('main .betterboard-how-to-steps')).toHaveCSS('margin-top', '24px');
   await expect(page.locator('main .sl-steps li')).toHaveCount(3);
   await expect(page.locator('main .sl-steps h3')).toHaveCount(3);
 
