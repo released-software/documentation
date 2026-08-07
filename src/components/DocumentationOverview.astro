@@ -1,5 +1,6 @@
 ---
 import type { DocumentationSpace } from '../data/spaces';
+import ButtonLink from './ButtonLink.astro';
 
 interface Props {
   spaces: readonly DocumentationSpace[];
@@ -27,14 +28,14 @@ const overviewSpaces = spaces
           <h2 class="documentation-card__title">{space.shortName}</h2>
           <p class="documentation-card__description">{descriptions[space.id] ?? space.description}</p>
           <nav aria-label={`${space.shortName} actions`} class="documentation-card__actions">
-            <a class="documentation-card__action documentation-card__action--primary" href={space.href}>
+            <ButtonLink href={space.href}>
               Documentation
-            </a>
+            </ButtonLink>
             {
               whatsNewHrefs[space.id] && (
-                <a class="documentation-card__action" href={whatsNewHrefs[space.id]}>
+                <ButtonLink href={whatsNewHrefs[space.id]} variant="secondary">
                   What’s new
-                </a>
+                </ButtonLink>
               )
             }
           </nav>
@@ -58,9 +59,9 @@ const overviewSpaces = spaces
     display: grid;
     margin-block: 0;
     box-sizing: border-box;
-    min-height: clamp(26rem, 32.25vw, 41.25rem);
+    min-height: clamp(21.5rem, 24vw, 30rem);
     height: 100%;
-    padding: clamp(2.5rem, 4.15vw, 5.25rem);
+    padding: clamp(2rem, 3vw, 3.5rem);
     color: var(--released-ink);
     border-radius: 20px;
     background: var(--released-bg-raised);
@@ -78,7 +79,7 @@ const overviewSpaces = spaces
   .documentation-card {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    gap: clamp(2rem, 3.3vw, 4.25rem);
+    gap: clamp(1.5rem, 2.25vw, 2.5rem);
     min-height: 100%;
   }
 
@@ -106,50 +107,6 @@ const overviewSpaces = spaces
     gap: clamp(0.75rem, 1vw, 1.25rem);
   }
 
-  .documentation-card__action {
-    display: inline-flex;
-    min-height: 44px;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--released-line);
-    border-radius: var(--released-radius-pill);
-    padding-inline: 1.5rem;
-    color: var(--released-ink);
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1;
-    text-decoration: none;
-    transition:
-      background-color 180ms ease,
-      border-color 180ms ease,
-      transform 180ms ease;
-  }
-
-  .documentation-card__action:hover {
-    transform: translateY(-1px);
-  }
-
-  .documentation-card__action--primary {
-    border-color: var(--released-ink);
-    background: var(--released-ink);
-    color: var(--released-bg);
-  }
-
-  .documentation-card__action--primary:hover {
-    background: #292929;
-  }
-
-  .documentation-card__action:not(.documentation-card__action--primary):hover {
-    border-color: rgb(17 17 17 / 20%);
-    background: #fff;
-  }
-
-  .documentation-card__action:focus-visible {
-    outline: 2px solid var(--released-ink);
-    outline-offset: 4px;
-  }
-
   @media (max-width: 35rem) {
     .documentation-overview {
       grid-template-columns: minmax(0, 1fr);
@@ -157,8 +114,8 @@ const overviewSpaces = spaces
     }
 
     .documentation-panel {
-      min-height: 27rem;
-      height: 27rem;
+      min-height: 22rem;
+      height: 22rem;
       padding: 1.75rem;
     }
 
@@ -168,8 +125,7 @@ const overviewSpaces = spaces
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .documentation-panel,
-    .documentation-card__action {
+    .documentation-panel {
       transition: none;
     }
   }

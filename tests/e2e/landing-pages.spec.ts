@@ -99,7 +99,7 @@ test('the documentation overview matches the static product-panel design', async
     await expect(card).toHaveCSS('font-family', /Switzer/);
   }
   await expect(cards.first().getByRole('heading')).toHaveCSS('font-weight', '400');
-  const actions = cards.locator('.documentation-card__action');
+  const actions = cards.locator('.button-link');
   for (const action of await actions.all()) {
     await expect(action).toHaveCSS('min-height', '44px');
     await expect(action).toHaveCSS('font-size', '16px');
@@ -142,6 +142,34 @@ test('overview panels and actions respond to hover', async ({ page }) => {
   await expect
     .poll(() => secondaryAction.evaluate((element) => getComputedStyle(element).backgroundColor))
     .toBe('rgb(255, 255, 255)');
+});
+
+test('overview uses shared CTA links with compact panels and dark-mode contrast', async ({ page }) => {
+  await page.setViewportSize(viewports[0]);
+  await page.goto('/');
+
+  const cards = page.locator('.documentation-overview [data-documentation-space]');
+  const desktopHeights = await cards.evaluateAll((elements) =>
+    elements.map((element) => Math.round(element.getBoundingClientRect().height))
+  );
+  expect(Math.max(...desktopHeights)).toBeLessThanOrEqual(400);
+
+  const primaryActions = cards.locator('.button-link--primary');
+  const secondaryActions = cards.locator('.button-link--secondary');
+  await expect(primaryActions).toHaveCount(2);
+  await expect(secondaryActions).toHaveCount(2);
+
+  await page.locator('html').evaluate((element) => element.setAttribute('data-theme', 'dark'));
+  for (const action of await primaryActions.all()) {
+    await expect(action).toHaveCSS('background-color', 'rgb(244, 245, 247)');
+    await expect(action).toHaveCSS('color', 'rgb(15, 17, 21)');
+  }
+
+  await page.setViewportSize(viewports[2]);
+  const mobileHeights = await cards.evaluateAll((elements) =>
+    elements.map((element) => Math.round(element.getBoundingClientRect().height))
+  );
+  expect(Math.max(...mobileHeights)).toBeLessThanOrEqual(352);
 });
 
 test('the Partner coming-soon page keeps the documentation shell but is excluded from Pagefind', async ({

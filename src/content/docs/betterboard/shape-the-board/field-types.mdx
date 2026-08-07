@@ -9,6 +9,7 @@ sidebar:
 ---
 
 import { Icon } from '@astrojs/starlight/components';
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
 
 BetterBoard supports Jira system fields, custom fields, and selected synthetic
 fields. These tables show where each field type can be used.
@@ -105,9 +106,16 @@ Elements Connect connected custom fields bring data from external systems into
 Jira. BetterBoard supports all Elements Connect field types for display,
 filtering, and grouping, but they cannot be used as board columns.
 
-Inline editing is limited: BetterBoard can offer only values
-already assigned to a work item in Jira. To choose a value that has not yet
-been assigned, edit the field in Jira.
+<NeutralCallout title="Editing limitations" type="note">
+
+Inline editing is limited: BetterBoard can offer only values already assigned to
+a work item in Jira. To choose a value that has not yet been assigned, edit the
+field in Jira.
+
+Connected Item text fields are not currently editable or available to display
+on cards.
+
+</NeutralCallout>
 
 See the [Elements Connect documentation](https://doc.elements-apps.com/elements-connect-cloud/connected-custom-fields-settings)
 for field types and configuration details.

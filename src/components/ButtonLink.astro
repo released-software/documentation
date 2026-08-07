@@ -1,0 +1,71 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary';
+}
+
+const { href, variant = 'primary' } = Astro.props;
+---
+
+<a class:list={['button-link', `button-link--${variant}`]} href={href}>
+  <slot />
+</a>
+
+<style>
+  .button-link {
+    display: inline-flex;
+    min-height: 44px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--released-line-strong);
+    border-radius: var(--released-radius-pill);
+    padding-inline: 1.5rem;
+    color: var(--released-ink);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    text-decoration: none;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .button-link:hover {
+    transform: translateY(-1px);
+  }
+
+  .button-link--primary,
+  .button-link--primary:visited {
+    border-color: var(--released-ink);
+    background: var(--released-ink);
+    color: var(--released-bg);
+  }
+
+  .button-link--primary:hover {
+    border-color: var(--released-ink-soft);
+    background: var(--released-ink-soft);
+  }
+
+  .button-link--secondary:hover {
+    border-color: rgb(17 17 17 / 20%);
+    background: #fff;
+  }
+
+  :global(:root[data-theme='dark']) .button-link--secondary:hover {
+    border-color: var(--released-line-strong);
+    background: var(--released-bg-card);
+  }
+
+  .button-link:focus-visible {
+    outline: 2px solid var(--released-ink);
+    outline-offset: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .button-link {
+      transition: none;
+    }
+  }
+</style>

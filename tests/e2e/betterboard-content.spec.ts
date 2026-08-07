@@ -84,8 +84,15 @@ test('Elements Connect fields explain their limited inline editing', async ({ pa
   await expect(
     page.getByRole('heading', { level: 3, name: 'Elements Connect fields' })
   ).toBeVisible();
-  await expect(page.locator('main')).toContainText(
+  const editingLimitations = page.locator('main [data-neutral-callout]').filter({
+    hasText: 'Inline editing is limited'
+  });
+  await expect(editingLimitations).toHaveCount(1);
+  await expect(editingLimitations).toContainText(
     'only values already assigned to a work item in Jira'
+  );
+  await expect(editingLimitations).toContainText(
+    'Connected Item text fields are not currently editable or available to display on cards'
   );
   await expect(
     page.getByRole('link', { name: 'Elements Connect documentation' })
