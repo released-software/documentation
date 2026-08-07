@@ -88,6 +88,7 @@ test('Elements Connect fields explain their limited inline editing', async ({ pa
     hasText: 'Inline editing is limited'
   });
   await expect(editingLimitations).toHaveCount(1);
+  await expect(editingLimitations.locator('[data-callout-title]')).toHaveText('Limitations');
   await expect(editingLimitations).toContainText(
     'only values already assigned to a work item in Jira'
   );
