@@ -95,6 +95,21 @@ test('Elements Connect fields explain their limited inline editing', async ({ pa
   await expect(editingLimitations).toContainText(
     'Connected Item text fields are not currently editable or available to display on cards'
   );
+
+  const legacyFields = editingLimitations.locator('details');
+  await expect(legacyFields).toHaveCount(1);
+  await expect(legacyFields).not.toHaveAttribute('open', '');
+  await expect(legacyFields.locator('summary')).toHaveText(
+    'Why are legacy fields unsupported?'
+  );
+  const legacyFieldHistory = legacyFields.getByText('Before Elements Connect 7.0.0', {
+    exact: false
+  });
+  await expect(legacyFieldHistory).not.toBeVisible();
+  await legacyFields.locator('summary').click();
+  await expect(legacyFields).toHaveAttribute('open', '');
+  await expect(legacyFieldHistory).toBeVisible();
+
   await expect(
     page.getByRole('link', { name: 'Elements Connect documentation' })
   ).toHaveAttribute(

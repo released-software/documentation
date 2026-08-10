@@ -103,10 +103,29 @@ unrelated objects and removes only the source object when moved to **No value**.
 ### Elements Connect fields
 
 Elements Connect connected custom fields bring data from external systems into
-Jira. BetterBoard supports all Elements Connect field types for display,
-filtering, and grouping, but they cannot be used as board columns.
+Jira. BetterBoard supports all Elements Connect field types created by the main
+app for display, filtering, and grouping, but they cannot be used as board
+columns.
 
 <NeutralCallout title="Limitations" type="note">
+
+BetterBoard does not currently support legacy Elements Connect custom fields.
+
+<details>
+
+<summary>Why are legacy fields unsupported?</summary>
+
+Before Elements Connect 7.0.0, the main app used Atlassian Connect and relied on
+a separate Forge app, Elements Connect Helper, to create and own custom fields.
+The main app now uses Forge and creates its own fields, but existing
+Helper-owned fields cannot be transferred to it. Dependencies also do not work
+between Helper-owned and main-app-owned fields. Elements Connect refers to
+these Helper-owned fields as legacy custom fields.
+
+To migrate a legacy field, copy it in Elements Connect. The copy is owned by
+the main app and can be used with BetterBoard.
+
+</details>
 
 Inline editing is limited: BetterBoard can offer only values already assigned to
 a work item in Jira. To choose a value that has not yet been assigned, edit the
