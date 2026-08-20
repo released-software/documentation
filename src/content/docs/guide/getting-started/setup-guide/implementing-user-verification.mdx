@@ -11,6 +11,7 @@ sidebar:
   order: 9
 ---
 import { Steps } from '@astrojs/starlight/components';
+import { LinkButton } from '@astrojs/starlight/components';
 import NeutralCallout from '../../../../../components/content/NeutralCallout.astro';
 
 User verification allows you to securely identify users who access your private widgets or pages. By generating a signed authentication token on your server, you can ensure that only authorized users gain access and can leave feedback in your portals.
@@ -19,24 +20,25 @@ User verification is a great way to control access while providing a seamless ex
 
 ## Example Implementations
 
-<a href="https://github.com/released-software/released-embed-demo" class="button secondary" data-icon="github">NextJS demo</a><a href="/guide/resources/how-tos/how-to-implement-user-verification/" class="button secondary" data-icon="file-lines">Express demo</a>
+<LinkButton href="https://github.com/released-software/released-embed-demo" variant="secondary" icon="external">NextJS demo</LinkButton>
+<LinkButton href="/guide/resources/how-tos/how-to-implement-user-verification/" variant="secondary" icon="external">Express demo</LinkButton>
 
 ## Authentication flow
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant App Server
-    participant Hub API
-    participant Hub Portal
-    User ->> App Server: Accesses the Hub portal
-    App Server ->> Hub API: Requests auth token (ACCOUNT_ID, USER_EMAIL)
-    Hub API -->> App Server: Returns AUTH_TOKEN
-    App Server -->> User: Embeds portal with AUTH_TOKEN
-    User ->> Hub Portal: Accesses portal with AUTH_TOKEN
-    Hub Portal ->> Hub API: Verifies AUTH_TOKEN
-    Hub API -->> Hub Portal: Authentication success/failure
-    Hub Portal -->> User: Grants or denies access
+    participant AppServer as App Server
+    participant HubAPI as Hub API
+    participant HubPortal as Hub Portal
+    User ->> AppServer: Accesses the Hub portal
+    AppServer ->> HubAPI: Requests auth token (ACCOUNT_ID, USER_EMAIL)
+    HubAPI -->> AppServer: Returns AUTH_TOKEN
+    AppServer -->> User: Embeds portal with AUTH_TOKEN
+    User ->> HubPortal: Accesses portal with AUTH_TOKEN
+    HubPortal ->> HubAPI: Verifies AUTH_TOKEN
+    HubAPI -->> HubPortal: Authentication success/failure
+    HubPortal -->> User: Grants or denies access
 ```
 
 ## Setting up user verification

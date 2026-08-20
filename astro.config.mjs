@@ -1,8 +1,10 @@
 import { defineConfig } from 'astro/config';
+import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import starlight from '@astrojs/starlight';
 
 import { legacyRedirects } from './src/data/legacy-redirects.mjs';
+import remarkBeautifulMermaid from './src/markdown/remark-beautiful-mermaid.mjs';
 
 const astroRedirects = Object.fromEntries(
   legacyRedirects.map(({ source, destination }) => [source, destination])
@@ -28,6 +30,11 @@ export default defineConfig({
   site: 'https://docs.released.so',
   trailingSlash: 'always',
   redirects: astroRedirects,
+  markdown: {
+    processor: unified({
+      remarkPlugins: [remarkBeautifulMermaid]
+    })
+  },
   integrations: [
     contentComponentHarness,
     starlight({

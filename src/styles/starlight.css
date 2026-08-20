@@ -48,6 +48,17 @@ main[data-pagefind-body] h1#_top,
   line-height: 1.4;
 }
 
+.sl-markdown-content figure[data-mermaid-diagram] {
+  margin-block: var(--sl-content-gap-y);
+  overflow-x: auto;
+}
+
+.sl-markdown-content figure[data-mermaid-diagram] > svg {
+  display: block;
+  min-width: 42rem;
+  max-width: none;
+}
+
 main[data-pagefind-body]:has(#system-fields) .sl-markdown-content > table {
   width: 100%;
   table-layout: fixed;

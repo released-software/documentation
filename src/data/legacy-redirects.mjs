@@ -1,12 +1,13 @@
 // Exact aliases verified against the legacy GitBook site on 2026-07-28.
 // Keep sources slashless; build integrations handle both request forms.
 export const legacyRedirects = [
-  { source: '/guide/getting-started/best-practices/setting-up-your-product-hub', destination: '/guide/getting-started/setup-guide/setting-up-your-product-hub/' },
+  { source: '/guide/getting-started/best-practices/setting-up-your-product-hub', destination: '/guide/getting-started/setup-guide/' },
   { source: '/guide/getting-started/installation', destination: '/guide/getting-started/setup-guide/installing-the-app/' },
   { source: '/guide/getting-started/installing-the-app', destination: '/guide/getting-started/setup-guide/installing-the-app/' },
   { source: '/guide/getting-started/setup-guide/add-public-description-field', destination: '/guide/product/changelog/settings/released-description-field/' },
   { source: '/guide/getting-started/setup-guide/adding-the-public-description-field', destination: '/guide/product/changelog/settings/released-description-field/' },
   { source: '/guide/getting-started/setup-guide/embedding-the-page-1', destination: '/guide/getting-started/setup-guide/embedding-the-feedback-form/' },
+  { source: '/guide/getting-started/setup-guide/setting-up-your-product-hub', destination: '/guide/getting-started/setup-guide/' },
   { source: '/guide/getting-started/setup-guide/embedding-updates-in-your-site-or-app/using-released-with-framer', destination: '/guide/product/integrations/framer/' },
   { source: '/guide/getting-started/setup-guide/finding-the-channel-id', destination: '/guide/resources/how-tos/finding-the-channel-id/' },
   { source: '/guide/global-settings/custom-domain', destination: '/guide/product/administration/custom-domain/' },

@@ -12,7 +12,7 @@ const currentHubRoutes = new Set(
 );
 
 test('legacy redirect inventory is exact, canonical, and one hop', () => {
-  assert.equal(legacyRedirects.length, 181);
+  assert.equal(legacyRedirects.length, 182);
 
   const sources = new Set();
   for (const { source, destination } of legacyRedirects) {
@@ -40,6 +40,13 @@ test('legacy redirect inventory is exact, canonical, and one hop', () => {
     }
   );
   assert.deepEqual(
+    legacyRedirects.find(({ source }) => source === '/guide/getting-started/setup-guide/setting-up-your-product-hub'),
+    {
+      source: '/guide/getting-started/setup-guide/setting-up-your-product-hub',
+      destination: '/guide/getting-started/setup-guide/'
+    }
+  );
+  assert.deepEqual(
     legacyRedirects.find(({ source }) => source === '/guide/workspace/changelog'),
     {
       source: '/guide/workspace/changelog',
@@ -53,10 +60,10 @@ test('Cloudflare rules permanently redirect both legacy slash forms', () => {
     .split('\n')
     .filter((line) => line && !line.startsWith('#'));
 
-  assert.equal(rules.length, 362);
+  assert.equal(rules.length, 364);
   assert.deepEqual(rules.slice(0, 2), [
-    '/guide/getting-started/best-practices/setting-up-your-product-hub /guide/getting-started/setup-guide/setting-up-your-product-hub/ 301',
-    '/guide/getting-started/best-practices/setting-up-your-product-hub/ /guide/getting-started/setup-guide/setting-up-your-product-hub/ 301'
+    '/guide/getting-started/best-practices/setting-up-your-product-hub /guide/getting-started/setup-guide/ 301',
+    '/guide/getting-started/best-practices/setting-up-your-product-hub/ /guide/getting-started/setup-guide/ 301'
   ]);
 
   for (const line of rules) {

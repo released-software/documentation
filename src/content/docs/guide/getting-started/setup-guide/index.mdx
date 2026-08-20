@@ -1,71 +1,95 @@
 ---
-description: It just takes a couple of steps to get you up and running
-title: Setup Guide
+icon: messages
+title: Setting up your Product Hub
+description: >-
+  Setting up the basic elements right ensures your Product Hub feels
+  professional, trustworthy, and clearly connected to your brand.
 space: hub
 sidebar:
   order: 3
 ---
-import LinkRow from '../../../../../components/content/LinkRow.astro';
 import { Steps } from '@astrojs/starlight/components';
+import NeutralCallout from '../../../../../components/content/NeutralCallout.astro';
+
+## The Basics
+
+Setting up the basic elements right ensures your Product Hub feels professional, trustworthy, and clearly connected to your brand.
+
+In Jira, navigate to Hub via the sidebar Apps menu. Then click on [Settings](/guide/product/administration/). From here, you can set up your Product Hub to represent your brand.
 
 <Steps>
 <ol>
 <li>
-## Install Hub
+### Upload your logo
 
-Learn how to install Hub from the Atlassian marketplace.
-
-<LinkRow href="/guide/getting-started/setup-guide/installing-the-app/" title="installing-the-app.md" />
+Your logo appears on the Hub overview and links back to your website. This reinforces your brand and gives users a familiar point of reference.
 </li>
 
 <li>
-## Setup your Hub
+### Name your Product hub
 
-The Product Hub serves as a central hub for accessing your portals. Customize the branding, terminology and domain where your Hub can be reached.
-
-<LinkRow href="/guide/product/administration/general/" title="general.md" />
+Choosing a clear, recognizable name — usually your company name — helps users immediately understand whose updates they are viewing.
 </li>
 
 <li>
-## Create a workspace
+### Add your website URL
 
-Workspaces are your internal control center. This is where your team creates roadmap views, writes release notes, and manages feedback.
-
-<LinkRow href="/guide/product/portals/" title="portals" />
-</li>
-
-<li>
-## Customize your portal
-
-Portals are the external-facing side of Hub. They’re where you share the content created in a workspace with a specific audience.
-
-Manage [access](/guide/product/portals/access/) and customize the look and feel of your portal.
-
-<LinkRow href="/guide/product/portals/portal/" title="portal" />
-
-### Embedding a portal
-
-Embed a portal into your website or app,
-
-<LinkRow href="/guide/product/portals/portal/announcement-page/" title="announcement-page.md" />
-
-<LinkRow href="/guide/product/portals/portal/widget/" title="widget.md" />
-</li>
-
-<li>
-## Verify your users <mark style="color:$info;">(optional)</mark>
-
-To create a seamless experience when you embed portals, you can verify a user’s identity automatically. This removes the need for them to log in to view private portals or leave feedback.
-
-<LinkRow href="/guide/getting-started/setup-guide/implementing-user-verification/" title="implementing-user-verification.md" />
-</li>
-
-<li>
-## Integrations <mark style="color:$info;">(optional)</mark>
-
-Integrate Hub with the apps you're already using.
-
-<LinkRow href="/guide/product/integrations/" title="integrations" />
+Setting the correct URL ensures users who click your logo are taken to your main site, maintaining a seamless experience and reinforcing trust.
 </li>
 </ol>
 </Steps>
+
+## Style your Product Hub
+
+The Product Hub and each portal can be customized and themed individually. This lets you align the Hub with your overall company brand, while tailoring specific portals to match the branding of individual products or customer groups.
+
+<Steps>
+<ol>
+<li>
+### Customize the primary and secondary color
+
+The primary and secondary colors control your background and accent colors. When you choose two different colors, they combine to create a beautiful gradient background.
+</li>
+
+<li>
+### Give it a title and subtitle
+
+Explain the purpose of your Product Hub. Whether it’s for internal stakeholders, public customers, or individual clients, make it clear to visitors what the Hub is for and how it helps them stay up to date on projects.
+</li>
+</ol>
+</Steps>
+
+Learn how to [customize your product hub](/guide/product/administration/design/).
+
+## Custom domain
+
+<NeutralCallout type="note">
+This step requires help from your webmaster or IT team.
+</NeutralCallout>
+
+Setting up a custom domain makes your Product Hub feel fully branded and trustworthy for customers. You can configure this at the bottom of the General settings page. This step typically requires help from your webmaster or IT team.
+
+By default, your Product Hub is available at  `your_jira_subdomain.releasedhub.com.`
+
+When setting up a custom domain, you can use www or choose your own subdomain. Common examples include:
+
+* **`hub`**`.yourcompany.com`
+* **`feedback`**`.yourcompany.com`
+* **`updates`**`.yourcompany.com`
+* **`roadmaps`**`.yourcompany.com`
+
+Learn how to [setup your custom domain](/guide/product/administration/custom-domain/).
+
+## User verification
+
+<NeutralCallout type="note">
+This step requires help from your developers.
+</NeutralCallout>
+
+To create a seamless experience when you embed portals, you can verify a user’s identity automatically. This removes the need for them to log in to view private portals or leave feedback.
+
+### Do I have to implement user verification?
+
+User verification is optional. Users can still log into embedded portals using any of the supported login flows. However, for a truly seamless experience, it’s worth investing a little extra effort upfront.
+
+Share the [user verification implementation guide](/guide/getting-started/setup-guide/implementing-user-verification/) with your developers.
