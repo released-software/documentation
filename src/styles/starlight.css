@@ -356,6 +356,10 @@ header [data-open-search] {
   outline-offset: 3px;
 }
 
+.sl-markdown-content:has(#frequently-asked-questions) > p:last-child {
+  margin-block-start: 2rem !important;
+}
+
 @media (min-width: 50rem) {
   header.header > .header > .sl-flex:nth-child(2) {
     justify-content: flex-end;

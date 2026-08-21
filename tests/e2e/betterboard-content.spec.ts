@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test('the BetterBoard landing links all 27 articles across the five approved groups', async ({
+test('the BetterBoard landing links all 28 articles across the five approved groups', async ({
   page
 }) => {
   await page.goto('/betterboard/');
@@ -8,7 +8,7 @@ test('the BetterBoard landing links all 27 articles across the five approved gro
   await expect(
     page.getByRole('heading', { level: 1, name: 'Overview' })
   ).toBeVisible();
-  await expect(page.locator('main [data-overview-link]')).toHaveCount(27);
+  await expect(page.locator('main [data-overview-link]')).toHaveCount(28);
   for (const group of ['Start', 'Board setup', 'Shape the board', 'Work faster', 'How-to']) {
     await expect(page.getByRole('heading', { level: 2, name: group })).toBeVisible();
   }
@@ -26,6 +26,7 @@ test('the BetterBoard landing links all 27 articles across the five approved gro
     'href',
     '/betterboard/how-to/bulk-edit-work-items-on-a-jira-board/'
   );
+  await expect(page.locator('main [data-overview-link][href="/betterboard/work-faster/track-time-on-jira-board/"]')).toHaveCount(1);
   await expect(page.getByRole('link', { name: /Create a personal My work board/ })).toHaveAttribute(
     'href',
     '/betterboard/how-to/create-a-personal-my-work-board-across-all-your-jira-spaces/'
@@ -59,12 +60,12 @@ test('the Field types section tables share aligned columns', async ({ page }) =>
   expect(headerWhiteSpace).toEqual(Array(18).fill('nowrap'));
 
   const fieldNoteLinks = tables.locator('tbody td:first-child a');
-  await expect(fieldNoteLinks).toHaveCount(5);
+  await expect(fieldNoteLinks).toHaveCount(6);
   await expect(
     fieldNoteLinks.evaluateAll((links) =>
       links.map((link) => getComputedStyle(link).textDecorationLine)
     )
-  ).resolves.toEqual(Array(5).fill('none'));
+  ).resolves.toEqual(Array(6).fill('none'));
   await fieldNoteLinks.first().hover();
   await expect(fieldNoteLinks.first()).toHaveCSS('text-decoration-line', 'underline');
 });
@@ -162,6 +163,56 @@ test('BetterBoard articles use ordered sentence-case navigation without a wrappe
     'How-to'
   ]);
   await expect(sidebar.getByText('shape-the-board', { exact: true })).toHaveCount(0);
+});
+
+test('the time-tracking guide is reachable from Work faster navigation', async ({ page }) => {
+  await page.goto('/betterboard/work-faster/keyboard-shortcuts/');
+
+  const guide = page
+    .locator('#starlight__sidebar')
+    .locator('a[href="/betterboard/work-faster/track-time-on-jira-board/"]');
+  await expect(guide).toHaveCount(1);
+  await guide.click();
+
+  await expect(page).toHaveURL('/betterboard/work-faster/track-time-on-jira-board/');
+  await expect(page.locator('main h1')).toBeVisible();
+});
+
+test('the time-tracking guide uses aligned FAQ items without a left border', async ({
+  page
+}) => {
+  await page.goto('/betterboard/work-faster/track-time-on-jira-board/');
+
+  const faqItems = page.locator('main [data-faq-item]');
+  await expect(faqItems).toHaveCount(5);
+
+  const firstItem = faqItems.first();
+  await expect(firstItem).not.toHaveAttribute('open', '');
+  await expect(firstItem.locator('[data-faq-answer]')).not.toBeVisible();
+
+  const styles = await firstItem.evaluate((item) => {
+    const style = getComputedStyle(item);
+    const summary = item.querySelector('summary') as HTMLElement;
+    const heading = document.querySelector('#frequently-asked-questions') as HTMLElement;
+    const summaryStyle = getComputedStyle(summary);
+    return {
+      borderBottomStyle: style.borderBottomStyle,
+      borderLeftWidth: style.borderLeftWidth,
+      headingLeft: heading.getBoundingClientRect().left,
+      summaryLeft: summary.getBoundingClientRect().left,
+      summaryPaddingInlineStart: summaryStyle.paddingInlineStart,
+      summaryPaddingInlineEnd: summaryStyle.paddingInlineEnd
+    };
+  });
+  expect(styles.borderBottomStyle).toBe('solid');
+  expect(styles.borderLeftWidth).toBe('0px');
+  expect(styles.headingLeft).toBe(styles.summaryLeft);
+  expect(styles.summaryPaddingInlineStart).toBe('0px');
+  expect(styles.summaryPaddingInlineEnd).toBe('8px');
+
+  await firstItem.locator('summary').click();
+  await expect(firstItem).toHaveAttribute('open', '');
+  await expect(firstItem.locator('[data-faq-answer]')).toBeVisible();
 });
 
 test('BetterBoard how-tos keep native Jira instructions out of the documentation', async ({ page }) => {

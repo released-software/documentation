@@ -1,0 +1,90 @@
+---
+title: Track time on Jira board cards
+description: >-
+  Start a timer, log work, and update a Jira work item's remaining estimate without leaving your BetterBoard board.
+space: betterboard
+sidebar:
+  order: 8
+---
+
+import Figure from '../../../../components/content/Figure.astro';
+import FaqItem from '../../../../components/content/FaqItem.astro';
+import NeutralCallout from '../../../../components/content/NeutralCallout.astro';
+
+Use the **Time tracking** field to record work directly from a BetterBoard card. It combines a timer, logged time, estimate progress, and manual time entry in one control.
+
+<NeutralCallout type="note" title="Before you start">
+
+Add the Jira **Time tracking** field to the space before configuring it on a BetterBoard board. You also need permission to log work on the relevant work items. See Atlassian's [Configure time tracking](https://support.atlassian.com/jira-cloud-administration/docs/configure-time-tracking/) guide for the Jira setup.
+
+</NeutralCallout>
+
+## Add Time tracking to a board
+
+1. Open the board and select **Display**.
+2. In **Fields**, add **Time tracking** from **Available fields**.
+3. Select **Save** in the toolbar.
+
+The control appears on cards that have time-tracking data. Its tooltip shows logged time, the original and remaining estimates, and progress when Jira provides them.
+
+{/* Screenshot suggestion: Display settings with Time tracking available to add. */}
+
+## Start and stop a timer
+
+Select the timer on a card to start recording time. The card shows a live elapsed clock, and BetterBoard keeps a compact timer control available while you work elsewhere on the board.
+
+Select **Stop** to open **Log time**. Confirm the entry to add the elapsed time to the Jira work item.
+
+Only one timer can run at a time. Starting another one requires stopping the current timer first.
+
+<Figure
+  src="/media/betterboard/timetracking-record.png"
+  alt="A BetterBoard card for BD-33, Develop User Activity Logs, with the Time tracking Record control visible."
+  caption="Use the Record control on a card to start tracking time."
+  width={800}
+  height={287}
+/>
+
+## Log time manually
+
+You do not need to run a timer. Hover a card, select it, and press `Q`, or open the command palette with `⌘K` / `Ctrl+K` and choose **Log time**.
+
+In **Log time**, enter a duration such as `1h 30m`. You can also add an optional description and change the start date and time. For one work item, you can adjust the remaining estimate before saving.
+
+To log the same duration across several work items, select the cards first and use **Log time**. Remaining-estimate changes apply only when logging time on a single work item.
+
+## Frequently asked questions
+
+<FaqItem question="Will my timer keep running if I refresh, close, or leave the board?">
+
+Yes. The timer keeps running when you refresh or return to BetterBoard in the same browser, and you can see it from your other tabs. Time is added to Jira only after you stop the timer and confirm **Log time**.
+
+</FaqItem>
+
+<FaqItem question="Can I continue a timer on another device?">
+
+No. A timer is available only in the browser where you started it. Stop and log the time before switching devices.
+
+</FaqItem>
+
+<FaqItem question="Can I run more than one timer?">
+
+No. Stop the current timer before starting one for another work item.
+
+</FaqItem>
+
+<FaqItem question="Can I use the Time tracking field to filter, group, sort, or color cards?">
+
+No. The **Time tracking** field is a card control for recording work. It cannot be used for filters, grouping, columns, sorting, or card-color conditions.
+
+To filter by time, add **Time spent**, **Remaining estimate**, or **Original estimate**. You can also use these fields for card-color conditions. **Σ Remaining estimate**, **Σ Original estimate**, **Progress**, and **Σ Progress** are display-only.
+
+</FaqItem>
+
+<FaqItem question="Can I edit or delete logged time in BetterBoard?">
+
+To correct a logged entry, open the Jira work item and select the **Work Log** tab. Edit or delete the previous log there, then log the correct time.
+
+</FaqItem>
+
+See [Field types](/betterboard/shape-the-board/field-types/#time-tracking) for the full capability summary.
